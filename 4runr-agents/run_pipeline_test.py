@@ -237,8 +237,9 @@ def generate_report(pipeline_result, log_analysis, output_dir='test_results'):
             
             f.write(f"### System Health\n")
             f.write(f"**Status:** {'✅ PASS' if not log_analysis.get('errors', []) else '❌ FAIL'}\n")
-            message = 'No errors detected' if not log_analysis.get('errors', []) else f"{len(log_analysis.get('errors', []))} errors detected"
-            f.write(f"**Details:** {message}\n\n")
+            errors = log_analysis.get('errors', [])
+            error_status = f"{len(errors)} errors detected" if errors else "No errors detected"
+            f.write(f"**Details:** {error_status}\n\n")
             
             f.write(f"## Log Files\n\n")
             f.write(f"- Full logs: {os.path.basename(report_file).replace('test_report_', 'container_logs_')}\n\n")
