@@ -114,6 +114,11 @@ else
   check_status "Backup created: ${TEST_DIR}/leads.json.backup" "Failed to create backup of leads.json."
 fi
 
+# Set permissions for shared directory
+log_message "INFO" "Setting permissions for shared directory..."
+chmod -R 777 shared
+check_status "Permissions set successfully." "Failed to set permissions for shared directory."
+
 # Inject test lead data
 log_message "INFO" "Injecting test lead data..."
 if [ -f "inject_test_data.py" ]; then

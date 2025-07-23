@@ -13,7 +13,14 @@ import subprocess
 import threading
 import re
 from datetime import datetime
-from colorama import init, Fore, Style
+
+# Check if colorama is installed, if not, install it
+try:
+    from colorama import init, Fore, Style
+except ImportError:
+    print("Installing required package: colorama")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "colorama"])
+    from colorama import init, Fore, Style
 
 # Initialize colorama
 init()
