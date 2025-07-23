@@ -14,11 +14,33 @@ This repository contains both systems:
 
 ## Getting Started
 
+### Environment Setup
+
+Before running either system, you need to set up the environment variables:
+
+1. For the Node.js backend:
+   - Copy `4runr-lead-system/.env.example` to `4runr-lead-system/.env`
+   - Fill in your Airtable API key, Base ID, and other required credentials
+
+2. For the Python multi-agent system:
+   - Copy `4runr-agents/.env.example` to `4runr-agents/.env`
+   - Fill in your Airtable API key, Base ID, and other required credentials
+
 See the README.md files in each directory for detailed setup and usage instructions.
 
 ## Deployment
 
-Both systems can be deployed to AWS EC2 using the provided scripts.
+Both systems can be deployed to AWS EC2 using the provided scripts:
+
+```bash
+# For the Node.js backend
+cd 4runr-lead-system
+./scripts/init_ec2.sh
+
+# For the Python multi-agent system
+cd 4runr-agents
+./scripts/init_ec2.sh
+```
 
 ## License
 
