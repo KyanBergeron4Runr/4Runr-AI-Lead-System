@@ -44,6 +44,13 @@ check_status() {
 # Create test results directory
 mkdir -p $TEST_DIR
 
+# Check and install required dependencies
+if ! python -c "import colorama" &> /dev/null; then
+  log_message "INFO" "Installing required dependencies..."
+  pip install -r requirements_test.txt
+  check_status "Dependencies installed successfully." "Failed to install dependencies."
+fi
+
 # Start the test
 log_message "INFO" "Starting 4Runr AI Lead Scraper Full System Test"
 log_message "INFO" "Test results will be saved to: $TEST_DIR"
