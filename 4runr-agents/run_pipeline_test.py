@@ -235,11 +235,17 @@ def generate_report(pipeline_result, log_analysis, output_dir='test_results'):
             f.write(f"**Status:** {'✅ PASS' if log_analysis.get('engager_status', False) else '❌ FAIL'}\n")
             f.write(f"**Details:** {('Successfully processed test lead for outreach' if log_analysis.get('engager_status', False) else 'Failed to process test lead for outreach')}\n\n")
             
-            f.write(f"### System Health\n")
-            f.write(f"**Status:** {'✅ PASS' if not log_analysis.get('errors', []) else '❌ FAIL'}\n")
-            # Get errors from log analysis
+            # Write System Health section header
+            f.write("### System Health\n")
+            # Determine System Health status based on presence of errors in log analysis
+            # Using .get() with empty list default to safely handle missing 'errors' key
+            status = "✅ PASS" if not log_analysis.get("errors", []) else "❌ FAIL"
+            # Write the status with appropriate emoji indicator
+            f.write(f"**Status:** {status}\n")
+
+            # Get errors from log analysis with empty list as default if 'errors' key is missing
             errors = log_analysis.get('errors', [])
-            # Create error status message
+            # Create descriptive error status message based on number of errors detected
             error_status = f"{len(errors)} errors detected" if errors else "No errors detected"
             f.write(f"**Details:** {error_status}\n\n")
             
