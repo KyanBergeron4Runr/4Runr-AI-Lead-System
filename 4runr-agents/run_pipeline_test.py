@@ -243,11 +243,9 @@ def generate_report(pipeline_result, log_analysis, output_dir='test_results'):
             # Write the status with appropriate emoji indicator
             f.write(f"**Status:** {status}\n")
 
-            # Get errors from log analysis with empty list as default if 'errors' key is missing
-            errors = log_analysis.get('errors', [])
-            # Create descriptive error status message based on number of errors detected
-            error_status = f"{len(errors)} errors detected" if errors else "No errors detected"
-            f.write(f"**Details:** {error_status}\n\n")
+            error_count = len(log_analysis.get("errors", []))
+            message = "No errors detected" if error_count == 0 else f"{error_count} errors detected"
+            f.write(f"**Details:** {message}\n\n")
             
             f.write(f"## Log Files\n\n")
             f.write(f"- Full logs: {os.path.basename(report_file).replace('test_report_', 'container_logs_')}\n\n")
