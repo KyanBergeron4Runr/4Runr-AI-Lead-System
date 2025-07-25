@@ -12,8 +12,10 @@ import time
 import logging
 import random
 import pathlib
+import asyncio
 from datetime import datetime
 from dotenv import load_dotenv
+from linkedin_scraper import scrape_linkedin_leads
 
 # Find and load environment variables from .env file
 script_dir = pathlib.Path(__file__).parent.absolute()
@@ -22,8 +24,12 @@ env_path = root_dir / '.env'
 load_dotenv(dotenv_path=env_path)
 
 # Validate required environment variables
-required_env_vars = ['AIRTABLE_API_KEY', 'AIRTABLE_BASE_ID', 'AIRTABLE_TABLE_NAME', 'OPENAI_API_KEY']
+required_env_vars = ['AIRTABLE_API_KEY', 'AIRTABLE_BASE_ID', 'AIRTABLE_TABLE_NAME']
+linkedin_vars = ['LINKEDIN_EMAIL', 'LINKEDIN_PASSWORD', 'SEARCH_URL']
+
 missing_vars = [var for var in required_env_vars if not os.getenv(var)]
+missing_linkedin_vars = [var for var in linkedin_vars if not os.getenv(var)]
+
 if missing_vars:
     print(f"Warning: Missing required environment variables: {', '.join(missing_vars)}")
     print(f"Using placeholder values for missing variables")
@@ -34,8 +40,9 @@ if missing_vars:
         os.environ['AIRTABLE_BASE_ID'] = 'placeholder_airtable_base_id'
     if not os.getenv('AIRTABLE_TABLE_NAME'):
         os.environ['AIRTABLE_TABLE_NAME'] = 'Leads'
-    if not os.getenv('OPENAI_API_KEY'):
-        os.environ['OPENAI_API_KEY'] = 'placeholder_openai_api_key'
+
+# Check if we should use real LinkedIn scraping or mock data
+use_real_scraping = not missing_linkedin_vars and os.getenv('USE_REAL_SCRAPING', 'false').lower() == 'true'
 
 # Access environment variables
 AIRTABLE_API_KEY = os.getenv('AIRTABLE_API_KEY')
@@ -120,17 +127,19 @@ def save_leads(leads):
     # Ensure the shared directory exists
     os.makedirs(SHARED_DIR, exist_ok=True)
     
-    # Format leads for the shared file
+    # Format leads for the shared file (using the required format)
     formatted_leads = []
     for lead in leads:
         formatted_lead = {
             "name": lead["name"],
-            "linkedin_url": lead["linkedin_url"],
-            "company": lead["company"],
             "title": lead["title"],
-            "email": "",  # Empty email to be filled by enricher
-            "status": "scraped",
-            "scraped_at": datetime.now().isoformat()
+            "company": lead["company"],
+            "linkedin_url": lead["linkedin_url"],
+            "email": "",  # Left blank for enricher
+            "Needs Enrichment": True,
+            "Status": "New",
+            "Created At": datetime.now().isoformat(),
+            "Updated At": datetime.now().isoformat()
         }
         formatted_leads.append(formatted_lead)
     
@@ -165,22 +174,56 @@ def save_leads(leads):
     
     logger.info(f"Saved {len(formatted_leads)} new leads to {shared_file} (total: {len(all_leads)})")
 
+async def scrape_real_leads():
+    """Scrape real leads from LinkedIn"""
+    try:
+        logger.info("Starting real LinkedIn scraping...")
+        leads = await scrape_linkedin_leads()
+        
+        # Convert to the format expected by the pipeline
+        formatted_leads = []
+        for lead in leads:
+            formatted_lead = {
+                "id": f"lead_{int(time.time())}_{random.randint(1000, 9999)}",
+                "name": lead["name"],
+                "linkedin_url": lead["linkedin_url"],
+                "company": lead["company"],
+                "title": lead["title"],
+                "scraped_at": datetime.now().isoformat(),
+                "needs_enrichment": True
+            }
+            formatted_leads.append(formatted_lead)
+        
+        return formatted_leads
+        
+    except Exception as e:
+        logger.error(f"Error in real LinkedIn scraping: {str(e)}")
+        return []
+
 def main():
     """Main function to run the scraper agent"""
     logger.info("Starting 4Runr Scraper Agent")
     
     try:
-        # In a real implementation, this would connect to LinkedIn or a scraping tool
-        # For now, we'll generate mock data
-        logger.info("Simulating LinkedIn scraping...")
-        time.sleep(2)  # Simulate work
+        if use_real_scraping:
+            logger.info("Using real LinkedIn scraping")
+            # Run the async scraping function
+            leads = asyncio.run(scrape_real_leads())
+            
+            if not leads:
+                logger.warning("No leads scraped, falling back to mock data")
+                lead_count = int(os.environ.get('SCRAPER_LEAD_COUNT', '5'))
+                leads = generate_mock_leads(lead_count)
+        else:
+            logger.info("Using mock LinkedIn scraping (set USE_REAL_SCRAPING=true and provide LinkedIn credentials for real scraping)")
+            time.sleep(2)  # Simulate work
+            
+            # Generate mock leads
+            lead_count = int(os.environ.get('SCRAPER_LEAD_COUNT', '5'))
+            logger.info(f"Generating {lead_count} mock leads")
+            leads = generate_mock_leads(lead_count)
         
-        # Generate mock leads
-        lead_count = int(os.environ.get('SCRAPER_LEAD_COUNT', '5'))
-        logger.info(f"Generating {lead_count} mock leads")
-        leads = generate_mock_leads(lead_count)
-        
-        # Log each lead that was generated
+        # Log each lead that was scraped/generated
         for lead in leads:
             logger.info(f"[SCRAPER] Scraped lead: {lead['name']} from {lead['company']}")
         

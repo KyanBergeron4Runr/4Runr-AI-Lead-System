@@ -6,7 +6,7 @@ A production-ready, Dockerized multi-agent system for LinkedIn lead generation, 
 
 The 4Runr Multi-Agent System is a modular pipeline that automates the process of finding, enriching, and engaging with potential leads. It consists of three independent agents that work together:
 
-1. **Scraper Agent**: Collects lead data from LinkedIn (simulated in this implementation)
+1. **Scraper Agent**: Collects lead data from LinkedIn using real browser automation with Playwright
 2. **Enricher Agent**: Adds additional information to leads (e.g., email addresses)
 3. **Engager Agent**: Sends personalized outreach messages to leads via email or LinkedIn
 
