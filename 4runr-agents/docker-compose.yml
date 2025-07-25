@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Individual agent services for continuous operation
   scraper:
