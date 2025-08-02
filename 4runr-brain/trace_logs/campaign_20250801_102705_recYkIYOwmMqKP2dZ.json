@@ -1,0 +1,222 @@
+{
+  "execution_id": "campaign_20250801_102705_recYkIYOwmMqKP2dZ",
+  "timestamp": "2025-08-01T10:27:05.285058",
+  "node_path": [
+    "traitdetector_2025-08-01T10:27:05.293516",
+    "memorymanager_2025-08-01T10:27:05.296439",
+    "campaignplanner_2025-08-01T10:27:05.298339",
+    "messagegenerator_2025-08-01T10:27:05.300436",
+    "messagereviewer_2025-08-01T10:27:21.670747",
+    "qualitygatekeeper_2025-08-01T10:27:21.673049",
+    "injector_2025-08-01T10:27:21.675141"
+  ],
+  "lead_data": {
+    "id": "recYkIYOwmMqKP2dZ",
+    "Name": "Elie Wahnoun",
+    "LinkedIn_URL": "https://www.linkedin.com/in/eliewahnoun",
+    "Email": "wahnounelie@gmail.com",
+    "Company": "Courimo",
+    "Title": "Professional",
+    "Website": "",
+    "company_data": {
+      "description": "",
+      "services": "",
+      "tone": "Professional",
+      "website_insights": ""
+    },
+    "response_notes": "Website: courimo.com | Found emails: wahnounelie@gmail.com, elie@courimo.com | Enriched: success | Methods: website_found, email_search",
+    "ai_message": ""
+  },
+  "company_data": {
+    "description": "",
+    "services": "",
+    "tone": "Professional",
+    "website_insights": ""
+  },
+  "scraped_content": {},
+  "traits": [],
+  "trait_confidence": {},
+  "trait_reasoning": {},
+  "primary_trait": "",
+  "is_low_context": true,
+  "campaign_sequence": [
+    "bold_hook",
+    "outcome_proof",
+    "urgent_fomo"
+  ],
+  "messaging_angle": "high_conviction_mystery",
+  "campaign_tone": "confident",
+  "sequence_reasoning": "Low-context lead requires bold, curiosity-driven approach without specific personalization",
+  "messages": [
+    {
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Elie,\nYou might not know us, and that's by design. At 4Runr, we selectively partner with game-changers like yourself, providing an unseen advantage that propels business strategy.\nWithout unveiling too much, our AI and strategic consulting create an infrastructure that silently wins more deals. This competitive edge? It's what separates our partners from the rest.\nCurious about what this unseen advantage could mean for you? Let's uncover the potential together.\nBest,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "generation_attempt": 1,
+      "quality_score": 52.3,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "competitive",
+        "advantage",
+        "strategic",
+        "competitive edge"
+      ],
+      "tone_indicators": [],
+      "word_count": 78,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "outcome_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Elie,\nPicking up from my last note, I noticed many professionals like you grapple with integrating AI into their existing systems. It often feels like trying to duct-tape advanced tech onto legacy infrastructures.\nAt 4Runr, we turn that around. We've empowered businesses to transition from scattered tools to comprehensive, AI-driven systems overnight. This isn't just about technology; it's about transforming operations and amplifying performance.\nWe're all about results. No fluff, just compounding performance.\nCurious, how are you currently navigating the integration of AI within Courimo's framework?\nBest,\n[Your Name]",
+      "generation_attempt": 1,
+      "quality_score": 50.9,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "performance",
+        "results",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 90,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Elie, not every professional can seize the competitive edge - only the forward-thinking ones. If you're committed to advancing Courimo's operational efficiency, this is your moment. Several competitors are already future-proofing their operations with AI. Let's ensure Courimo leads, not follows. Act now. Reply to schedule an exclusive strategy session. This window won't stay open forever.",
+      "generation_attempt": 1,
+      "quality_score": 55.5,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "competitive",
+        "efficiency",
+        "strategic",
+        "competitive edge"
+      ],
+      "tone_indicators": [],
+      "word_count": 56,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "bold_hook_attempt": 1,
+    "outcome_proof_attempt": 1,
+    "urgent_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "bold_hook_score": 52.3,
+    "outcome_proof_score": 50.9,
+    "urgent_fomo_score": 55.5,
+    "overall_score": 52.9
+  },
+  "quality_issues": [
+    "bold_hook: Low personalization score",
+    "bold_hook: Lacks strategic insight",
+    "outcome_proof: Low personalization score",
+    "outcome_proof: Lacks strategic insight",
+    "outcome_proof: Clarity issues",
+    "urgent_fomo: Low personalization score",
+    "urgent_fomo: Lacks strategic insight",
+    "urgent_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "bold_hook": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions"
+    ],
+    "outcome_proof": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "urgent_fomo": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ]
+  },
+  "overall_quality_score": 52.9,
+  "decision_path": [
+    "traitdetector: Detected 0 traits (Primary:  (0.0% confidence)): Primary:  (0.0% confidence)",
+    "memorymanager: Retrieved memory for lead recYkIYOwmMqKP2dZ (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected high_conviction_mystery angle with confident tone (Sequence: bold_hook \u2192 outcome_proof \u2192 urgent_fomo): Sequence: bold_hook \u2192 outcome_proof \u2192 urgent_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['bold_hook', 'outcome_proof', 'urgent_fomo']): Types: ['bold_hook', 'outcome_proof', 'urgent_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 52.9/100, Issues: 8): Overall score: 52.9/100, Issues: 8",
+    "qualitygatekeeper: APPROVED for delivery (Score 52.9 >= 50.0 threshold): Score 52.9 >= 50.0 threshold",
+    "injector: Successfully injected to email queue (Queue ID: queue_29288b380f74): Queue ID: queue_29288b380f74"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.APPROVED",
+  "status_reason": "Quality score 52.9 meets threshold 50.0",
+  "memory_context": {
+    "lead_id": "recYkIYOwmMqKP2dZ",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250801_102705_recYkIYOwmMqKP2dZ",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-08-01T10:27:05.296801"
+      }
+    ],
+    "trait_history": [],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-08-01T10:27:05.296792",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "success",
+  "delivery_method": "email_automated",
+  "queue_id": "queue_29288b380f74",
+  "airtable_update_status": null,
+  "formatted_linkedin_campaign": null,
+  "delivery_schedule": {
+    "bold_hook": "2025-08-01T10:27:21.675816",
+    "outcome_proof": "2025-08-04T10:27:21.675831",
+    "urgent_fomo": "2025-08-08T10:27:21.675837"
+  },
+  "errors": [],
+  "warnings": []
+}

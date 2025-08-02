@@ -1,0 +1,257 @@
+[
+  {
+    "timestamp": "2025-07-29T09:47:41.628475",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test_lead",
+    "status": "start",
+    "details": {
+      "message": "Starting content analysis"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:47:41.629504",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test_lead",
+    "status": "info",
+    "details": {
+      "message": "Generated description from about content"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:47:41.636722",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test_lead",
+    "status": "info",
+    "details": {
+      "message": "Identified 2 service categories"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:47:41.644721",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test_lead",
+    "status": "info",
+    "details": {
+      "message": "Detected tone: Formal",
+      "score": 9
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:47:41.652065",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test_lead",
+    "status": "info",
+    "details": {
+      "message": "Formatted insights for 2 pages"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:47:41.660278",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test_lead",
+    "status": "success",
+    "details": {
+      "message": "Content analysis completed successfully",
+      "description_length": 47,
+      "services_length": 22,
+      "tone": "Formal"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:53:48.834745",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test",
+    "status": "start",
+    "details": {
+      "message": "Starting content analysis"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:53:48.842433",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test",
+    "status": "info",
+    "details": {
+      "message": "Generated description from general content"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:53:48.850630",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test",
+    "status": "warning",
+    "details": {
+      "message": "Could not identify specific services"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:53:48.858406",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test",
+    "status": "info",
+    "details": {
+      "message": "Detected tone: Formal",
+      "score": 2
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:53:48.866063",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test",
+    "status": "info",
+    "details": {
+      "message": "Formatted insights for 1 pages"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T09:53:48.873258",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "test",
+    "status": "success",
+    "details": {
+      "message": "Content analysis completed successfully",
+      "description_length": 68,
+      "services_length": 42,
+      "tone": "Formal"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T10:03:59.167956",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "demo_lead",
+    "status": "start",
+    "details": {
+      "message": "Starting content analysis"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T10:03:59.177290",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "demo_lead",
+    "status": "info",
+    "details": {
+      "message": "Generated description from about content"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T10:03:59.186108",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "demo_lead",
+    "status": "info",
+    "details": {
+      "message": "Identified 1 service categories"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T10:03:59.195550",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "demo_lead",
+    "status": "info",
+    "details": {
+      "message": "Detected tone: Formal",
+      "score": 3
+    }
+  },
+  {
+    "timestamp": "2025-07-29T10:03:59.203775",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "demo_lead",
+    "status": "info",
+    "details": {
+      "message": "Formatted insights for 2 pages"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T10:03:59.213163",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "demo_lead",
+    "status": "success",
+    "details": {
+      "message": "Content analysis completed successfully",
+      "description_length": 80,
+      "services_length": 10,
+      "tone": "Formal"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T11:04:40.427159",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "trivago_demo",
+    "status": "start",
+    "details": {
+      "message": "Starting content analysis"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T11:04:40.437479",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "trivago_demo",
+    "status": "info",
+    "details": {
+      "message": "Generated description from about content"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T11:04:40.447652",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "trivago_demo",
+    "status": "info",
+    "details": {
+      "message": "Extracted 5 services"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T11:04:40.457023",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "trivago_demo",
+    "status": "info",
+    "details": {
+      "message": "Using default Professional tone"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T11:04:40.465953",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "trivago_demo",
+    "status": "info",
+    "details": {
+      "message": "Formatted insights for 3 pages"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T11:04:40.476095",
+    "module": "website_scraper",
+    "action": "content_analyzer",
+    "lead_id": "trivago_demo",
+    "status": "success",
+    "details": {
+      "message": "Content analysis completed successfully",
+      "description_length": 95,
+      "services_length": 158,
+      "tone": "Professional"
+    }
+  }
+]

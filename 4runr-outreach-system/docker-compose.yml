@@ -1,0 +1,105 @@
+version: '3.8'
+
+services:
+  outreach-system:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    image: 4runr/outreach-system:latest
+    container_name: 4runr-outreach-system
+    volumes:
+      - ./logs:/app/logs
+      - ./.env:/app/.env:ro
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - outreach-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "from shared.config import config; print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Individual module services for independent execution
+  website-scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    image: 4runr/outreach-system:latest
+    container_name: 4runr-website-scraper
+    command: ["python", "run_outreach_pipeline.py", "--module", "website_scraper"]
+    volumes:
+      - ./logs:/app/logs
+      - ./.env:/app/.env:ro
+    env_file:
+      - .env
+    networks:
+      - outreach-network
+    profiles:
+      - modules
+
+  message-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    image: 4runr/outreach-system:latest
+    container_name: 4runr-message-generator
+    command: ["python", "run_outreach_pipeline.py", "--module", "message_generator"]
+    volumes:
+      - ./logs:/app/logs
+      - ./.env:/app/.env:ro
+    env_file:
+      - .env
+    networks:
+      - outreach-network
+    profiles:
+      - modules
+
+  email-validator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    image: 4runr/outreach-system:latest
+    container_name: 4runr-email-validator
+    command: ["python", "run_outreach_pipeline.py", "--module", "email_validator"]
+    volumes:
+      - ./logs:/app/logs
+      - ./.env:/app/.env:ro
+    env_file:
+      - .env
+    networks:
+      - outreach-network
+    profiles:
+      - modules
+
+  engager:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    image: 4runr/outreach-system:latest
+    container_name: 4runr-engager
+    command: ["python", "run_outreach_pipeline.py", "--module", "engager"]
+    volumes:
+      - ./logs:/app/logs
+      - ./.env:/app/.env:ro
+    env_file:
+      - .env
+    networks:
+      - outreach-network
+    profiles:
+      - modules
+
+networks:
+  outreach-network:
+    driver: bridge
+
+volumes:
+  logs:
+    driver: local

@@ -1,0 +1,260 @@
+{
+  "execution_id": "campaign_20250801_114051_test_low_signal_002",
+  "timestamp": "2025-08-01T11:40:51.054427",
+  "node_path": [
+    "traitdetector_2025-08-01T11:40:51.055323",
+    "memorymanager_2025-08-01T11:40:51.057420",
+    "campaignplanner_2025-08-01T11:40:51.059237",
+    "messagegenerator_2025-08-01T11:40:51.061290",
+    "messagereviewer_2025-08-01T11:41:07.199892",
+    "qualitygatekeeper_2025-08-01T11:41:07.201871",
+    "injector_2025-08-01T11:41:07.203329"
+  ],
+  "lead_data": {
+    "id": "test_low_signal_002",
+    "Name": "Sarah Johnson",
+    "Company": "Modern Solutions Inc",
+    "Title": "VP Operations",
+    "LinkedIn_URL": "https://linkedin.com/in/sarahjohnson",
+    "Email": "sarah@modernsolutions.com"
+  },
+  "company_data": {},
+  "scraped_content": {},
+  "traits": [
+    "role_vp",
+    "senior_decision_maker",
+    "business_focus"
+  ],
+  "trait_confidence": {
+    "role_vp": 30,
+    "senior_decision_maker": 40,
+    "business_focus": 35
+  },
+  "trait_reasoning": {
+    "role_vp": "Title contains: vp",
+    "senior_decision_maker": "Senior indicators: vp",
+    "business_focus": "Business indicators: operations"
+  },
+  "primary_trait": "senior_decision_maker",
+  "is_low_context": true,
+  "data_quality": {
+    "quality_score": 4,
+    "quality_factors": [
+      "no_website_content",
+      "has_title",
+      "has_linkedin",
+      "has_linkedin_profile",
+      "has_email"
+    ],
+    "fallback_mode": false,
+    "fallback_reason": null,
+    "website_quality": {
+      "score": 0,
+      "factors": [
+        "no_website_content"
+      ],
+      "low_signal": true
+    },
+    "enrichment_quality": {
+      "score": 2,
+      "factors": [
+        "has_title",
+        "has_linkedin"
+      ]
+    },
+    "social_quality": {
+      "score": 2,
+      "factors": [
+        "has_linkedin_profile",
+        "has_email"
+      ]
+    }
+  },
+  "fallback_mode": false,
+  "campaign_sequence": [
+    "bold_hook",
+    "outcome_proof",
+    "urgent_fomo"
+  ],
+  "messaging_angle": "high_conviction_mystery",
+  "campaign_tone": "confident",
+  "sequence_reasoning": "Low-context lead requires bold, curiosity-driven approach without specific personalization",
+  "messages": [
+    {
+      "message_type": "bold_hook",
+      "subject": "\"Unlock Your Untapped Advantage\"",
+      "body": "\"Hi Sarah,\nEver wonder why some businesses always seem a step ahead? They might be part of our exclusive circle. At 4Runr, we empower a select few with AI-driven operational strategies that silently change the game.\nOur partnerships are discreet; the results are not. Increased efficiency, optimized operations, a notable competitive edge - all under the radar.\nCurious about what 4Runr could do for your operations? Let's just say, we\u2019re not your average consulting firm. Are you ready to join the ranks?\nBest,\n[Your Name]\"",
+      "generation_attempt": 1,
+      "quality_score": 58.7,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": true,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "competitive",
+        "efficiency",
+        "optimize",
+        "competitive edge"
+      ],
+      "tone_indicators": [],
+      "word_count": 85,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "outcome_proof",
+      "subject": "Transforming Operations: Proven Results, No Fluff",
+      "body": "Hello Sarah,\nFollowing up on my previous note, I've noticed that many operation leaders, like yourself, face the challenge of integrating AI into outdated systems - an often inefficient and disjointed process.\nAt 4Runr, we focus on delivering tangible results. We've enabled teams to transition from scattered tools to consolidated, effective systems virtually overnight. One of our clients saw a 35% increase in operational efficiency within the first quarter of implementation.\nOur approach? No fluff. Just compounding performance. We're passionate about driving meaningful transformations that boost performance and deliver measurable outcomes.\nCurious to know, how is Modern Solutions Inc. currently navigating the integration of AI into your operations?\nBest,\n[Your Name]",
+      "generation_attempt": 1,
+      "quality_score": 58.5,
+      "quality_issues": [
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "efficiency",
+        "performance",
+        "transformation"
+      ],
+      "tone_indicators": [],
+      "word_count": 111,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Sarah, not all businesses are ready for a strategic leap in operations optimization. If you're serious about future-proofing Modern Solutions Inc, the time is now. Some of your competitors have already begun their journey. Let's ensure you're not left behind. Connect with us at 4Runr for an exclusive, high-value consultation. This window won't stay open forever. Are you ready to take the next step?",
+      "generation_attempt": 1,
+      "quality_score": 53.9,
+      "quality_issues": [
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 64,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "bold_hook_attempt": 1,
+    "outcome_proof_attempt": 1,
+    "urgent_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "bold_hook_score": 58.7,
+    "outcome_proof_score": 58.5,
+    "urgent_fomo_score": 53.9,
+    "overall_score": 57.03333333333333
+  },
+  "quality_issues": [
+    "bold_hook: Low personalization score",
+    "bold_hook: Lacks strategic insight",
+    "outcome_proof: Lacks strategic insight",
+    "outcome_proof: Clarity issues",
+    "urgent_fomo: Lacks strategic insight",
+    "urgent_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "bold_hook": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions"
+    ],
+    "outcome_proof": [
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "urgent_fomo": [
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ]
+  },
+  "overall_quality_score": 57.03333333333333,
+  "decision_path": [
+    "traitdetector: Detected 3 traits (Primary: senior_decision_maker (40.0% confidence)): Primary: senior_decision_maker (40.0% confidence)",
+    "memorymanager: Retrieved memory for lead test_low_signal_002 (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected high_conviction_mystery angle with confident tone (Sequence: bold_hook \u2192 outcome_proof \u2192 urgent_fomo): Sequence: bold_hook \u2192 outcome_proof \u2192 urgent_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['bold_hook', 'outcome_proof', 'urgent_fomo']): Types: ['bold_hook', 'outcome_proof', 'urgent_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 57.0/100, Issues: 6): Overall score: 57.0/100, Issues: 6",
+    "qualitygatekeeper: APPROVED for delivery (Score 57.0 >= 50.0 threshold): Score 57.0 >= 50.0 threshold",
+    "injector: Successfully injected to email queue (Queue ID: queue_590717ec6526): Queue ID: queue_590717ec6526"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.APPROVED",
+  "status_reason": "Quality score 57.0 meets threshold 50.0",
+  "memory_context": {
+    "lead_id": "test_low_signal_002",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250801_114051_test_low_signal_002",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-08-01T11:40:51.057691"
+      }
+    ],
+    "trait_history": [
+      {
+        "traits": [
+          "role_vp",
+          "senior_decision_maker",
+          "business_focus"
+        ],
+        "confidence": {
+          "role_vp": 30,
+          "senior_decision_maker": 40,
+          "business_focus": 35
+        },
+        "primary_trait": "senior_decision_maker",
+        "timestamp": "2025-08-01T11:40:51.057685"
+      }
+    ],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-08-01T11:40:51.057680",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "success",
+  "delivery_method": "email_automated",
+  "queue_id": "queue_590717ec6526",
+  "airtable_update_status": null,
+  "formatted_linkedin_campaign": null,
+  "delivery_schedule": {
+    "bold_hook": "2025-08-01T11:41:07.203615",
+    "outcome_proof": "2025-08-04T11:41:07.203623",
+    "urgent_fomo": "2025-08-08T11:41:07.203627"
+  },
+  "errors": [],
+  "warnings": []
+}

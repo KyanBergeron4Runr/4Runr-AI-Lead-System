@@ -1,0 +1,56 @@
+{
+  "campaign_id": "brain_20250801_134659_269d624d",
+  "lead_id": "test_batch_001",
+  "lead_data": {
+    "name": "Sarah Chen",
+    "email": "kyanberg@outlook.com",
+    "title": "CEO",
+    "company": "PulseNova"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_ceo",
+      "business_focus"
+    ],
+    "primary_trait": "business_focus",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 53.166666666666664,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_134644_test_batch_001"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Sarah,\nYou may not have heard of us, but that's by design. At 4Runr, we selectively partner with a handful of forward-thinking leaders, much like yourself. Our expertise? Building unadvertised, AI-powered infrastructures that silently fuel growth and operational efficiency.\nThe question isn't whether you need us; it's whether you want the strategic advantage we offer. Are you ready to explore the unknown and gain an edge?\nBest,\n[Your Name]",
+      "quality_score": 48.2,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T13:46:59.864806",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Transforming Operations, Amplifying Results",
+      "body": "Hi Sarah,\nAs touched upon in my last note, the ever-changing business landscape demands more than makeshift solutions. Most companies are attaching AI onto dated systems, struggling to see tangible results.\nAt 4Runr, we don't just add AI \u2013 we transform operations. We've helped teams go from scattered tools to integrated systems overnight, driving up performance by an average of 65%. It's not about bells and whistles. It's about delivering compounding performance and concrete results.\nOur approach is strategic, bold, and consultative - always focused on outcomes that resonate with your bottom line.\nI'm curious, how is PulseNova currently leveraging AI and strategic consulting to improve operational efficiency?\nBest,\n[Your Name]",
+      "quality_score": 62.4,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T13:46:59.864818",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Sarah, not every CEO is ready to future-proof their operations with AI. But if you're serious about keeping PulseNova ahead, now is the time. Your competitors are already making strides. This exclusive opportunity won't wait. Let's strategize your next move. Schedule a call here.",
+      "quality_score": 48.9,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-08T13:46:59.864823",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:46:59.864829",
+  "campaign_status": "active"
+}

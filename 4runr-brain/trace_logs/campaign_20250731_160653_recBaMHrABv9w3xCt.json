@@ -1,0 +1,266 @@
+{
+  "execution_id": "campaign_20250731_160653_recBaMHrABv9w3xCt",
+  "timestamp": "2025-07-31T16:06:53.439184",
+  "node_path": [
+    "traitdetector_2025-07-31T16:06:53.452896",
+    "memorymanager_2025-07-31T16:06:53.454900",
+    "campaignplanner_2025-07-31T16:06:53.456888",
+    "messagegenerator_2025-07-31T16:06:53.459038",
+    "messagereviewer_2025-07-31T16:06:53.473803",
+    "qualitygatekeeper_2025-07-31T16:06:53.476094",
+    "messagegenerator_2025-07-31T16:06:53.478591",
+    "messagereviewer_2025-07-31T16:06:53.484267",
+    "qualitygatekeeper_2025-07-31T16:06:53.485696"
+  ],
+  "lead_data": {
+    "id": "recBaMHrABv9w3xCt",
+    "Name": "Yves-Gabriel Leboeuf",
+    "LinkedIn_URL": "https://ca.linkedin.com/in/ygl",
+    "Company": "Unknown Company",
+    "company_data": {
+      "description": "Professional services company",
+      "services": "Business consulting and professional services",
+      "tone": "Professional"
+    },
+    "scraped_content": {
+      "homepage_text": "Professional services and business consulting",
+      "about_page": "Established professional services firm"
+    }
+  },
+  "company_data": {
+    "description": "Professional services company",
+    "services": "Business consulting and professional services",
+    "tone": "Professional"
+  },
+  "scraped_content": {
+    "homepage_text": "Professional services and business consulting",
+    "about_page": "Established professional services firm"
+  },
+  "traits": [
+    "smb",
+    "agency",
+    "consultancy",
+    "mature",
+    "formal"
+  ],
+  "trait_confidence": {
+    "smb": 14.3,
+    "agency": 27.5,
+    "consultancy": 44.0,
+    "mature": 14.3,
+    "formal": 36.7
+  },
+  "trait_reasoning": {
+    "smb": "Matched keywords: established",
+    "agency": "Matched keywords: services, consulting",
+    "consultancy": "Matched keywords: consulting, professional services",
+    "mature": "Matched keywords: established",
+    "formal": "Matched keywords: professional, business"
+  },
+  "primary_trait": "consultancy",
+  "campaign_sequence": [
+    "client_hook",
+    "capability_proof",
+    "competitive_fomo"
+  ],
+  "messaging_angle": "client_success",
+  "campaign_tone": "professional",
+  "sequence_reasoning": "Agencies care about client outcomes and competitive differentiation (based on trait: agency)",
+  "messages": [
+    {
+      "message_type": "client_hook",
+      "subject": "[GENERATION FAILED] client_hook",
+      "body": "Message generation failed: 'scraped_content' is undefined",
+      "generation_attempt": 2,
+      "quality_score": 10.0,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": false,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [],
+      "tone_indicators": [],
+      "word_count": 0,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "capability_proof",
+      "subject": "[GENERATION FAILED] capability_proof",
+      "body": "Message generation failed: 'scraped_content' is undefined",
+      "generation_attempt": 2,
+      "quality_score": 10.0,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": false,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [],
+      "tone_indicators": [],
+      "word_count": 0,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "competitive_fomo",
+      "subject": "[GENERATION FAILED] competitive_fomo",
+      "body": "Message generation failed: 'scraped_content' is undefined",
+      "generation_attempt": 2,
+      "quality_score": 12.4,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": false,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "competitive"
+      ],
+      "tone_indicators": [],
+      "word_count": 0,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "client_hook_attempt": 2,
+    "capability_proof_attempt": 2,
+    "competitive_fomo_attempt": 2
+  },
+  "generation_errors": [
+    "Failed to generate client_hook message: 'scraped_content' is undefined",
+    "Failed to generate capability_proof message: 'scraped_content' is undefined",
+    "Failed to generate competitive_fomo message: 'scraped_content' is undefined",
+    "Failed to generate client_hook message: 'scraped_content' is undefined",
+    "Failed to generate capability_proof message: 'scraped_content' is undefined",
+    "Failed to generate competitive_fomo message: 'scraped_content' is undefined"
+  ],
+  "quality_scores": {
+    "client_hook_score": 10.0,
+    "capability_proof_score": 10.0,
+    "competitive_fomo_score": 12.4,
+    "overall_score": 10.799999999999999
+  },
+  "quality_issues": [
+    "client_hook: Low personalization score",
+    "client_hook: Lacks strategic insight",
+    "client_hook: Tone mismatch",
+    "client_hook: Clarity issues",
+    "capability_proof: Low personalization score",
+    "capability_proof: Lacks strategic insight",
+    "capability_proof: Tone mismatch",
+    "capability_proof: Clarity issues",
+    "competitive_fomo: Low personalization score",
+    "competitive_fomo: Lacks strategic insight",
+    "competitive_fomo: Tone mismatch",
+    "competitive_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "client_hook": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "capability_proof": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "competitive_fomo": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "retry_guidance": "Increase personalization with specific lead name, company references, and industry context. Add more strategic insights, market observations, and business value propositions. Adjust language to better match professional tone and communication style. Significant quality improvements needed across all dimensions. Final retry: Ensure all quality dimensions meet minimum standards"
+  },
+  "overall_quality_score": 10.799999999999999,
+  "decision_path": [
+    "traitdetector: Detected 5 traits (Primary: consultancy (44.0% confidence)): Primary: consultancy (44.0% confidence)",
+    "memorymanager: Retrieved memory for lead recBaMHrABv9w3xCt (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected client_success angle with professional tone (Sequence: client_hook \u2192 capability_proof \u2192 competitive_fomo): Sequence: client_hook \u2192 capability_proof \u2192 competitive_fomo",
+    "messagegenerator: Generated 0/3 messages successfully (Types: ['client_hook', 'capability_proof', 'competitive_fomo']): Types: ['client_hook', 'capability_proof', 'competitive_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 10.8/100, Issues: 12): Overall score: 10.8/100, Issues: 12",
+    "qualitygatekeeper: RETRY #1 (Score 10.8 < 50.0, guidance: Increase personalization with specific lead name, ...): Score 10.8 < 50.0, guidance: Increase personalization with specific lead name, ...",
+    "messagegenerator: Generated 0/3 messages successfully (Types: ['client_hook', 'capability_proof', 'competitive_fomo']): Types: ['client_hook', 'capability_proof', 'competitive_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 10.8/100, Issues: 12): Overall score: 10.8/100, Issues: 12",
+    "qualitygatekeeper: RETRY #2 (Score 10.8 < 50.0, guidance: Increase personalization with specific lead name, ...): Score 10.8 < 50.0, guidance: Increase personalization with specific lead name, ..."
+  ],
+  "retry_count": 2,
+  "final_status": "CampaignStatus.RETRY",
+  "status_reason": "Quality score 10.8 below threshold, retry 2/2",
+  "memory_context": {
+    "lead_id": "recBaMHrABv9w3xCt",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250731_160653_recBaMHrABv9w3xCt",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-07-31T16:06:53.455269"
+      }
+    ],
+    "trait_history": [
+      {
+        "traits": [
+          "smb",
+          "agency",
+          "consultancy",
+          "mature",
+          "formal"
+        ],
+        "confidence": {
+          "smb": 14.3,
+          "agency": 27.5,
+          "consultancy": 44.0,
+          "mature": 14.3,
+          "formal": 36.7
+        },
+        "primary_trait": "consultancy",
+        "timestamp": "2025-07-31T16:06:53.455260"
+      }
+    ],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-07-31T16:06:53.455256",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "",
+  "delivery_method": "",
+  "queue_id": null,
+  "airtable_update_status": null,
+  "formatted_linkedin_campaign": null,
+  "delivery_schedule": null,
+  "errors": [],
+  "warnings": []
+}

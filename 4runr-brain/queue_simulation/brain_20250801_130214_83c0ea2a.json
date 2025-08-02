@@ -1,0 +1,38 @@
+{
+  "campaign_id": "brain_20250801_130214_83c0ea2a",
+  "lead_id": "test_batch_002",
+  "lead_data": {
+    "name": "James Wilson",
+    "email": "kyanberg@outlook.com",
+    "title": "Director",
+    "company": "DataCorp"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_cto",
+      "role_director",
+      "senior_decision_maker",
+      "technical_focus"
+    ],
+    "primary_trait": "senior_decision_maker",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 56.5,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_130208_test_batch_002"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "fallback_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "James,\nEver wondered what you're not seeing? At 4Runr, we reveal unseen performance gains for teams like yours. Intrigued? Let's uncover DataCorp's untapped potential together.\n\u2013 4Runr Team",
+      "quality_score": 56.5,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T13:02:14.437281",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:02:14.437293",
+  "campaign_status": "active"
+}

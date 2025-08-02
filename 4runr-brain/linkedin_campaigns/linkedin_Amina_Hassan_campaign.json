@@ -1,0 +1,26 @@
+{
+  "execution_id": "campaign_20250801_135348_test_batch_003",
+  "lead_data": {
+    "name": "Amina Hassan",
+    "company": "MetaScale",
+    "linkedin_url": "https://linkedin.com/in/aminahassan-metascale"
+  },
+  "formatted_campaign": "BOLD_HOOK: \"Hello {{first_name}},\nYou may not have heard of us, and that's by design. At 4Runr, we selectively partner with companies poised for transformation.\nOur work is not advertised - it's the invisible edge that helps our partners outpace competition. We architect AI-driven strategies that silently fuel success.\nImagine if your operations became your competitive advantage, virtually overnight. Curious about the potential? Let's explore what 4Runr could mean for {{company}}.\nBest,\n[Your Name]\"  OUTCOME_PROOF: Hello {{first_name}},\nFollowing up on my previous message, the complexity of today's operations often sees companies trying to force-fit AI into outdated systems, leading to suboptimal results.\nAt 4Runr, we've turned this scenario around for businesses, taking them from a jumble of tools to streamlined, AI-powered systems virtually overnight. Our clients typically see a 30% increase in operational efficiency within their first quarter.\nWe don't do fluff, we deliver compounding performance. Our focus is on unlocking the full potential of your operations through strategic AI integration.\nI wonder, how is {{company}} currently navigating its operational optimization?\nBest,\n[Your Name]  URGENT_FOMO: \"{{first_name}}, not every CEO is ready to transform their operations. If you're committed to securing {{company}}'s future, it's time to act. Some of your competitors are already leveraging our strategic AI solutions. Don't miss this exclusive opportunity. Let's discuss how 4Runr can optimize your operations. Reply 'Yes' to schedule a call.\"",
+  "airtable_updates": {
+    "AI Message": "BOLD_HOOK: \"Hello {{first_name}},\nYou may not have heard of us, and that's by design. At 4Runr, we selectively partner with companies poised for transformation.\nOur work is not advertised - it's the invisible edge that helps our partners outpace competition. We architect AI-driven strategies that silently fuel success.\nImagine if your operations became your competitive advantage, virtually overnight. Curious about the potential? Let's explore what 4Runr could mean for {{company}}.\nBest,\n[Your Name]\"  OUTCOME_PROOF: Hello {{first_name}},\nFollowing up on my previous message, the complexity of today's operations often sees companies trying to force-fit AI into outdated systems, leading to suboptimal results.\nAt 4Runr, we've turned this scenario around for businesses, taking them from a jumble of tools to streamlined, AI-powered systems virtually overnight. Our clients typically see a 30% increase in operational efficiency within their first quarter.\nWe don't do fluff, we deliver compounding performance. Our focus is on unlocking the full potential of your operations through strategic AI integration.\nI wonder, how is {{company}} currently navigating its operational optimization?\nBest,\n[Your Name]  URGENT_FOMO: \"{{first_name}}, not every CEO is ready to transform their operations. If you're committed to securing {{company}}'s future, it's time to act. Some of your competitors are already leveraging our strategic AI solutions. Don't miss this exclusive opportunity. Let's discuss how 4Runr can optimize your operations. Reply 'Yes' to schedule a call.\"",
+    "Messaging Method": "Manual LinkedIn",
+    "Manual Message Sent": false,
+    "AI Message Type": "personalized",
+    "Extra Info": "Quality Score: 58.7/100 | Used Fallback: No | Message Tone: consultative | Data Quality: 4/10 | Website Insights: 0 | Website: Low Signal Content"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_ceo",
+      "business_focus"
+    ],
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 58.666666666666664
+  },
+  "created_at": "2025-08-01T13:54:00.149166"
+}

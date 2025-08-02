@@ -1,0 +1,59 @@
+{
+  "campaign_id": "brain_20250731_155850_e0bd48f9",
+  "lead_id": "recHR0XnEt0KWuXYc",
+  "lead_data": {
+    "name": "Claude Lemay",
+    "email": "claude.lemay@lemay.com",
+    "title": "",
+    "company": "Claude Lemay & Partners"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "smb",
+      "agency",
+      "consultancy",
+      "mature",
+      "formal"
+    ],
+    "primary_trait": "consultancy",
+    "messaging_angle": "client_success",
+    "campaign_tone": "professional",
+    "overall_quality_score": 55.56666666666666,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250731_155825_recHR0XnEt0KWuXYc"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "client_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Claude Lemay,\nAs a seasoned professional in the consulting industry, you're undoubtedly aware of the ever-evolving operational challenges. The pressure to deliver high-quality services while maintaining a lean operation is only intensifying.\nAt 4Runr, we specialize in strategic optimization, leveraging AI to streamline business operations. We've helped similar consultancy firms transform their operational efficiency and capitalize on industry trends to stay ahead of the curve.\nI'm curious about how Claude Lemay & Partners is navigating this dynamic landscape. Would you be open to a brief conversation to explore ways we could potentially help optimize your operations?\nKind Regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "quality_score": 58.0,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-07-31T15:58:50.698808",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "capability_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Claude Lemay,\nThe consulting landscape is rapidly changing, with a noticeable shift towards operational efficiency and lean practices. As someone who leads a mature and respected consultancy like Claude Lemay & Partners, you undoubtedly recognize these evolving trends.\nAt 4Runr, we specialize in helping businesses like yours navigate these changes. Through AI and strategic consulting, we enable professional service companies to optimize operations and ensure client success.\nWould you be open to a brief conversation about how we might assist Claude Lemay & Partners in further enhancing operational efficiency and embracing industry trends?\nBest Regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "quality_score": 60.3,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T15:58:50.698826",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "competitive_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Claude Lemay,\nIn the ever-evolving landscape of business consulting, the key to thriving now lies not just in expertise, but also operational efficiency. With increased competition and clients' growing expectations, consultancies are faced with the challenge of delivering more, faster.\nAt 4Runr, we've observed this trend closely and have helped similar agencies optimize their operations using AI and strategic consulting. We believe there's immense potential in leveraging technology to streamline processes and enhance client delivery.\nWould you be open to a brief conversation on how 4Runr can help Claude Lemay & Partners achieve greater operational efficiency and business optimization?\nLooking forward to your thoughts,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "quality_score": 48.4,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-07T15:58:50.698835",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-07-31T15:58:50.698844",
+  "campaign_status": "active"
+}

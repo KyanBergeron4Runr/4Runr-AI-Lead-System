@@ -1,0 +1,269 @@
+{
+  "execution_id": "campaign_20250731_154719_recNFN3fFVBNfTaot",
+  "timestamp": "2025-07-31T15:47:19.120173",
+  "node_path": [
+    "traitdetector_2025-07-31T15:47:19.121887",
+    "memorymanager_2025-07-31T15:47:19.124497",
+    "campaignplanner_2025-07-31T15:47:19.126788",
+    "messagegenerator_2025-07-31T15:47:19.129201",
+    "messagereviewer_2025-07-31T15:47:41.676260",
+    "qualitygatekeeper_2025-07-31T15:47:41.680331",
+    "injector_2025-07-31T15:47:41.682150"
+  ],
+  "lead_data": {
+    "id": "recNFN3fFVBNfTaot",
+    "Name": "Maxime Leclair",
+    "LinkedIn_URL": "https://ca.linkedin.com/in/maxime-leclair",
+    "Email": null,
+    "Company": "Maximize It. Maximize",
+    "company_data": {
+      "description": "Professional services company",
+      "services": "Business consulting and professional services",
+      "tone": "Professional"
+    },
+    "scraped_content": {
+      "homepage_text": "Professional services and business consulting",
+      "about_page": "Established professional services firm"
+    }
+  },
+  "company_data": {
+    "description": "Professional services company",
+    "services": "Business consulting and professional services",
+    "tone": "Professional"
+  },
+  "scraped_content": {
+    "homepage_text": "Professional services and business consulting",
+    "about_page": "Established professional services firm"
+  },
+  "traits": [
+    "smb",
+    "agency",
+    "consultancy",
+    "mature",
+    "formal"
+  ],
+  "trait_confidence": {
+    "smb": 14.3,
+    "agency": 27.5,
+    "consultancy": 44.0,
+    "mature": 14.3,
+    "formal": 36.7
+  },
+  "trait_reasoning": {
+    "smb": "Matched keywords: established",
+    "agency": "Matched keywords: services, consulting",
+    "consultancy": "Matched keywords: consulting, professional services",
+    "mature": "Matched keywords: established",
+    "formal": "Matched keywords: professional, business"
+  },
+  "primary_trait": "consultancy",
+  "campaign_sequence": [
+    "client_hook",
+    "capability_proof",
+    "competitive_fomo"
+  ],
+  "messaging_angle": "client_success",
+  "campaign_tone": "professional",
+  "sequence_reasoning": "Agencies care about client outcomes and competitive differentiation (based on trait: agency)",
+  "messages": [
+    {
+      "message_type": "client_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Maxime,\nAs a professional services company, Maximize It. Maximize is undoubtedly aware of the ever-changing business landscape. The increasing demand for operational efficiency and business optimization is compelling companies to rethink traditional strategies.\nAt 4Runr, we've observed how AI and strategic consulting can significantly enhance operational efficiency, particularly for consultancies like yours. Our strategic approach has helped many businesses transform their operations, reducing costs while boosting productivity and effectiveness.\nI believe that a conversation about how we could potentially collaborate to optimize your operations could be beneficial. Would you be open to discussing this further?\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "generation_attempt": 1,
+      "quality_score": 53.1,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "landscape",
+        "changing",
+        "efficiency",
+        "optimize",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 104,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "capability_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Maxime,\nI hope this message finds you well. As a professional services company, I imagine Maximize It. Maximize is continuously striving to enhance its operational efficiency to deliver better outcomes for clients.\nGiven the increasing complexity of today's business environment, we've observed that many consultancies are facing operational challenges due to rapid industry changes and heightened competition.\nAt 4Runr, we specialize in helping businesses like yours navigate these challenges. We leverage AI and strategic consulting to streamline operations and optimize business performance, all while maintaining the professionalism and quality that your clients expect.\nWould you be open to a brief conversation about how we might support Maximize It. Maximize in driving operational efficiency and client success?\nBest Regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "generation_attempt": 1,
+      "quality_score": 55.9,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "industry",
+        "efficiency",
+        "optimize",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 125,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "competitive_fomo",
+      "subject": "Elevating Maximize It's Operational Efficiency in the Current Market Landscape",
+      "body": "Dear Maxime Leclair,\nIn an increasingly competitive professional services landscape, operational efficiency and strategic optimization have become more crucial than ever. I've noticed how Maximize It has established itself as a mature, top-tier consultancy through its innovative business solutions.\nAt 4Runr, we empower companies like yours to reach new heights of operational excellence, using strategic AI tools that streamline processes and amplify the impact of your services.\nMight you be open to discussing how we could further augment Maximize It\u2019s strategic positioning and operational efficiency? I believe a brief conversation could yield some valuable insights.\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "generation_attempt": 1,
+      "quality_score": 53.9,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "market",
+        "competitive",
+        "efficiency",
+        "strategic",
+        "positioning"
+      ],
+      "tone_indicators": [],
+      "word_count": 103,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "client_hook_attempt": 1,
+    "capability_proof_attempt": 1,
+    "competitive_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "client_hook_score": 53.1,
+    "capability_proof_score": 55.9,
+    "competitive_fomo_score": 53.9,
+    "overall_score": 54.300000000000004
+  },
+  "quality_issues": [
+    "client_hook: Low personalization score",
+    "client_hook: Lacks strategic insight",
+    "client_hook: Tone mismatch",
+    "client_hook: Clarity issues",
+    "capability_proof: Low personalization score",
+    "capability_proof: Lacks strategic insight",
+    "capability_proof: Tone mismatch",
+    "capability_proof: Clarity issues",
+    "competitive_fomo: Low personalization score",
+    "competitive_fomo: Lacks strategic insight",
+    "competitive_fomo: Tone mismatch",
+    "competitive_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "client_hook": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "capability_proof": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "competitive_fomo": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone",
+      "Improve message structure and call-to-action clarity"
+    ]
+  },
+  "overall_quality_score": 54.300000000000004,
+  "decision_path": [
+    "traitdetector: Detected 5 traits (Primary: consultancy (44.0% confidence)): Primary: consultancy (44.0% confidence)",
+    "memorymanager: Retrieved memory for lead recNFN3fFVBNfTaot (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected client_success angle with professional tone (Sequence: client_hook \u2192 capability_proof \u2192 competitive_fomo): Sequence: client_hook \u2192 capability_proof \u2192 competitive_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['client_hook', 'capability_proof', 'competitive_fomo']): Types: ['client_hook', 'capability_proof', 'competitive_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 54.3/100, Issues: 12): Overall score: 54.3/100, Issues: 12",
+    "qualitygatekeeper: APPROVED for delivery (Score 54.3 >= 50.0 threshold): Score 54.3 >= 50.0 threshold"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.MANUAL_REVIEW",
+  "status_reason": "Failed to update Airtable with LinkedIn campaign",
+  "memory_context": {
+    "lead_id": "recNFN3fFVBNfTaot",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250731_154719_recNFN3fFVBNfTaot",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-07-31T15:47:19.124903"
+      }
+    ],
+    "trait_history": [
+      {
+        "traits": [
+          "smb",
+          "agency",
+          "consultancy",
+          "mature",
+          "formal"
+        ],
+        "confidence": {
+          "smb": 14.3,
+          "agency": 27.5,
+          "consultancy": 44.0,
+          "mature": 14.3,
+          "formal": 36.7
+        },
+        "primary_trait": "consultancy",
+        "timestamp": "2025-07-31T15:47:19.124892"
+      }
+    ],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-07-31T15:47:19.124881",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "failed",
+  "delivery_method": "linkedin_manual",
+  "queue_id": null,
+  "airtable_update_status": "failed",
+  "formatted_linkedin_campaign": "CLIENT_HOOK: Hello {{first_name}},\nAs a professional services company, {{company}} is undoubtedly aware of the ever-changing business landscape. The increasing demand for operational efficiency and business optimization is compelling companies to rethink traditional strategies.\nAt 4Runr, we've observed how AI and strategic consulting can significantly enhance operational efficiency, particularly for consultancies like yours. Our strategic approach has helped many businesses transform their operations, reducing costs while boosting productivity and effectiveness.\nI believe that a conversation about how we could potentially collaborate to optimize your operations could be beneficial. Would you be open to discussing this further?\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr\n\nCAPABILITY_PROOF: Hello {{first_name}},\nI hope this message finds you well. As a professional services company, I imagine {{company}} is continuously striving to enhance its operational efficiency to deliver better outcomes for clients.\nGiven the increasing complexity of today's business environment, we've observed that many consultancies are facing operational challenges due to rapid industry changes and heightened competition.\nAt 4Runr, we specialize in helping businesses like yours navigate these challenges. We leverage AI and strategic consulting to streamline operations and optimize business performance, all while maintaining the professionalism and quality that your clients expect.\nWould you be open to a brief conversation about how we might support {{company}} in driving operational efficiency and client success?\nBest Regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr\n\nCOMPETITIVE_FOMO: Dear {{first_name}} Leclair,\nIn an increasingly competitive professional services landscape, operational efficiency and strategic optimization have become more crucial than ever. I've noticed how Maximize It has established itself as a mature, top-tier consultancy through its innovative business solutions.\nAt 4Runr, we empower companies like yours to reach new heights of operational excellence, using strategic AI tools that streamline processes and amplify the impact of your services.\nMight you be open to discussing how we could further augment Maximize It\u2019s strategic positioning and operational efficiency? I believe a brief conversation could yield some valuable insights.\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+  "delivery_schedule": null,
+  "errors": [],
+  "warnings": []
+}

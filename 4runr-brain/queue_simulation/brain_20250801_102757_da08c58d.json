@@ -1,0 +1,53 @@
+{
+  "campaign_id": "brain_20250801_102757_da08c58d",
+  "lead_id": "recjXRq3GDlTY7rKy",
+  "lead_data": {
+    "name": "Yves-Gabriel Leboeuf",
+    "email": "yvesgabriel.leboeuf@teck.com",
+    "title": "Professional",
+    "company": "Teck Resources Limited"
+  },
+  "campaign_metadata": {
+    "traits": [],
+    "primary_trait": "",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 51.199999999999996,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_102721_recjXRq3GDlTY7rKy"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Yves-Gabriel,\nWe don't usually show up on your radar - that's by design. At 4Runr, we handpick professionals like you to gain a competitive edge, under the radar.\nWithout revealing too much, we strategize and optimize operations using AI, creating an infrastructure that quietly propels teams to victory. The difference is often unseen, but always felt where it counts.\nAre you ready to explore an unseen advantage that could redefine your professional trajectory? Let's discuss the possibilities.\nBest,\n[Your Name]",
+      "quality_score": 52.9,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-01T10:27:57.447016",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Yves-Gabriel,\nI hope you had a chance to review our initial conversation. It's apparent that many professionals like you are grappling with outdated systems, trying to retrofit AI into existing frameworks.\nAt 4Runr, we take a different approach. Our clients have witnessed their operations transform from disjointed tools to integrated, high-performing systems - practically overnight. One of our recent success stories saw an increase in operational efficiency by 35% within the first quarter.\nWe don't believe in fluff, we're all about compounding performance. Our focus is on driving tangible results, leveraging AI and strategic consulting to elevate your business performance.\nI'm curious, Yves-Gabriel, how is Teck Resources Limited currently navigating the complexities of AI integration?\nBest,\n[Your Name]",
+      "quality_score": 53.2,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-04T10:27:57.447029",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "\"Yves-Gabriel, this isn't for everyone. However, if you're keen on securing Teck Resources' future through optimized operations, the time is now. Competitors are already moving. 4Runr offers an exclusive partnership to those who are ready to take bold steps. Let's discuss how we can make a strategic difference together. Ready for action? Reply to schedule a strategy session today.\"",
+      "quality_score": 47.5,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-08T10:27:57.447035",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T10:27:57.447043",
+  "campaign_status": "active"
+}

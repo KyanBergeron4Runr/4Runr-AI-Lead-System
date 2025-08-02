@@ -1,0 +1,16 @@
+{
+  "id": "recABCDEF123456789",
+  "Name": "Michael Rodriguez",
+  "Title": "Head of Engineering",
+  "Company": "DataStream Analytics",
+  "LinkedIn_URL": "https://linkedin.com/in/michael-rodriguez-eng",
+  "company_data": {
+    "description": "DataStream Analytics provides real-time data processing solutions for enterprise clients, specializing in machine learning pipelines and predictive analytics",
+    "services": "Data analytics, Machine learning, Real-time processing, Predictive modeling",
+    "tone": "Technical and data-driven"
+  },
+  "scraped_content": {
+    "homepage_text": "Unlock the power of your data with our enterprise-grade analytics platform. Real-time insights, predictive modeling, and scalable ML pipelines for modern businesses.",
+    "about_page": "Founded by data scientists and engineers, DataStream has processed over 10TB of data daily for Fortune 500 companies. Our platform enables real-time decision making through advanced analytics."
+  }
+}

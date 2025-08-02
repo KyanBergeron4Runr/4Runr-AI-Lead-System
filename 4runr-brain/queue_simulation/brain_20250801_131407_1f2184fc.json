@@ -1,0 +1,53 @@
+{
+  "campaign_id": "brain_20250801_131407_1f2184fc",
+  "lead_id": "recYkIYOwmMqKP2dZ",
+  "lead_data": {
+    "name": "Elie Wahnoun",
+    "email": "wahnounelie@gmail.com",
+    "title": "Professional",
+    "company": "Courimo"
+  },
+  "campaign_metadata": {
+    "traits": [],
+    "primary_trait": "",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 55.4,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_131339_recYkIYOwmMqKP2dZ"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Elie,\nEver wonder why some companies surge ahead while others lag behind? The answer is often less about what you see and more about what you don't.\nWelcome to 4Runr, the silent partner behind some of the most successful operations. Our selectivity isn't a secret, but our strategies are. We empower businesses with AI and strategic consulting that drives a competitive edge.\nAre you ready to discover how 4Runr can transform your operations into an unseen advantage? Let's ignite that curiosity.\nBest,\n[Your Name]",
+      "quality_score": 52.3,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-01T13:14:07.327939",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Accelerating Performance with AI - Your Next Step?",
+      "body": "Hi Elie,\nFollowing our previous conversation, it's clear that the landscape is evolving rapidly. Many professionals, like you, are looking to avoid patching AI onto legacy systems \u2013 a shortsighted solution at best.\nAt 4Runr, we've transformed businesses from using disjointed tools to implementing comprehensive AI systems overnight. For instance, we've seen operational efficiency skyrocket by 35% within the first three months of engagement. It's not just about tech, it's about compounding performance over time.\nWe believe in delivering tangible results, not fluff. Our approach focuses on strategic consulting and AI integration that drives continuous improvement.\nElie, I'm curious - what are your aspirations for operational performance at Courimo?\nLooking forward to hearing from you.\nBest,\n[Your Name]",
+      "quality_score": 62.9,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-04T13:14:07.327951",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Exclusive Opportunity to Advance Courimo: Time-Sensitive",
+      "body": "Elie,\nNot every professional is ready to revolutionize their operations with AI. But if you're serious about propelling Courimo ahead in the competitive landscape, it's time to act. Several competitors are already making their move.\n4Runr is prepared to partner exclusively with you. Let's schedule a strategy call this week and start shaping your future.\nBest,\n[Your Name]",
+      "quality_score": 51.0,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-08T13:14:07.327956",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:14:07.327962",
+  "campaign_status": "active"
+}

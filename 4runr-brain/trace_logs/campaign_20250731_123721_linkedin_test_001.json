@@ -1,0 +1,292 @@
+{
+  "execution_id": "campaign_20250731_123721_linkedin_test_001",
+  "timestamp": "2025-07-31T12:37:21.007311",
+  "node_path": [
+    "traitdetector_2025-07-31T12:37:21.023854",
+    "memorymanager_2025-07-31T12:37:21.027084",
+    "campaignplanner_2025-07-31T12:37:21.029067",
+    "messagegenerator_2025-07-31T12:37:21.031135",
+    "messagereviewer_2025-07-31T12:37:50.991159",
+    "qualitygatekeeper_2025-07-31T12:37:50.993405",
+    "injector_2025-07-31T12:37:50.996330"
+  ],
+  "lead_data": {
+    "id": "linkedin_test_001",
+    "Name": "Alex Chen",
+    "Title": "CTO",
+    "Company": "TechFlow Innovations",
+    "LinkedIn_URL": "https://linkedin.com/in/alexchen-cto",
+    "company_data": {
+      "description": "TechFlow Innovations builds cutting-edge API infrastructure for fintech companies, enabling seamless payment processing and financial data integration",
+      "services": "API development, Payment processing, Financial data integration, Cloud infrastructure",
+      "tone": "Technical and professional"
+    },
+    "scraped_content": {
+      "homepage_text": "Revolutionize your fintech operations with our enterprise-grade API infrastructure. Built for scale, security, and speed - powering the next generation of financial services.",
+      "about_page": "Founded by former engineers from major fintech companies, TechFlow has processed over $2B in transactions through our secure API platform. We serve 200+ fintech startups and enterprises."
+    }
+  },
+  "company_data": {
+    "description": "TechFlow Innovations builds cutting-edge API infrastructure for fintech companies, enabling seamless payment processing and financial data integration",
+    "services": "API development, Payment processing, Financial data integration, Cloud infrastructure",
+    "tone": "Technical and professional"
+  },
+  "scraped_content": {
+    "homepage_text": "Revolutionize your fintech operations with our enterprise-grade API infrastructure. Built for scale, security, and speed - powering the next generation of financial services.",
+    "about_page": "Founded by former engineers from major fintech companies, TechFlow has processed over $2B in transactions through our secure API platform. We serve 200+ fintech startups and enterprises."
+  },
+  "traits": [
+    "enterprise",
+    "startup",
+    "agency",
+    "saas",
+    "api_first",
+    "cloud_native",
+    "ai_powered",
+    "fintech",
+    "early_stage",
+    "formal",
+    "technical",
+    "role_cto",
+    "technical_focus"
+  ],
+  "trait_confidence": {
+    "enterprise": 24.4,
+    "startup": 24.4,
+    "agency": 12.5,
+    "saas": 16.7,
+    "api_first": 27.5,
+    "cloud_native": 12.5,
+    "ai_powered": 14.3,
+    "fintech": 27.5,
+    "early_stage": 12.5,
+    "formal": 16.7,
+    "technical": 31.4,
+    "role_cto": 30,
+    "technical_focus": 35
+  },
+  "trait_reasoning": {
+    "enterprise": "Matched keywords: enterprise, enterprise-grade",
+    "startup": "Matched keywords: startup, founded",
+    "agency": "Matched keywords: services",
+    "saas": "Matched keywords: platform",
+    "api_first": "Matched keywords: api, integration",
+    "cloud_native": "Matched keywords: cloud",
+    "ai_powered": "Matched keywords: ml",
+    "fintech": "Matched keywords: financial, fintech",
+    "early_stage": "Matched keywords: founded",
+    "formal": "Matched keywords: enterprise-grade",
+    "technical": "Matched keywords: api, infrastructure",
+    "role_cto": "Title contains: cto",
+    "technical_focus": "Technical indicators: cto"
+  },
+  "primary_trait": "technical_focus",
+  "campaign_sequence": [
+    "technical_hook",
+    "architecture_proof",
+    "innovation_fomo"
+  ],
+  "messaging_angle": "technical_innovation",
+  "campaign_tone": "technical",
+  "sequence_reasoning": "CTO needs technical depth and innovation focus (based on trait: role_cto)",
+  "messages": [
+    {
+      "message_type": "technical_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Alex,\nGiven TechFlow Innovations' groundbreaking work in API infrastructure for fintech, I believe you're already aware of the increasing complexities and evolving demands in this sphere.\nIn an industry where technical excellence and innovation are paramount, staying abreast of architectural challenges and technology trends is crucial. Particularly, the intersection of cloud-native solutions, AI capabilities, and robust API-first strategies - these trends are shaping the future of fintech.\nAt 4Runr, we're on a similar journey of pushing boundaries through strategic consulting and AI optimization. We've helped businesses transform their operations by addressing these very challenges.\nWould you be interested in a brief conversation to explore how we could potentially collaborate and drive further technical innovation at TechFlow Innovations?\nBest,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "generation_attempt": 1,
+      "quality_score": 62.8,
+      "quality_issues": [
+        "Lacks strategic insight",
+        "Tone mismatch"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "industry",
+        "trends",
+        "strategic",
+        "innovation"
+      ],
+      "tone_indicators": [],
+      "word_count": 125,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "architecture_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Alex,\nAs a leader in the fintech sector, TechFlow Innovations stands out for its commitment to technical excellence and innovation. I'm particularly impressed by your work in building cutting-edge API infrastructure for seamless payment processing.\nIn today's rapidly evolving digital landscape, integrating AI into API development can offer a significant competitive edge, enabling more accurate predictions and data-driven decision-making. At 4Runr, we're helping businesses like yours navigate these complexities and capitalize on these opportunities.\nWould you be open to a brief conversation about how we can work together to further enhance TechFlow's API infrastructure? I believe a strategic partnership with 4Runr could bring about some exciting innovations.\nBest Regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "generation_attempt": 1,
+      "quality_score": 61.1,
+      "quality_issues": [
+        "Lacks strategic insight",
+        "Tone mismatch",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": true,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "competitive",
+        "landscape",
+        "strategic",
+        "competitive edge"
+      ],
+      "tone_indicators": [],
+      "word_count": 116,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "innovation_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Alex,\nAs a technology leader in fintech, you\u2019re likely aware of the challenges and opportunities that come with building API infrastructure in an increasingly AI-powered world. The need for technical excellence, innovative solutions, and secure cloud-native environments is critical.\nAt 4Runr, we\u2019ve been closely tracking these trends, leveraging AI and strategic consulting to optimize operations. We\u2019ve seen how businesses like TechFlow Innovations can benefit from an agile approach to architecture and data integration.\nWould it be valuable for us to explore how we might support your technical focus and contribute to TechFlow\u2019s vision for cutting-edge fintech solutions?\nLooking forward to your thoughts.\nBest,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "generation_attempt": 1,
+      "quality_score": 58.5,
+      "quality_issues": [
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "trends",
+        "optimize",
+        "strategic",
+        "innovation"
+      ],
+      "tone_indicators": [],
+      "word_count": 110,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "technical_hook_attempt": 1,
+    "architecture_proof_attempt": 1,
+    "innovation_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "technical_hook_score": 62.8,
+    "architecture_proof_score": 61.1,
+    "innovation_fomo_score": 58.5,
+    "overall_score": 60.800000000000004
+  },
+  "quality_issues": [
+    "technical_hook: Lacks strategic insight",
+    "technical_hook: Tone mismatch",
+    "architecture_proof: Lacks strategic insight",
+    "architecture_proof: Tone mismatch",
+    "architecture_proof: Clarity issues",
+    "innovation_fomo: Lacks strategic insight",
+    "innovation_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "technical_hook": [
+      "Include market observations or business value propositions",
+      "Adjust language to match technical tone"
+    ],
+    "architecture_proof": [
+      "Include market observations or business value propositions",
+      "Adjust language to match technical tone",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "innovation_fomo": [
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ]
+  },
+  "overall_quality_score": 60.800000000000004,
+  "decision_path": [
+    "traitdetector: Detected 13 traits (Primary: technical_focus (35.0% confidence)): Primary: technical_focus (35.0% confidence)",
+    "memorymanager: Retrieved memory for lead linkedin_test_001 (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected technical_innovation angle with technical tone (Sequence: technical_hook \u2192 architecture_proof \u2192 innovation_fomo): Sequence: technical_hook \u2192 architecture_proof \u2192 innovation_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['technical_hook', 'architecture_proof', 'innovation_fomo']): Types: ['technical_hook', 'architecture_proof', 'innovation_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 60.8/100, Issues: 7): Overall score: 60.8/100, Issues: 7",
+    "qualitygatekeeper: APPROVED for delivery (Score 60.8 >= 60.0 threshold): Score 60.8 >= 60.0 threshold"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.MANUAL_REVIEW",
+  "status_reason": "Failed to update Airtable with LinkedIn campaign",
+  "memory_context": {
+    "lead_id": "linkedin_test_001",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250731_123721_linkedin_test_001",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-07-31T12:37:21.027508"
+      }
+    ],
+    "trait_history": [
+      {
+        "traits": [
+          "enterprise",
+          "startup",
+          "agency",
+          "saas",
+          "api_first",
+          "cloud_native",
+          "ai_powered",
+          "fintech",
+          "early_stage",
+          "formal",
+          "technical",
+          "role_cto",
+          "technical_focus"
+        ],
+        "confidence": {
+          "enterprise": 24.4,
+          "startup": 24.4,
+          "agency": 12.5,
+          "saas": 16.7,
+          "api_first": 27.5,
+          "cloud_native": 12.5,
+          "ai_powered": 14.3,
+          "fintech": 27.5,
+          "early_stage": 12.5,
+          "formal": 16.7,
+          "technical": 31.4,
+          "role_cto": 30,
+          "technical_focus": 35
+        },
+        "primary_trait": "technical_focus",
+        "timestamp": "2025-07-31T12:37:21.027497"
+      }
+    ],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-07-31T12:37:21.027491",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "failed",
+  "delivery_method": "linkedin_manual",
+  "queue_id": null,
+  "airtable_update_status": "failed",
+  "formatted_linkedin_campaign": "TECHNICAL_HOOK: Hello {{first_name}},\nGiven {{company}}' groundbreaking work in API infrastructure for fintech, I believe you're already aware of the increasing complexities and evolving demands in this sphere.\nIn an industry where technical excellence and innovation are paramount, staying abreast of architectural challenges and technology trends is crucial. Particularly, the intersection of cloud-native solutions, AI capabilities, and robust API-first strategies - these trends are shaping the future of fintech.\nAt 4Runr, we're on a similar journey of pushing boundaries through strategic consulting and AI optimization. We've helped businesses transform their operations by addressing these very challenges.\nWould you be interested in a brief conversation to explore how we could potentially collaborate and drive further technical innovation at {{company}}?\nBest,\n[Your Name]\nStrategic Outreach Specialist, 4Runr\n\nARCHITECTURE_PROOF: Hello {{first_name}},\nAs a leader in the fintech sector, {{company}} stands out for its commitment to technical excellence and innovation. I'm particularly impressed by your work in building cutting-edge API infrastructure for seamless payment processing.\nIn today's rapidly evolving digital landscape, integrating AI into API development can offer a significant competitive edge, enabling more accurate predictions and data-driven decision-making. At 4Runr, we're helping businesses like yours navigate these complexities and capitalize on these opportunities.\nWould you be open to a brief conversation about how we can work together to further enhance TechFlow's API infrastructure? I believe a strategic partnership with 4Runr could bring about some exciting innovations.\nBest Regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr\n\nINNOVATION_FOMO: Dear {{first_name}},\nAs a technology leader in fintech, you\u2019re likely aware of the challenges and opportunities that come with building API infrastructure in an increasingly AI-powered world. The need for technical excellence, innovative solutions, and secure cloud-native environments is critical.\nAt 4Runr, we\u2019ve been closely tracking these trends, leveraging AI and strategic consulting to optimize operations. We\u2019ve seen how businesses like {{company}} can benefit from an agile approach to architecture and data integration.\nWould it be valuable for us to explore how we might support your technical focus and contribute to TechFlow\u2019s vision for cutting-edge fintech solutions?\nLooking forward to your thoughts.\nBest,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+  "delivery_schedule": null,
+  "errors": [],
+  "warnings": []
+}

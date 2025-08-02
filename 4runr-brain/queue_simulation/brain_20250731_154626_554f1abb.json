@@ -1,0 +1,59 @@
+{
+  "campaign_id": "brain_20250731_154626_554f1abb",
+  "lead_id": "recHR0XnEt0KWuXYc",
+  "lead_data": {
+    "name": "Claude Lemay",
+    "email": "claude.lemay@lemay.com",
+    "title": "",
+    "company": "Claude Lemay & Partners"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "smb",
+      "agency",
+      "consultancy",
+      "mature",
+      "formal"
+    ],
+    "primary_trait": "consultancy",
+    "messaging_angle": "client_success",
+    "campaign_tone": "professional",
+    "overall_quality_score": 51.56666666666666,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250731_154604_recHR0XnEt0KWuXYc"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "client_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Claude Lemay,\nAs an experienced professional services company, Claude Lemay & Partners undoubtedly understands the dynamic nature of our industry. The current trend towards digital transformation presents both unique opportunities and operational challenges.\nHaving helped various consultancies like yours, we at 4Runr have noticed a pivotal shift towards AI-enhanced operational efficiency. The strategic value of this transformation is undeniably profound, leading to increased productivity and better decision-making.\nWould it be valuable for you to explore how 4Runr could potentially enhance your operational efficiency and help you stay ahead of industry trends?\nI'd be delighted to arrange a brief, no-obligation conversation at your convenience.\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "quality_score": 47.5,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-07-31T15:46:26.161456",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "capability_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Claude,\nIn the fast-paced landscape of professional services, I\u2019ve noticed that operational efficiency has become a decisive factor for firms like Claude Lemay & Partners. The businesses that thrive are those that manage to leverage the latest technology to streamline their operations and optimize their service delivery.\nAt 4Runr, we specialize in helping firms like yours adapt and evolve. Through our strategic consulting and AI-driven solutions, we've helped numerous professional services companies enhance their operational processes and outpace the competition.\nWould you be open to exploring how we can assist Claude Lemay & Partners in achieving greater business optimization?\nI look forward to your thoughts.\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "quality_score": 56.2,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T15:46:26.161474",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "competitive_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Claude,\nIn the professional services sector, the drive for operational efficiency and optimization is palpable. Leading firms like yours, Claude Lemay & Partners, are continuously seeking ways to streamline processes and enhance client satisfaction.\nAt 4Runr, we've observed that a strategic approach towards operational optimization can be a game-changer in this competitive environment. By leveraging AI and strategic consulting, we've helped businesses like yours navigate complex operational challenges and emerge as industry leaders.\nWould you be open to a brief conversation on how 4Runr could potentially assist Claude Lemay & Partners in achieving higher operational efficiency?\nBest Regards,\n[Your Name]\nStrategic Outreach Specialist at 4Runr",
+      "quality_score": 51.0,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-07T15:46:26.161481",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-07-31T15:46:26.161488",
+  "campaign_status": "active"
+}

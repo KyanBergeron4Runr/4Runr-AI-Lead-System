@@ -1,0 +1,221 @@
+{
+  "execution_id": "campaign_20250801_102757_recmRZbZNy96f4cRi",
+  "timestamp": "2025-08-01T10:27:57.452971",
+  "node_path": [
+    "traitdetector_2025-08-01T10:27:57.454419",
+    "memorymanager_2025-08-01T10:27:57.457344",
+    "campaignplanner_2025-08-01T10:27:57.459973",
+    "messagegenerator_2025-08-01T10:27:57.462862",
+    "messagereviewer_2025-08-01T10:28:15.870147",
+    "qualitygatekeeper_2025-08-01T10:28:15.872540",
+    "injector_2025-08-01T10:28:15.874730"
+  ],
+  "lead_data": {
+    "id": "recmRZbZNy96f4cRi",
+    "Name": "Randal Tucker",
+    "LinkedIn_URL": "https://ca.linkedin.com/in/randal-tucker-31bbb618",
+    "Email": "randal.tucker@www.sfm.ca",
+    "Company": "SFM",
+    "Title": "Professional",
+    "Website": "",
+    "company_data": {
+      "description": "",
+      "services": "",
+      "tone": "Professional",
+      "website_insights": ""
+    },
+    "response_notes": "Website: www.sfm.ca | Email patterns: randal.tucker@www.sfm.ca, randal@www.sfm.ca, tucker@www.sfm.ca | Enriched: success | Methods: website_found, pattern_generated",
+    "ai_message": ""
+  },
+  "company_data": {
+    "description": "",
+    "services": "",
+    "tone": "Professional",
+    "website_insights": ""
+  },
+  "scraped_content": {},
+  "traits": [],
+  "trait_confidence": {},
+  "trait_reasoning": {},
+  "primary_trait": "",
+  "is_low_context": true,
+  "campaign_sequence": [
+    "bold_hook",
+    "outcome_proof",
+    "urgent_fomo"
+  ],
+  "messaging_angle": "high_conviction_mystery",
+  "campaign_tone": "confident",
+  "sequence_reasoning": "Low-context lead requires bold, curiosity-driven approach without specific personalization",
+  "messages": [
+    {
+      "message_type": "bold_hook",
+      "subject": "\"An Exclusive Invitation to Surpass the Status Quo\"",
+      "body": "\"Hello Randal,\nYou may not have heard of us, but that's by design. We partner only with the most forward-thinking professionals, offering them an exclusive advantage that others can only guess at.\n4Runr helps businesses silently surpass their competition, using strategic consulting and AI to optimize operations in ways you wouldn't believe. Our clients don't advertise their secret weapon - they just enjoy the results.\nAre you ready to unlock the hidden potential of your operations? Let's start a conversation.\nBest,\n[Your Name]\"",
+      "generation_attempt": 1,
+      "quality_score": 50.2,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "optimize",
+        "advantage",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 83,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "outcome_proof",
+      "subject": "Transforming Operations, Amplifying Results",
+      "body": "Hello Randal,\nIn my previous message, I touched on how 4Runr optimizes business operations. We've seen how companies often struggle, trying to integrate AI into existing systems with limited success.\nAt 4Runr, we help businesses like SFM avoid these pitfalls. We've empowered organizations to transition from disparate tools to robust, integrated systems virtually overnight, driving up operational efficiency by an average of 37%.\nOur strategy? No fluff. Just compounding performance. We're here to deliver real transformation and tangible results, not just sell software.\nI'm curious, Randal - how are you currently navigating the challenge of operational optimization at SFM?\nBest,\n[Your Name]",
+      "generation_attempt": 1,
+      "quality_score": 56.5,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "efficiency",
+        "optimize",
+        "transformation"
+      ],
+      "tone_indicators": [],
+      "word_count": 102,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Randal, not every professional will seize this opportunity. But if you're committed to optimizing SFM's operations, now's the time. Some of your competitors are already taking strategic steps. Don't be left behind. Connect with 4Runr today to future-proof your business. Let's discuss your next move.",
+      "generation_attempt": 1,
+      "quality_score": 46.4,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 45,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "bold_hook_attempt": 1,
+    "outcome_proof_attempt": 1,
+    "urgent_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "bold_hook_score": 50.2,
+    "outcome_proof_score": 56.5,
+    "urgent_fomo_score": 46.4,
+    "overall_score": 51.03333333333333
+  },
+  "quality_issues": [
+    "bold_hook: Low personalization score",
+    "bold_hook: Lacks strategic insight",
+    "bold_hook: Clarity issues",
+    "outcome_proof: Low personalization score",
+    "outcome_proof: Lacks strategic insight",
+    "outcome_proof: Clarity issues",
+    "urgent_fomo: Low personalization score",
+    "urgent_fomo: Lacks strategic insight",
+    "urgent_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "bold_hook": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "outcome_proof": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "urgent_fomo": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ]
+  },
+  "overall_quality_score": 51.03333333333333,
+  "decision_path": [
+    "traitdetector: Detected 0 traits (Primary:  (0.0% confidence)): Primary:  (0.0% confidence)",
+    "memorymanager: Retrieved memory for lead recmRZbZNy96f4cRi (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected high_conviction_mystery angle with confident tone (Sequence: bold_hook \u2192 outcome_proof \u2192 urgent_fomo): Sequence: bold_hook \u2192 outcome_proof \u2192 urgent_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['bold_hook', 'outcome_proof', 'urgent_fomo']): Types: ['bold_hook', 'outcome_proof', 'urgent_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 51.0/100, Issues: 9): Overall score: 51.0/100, Issues: 9",
+    "qualitygatekeeper: APPROVED for delivery (Score 51.0 >= 50.0 threshold): Score 51.0 >= 50.0 threshold",
+    "injector: Successfully injected to email queue (Queue ID: queue_18188e5cff34): Queue ID: queue_18188e5cff34"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.APPROVED",
+  "status_reason": "Quality score 51.0 meets threshold 50.0",
+  "memory_context": {
+    "lead_id": "recmRZbZNy96f4cRi",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250801_102757_recmRZbZNy96f4cRi",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-08-01T10:27:57.457898"
+      }
+    ],
+    "trait_history": [],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-08-01T10:27:57.457888",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "success",
+  "delivery_method": "email_automated",
+  "queue_id": "queue_18188e5cff34",
+  "airtable_update_status": null,
+  "formatted_linkedin_campaign": null,
+  "delivery_schedule": {
+    "bold_hook": "2025-08-01T10:28:15.875896",
+    "outcome_proof": "2025-08-04T10:28:15.875906",
+    "urgent_fomo": "2025-08-08T10:28:15.875910"
+  },
+  "errors": [],
+  "warnings": []
+}

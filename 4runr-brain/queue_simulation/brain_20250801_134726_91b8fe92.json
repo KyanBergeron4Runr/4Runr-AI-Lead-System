@@ -1,0 +1,56 @@
+{
+  "campaign_id": "brain_20250801_134726_91b8fe92",
+  "lead_id": "test_batch_003",
+  "lead_data": {
+    "name": "Amina Hassan",
+    "email": "kyanberg@outlook.com",
+    "title": "CEO",
+    "company": "MetaScale"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_ceo",
+      "business_focus"
+    ],
+    "primary_trait": "business_focus",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 55.300000000000004,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_134711_test_batch_003"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Exclusive Partnership Invitation - Are You Ready to Lead the Pack?",
+      "body": "Dear Amina Hassan,\nEver wondered why some businesses seem to always be one step ahead? They likely have an unseen partner working behind the scenes - a partner like 4Runr.\nWe intentionally collaborate with a select few, elevating their operations through AI and strategic consulting. The result? A competitive advantage that's subtle yet powerful.\nAre you prepared to join this exclusive circle and unlock your company's full potential? Let's explore the possibilities together.\nBest,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "quality_score": 52.4,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T13:47:26.321545",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Transform Your Business Outcomes with 4Runr",
+      "body": "Dear Amina,\nHope my previous message reached you well.\nIn today's fast-paced market, many businesses are patching AI onto legacy systems, resulting in scattered tools and disjointed processes.\nAt 4Runr, we've transformed this chaotic scenario for numerous businesses. We've helped teams streamline operations from a mishmash of tools to a cohesive system \u2014 virtually overnight. The result? A staggering 50% reduction in operational inefficiencies and a 30% uplift in productivity, on average.\nWe're not about the fluff. We are about compounding performance, enabling businesses like MetaScale to operate more strategically and efficiently.\nI wonder, what kind of improvements are you currently looking to make in your operations?\nBest,\n[Your Name]",
+      "quality_score": 58.1,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T13:47:26.321553",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Amina, not every CEO is equipped to future-proof their operations. But if you're as committed to MetaScale's growth as we think, it's time to act. Your competitors are already optimizing with AI. Don't be left behind. Let's discuss how 4Runr can propel you ahead. Reply to schedule an exclusive consultation.",
+      "quality_score": 55.4,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-08T13:47:26.321557",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:47:26.321562",
+  "campaign_status": "active"
+}

@@ -1,0 +1,27 @@
+{
+  "reports": [
+    {
+      "timestamp": "2025-08-01T18:11:08.179088",
+      "date": "2025-08-01",
+      "week": "2025-W30",
+      "detailed_report": "4runr-agents\\ai_analysis_reports\\weekly\\2025-08-01\\weekly_detailed_20250801_181108.json",
+      "summary_report": "4runr-agents\\ai_analysis_reports\\weekly\\2025-08-01\\weekly_summary_20250801_181108.md",
+      "technical_report": "4runr-agents\\ai_analysis_reports\\weekly\\2025-08-01\\weekly_technical_20250801_181108.md",
+      "overall_health": "critical",
+      "alerts_count": 3,
+      "recommendations_count": 1
+    },
+    {
+      "timestamp": "2025-08-01T18:15:12.005884",
+      "date": "2025-08-01",
+      "week": "2025-W30",
+      "detailed_report": "4runr-agents\\ai_analysis_reports\\weekly\\2025-08-01\\weekly_detailed_20250801_181512.json",
+      "summary_report": "4runr-agents\\ai_analysis_reports\\weekly\\2025-08-01\\weekly_summary_20250801_181512.md",
+      "technical_report": "4runr-agents\\ai_analysis_reports\\weekly\\2025-08-01\\weekly_technical_20250801_181512.md",
+      "overall_health": "critical",
+      "alerts_count": 3,
+      "recommendations_count": 1
+    }
+  ],
+  "last_updated": "2025-08-01T18:15:12.008275"
+}

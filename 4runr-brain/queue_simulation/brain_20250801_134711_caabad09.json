@@ -1,0 +1,56 @@
+{
+  "campaign_id": "brain_20250801_134711_caabad09",
+  "lead_id": "test_batch_002",
+  "lead_data": {
+    "name": "David Rodriguez",
+    "email": "kyanberg@outlook.com",
+    "title": "CEO",
+    "company": "BrightForge"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_ceo",
+      "business_focus"
+    ],
+    "primary_trait": "business_focus",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 58.333333333333336,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_134659_test_batch_002"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "\"Hello David,\nEver wonder why some businesses consistently outperform others? It's not luck - it's strategic choice. They've discovered 4Runr. We're the exclusive partner that top performers don't want you to know about.\nOur unique blend of AI and strategy quietly transforms operations, creating a competitive advantage that's hard to beat. But we're selective - we only work with leaders ready to make bold moves.\nCurious about the edge you're missing out on? Let's reveal your untapped potential.\nBest,\n[Your Name]\"",
+      "quality_score": 52.4,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T13:47:11.992038",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello David,\nIn our last communication, we touched on the game-changing potential of AI and strategic consulting. Now, let's talk impact.\nMany companies try to retrofit AI onto outdated systems - a band-aid solution. At 4Runr, we transform this approach. We've turned companies from using scattered tools to operating full, integrated systems, overnight.\nWhat's the result? Our clients have seen a 35% increase in operational efficiency within 6 months. No fluff, just compounding performance. This is the power of a results-driven strategy.\nDavid, how is BrightForge currently leveraging technology for operations? Can we explore how to maximize its potential together?\nBest,\n[Your Name]",
+      "quality_score": 66.6,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T13:47:11.992048",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "David, this opportunity isn't for everyone. If you're committed to future-proofing BrightForge's operations, then it's time to act. Several of your competitors are already taking strides. Don't let them leave you behind. Connect with us at 4Runr today to secure your competitive edge. This is your final chance - let's discuss next steps.",
+      "quality_score": 56.0,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-08T13:47:11.992052",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:47:11.992058",
+  "campaign_status": "active"
+}

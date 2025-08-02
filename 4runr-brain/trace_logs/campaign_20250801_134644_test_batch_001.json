@@ -1,0 +1,281 @@
+{
+  "execution_id": "campaign_20250801_134644_test_batch_001",
+  "timestamp": "2025-08-01T13:46:44.777392",
+  "node_path": [
+    "traitdetector_2025-08-01T13:46:44.786127",
+    "memorymanager_2025-08-01T13:46:44.792281",
+    "campaignplanner_2025-08-01T13:46:44.793644",
+    "messagegenerator_2025-08-01T13:46:44.794894",
+    "messagereviewer_2025-08-01T13:46:59.859113",
+    "qualitygatekeeper_2025-08-01T13:46:59.860614",
+    "injector_2025-08-01T13:46:59.862200"
+  ],
+  "lead_data": {
+    "id": "test_batch_001",
+    "Name": "Sarah Chen",
+    "Company": "PulseNova",
+    "Title": "CEO",
+    "Email": "kyanberg@outlook.com",
+    "LinkedIn_URL": "https://linkedin.com/in/sarahchen-pulsenova",
+    "Website": "https://4runrtech.com/",
+    "company_data": {
+      "description": "",
+      "services": "",
+      "tone": "Professional",
+      "website_insights": ""
+    },
+    "scraped_content": {
+      "homepage_text": "",
+      "about_page": ""
+    }
+  },
+  "company_data": {
+    "description": "",
+    "services": "",
+    "tone": "Professional",
+    "website_insights": ""
+  },
+  "scraped_content": {
+    "homepage_text": "",
+    "about_page": ""
+  },
+  "traits": [
+    "role_ceo",
+    "business_focus"
+  ],
+  "trait_confidence": {
+    "role_ceo": 30,
+    "business_focus": 35
+  },
+  "trait_reasoning": {
+    "role_ceo": "Title contains: ceo",
+    "business_focus": "Business indicators: ceo"
+  },
+  "primary_trait": "business_focus",
+  "is_low_context": true,
+  "data_quality": {
+    "quality_score": 4,
+    "quality_factors": [
+      "no_website_content",
+      "has_title",
+      "has_linkedin",
+      "has_linkedin_profile",
+      "has_email"
+    ],
+    "fallback_mode": false,
+    "fallback_reason": null,
+    "website_quality": {
+      "score": 0,
+      "factors": [
+        "no_website_content"
+      ],
+      "low_signal": true
+    },
+    "enrichment_quality": {
+      "score": 2,
+      "factors": [
+        "has_title",
+        "has_linkedin"
+      ]
+    },
+    "social_quality": {
+      "score": 2,
+      "factors": [
+        "has_linkedin_profile",
+        "has_email"
+      ]
+    }
+  },
+  "fallback_mode": false,
+  "campaign_sequence": [
+    "bold_hook",
+    "outcome_proof",
+    "urgent_fomo"
+  ],
+  "messaging_angle": "high_conviction_mystery",
+  "campaign_tone": "confident",
+  "sequence_reasoning": "Low-context lead requires bold, curiosity-driven approach without specific personalization",
+  "messages": [
+    {
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Sarah,\nYou may not have heard of us, but that's by design. At 4Runr, we selectively partner with a handful of forward-thinking leaders, much like yourself. Our expertise? Building unadvertised, AI-powered infrastructures that silently fuel growth and operational efficiency.\nThe question isn't whether you need us; it's whether you want the strategic advantage we offer. Are you ready to explore the unknown and gain an edge?\nBest,\n[Your Name]",
+      "generation_attempt": 1,
+      "quality_score": 48.2,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "efficiency",
+        "growth",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 69,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "outcome_proof",
+      "subject": "Transforming Operations, Amplifying Results",
+      "body": "Hi Sarah,\nAs touched upon in my last note, the ever-changing business landscape demands more than makeshift solutions. Most companies are attaching AI onto dated systems, struggling to see tangible results.\nAt 4Runr, we don't just add AI \u2013 we transform operations. We've helped teams go from scattered tools to integrated systems overnight, driving up performance by an average of 65%. It's not about bells and whistles. It's about delivering compounding performance and concrete results.\nOur approach is strategic, bold, and consultative - always focused on outcomes that resonate with your bottom line.\nI'm curious, how is PulseNova currently leveraging AI and strategic consulting to improve operational efficiency?\nBest,\n[Your Name]",
+      "generation_attempt": 1,
+      "quality_score": 62.4,
+      "quality_issues": [
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "landscape",
+        "changing",
+        "efficiency",
+        "improve",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 111,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Sarah, not every CEO is ready to future-proof their operations with AI. But if you're serious about keeping PulseNova ahead, now is the time. Your competitors are already making strides. This exclusive opportunity won't wait. Let's strategize your next move. Schedule a call here.",
+      "generation_attempt": 1,
+      "quality_score": 48.9,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": true,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 44,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "bold_hook_attempt": 1,
+    "outcome_proof_attempt": 1,
+    "urgent_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "bold_hook_score": 48.2,
+    "outcome_proof_score": 62.4,
+    "urgent_fomo_score": 48.9,
+    "overall_score": 53.166666666666664
+  },
+  "quality_issues": [
+    "bold_hook: Low personalization score",
+    "bold_hook: Lacks strategic insight",
+    "bold_hook: Clarity issues",
+    "outcome_proof: Lacks strategic insight",
+    "outcome_proof: Clarity issues",
+    "urgent_fomo: Low personalization score",
+    "urgent_fomo: Lacks strategic insight",
+    "urgent_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "bold_hook": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "outcome_proof": [
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "urgent_fomo": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ]
+  },
+  "overall_quality_score": 53.166666666666664,
+  "decision_path": [
+    "traitdetector: Detected 2 traits (Primary: business_focus (35.0% confidence)): Primary: business_focus (35.0% confidence)",
+    "memorymanager: Retrieved memory for lead test_batch_001 (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected high_conviction_mystery angle with confident tone (Sequence: bold_hook \u2192 outcome_proof \u2192 urgent_fomo): Sequence: bold_hook \u2192 outcome_proof \u2192 urgent_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['bold_hook', 'outcome_proof', 'urgent_fomo']): Types: ['bold_hook', 'outcome_proof', 'urgent_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 53.2/100, Issues: 8): Overall score: 53.2/100, Issues: 8",
+    "qualitygatekeeper: APPROVED for delivery (Score 53.2 >= 50.0 threshold): Score 53.2 >= 50.0 threshold",
+    "injector: Successfully injected to email queue (Queue ID: queue_90c9fcdb35db): Queue ID: queue_90c9fcdb35db"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.APPROVED",
+  "status_reason": "Quality score 53.2 meets threshold 50.0",
+  "memory_context": {
+    "lead_id": "test_batch_001",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250801_134644_test_batch_001",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-08-01T13:46:44.792546"
+      }
+    ],
+    "trait_history": [
+      {
+        "traits": [
+          "role_ceo",
+          "business_focus"
+        ],
+        "confidence": {
+          "role_ceo": 30,
+          "business_focus": 35
+        },
+        "primary_trait": "business_focus",
+        "timestamp": "2025-08-01T13:46:44.792541"
+      }
+    ],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-08-01T13:46:44.792537",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "success",
+  "delivery_method": "email_automated",
+  "queue_id": "queue_90c9fcdb35db",
+  "airtable_update_status": null,
+  "formatted_linkedin_campaign": null,
+  "delivery_schedule": {
+    "bold_hook": "2025-08-01T13:46:59.864806",
+    "outcome_proof": "2025-08-04T13:46:59.864818",
+    "urgent_fomo": "2025-08-08T13:46:59.864823"
+  },
+  "errors": [],
+  "warnings": []
+}

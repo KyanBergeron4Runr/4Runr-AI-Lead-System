@@ -1,134 +1,194 @@
 # Implementation Plan
 
-- [x] 1. Set up project structure and initialize Node.js project
+- [x] 1. Set up project structure and shared modules
 
 
 
-  - Create the project directory structure
-  - Initialize Node.js project with npm init
-  - Create initial README.md with project overview
-  - _Requirements: 1.1, 1.2, 1.3_
+  - Create Python project directory structure with separate module folders (website_scraper, message_generator, email_validator, engager)
+  - Implement shared configuration module for environment variables and API keys
+  - Create shared Airtable client module with comprehensive field update capabilities
+  - Create shared logging utility with engagement tracking and JSON log export
+  - Create shared validation module for lead data and email format validation
 
 
 
 
-- [x] 2. Configure environment variables and dependencies
-  - [x] 2.1 Set up environment configuration
-    - Create .env file with required configuration variables
-    - Create .env.example template file
-    - Implement configuration loading module
-    - _Requirements: 4.1, 4.2, 4.3, 4.5_
+
+
+
+
+  - _Requirements: 6.1, 6.2, 6.3, 9.1, 9.4_
+
+- [ ] 2. Implement Website Scraper Agent
+  - [ ] 2.1 Create web scraping engine
+    - Set up Playwright for dynamic website scraping with browser automation
+
+
+    - Implement page prioritization logic (/about, /services, /home, /contact)
+    - Create fallback scraping for non-standard website structures
+    - Add content cleaning algorithms to remove navigation, footer, and cookie banners
+    - _Requirements: 1.1, 1.2, 1.3_
+
+
+
   
-  - [x] 2.2 Install and configure project dependencies
-    - Add dotenv for environment variable management
-    - Add airtable package for Airtable API access
-    - Add axios for HTTP requests
-    - Add chalk for console output formatting
-    - Configure package.json with scripts and metadata
-    - _Requirements: 1.1, 4.2_
+  - [ ] 2.2 Implement content analysis and extraction
+    - Create company description generator from About/Home page content
+    - Implement service extraction algorithm for Top_Services identification
+    - Build website tone analyzer (formal, bold, friendly, casual, professional)
+    - Store raw scraped content as Website_Insights for context preservation
+
+    - Update Airtable with Company_Description, Top_Services, Tone, and Website_Insights fields
+    - _Requirements: 1.4, 1.5, 1.6, 1.7_
+
+- [ ] 3. Implement Message Generator Agent
+  - [ ] 3.1 Set up AI integration for message generation
+    - Integrate OpenAI GPT or similar LLM service for personalized message creation
 
 
 
+    - Configure AI prompts to maintain 4Runr's helpful, strategic, non-salesy tone
+    - Implement message personalization using Company_Description, Top_Services, Tone, Lead_Name, Lead_Role, Company_Name
+    - Create message quality validation to ensure 4Runr brand standards
+    - _Requirements: 2.1, 2.2, 2.6, 2.7_
+  
+  - [x] 3.2 Implement engagement status determination
 
-- [x] 3. Implement Airtable client module
-  - [x] 3.1 Create Airtable client base functionality
-    - Implement connection to Airtable using API key
-    - Create error handling for API requests
-    - Write tests for connection functionality
+    - Create logic to set Engagement_Status based on Email_Confidence_Level
+    - Set Auto-Send for Real or Pattern email confidence levels
+    - Set Skip for Guess or empty email confidence levels
+    - Set Needs Review for uncertain message quality cases
+    - Update Airtable with Custom_Message and Engagement_Status fields
+
+
+
     - _Requirements: 2.3, 2.4, 2.5_
+
+- [ ] 4. Implement Email Validation Upgrade
+  - [ ] 4.1 Create email confidence classification system
+    - Implement Real classification for emails from direct scrape (mailto: or page copy)
+    - Implement Pattern classification for standard format emails (john.doe@company.com)
+
+    - Implement Guess classification for fallback logic generated emails
+    - Create email format validation with syntax and domain verification
+    - _Requirements: 3.1, 3.2, 3.3, 3.6_
   
-  - [x] 3.2 Implement lead management functions
-    - Create function to add new leads to Airtable
-    - Create function to fetch leads needing enrichment
-    - Add data validation for lead objects
-    - Write tests for lead management functions
-    - _Requirements: 2.1, 2.2, 2.4, 2.5_
+  - [ ] 4.2 Implement email deliverability validation
+    - Add optional SMTP verification for higher confidence email validation
 
-- [x] 4. Implement utility modules
+    - Implement domain MX record checking for email deliverability
 
+    - Create email validation scoring system for confidence assessment
+    - Update Airtable Email_Confidence_Level field with Real/Pattern/Guess classification
+    - _Requirements: 3.4, 3.5, 3.7_
 
-  - Create logging utility with chalk for formatted console output
-  - Implement data validation functions for lead objects
-  - Write tests for utility functions
-  - _Requirements: 3.5, 5.1_
+- [ ] 5. Implement Engager Agent
+  - [x] 5.1 Create engagement filtering and validation
 
-
-
-- [x] 5. Implement simulated LinkedIn scraper
-  - [x] 5.1 Create mock data generator
-    - Implement function to generate realistic mock lead data
-
-    - Ensure generated leads have required fields
-    - Write tests for mock data generation
-    - _Requirements: 3.1, 3.2, 3.3_
+    - Implement lead filtering to only process Real or Pattern email confidence levels
+    - Create skip logic for Guess or empty email confidence levels
+    - Add email format validation before sending attempts
+    - Implement engagement candidate selection based on validation gates
+    - _Requirements: 4.1, 4.2, 7.1, 7.4_
   
-  - [x] 5.2 Implement scraper execution logic
+  - [x] 5.2 Implement outreach execution and tracking
 
-    - Create main scraper function that generates and saves leads
-
-    - Integrate with Airtable client for saving leads
-    - Add console output for operation status
-    - Write tests for scraper execution
-    - _Requirements: 3.4, 3.5_
-
-- [x] 6. Create CLI entry points
-
-  - Implement script for running the scraper
-  - Create script for listing leads that need enrichment
-  - Add npm scripts to package.json
-  - _Requirements: 1.3, 3.5_
+    - Create email sending functionality using Custom_Message from Message Generator
+    - Implement comprehensive engagement logging with lead traceability
+    - Update Airtable Engagement_Status (Sent/Skipped/Error) after each attempt
+    - Record Message_Preview, Last_Contacted_Date, and Delivery_Method in Airtable
+    - Create JSON engagement logs for detailed analysis and audit trails
+    - _Requirements: 4.3, 4.4, 4.5, 4.6, 4.7_
 
 
+- [x] 6. Implement Airtable field structure and integration
 
-
-
-- [ ] 7. Complete project documentation
-  - [ ] 7.1 Update README.md with comprehensive information
-    - Add project overview and purpose
-
-
-    - Document module descriptions and architecture
-    - Include usage instructions and examples
-    - Add next steps and Phase 2 preview
-    - _Requirements: 5.2, 5.3, 5.4, 5.5_
-
+  - [ ] 6.1 Create comprehensive Airtable field management
+    - Implement Company_Description field as Long text for website summaries
+    - Create Top_Services field as Long text for key service offerings
+    - Set up Tone field as Single select (Bold, Formal, Friendly, Casual, Professional)
+    - Create Website_Insights field as Long text for raw scraped content storage
+    - _Requirements: 5.1, 5.2, 5.3, 5.4_
 
   
-  - [ ] 7.2 Add inline code documentation
-    - Add JSDoc comments to all functions
-    - Document complex logic with inline comments
-    - Ensure all modules have header documentation
-    - _Requirements: 5.1, 5.5_
+  - [ ] 6.2 Implement engagement tracking fields
+    - Create Email_Confidence_Level field as Single select (Real/Pattern/Guess)
+    - Set up Custom_Message field as Long text for AI-generated outreach messages
+    - Create Engagement_Status field as Single select (Sent/Skipped/Needs Review/Error)
 
-- [ ] 8. Set up Docker containerization
-  - [ ] 8.1 Create Docker configuration files
-    - Create Dockerfile with multi-stage build process
-    - Create .dockerignore file to exclude unnecessary files
-    - Write docker-compose.yml for local development
-    - _Requirements: 6.1, 6.2_
+
+    - Implement Message_Preview field as Long text for message snapshots
+
+    - Create Last_Contacted_Date field as Date for contact tracking
+    - Set up Delivery_Method field as Single select (Email/LinkedIn DM/Skipped)
+    - _Requirements: 5.5, 5.6, 5.7, 5.8, 5.9, 5.10_
+
+- [ ] 7. Implement modular architecture and pipeline orchestration
+  - Create independent module execution capabilities for each agent
+
+  - Implement main pipeline script for coordinated autonomous outreach execution
+  - Create CLI entry points for individual module testing and execution
+  - Add data flow validation between modules with error handling
+  - Implement pipeline health checks and comprehensive error reporting
+  - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5_
+
+- [ ] 8. Implement quality assurance and validation gates
+  - [ ] 8.1 Create fake lead prevention system
+    - Implement validation gates to prevent outreach to fake or invalid leads
+    - Create lead data quality assessment before processing
+    - Add email validation checkpoints throughout the pipeline
+    - Implement skip logic for leads that don't meet quality standards
+    - _Requirements: 7.1, 7.2, 7.4, 7.5_
   
-  - [ ] 8.2 Configure Docker for production
-    - Optimize Docker image for production use
-    - Create Docker entrypoint script for flexible execution
-    - Document Docker commands for different use cases
-    - _Requirements: 6.1, 6.2, 6.5_
+  - [ ] 8.2 Implement message quality control
+    - Create 4Runr brand compliance validation for generated messages
+    - Implement message uniqueness verification to avoid template-like content
+    - Add tone and value proposition validation for outreach messages
+    - Create message quality scoring system for review flagging
+    - _Requirements: 7.3_
 
-- [ ] 9. Prepare AWS EC2 deployment
-  - [ ] 9.1 Create deployment scripts
-    - Write script for setting up EC2 instance with Docker
-    - Create deployment documentation for AWS EC2
-    - Configure SSH access for manual execution
-    - _Requirements: 6.3, 6.4, 6.5_
+- [ ] 9. Implement comprehensive logging and monitoring
+  - [ ] 9.1 Create terminal logging system
+    - Implement real-time progress indicators for each module execution
+    - Create colorized console output for different log levels and statuses
+    - Add module activity logging with lead traceability
+    - Implement error logging with context and troubleshooting information
+    - _Requirements: 8.1, 8.3, 8.4_
   
-  - [ ] 9.2 Set up cron job configuration
-    - Create template for cron job setup
-    - Document cron job configuration for scheduled execution
-    - Include examples of common scheduling patterns
-    - _Requirements: 6.4, 6.5_
+  - [ ] 9.2 Implement JSON engagement logging
+    - Create structured JSON logs for each engagement attempt
+    - Include lead identifiers, timestamps, actions, and results in logs
+    - Implement log export functionality for analysis and reporting
+    - Add engagement history tracking across multiple outreach attempts
+    - _Requirements: 8.2, 8.5_
 
-- [ ] 10. Perform final testing and validation
-  - Test the complete workflow from scraping to saving in Airtable
-  - Verify Docker container functionality in local and EC2 environments
-  - Test manual and cron-based execution methods
-  - Ensure all requirements are met and documented
-  - _Requirements: 2.4, 3.5, 5.3, 6.3, 6.4_
+- [ ] 10. Configure Docker containerization and deployment
+  - [ ] 10.1 Create production Docker configuration
+    - Write Dockerfile with multi-stage build for Python application
+    - Include Playwright browser dependencies and AI service clients
+    - Configure environment variable handling for API keys and configuration
+    - Add email service dependencies and SMTP client libraries
+    - _Requirements: 9.2, 9.4_
+  
+  - [ ] 10.2 Set up container orchestration and execution
+    - Create docker-compose.yml for local development and testing
+    - Configure container networking for external service access
+    - Add health checks and restart policies for production reliability
+    - Create execution scripts for autonomous, module, manual, and batch modes
+    - _Requirements: 9.3, 9.5_
+
+- [ ] 11. Implement comprehensive testing and validation
+  - Write unit tests for each module with real data validation scenarios
+  - Create integration tests for end-to-end pipeline data flow
+  - Test message quality and 4Runr brand compliance validation
+  - Validate email confidence classification accuracy with test datasets
+  - Test Docker container functionality and deployment procedures
+  - Create test scenarios for validation gate effectiveness
+
+- [ ] 12. Complete documentation and system validation
+  - Update README with autonomous outreach system overview and module descriptions
+  - Document AI integration, email validation, and engagement tracking procedures
+  - Create troubleshooting guide for production issues and error scenarios
+  - Document Airtable field structure and data flow between modules
+  - Perform end-to-end system validation with real lead data
+  - Create user guide for system operation and monitoring

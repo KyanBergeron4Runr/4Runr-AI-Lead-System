@@ -1,0 +1,35 @@
+{
+  "campaign_id": "brain_20250801_131231_2ab5f216",
+  "lead_id": "test_batch_001",
+  "lead_data": {
+    "name": "Emma Rodriguez",
+    "email": "kyanberg@outlook.com",
+    "title": "Manager",
+    "company": "TechFlow"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_director"
+    ],
+    "primary_trait": "role_director",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 52.5,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_131228_test_batch_001"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "fallback_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Emma,\nWe're 4Runr, the silent catalyst driving mid-sized teams like TechFlow to new performance heights. Intrigued? Let's uncover what this could mean for you.\n- 4Runr Team",
+      "quality_score": 52.5,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T13:12:31.447819",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:12:31.447829",
+  "campaign_status": "active"
+}

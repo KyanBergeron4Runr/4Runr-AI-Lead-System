@@ -1,0 +1,276 @@
+{
+  "execution_id": "campaign_20250801_134659_test_batch_002",
+  "timestamp": "2025-08-01T13:46:59.871374",
+  "node_path": [
+    "traitdetector_2025-08-01T13:46:59.872333",
+    "memorymanager_2025-08-01T13:46:59.878498",
+    "campaignplanner_2025-08-01T13:46:59.880046",
+    "messagegenerator_2025-08-01T13:46:59.881857",
+    "messagereviewer_2025-08-01T13:47:11.986944",
+    "qualitygatekeeper_2025-08-01T13:47:11.988314",
+    "injector_2025-08-01T13:47:11.989577"
+  ],
+  "lead_data": {
+    "id": "test_batch_002",
+    "Name": "David Rodriguez",
+    "Company": "BrightForge",
+    "Title": "CEO",
+    "Email": "kyanberg@outlook.com",
+    "LinkedIn_URL": "https://linkedin.com/in/davidrodriguez-brightforge",
+    "Website": "https://4runrtech.com/",
+    "company_data": {
+      "description": "",
+      "services": "",
+      "tone": "Professional",
+      "website_insights": ""
+    },
+    "scraped_content": {
+      "homepage_text": "",
+      "about_page": ""
+    }
+  },
+  "company_data": {
+    "description": "",
+    "services": "",
+    "tone": "Professional",
+    "website_insights": ""
+  },
+  "scraped_content": {
+    "homepage_text": "",
+    "about_page": ""
+  },
+  "traits": [
+    "role_ceo",
+    "business_focus"
+  ],
+  "trait_confidence": {
+    "role_ceo": 30,
+    "business_focus": 35
+  },
+  "trait_reasoning": {
+    "role_ceo": "Title contains: ceo",
+    "business_focus": "Business indicators: ceo"
+  },
+  "primary_trait": "business_focus",
+  "is_low_context": true,
+  "data_quality": {
+    "quality_score": 4,
+    "quality_factors": [
+      "no_website_content",
+      "has_title",
+      "has_linkedin",
+      "has_linkedin_profile",
+      "has_email"
+    ],
+    "fallback_mode": false,
+    "fallback_reason": null,
+    "website_quality": {
+      "score": 0,
+      "factors": [
+        "no_website_content"
+      ],
+      "low_signal": true
+    },
+    "enrichment_quality": {
+      "score": 2,
+      "factors": [
+        "has_title",
+        "has_linkedin"
+      ]
+    },
+    "social_quality": {
+      "score": 2,
+      "factors": [
+        "has_linkedin_profile",
+        "has_email"
+      ]
+    }
+  },
+  "fallback_mode": false,
+  "campaign_sequence": [
+    "bold_hook",
+    "outcome_proof",
+    "urgent_fomo"
+  ],
+  "messaging_angle": "high_conviction_mystery",
+  "campaign_tone": "confident",
+  "sequence_reasoning": "Low-context lead requires bold, curiosity-driven approach without specific personalization",
+  "messages": [
+    {
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "\"Hello David,\nEver wonder why some businesses consistently outperform others? It's not luck - it's strategic choice. They've discovered 4Runr. We're the exclusive partner that top performers don't want you to know about.\nOur unique blend of AI and strategy quietly transforms operations, creating a competitive advantage that's hard to beat. But we're selective - we only work with leaders ready to make bold moves.\nCurious about the edge you're missing out on? Let's reveal your untapped potential.\nBest,\n[Your Name]\"",
+      "generation_attempt": 1,
+      "quality_score": 52.4,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "competitive",
+        "advantage",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 81,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "outcome_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello David,\nIn our last communication, we touched on the game-changing potential of AI and strategic consulting. Now, let's talk impact.\nMany companies try to retrofit AI onto outdated systems - a band-aid solution. At 4Runr, we transform this approach. We've turned companies from using scattered tools to operating full, integrated systems, overnight.\nWhat's the result? Our clients have seen a 35% increase in operational efficiency within 6 months. No fluff, just compounding performance. This is the power of a results-driven strategy.\nDavid, how is BrightForge currently leveraging technology for operations? Can we explore how to maximize its potential together?\nBest,\n[Your Name]",
+      "generation_attempt": 1,
+      "quality_score": 66.6,
+      "quality_issues": [
+        "Lacks strategic insight"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "changing",
+        "efficiency",
+        "performance",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 103,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "David, this opportunity isn't for everyone. If you're committed to future-proofing BrightForge's operations, then it's time to act. Several of your competitors are already taking strides. Don't let them leave you behind. Connect with us at 4Runr today to secure your competitive edge. This is your final chance - let's discuss next steps.",
+      "generation_attempt": 1,
+      "quality_score": 56.0,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "competitive",
+        "strategic",
+        "competitive edge"
+      ],
+      "tone_indicators": [],
+      "word_count": 53,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "bold_hook_attempt": 1,
+    "outcome_proof_attempt": 1,
+    "urgent_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "bold_hook_score": 52.4,
+    "outcome_proof_score": 66.6,
+    "urgent_fomo_score": 56.0,
+    "overall_score": 58.333333333333336
+  },
+  "quality_issues": [
+    "bold_hook: Low personalization score",
+    "bold_hook: Lacks strategic insight",
+    "outcome_proof: Lacks strategic insight",
+    "urgent_fomo: Low personalization score",
+    "urgent_fomo: Lacks strategic insight",
+    "urgent_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "bold_hook": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions"
+    ],
+    "outcome_proof": [
+      "Include market observations or business value propositions"
+    ],
+    "urgent_fomo": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ]
+  },
+  "overall_quality_score": 58.333333333333336,
+  "decision_path": [
+    "traitdetector: Detected 2 traits (Primary: business_focus (35.0% confidence)): Primary: business_focus (35.0% confidence)",
+    "memorymanager: Retrieved memory for lead test_batch_002 (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected high_conviction_mystery angle with confident tone (Sequence: bold_hook \u2192 outcome_proof \u2192 urgent_fomo): Sequence: bold_hook \u2192 outcome_proof \u2192 urgent_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['bold_hook', 'outcome_proof', 'urgent_fomo']): Types: ['bold_hook', 'outcome_proof', 'urgent_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 58.3/100, Issues: 6): Overall score: 58.3/100, Issues: 6",
+    "qualitygatekeeper: APPROVED for delivery (Score 58.3 >= 50.0 threshold): Score 58.3 >= 50.0 threshold",
+    "injector: Successfully injected to email queue (Queue ID: queue_c117b8a084ab): Queue ID: queue_c117b8a084ab"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.APPROVED",
+  "status_reason": "Quality score 58.3 meets threshold 50.0",
+  "memory_context": {
+    "lead_id": "test_batch_002",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250801_134659_test_batch_002",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-08-01T13:46:59.878735"
+      }
+    ],
+    "trait_history": [
+      {
+        "traits": [
+          "role_ceo",
+          "business_focus"
+        ],
+        "confidence": {
+          "role_ceo": 30,
+          "business_focus": 35
+        },
+        "primary_trait": "business_focus",
+        "timestamp": "2025-08-01T13:46:59.878730"
+      }
+    ],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-08-01T13:46:59.878727",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "success",
+  "delivery_method": "email_automated",
+  "queue_id": "queue_c117b8a084ab",
+  "airtable_update_status": null,
+  "formatted_linkedin_campaign": null,
+  "delivery_schedule": {
+    "bold_hook": "2025-08-01T13:47:11.992038",
+    "outcome_proof": "2025-08-04T13:47:11.992048",
+    "urgent_fomo": "2025-08-08T13:47:11.992052"
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,57 @@
+{
+  "campaign_id": "brain_20250801_114107_8edd65db",
+  "lead_id": "test_low_signal_002",
+  "lead_data": {
+    "name": "Sarah Johnson",
+    "email": "sarah@modernsolutions.com",
+    "title": "VP Operations",
+    "company": "Modern Solutions Inc"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_vp",
+      "senior_decision_maker",
+      "business_focus"
+    ],
+    "primary_trait": "senior_decision_maker",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 57.03333333333333,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_114051_test_low_signal_002"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "\"Unlock Your Untapped Advantage\"",
+      "body": "\"Hi Sarah,\nEver wonder why some businesses always seem a step ahead? They might be part of our exclusive circle. At 4Runr, we empower a select few with AI-driven operational strategies that silently change the game.\nOur partnerships are discreet; the results are not. Increased efficiency, optimized operations, a notable competitive edge - all under the radar.\nCurious about what 4Runr could do for your operations? Let's just say, we\u2019re not your average consulting firm. Are you ready to join the ranks?\nBest,\n[Your Name]\"",
+      "quality_score": 58.7,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T11:41:07.203615",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Transforming Operations: Proven Results, No Fluff",
+      "body": "Hello Sarah,\nFollowing up on my previous note, I've noticed that many operation leaders, like yourself, face the challenge of integrating AI into outdated systems - an often inefficient and disjointed process.\nAt 4Runr, we focus on delivering tangible results. We've enabled teams to transition from scattered tools to consolidated, effective systems virtually overnight. One of our clients saw a 35% increase in operational efficiency within the first quarter of implementation.\nOur approach? No fluff. Just compounding performance. We're passionate about driving meaningful transformations that boost performance and deliver measurable outcomes.\nCurious to know, how is Modern Solutions Inc. currently navigating the integration of AI into your operations?\nBest,\n[Your Name]",
+      "quality_score": 58.5,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T11:41:07.203623",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Sarah, not all businesses are ready for a strategic leap in operations optimization. If you're serious about future-proofing Modern Solutions Inc, the time is now. Some of your competitors have already begun their journey. Let's ensure you're not left behind. Connect with us at 4Runr for an exclusive, high-value consultation. This window won't stay open forever. Are you ready to take the next step?",
+      "quality_score": 53.9,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-08T11:41:07.203627",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T11:41:07.203633",
+  "campaign_status": "active"
+}

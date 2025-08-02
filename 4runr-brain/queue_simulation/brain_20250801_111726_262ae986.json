@@ -1,0 +1,53 @@
+{
+  "campaign_id": "brain_20250801_111726_262ae986",
+  "lead_id": "recqux3tKNc61GjGs",
+  "lead_data": {
+    "name": "Pascal Jarry",
+    "email": "pascaljarry@membogo.com",
+    "title": "Professional",
+    "company": "Yapla"
+  },
+  "campaign_metadata": {
+    "traits": [],
+    "primary_trait": "",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 54.166666666666664,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_111650_recqux3tKNc61GjGs"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "\"Hello Pascal,\nYou might not have heard of us. That's by design. 4Runr strategically partners with a select few to bring about game-changing transformations in their operations.\nOur AI-driven strategies are the silent force behind many successes. They're not publicized, because who reveals their ace in the hole?\nWe empower businesses to outperform, outsmart, and outlast their competition. Curious about what 4Runr can do for you?\nLet's explore the uncharted territories of your potential together.\nBest,\n[Your Name]\"",
+      "quality_score": 50.2,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-01T11:17:26.489673",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Pascal,\nIn our previous outreach, we spoke of potential. Today, we're about results. In the business landscape, the struggle to integrate AI into existing systems is a common roadblock.\nWe at 4Runr have seen scattered tools transform into complete AI-enabled systems - virtually overnight. Our clients have seen significant performance improvements with this shift. We're talking about a 30% increase in operational efficiency and a 25% reduction in costs. No fluff, just compounding performance.\n4Runr is driven by results. We're not interested in selling a service but partnering for success.\nConsidering your role at Yapla, how are you currently handling the integration of new technologies into your operations?\nLooking forward to your insights.\nBest,\n[Your Name]",
+      "quality_score": 62.2,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-04T11:17:26.489683",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "\"Pascal, we at 4Runr understand not every business is ready for strategic operational optimization. However, if Yapla is serious about gaining an edge, now is the time to act. Your competitors are already making their moves. Seize this exclusive opportunity - it's not for everyone, but it could be for Yapla. Let's discuss how we can future-proof your operations. Act now, Pascal. Reach out directly to schedule your consultation.\"",
+      "quality_score": 50.1,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-08T11:17:26.489688",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T11:17:26.489694",
+  "campaign_status": "active"
+}

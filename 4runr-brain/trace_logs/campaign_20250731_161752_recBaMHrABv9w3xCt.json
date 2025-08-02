@@ -1,0 +1,261 @@
+{
+  "execution_id": "campaign_20250731_161752_recBaMHrABv9w3xCt",
+  "timestamp": "2025-07-31T16:17:52.750163",
+  "node_path": [
+    "traitdetector_2025-07-31T16:17:52.761725",
+    "memorymanager_2025-07-31T16:17:52.764279",
+    "campaignplanner_2025-07-31T16:17:52.765932",
+    "messagegenerator_2025-07-31T16:17:52.768500",
+    "messagereviewer_2025-07-31T16:18:14.266378",
+    "qualitygatekeeper_2025-07-31T16:18:14.268269",
+    "injector_2025-07-31T16:18:14.270222"
+  ],
+  "lead_data": {
+    "id": "recBaMHrABv9w3xCt",
+    "Name": "Yves-Gabriel Leboeuf",
+    "LinkedIn_URL": "https://ca.linkedin.com/in/ygl",
+    "Company": "Unknown Company",
+    "company_data": {
+      "description": "Professional services company",
+      "services": "Business consulting and professional services",
+      "tone": "Professional"
+    },
+    "scraped_content": {
+      "homepage_text": "Professional services and business consulting",
+      "about_page": "Established professional services firm"
+    }
+  },
+  "company_data": {
+    "description": "Professional services company",
+    "services": "Business consulting and professional services",
+    "tone": "Professional"
+  },
+  "scraped_content": {
+    "homepage_text": "Professional services and business consulting",
+    "about_page": "Established professional services firm"
+  },
+  "traits": [
+    "smb",
+    "agency",
+    "consultancy",
+    "mature",
+    "formal"
+  ],
+  "trait_confidence": {
+    "smb": 14.3,
+    "agency": 27.5,
+    "consultancy": 44.0,
+    "mature": 14.3,
+    "formal": 36.7
+  },
+  "trait_reasoning": {
+    "smb": "Matched keywords: established",
+    "agency": "Matched keywords: services, consulting",
+    "consultancy": "Matched keywords: consulting, professional services",
+    "mature": "Matched keywords: established",
+    "formal": "Matched keywords: professional, business"
+  },
+  "primary_trait": "consultancy",
+  "campaign_sequence": [
+    "client_hook",
+    "capability_proof",
+    "competitive_fomo"
+  ],
+  "messaging_angle": "client_success",
+  "campaign_tone": "professional",
+  "sequence_reasoning": "Agencies care about client outcomes and competitive differentiation (based on trait: agency)",
+  "messages": [
+    {
+      "message_type": "client_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Yves-Gabriel,\nI recently visited your website and was impressed by your commitment to providing top-notch business consulting and professional services. Your established firm has evidently made a mark in this industry.\nHowever, as a mature consultancy firm, you must have encountered the evolving operational challenges that come with a rapidly changing business landscape. Industry trends are increasingly emphasizing the need for operational efficiency and strategic business optimization.\nAt 4Runr, we specialize in leveraging AI and strategic insights to help businesses like yours streamline their operations, thereby increasing efficiency and effectiveness. We're not just service providers, but strategic partners focused on optimizing your business success.\nI'd love to explore how we might collaborate to further enhance your operational efficiency. Could we schedule a brief conversation at a time that works for you?\nBest regards,",
+      "generation_attempt": 1,
+      "quality_score": 53.5,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "industry",
+        "landscape",
+        "efficiency",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 134,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "capability_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Yves-Gabriel Leboeuf,\nI came across your company while researching established professional services firms and was impressed by your focus on business consulting.\nIn today's competitive market, operational efficiency is no longer an option but a necessity. I've noticed that many consultancy firms like yours are grappling with how to streamline operations and boost performance, while also staying ahead of industry trends.\nAt 4Runr, we specialize in helping businesses optimize their operations through strategic consulting and AI solutions. Our approach could complement your business consulting services and potentially bring new levels of efficiency and effectiveness to your operations.\nCould we set aside a few minutes for a brief conversation to explore this possibility?\nBest regards,",
+      "generation_attempt": 1,
+      "quality_score": 57.5,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": true,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "market",
+        "industry",
+        "efficiency",
+        "optimize",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 115,
+      "readability_score": 0.0,
+      "brand_compliance_score": 95.0
+    },
+    {
+      "message_type": "competitive_fomo",
+      "subject": "Enhancing Your Consultancy Success Through Strategic Optimization",
+      "body": "Hello Yves-Gabriel,\nI recently visited your website and was impressed by your commitment to providing top-notch business consulting and professional services. As an established firm in your industry, I am sure you understand the importance of staying ahead of industry trends and navigating operational challenges efficiently.\nGiven the evolving nature of the consultancy landscape, how are you optimizing your operations to maintain an edge over your competitors? At 4Runr, we specialize in leveraging AI to streamline business processes and optimize operations, which has proven instrumental for many consultancies like yours.\nWould you be interested in a brief conversation on how strategic optimization could drive your consultancy\u2019s success even further?\nBest regards,",
+      "generation_attempt": 1,
+      "quality_score": 51.1,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": true,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "industry",
+        "landscape",
+        "optimize",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 111,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "client_hook_attempt": 1,
+    "capability_proof_attempt": 1,
+    "competitive_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "client_hook_score": 53.5,
+    "capability_proof_score": 57.5,
+    "competitive_fomo_score": 51.1,
+    "overall_score": 54.03333333333333
+  },
+  "quality_issues": [
+    "client_hook: Low personalization score",
+    "client_hook: Lacks strategic insight",
+    "client_hook: Tone mismatch",
+    "capability_proof: Low personalization score",
+    "capability_proof: Lacks strategic insight",
+    "capability_proof: Tone mismatch",
+    "capability_proof: Clarity issues",
+    "competitive_fomo: Low personalization score",
+    "competitive_fomo: Lacks strategic insight",
+    "competitive_fomo: Tone mismatch"
+  ],
+  "quality_feedback": {
+    "client_hook": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone"
+    ],
+    "capability_proof": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "competitive_fomo": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone"
+    ]
+  },
+  "overall_quality_score": 54.03333333333333,
+  "decision_path": [
+    "traitdetector: Detected 5 traits (Primary: consultancy (44.0% confidence)): Primary: consultancy (44.0% confidence)",
+    "memorymanager: Retrieved memory for lead recBaMHrABv9w3xCt (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected client_success angle with professional tone (Sequence: client_hook \u2192 capability_proof \u2192 competitive_fomo): Sequence: client_hook \u2192 capability_proof \u2192 competitive_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['client_hook', 'capability_proof', 'competitive_fomo']): Types: ['client_hook', 'capability_proof', 'competitive_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 54.0/100, Issues: 10): Overall score: 54.0/100, Issues: 10",
+    "qualitygatekeeper: APPROVED for delivery (Score 54.0 >= 50.0 threshold): Score 54.0 >= 50.0 threshold"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.MANUAL_REVIEW",
+  "status_reason": "Failed to update Airtable with manual LinkedIn campaign",
+  "memory_context": {
+    "lead_id": "recBaMHrABv9w3xCt",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250731_161752_recBaMHrABv9w3xCt",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-07-31T16:17:52.764567"
+      }
+    ],
+    "trait_history": [
+      {
+        "traits": [
+          "smb",
+          "agency",
+          "consultancy",
+          "mature",
+          "formal"
+        ],
+        "confidence": {
+          "smb": 14.3,
+          "agency": 27.5,
+          "consultancy": 44.0,
+          "mature": 14.3,
+          "formal": 36.7
+        },
+        "primary_trait": "consultancy",
+        "timestamp": "2025-07-31T16:17:52.764560"
+      }
+    ],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-07-31T16:17:52.764557",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "failed",
+  "delivery_method": "manual_linkedin",
+  "queue_id": null,
+  "airtable_update_status": "failed",
+  "formatted_linkedin_campaign": "CLIENT_HOOK: Hello {{first_name}},\nI recently visited your website and was impressed by your commitment to providing top-notch business consulting and professional services. Your established firm has evidently made a mark in this industry.\nHowever, as a mature consultancy firm, you must have encountered the evolving operational challenges that come with a rapidly changing business landscape. Industry trends are increasingly emphasizing the need for operational efficiency and strategic business optimization.\nAt 4Runr, we specialize in leveraging AI and strategic insights to help businesses like yours streamline their operations, thereby increasing efficiency and effectiveness. We're not just service providers, but strategic partners focused on optimizing your business success.\nI'd love to explore how we might collaborate to further enhance your operational efficiency. Could we schedule a brief conversation at a time that works for you?\nBest regards,  CAPABILITY_PROOF: Dear {{first_name}} Leboeuf,\nI came across your company while researching established professional services firms and was impressed by your focus on business consulting.\nIn today's competitive market, operational efficiency is no longer an option but a necessity. I've noticed that many consultancy firms like yours are grappling with how to streamline operations and boost performance, while also staying ahead of industry trends.\nAt 4Runr, we specialize in helping businesses optimize their operations through strategic consulting and AI solutions. Our approach could complement your business consulting services and potentially bring new levels of efficiency and effectiveness to your operations.\nCould we set aside a few minutes for a brief conversation to explore this possibility?\nBest regards,  COMPETITIVE_FOMO: Hello {{first_name}},\nI recently visited your website and was impressed by your commitment to providing top-notch business consulting and professional services. As an established firm in your industry, I am sure you understand the importance of staying ahead of industry trends and navigating operational challenges efficiently.\nGiven the evolving nature of the consultancy landscape, how are you optimizing your operations to maintain an edge over your competitors? At 4Runr, we specialize in leveraging AI to streamline business processes and optimize operations, which has proven instrumental for many consultancies like yours.\nWould you be interested in a brief conversation on how strategic optimization could drive your consultancy\u2019s success even further?\nBest regards,",
+  "delivery_schedule": null,
+  "errors": [],
+  "warnings": []
+}

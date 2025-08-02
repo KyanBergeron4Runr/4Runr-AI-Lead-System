@@ -1,0 +1,124 @@
+version: '3.8'
+
+services:
+  # Full Pipeline Service
+  pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile.pipeline
+    container_name: 4runr-validation-pipeline
+    environment:
+      - HEADLESS=true
+      - RUN_ONCE=true
+      - LINKEDIN_EMAIL=${LINKEDIN_EMAIL}
+      - LINKEDIN_PASSWORD=${LINKEDIN_PASSWORD}
+      - LINKEDIN_SEARCH_QUERY=${LINKEDIN_SEARCH_QUERY:-CEO}
+      - LINKEDIN_SEARCH_LOCATION=${LINKEDIN_SEARCH_LOCATION:-Montreal, Quebec, Canada}
+      - MAX_LEADS_PER_RUN=${MAX_LEADS_PER_RUN:-20}
+      - AIRTABLE_API_KEY=${AIRTABLE_API_KEY}
+      - AIRTABLE_BASE_ID=${AIRTABLE_BASE_ID}
+      - AIRTABLE_TABLE_NAME=${AIRTABLE_TABLE_NAME:-Leads}
+    volumes:
+      - ./shared:/app/shared
+      - ./logs:/app/logs
+    command: ["pipeline"]
+    restart: "no"
+
+  # Individual Agent Services
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile.pipeline
+    container_name: 4runr-scraper
+    environment:
+      - HEADLESS=true
+      - RUN_ONCE=true
+      - LINKEDIN_EMAIL=${LINKEDIN_EMAIL}
+      - LINKEDIN_PASSWORD=${LINKEDIN_PASSWORD}
+      - LINKEDIN_SEARCH_QUERY=${LINKEDIN_SEARCH_QUERY:-CEO}
+      - LINKEDIN_SEARCH_LOCATION=${LINKEDIN_SEARCH_LOCATION:-Montreal, Quebec, Canada}
+      - MAX_LEADS_PER_RUN=${MAX_LEADS_PER_RUN:-20}
+    volumes:
+      - ./shared:/app/shared
+      - ./logs:/app/logs
+    command: ["scraper"]
+    restart: "no"
+
+  verifier:
+    build:
+      context: .
+      dockerfile: Dockerfile.pipeline
+    container_name: 4runr-verifier
+    environment:
+      - HEADLESS=true
+      - RUN_ONCE=true
+    volumes:
+      - ./shared:/app/shared
+      - ./logs:/app/logs
+    command: ["verifier"]
+    restart: "no"
+    depends_on:
+      - scraper
+
+  enricher:
+    build:
+      context: .
+      dockerfile: Dockerfile.pipeline
+    container_name: 4runr-enricher
+    environment:
+      - RUN_ONCE=true
+    volumes:
+      - ./shared:/app/shared
+      - ./logs:/app/logs
+    command: ["enricher"]
+    restart: "no"
+    depends_on:
+      - verifier
+
+  engager:
+    build:
+      context: .
+      dockerfile: Dockerfile.pipeline
+    container_name: 4runr-engager
+    environment:
+      - RUN_ONCE=true
+      - AIRTABLE_API_KEY=${AIRTABLE_API_KEY}
+      - AIRTABLE_BASE_ID=${AIRTABLE_BASE_ID}
+      - AIRTABLE_TABLE_NAME=${AIRTABLE_TABLE_NAME:-Leads}
+    volumes:
+      - ./shared:/app/shared
+      - ./logs:/app/logs
+    command: ["engager"]
+    restart: "no"
+    depends_on:
+      - enricher
+
+  # Health Check Service
+  health-check:
+    build:
+      context: .
+      dockerfile: Dockerfile.pipeline
+    container_name: 4runr-health-check
+    volumes:
+      - ./shared:/app/shared
+      - ./logs:/app/logs
+    command: ["health"]
+    restart: "no"
+
+  # Test Service
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.pipeline
+    container_name: 4runr-test
+    volumes:
+      - ./shared:/app/shared
+      - ./logs:/app/logs
+    command: ["test"]
+    restart: "no"
+
+volumes:
+  shared_data:
+    driver: local
+  logs_data:
+    driver: local

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Emma Rodriguez",
+    "role": "Manager",
+    "company": "TechFlow",
+    "website": "",
+    "email": "kyanberg@outlook.com",
+    "linkedin_url": "",
+    "title": "Manager",
+    "company_description": "",
+    "sector": "",
+    "industry": ""
+  },
+  {
+    "name": "James Wilson",
+    "role": "Director", 
+    "company": "DataCorp",
+    "website": "",
+    "email": "kyanberg@outlook.com",
+    "linkedin_url": "",
+    "title": "Director",
+    "company_description": "",
+    "sector": "",
+    "industry": ""
+  },
+  {
+    "name": "Lisa Park",
+    "role": "VP",
+    "company": "CloudTech", 
+    "website": "",
+    "email": "kyanberg@outlook.com",
+    "linkedin_url": "",
+    "title": "VP",
+    "company_description": "",
+    "sector": "",
+    "industry": ""
+  }
+]

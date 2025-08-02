@@ -1,0 +1,48 @@
+[
+  {
+    "timestamp": "2025-07-29T11:47:00.948126",
+    "module": "enhanced_scraper",
+    "action": "enhanced_scraper",
+    "lead_id": "test_trivago",
+    "status": "start",
+    "details": {
+      "message": "Enhanced scraping for https://www.trivago.ca/"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T11:47:02.051886",
+    "module": "enhanced_scraper",
+    "action": "enhanced_scraper",
+    "lead_id": "test_trivago",
+    "status": "success",
+    "details": {
+      "message": "Enhanced scraping completed",
+      "features_found": 0,
+      "tech_mentions": true,
+      "headers_found": 7
+    }
+  },
+  {
+    "timestamp": "2025-07-29T11:52:30.063836",
+    "module": "enhanced_scraper",
+    "action": "enhanced_scraper",
+    "lead_id": "test_trivago",
+    "status": "start",
+    "details": {
+      "message": "Enhanced scraping for https://www.trivago.ca/"
+    }
+  },
+  {
+    "timestamp": "2025-07-29T11:52:31.223944",
+    "module": "enhanced_scraper",
+    "action": "enhanced_scraper",
+    "lead_id": "test_trivago",
+    "status": "success",
+    "details": {
+      "message": "Enhanced scraping completed",
+      "features_found": 0,
+      "tech_mentions": true,
+      "headers_found": 7
+    }
+  }
+]

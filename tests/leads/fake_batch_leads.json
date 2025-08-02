@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Sarah Mitchell",
+    "role": "CEO",
+    "company": "PulseNova",
+    "website": "https://4runrtech.com/",
+    "email": "kyanberg@outlook.com",
+    "linkedin_url": "https://linkedin.com/in/sarahmitchell",
+    "title": "CEO",
+    "company_description": "",
+    "sector": "",
+    "industry": ""
+  },
+  {
+    "name": "David Chen",
+    "role": "CEO", 
+    "company": "BrightForge",
+    "website": "https://4runrtech.com/",
+    "email": "kyanberg@outlook.com",
+    "linkedin_url": "https://linkedin.com/in/davidchen",
+    "title": "CEO",
+    "company_description": "",
+    "sector": "",
+    "industry": ""
+  },
+  {
+    "name": "Amina Hassan",
+    "role": "CEO",
+    "company": "MetaScale", 
+    "website": "https://4runrtech.com/",
+    "email": "kyanberg@outlook.com",
+    "linkedin_url": "https://linkedin.com/in/aminahassan",
+    "title": "CEO",
+    "company_description": "",
+    "sector": "",
+    "industry": ""
+  }
+]

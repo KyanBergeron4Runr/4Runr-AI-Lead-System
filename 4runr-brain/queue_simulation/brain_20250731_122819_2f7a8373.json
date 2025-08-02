@@ -1,0 +1,67 @@
+{
+  "campaign_id": "brain_20250731_122819_2f7a8373",
+  "lead_id": "email_test_001",
+  "lead_data": {
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@cloudtech.com",
+    "title": "VP of Product",
+    "company": "CloudTech Solutions"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "enterprise",
+      "startup",
+      "saas",
+      "api_first",
+      "cloud_native",
+      "ai_powered",
+      "disruptor",
+      "early_stage",
+      "transformation",
+      "formal",
+      "technical",
+      "role_vp",
+      "senior_decision_maker"
+    ],
+    "primary_trait": "saas",
+    "messaging_angle": "platform_optimization",
+    "campaign_tone": "technical",
+    "overall_quality_score": 72.66666666666667,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250731_122755_email_test_001"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "platform_hook",
+      "subject": "Line:** Elevating CloudTech's SaaS Capabilities with Strategic Optimization",
+      "body": "Body:**\nHi Sarah,\nIn the rapidly evolving SaaS landscape, maintaining seamless integration while optimizing operational efficiency is pivotal. As CloudTech Solutions continues to lead in enterprise workflow transformation, the strategic deployment of AI-driven platforms is becoming a significant differentiator.\nAt 4Runr, we specialize in harnessing AI to enhance platform architecture and boost performance. Our expertise lies in crafting bespoke solutions that align with your API-first and cloud-native strategies, ensuring a robust and scalable framework for your SaaS offerings.\nI\u2019d love to explore how we can support CloudTech\u2019s journey towards even greater efficiency and innovation. Could we schedule a brief conversation to discuss potential synergies?\nBest regards,\n[Your Full Name]\nStrategic Outreach Specialist\n4Runr",
+      "quality_score": 73.0,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-07-31T12:28:19.861093",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "integration_proof",
+      "subject": "Line:** Elevating SaaS Efficiency in an API-First World",
+      "body": "Body:**\nHi Sarah,\nIn the evolving landscape of SaaS and enterprise workflow management, the race to optimize platform performance while maintaining flexibility is more crucial than ever. At CloudTech Solutions, your commitment to digital transformation and API-first strategies stands out as a beacon of innovation.\nIn this climate, achieving peak operational efficiency isn't just about scaling infrastructure\u2014it's about architecting solutions that anticipate tomorrow's challenges today. At 4Runr, we specialize in enhancing platform capabilities through strategic AI and consulting, ensuring your systems not only meet but exceed industry benchmarks.\nWould you be open to a brief conversation on how we can collaboratively drive CloudTech's operational excellence further?\nLooking forward to exploring synergies.\nBest regards,\n[Your Full Name]\nStrategic Outreach Specialist\n4Runr",
+      "quality_score": 75.7,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T12:28:19.861107",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "market_fomo",
+      "subject": "Line:** Elevating CloudTech's SaaS Architecture for the Future",
+      "body": "Body:**\nHi Sarah,\nIn today's rapidly evolving SaaS landscape, staying ahead demands not just innovation but also strategic optimization of existing platforms. As CloudTech Solutions continues to lead in enterprise workflow management, ensuring your architecture remains agile and robust is crucial.\nAt 4Runr, we specialize in enhancing operational efficiency through AI-driven insights and advanced platform strategies. Our approach aligns with the needs of cloud-native disruptors like CloudTech, focusing on seamless API integrations and scalable solutions.\nI\u2019d love to explore how we can strategically support CloudTech\u2019s ongoing transformation efforts. Are you open to a brief conversation to discuss potential synergies?\nBest regards,\n[Your Full Name]\nStrategic Outreach Specialist\n4Runr",
+      "quality_score": 69.3,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-07T12:28:19.861114",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-07-31T12:28:19.861120",
+  "campaign_status": "active"
+}

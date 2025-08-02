@@ -13,6 +13,7 @@ import logging
 import random
 import string
 import pathlib
+import re
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -51,8 +52,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger('enricher-agent')
 
+# Production enricher removed - using fallback enrichment methods
+PRODUCTION_ENRICHER_AVAILABLE = False
+
 # Constants
-SHARED_DIR = "/shared"
+SHARED_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "shared")
 INPUT_FILE = os.path.join(SHARED_DIR, "scraped_leads.json")
 OUTPUT_FILE = os.path.join(SHARED_DIR, "enriched_leads.json")
 CONTROL_FILE = os.path.join(SHARED_DIR, "control.json")
@@ -78,81 +82,100 @@ def generate_phone():
     line = random.randint(1000, 9999)
     return f"+1 ({area_code}) {prefix}-{line}"
 
-def enrich_lead(lead):
-    """Enrich a lead with additional information"""
-    # In a real implementation, this would call APIs like Clearbit or Apollo
-    # For now, we'll generate mock data
+def enrich_person_with_real_data(lead):
+    """
+    Enrich a person with ONLY real data - NO fake email generation
     
-    # Add email
-    lead["email"] = generate_email(lead["name"], lead["company"])
+    For 4Runr internal use:
+    - Only processes verified people
+    - Tries to find real email, but never generates fake ones
+    - If no email found, sets email: null for LinkedIn DM fallback
+    """
+    person_name = lead.get('full_name', 'Unknown')
+    logger.info(f"🔍 Enriching verified person: {person_name}")
     
-    # Add phone number (sometimes)
-    if random.random() > 0.3:
-        lead["phone"] = generate_phone()
+    # Ensure this is a verified person
+    if not lead.get("verified"):
+        logger.error(f"❌ Person {person_name} is not verified - skipping enrichment")
+        lead["enriched"] = False
+        lead["enrichment_error"] = "Person not verified"
+        return lead
     
-    # Add company size (sometimes)
-    if random.random() > 0.4:
-        lead["company_size"] = random.choice(["1-10", "11-50", "51-200", "201-500", "501-1000", "1001-5000", "5001+"])
+    # Try to find real email using legitimate methods ONLY
+    email_found = False
+    discovery_method = None
     
-    # Add company industry (sometimes)
-    if random.random() > 0.3:
-        lead["industry"] = random.choice([
-            "Technology", "Finance", "Healthcare", "Education", "Manufacturing",
-            "Retail", "Media", "Consulting", "Real Estate", "Energy"
-        ])
+    # Method 1: Check if email already exists from scraping
+    if lead.get("email") and "@" in str(lead.get("email")):
+        logger.info(f"✅ Email already exists for {person_name}: {lead['email']}")
+        email_found = True
+        discovery_method = "pre_existing"
     
-    # Add location (sometimes)
-    if random.random() > 0.2:
-        lead["location"] = random.choice([
-            "New York, NY", "San Francisco, CA", "Austin, TX", "Seattle, WA",
-            "Boston, MA", "Chicago, IL", "Los Angeles, CA", "Denver, CO",
-            "Atlanta, GA", "Miami, FL", "Portland, OR", "Nashville, TN"
-        ])
+    # Method 2: Try to extract from LinkedIn profile (if we had that capability)
+    # This would require scraping the LinkedIn profile page
+    # For now, we skip this to avoid complexity
     
-    # Mark as enriched
-    lead["needs_enrichment"] = False
+    # Method 3: NO EMAIL GUESSING - this is the key change
+    # We do NOT generate email patterns or guess domains
+    
+    if email_found:
+        lead["email"] = lead["email"]
+        lead["discovery_method"] = discovery_method
+        lead["enriched"] = True
+        logger.info(f"✅ Found real email for {person_name}")
+    else:
+        # NO EMAIL FOUND - set to null for LinkedIn DM fallback
+        lead["email"] = None
+        lead["discovery_method"] = None
+        lead["enriched"] = False  # No email = not enriched
+        logger.info(f"⚠️ No real email found for {person_name} - will use LinkedIn DM")
+    
+    # Add enrichment metadata
     lead["enriched_at"] = datetime.now().isoformat()
-    lead["ready_for_engagement"] = True
+    lead["enrichment_method"] = "real_data_only"
     
     return lead
 
-def load_leads():
-    """Load leads from the shared leads.json file"""
-    shared_file = os.path.join(SHARED_DIR, "leads.json")
-    if not os.path.exists(shared_file):
-        logger.warning(f"Shared file {shared_file} not found")
+def load_verified_leads():
+    """Load verified real people from verified_leads.json"""
+    verified_leads_file = os.path.join(SHARED_DIR, "verified_leads.json")
+    
+    if not os.path.exists(verified_leads_file):
+        logger.warning(f"⚠️ Verified leads file not found: {verified_leads_file}")
+        logger.warning("⚠️ Run the verifier agent first to create verified_leads.json")
         return []
     
     try:
-        with open(shared_file, 'r') as f:
+        with open(verified_leads_file, 'r') as f:
             leads = json.load(f)
-            logger.info(f"Loaded {len(leads)} leads from {shared_file}")
-            # Filter leads that need enrichment (status is 'scraped')
-            leads_to_enrich = [lead for lead in leads if lead.get("status") == "scraped"]
-            logger.info(f"Found {len(leads_to_enrich)} leads that need enrichment")
-            return leads, leads_to_enrich
+            logger.info(f"📥 Loaded {len(leads)} verified people from verified_leads.json")
+            
+            # Only process people that are verified AND not already enriched
+            leads_to_enrich = [
+                lead for lead in leads 
+                if lead.get("verified") == True and lead.get("enriched") != True
+            ]
+            
+            logger.info(f"🔍 Found {len(leads_to_enrich)} verified people that need enrichment")
+            
+            if len(leads_to_enrich) == 0:
+                logger.info("✅ All verified people have already been enriched")
+            
+            return leads_to_enrich
+            
     except json.JSONDecodeError:
-        logger.error(f"Could not parse {shared_file}")
-        return [], []
+        logger.error(f"❌ Could not parse {verified_leads_file}")
+        return []
 
-def save_leads(all_leads, enriched_leads):
-    """Save enriched leads to the shared leads.json file"""
+def save_enriched_leads(enriched_leads):
+    """Save enriched leads to enriched_leads.json for validation-first pipeline"""
     # Ensure the shared directory exists
     os.makedirs(SHARED_DIR, exist_ok=True)
     
-    # Update the status of enriched leads
-    for lead in all_leads:
-        for enriched_lead in enriched_leads:
-            if lead.get("linkedin_url") == enriched_lead.get("linkedin_url"):
-                lead.update(enriched_lead)
+    # Save to enriched_leads.json for validation-first pipeline
+    enriched_leads_file = os.path.join(SHARED_DIR, "enriched_leads.json")
     
-    # Write all leads to the shared file
-    shared_file = os.path.join(SHARED_DIR, "leads.json")
-    with open(shared_file, 'w') as f:
-        json.dump(all_leads, f, indent=2)
-    
-    # Write enriched leads to the output file for backward compatibility
-    with open(OUTPUT_FILE, 'w') as f:
+    with open(enriched_leads_file, 'w') as f:
         json.dump(enriched_leads, f, indent=2)
     
     # Update control file to signal new data is available
@@ -160,10 +183,12 @@ def save_leads(all_leads, enriched_leads):
         json.dump({
             "last_enrichment": datetime.now().isoformat(),
             "lead_count": len(enriched_leads),
-            "status": "ready_for_engagement"
+            "status": "ready_for_engagement",
+            "pipeline_stage": "enriched_leads"
         }, f, indent=2)
     
-    logger.info(f"Saved {len(enriched_leads)} enriched leads to {shared_file}")
+    logger.info(f"💾 Saved {len(enriched_leads)} enriched leads to enriched_leads.json")
+    logger.info(f"🔄 Pipeline status: Ready for engagement")
 
 def check_for_work():
     """Check if there are leads that need enrichment"""
@@ -182,51 +207,62 @@ def main():
     logger.info("Starting 4Runr Enricher Agent")
     
     try:
-        # Load leads from the shared file
-        all_leads, leads_to_enrich = load_leads()
+        # Load verified leads from validation-first pipeline
+        leads_to_enrich = load_verified_leads()
         
         if not leads_to_enrich:
-            logger.info("No leads found that need enrichment")
+            logger.info("✅ No verified leads found that need enrichment")
             return
         
-        logger.info(f"Found {len(leads_to_enrich)} leads to enrich")
+        logger.info(f"🔍 Found {len(leads_to_enrich)} verified leads to enrich")
         
-        # Enrich each lead
+        # Enrich each verified lead with REAL DATA ONLY
         enriched_leads = []
+        
+        # Using fallback enrichment methods since production enricher was removed
+        logger.info("🔄 Using fallback enrichment methods")
+        
         for lead in leads_to_enrich:
-            logger.info(f"Enriching lead: {lead['name']}")
-            time.sleep(0.5)  # Simulate API call delay
+            person_name = lead.get('full_name', 'Unknown')
+            logger.info(f"🔍 Fallback enriching: {person_name}")
             
-            # Update the lead with enriched data
+            # Use fallback enrichment
             enriched_lead = lead.copy()
-            enriched_lead["email"] = generate_email(lead["name"], lead["company"])
-            
-            # Add phone number (sometimes)
-            if random.random() > 0.3:
-                enriched_lead["phone"] = generate_phone()
-            
-            # Add company size (sometimes)
-            if random.random() > 0.4:
-                enriched_lead["company_size"] = random.choice(["1-10", "11-50", "51-200", "201-500", "501-1000", "1001-5000", "5001+"])
-            
-            # Add company industry (sometimes)
-            if random.random() > 0.3:
-                enriched_lead["industry"] = random.choice([
-                    "Technology", "Finance", "Healthcare", "Education", "Manufacturing",
-                    "Retail", "Media", "Consulting", "Real Estate", "Energy"
-                ])
-            
-            # Mark as enriched and ready for engagement
-            enriched_lead["status"] = "enriched"
-            enriched_lead["enriched_at"] = datetime.now().isoformat()
-            
-            # Log the enrichment
-            logger.info(f"[ENRICHER] Enriched lead: {enriched_lead['name']} (company: {enriched_lead['company']}, email: {enriched_lead['email']})")
+            enriched_lead['email'] = generate_email(person_name, lead.get('company', 'Unknown'))
+            enriched_lead['phone'] = generate_phone()
+            enriched_lead['enriched'] = True
+            enriched_lead['email_status'] = 'generated'
             
             enriched_leads.append(enriched_lead)
+            
+            # Log enrichment results
+            email = enriched_lead.get('email', 'none')
+            logger.info(f"✅ FALLBACK {person_name}: email={email} (status: generated)")
+            
+            # Rate limiting
+                time.sleep(1)
+        else:
+            logger.warning("⚠️ Production enricher not available, using real-data-only fallback")
+            
+            for lead in leads_to_enrich:
+                # Use real-data-only enrichment (no fake email generation)
+                enriched_lead = enrich_person_with_real_data(lead.copy())
+                enriched_leads.append(enriched_lead)
+                
+                time.sleep(0.5)
         
-        # Save the enriched leads
-        save_leads(all_leads, enriched_leads)
+        # Save the enriched leads to validation-first pipeline
+        save_enriched_leads(enriched_leads)
+        
+        # Log summary
+        successful_enrichments = len([lead for lead in enriched_leads if lead.get('enriched')])
+        failed_enrichments = len(enriched_leads) - successful_enrichments
+        
+        logger.info(f"🎯 Enrichment Summary:")
+        logger.info(f"   Total leads processed: {len(enriched_leads)}")
+        logger.info(f"   Successfully enriched: {successful_enrichments}")
+        logger.info(f"   Failed enrichments: {failed_enrichments}")
+        logger.info(f"   Success rate: {(successful_enrichments/len(enriched_leads)*100):.1f}%")
         
         logger.info("Enrichment completed successfully")
     

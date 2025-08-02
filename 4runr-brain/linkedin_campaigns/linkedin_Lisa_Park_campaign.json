@@ -1,0 +1,27 @@
+{
+  "execution_id": "campaign_20250801_131234_test_batch_003",
+  "lead_data": {
+    "name": "Lisa Park",
+    "company": "CloudTech",
+    "linkedin_url": ""
+  },
+  "formatted_campaign": "FALLBACK_HOOK: Hi {{first_name}},\nEver wonder what's hiding in {{company}}'s blind spots? We've been clandestinely transforming similar companies with AI and strategy. Intrigued? Let's unveil the unseen potential together.\n\u2013 4Runr Team",
+  "airtable_updates": {
+    "AI Message": "FALLBACK_HOOK: Hi {{first_name}},\nEver wonder what's hiding in {{company}}'s blind spots? We've been clandestinely transforming similar companies with AI and strategy. Intrigued? Let's unveil the unseen potential together.\n\u2013 4Runr Team",
+    "Messaging Method": "Manual LinkedIn",
+    "Manual Message Sent": false,
+    "AI Message Type": "fallback",
+    "Extra Info": "Quality Score: 51.9/100 | Used Fallback: Yes | Fallback Reason: no_website_data | Message Tone: curious | Data Quality: 2/10 | Website Insights: 0 | Website: Low Signal Content"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "cloud_native",
+      "role_vp",
+      "senior_decision_maker"
+    ],
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 51.9
+  },
+  "created_at": "2025-08-01T13:12:37.683295"
+}

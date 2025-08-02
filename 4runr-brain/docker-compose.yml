@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  campaign-brain:
+    build: .
+    container_name: campaign-brain-service
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+      - CAMPAIGN_QUALITY_THRESHOLD=${CAMPAIGN_QUALITY_THRESHOLD:-80.0}
+      - CAMPAIGN_MAX_RETRIES=${CAMPAIGN_MAX_RETRIES:-2}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - TRACE_LOGS_ENABLED=${TRACE_LOGS_ENABLED:-true}
+      - AIRTABLE_API_KEY=${AIRTABLE_API_KEY}
+      - AIRTABLE_BASE_ID=${AIRTABLE_BASE_ID}
+      - AIRTABLE_TABLE_NAME=${AIRTABLE_TABLE_NAME:-Table 1}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_DB=0
+    volumes:
+      - ./logs:/app/logs
+      - ./trace_logs:/app/trace_logs
+      - ./queue:/app/queue
+      - ./leads:/app/leads
+      - ./config:/app/config
+    depends_on:
+      - redis
+    restart: unless-stopped
+    command: python serve_campaign_brain.py --batch-size 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: campaign-brain-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  # Optional: Web interface for monitoring
+  campaign-brain-api:
+    build: .
+    container_name: campaign-brain-api
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AIRTABLE_API_KEY=${AIRTABLE_API_KEY}
+      - AIRTABLE_BASE_ID=${AIRTABLE_BASE_ID}
+      - REDIS_HOST=redis
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./logs:/app/logs
+      - ./trace_logs:/app/trace_logs
+    depends_on:
+      - redis
+    restart: unless-stopped
+    command: python -m http.server 8080
+    profiles:
+      - api
+
+volumes:
+  redis_data:

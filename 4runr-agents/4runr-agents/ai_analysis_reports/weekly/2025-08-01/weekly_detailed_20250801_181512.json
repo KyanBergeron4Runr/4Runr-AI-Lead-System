@@ -1,0 +1,128 @@
+{
+  "report_metadata": {
+    "report_id": "weekly_20250801_181512",
+    "generated_at": "2025-08-01T18:15:12.005884",
+    "report_type": "weekly_detailed",
+    "analysis_version": "1.0.0"
+  },
+  "analysis_period": {
+    "start_date": "2025-07-18T18:15:12.000829",
+    "end_date": "2025-08-01T18:15:12.003550",
+    "days_analyzed": 14
+  },
+  "performance_metrics": {
+    "ai_message_generation": {
+      "total_messages": 0,
+      "analysis": "No message generation data available"
+    },
+    "lead_enrichment": {
+      "total_enrichments": 0,
+      "analysis": "No enrichment data available"
+    },
+    "website_scraping": {
+      "total_scraping_operations": 0,
+      "analysis": "No scraping data available"
+    },
+    "airtable_operations": {
+      "total_operations": 0,
+      "analysis": "No Airtable data available"
+    }
+  },
+  "system_health": {
+    "overall_status": "critical",
+    "trends": [
+      {
+        "metric_name": "enrichment_success_rate",
+        "current_value": 0,
+        "trend_direction": "stable",
+        "significance": "high",
+        "description": "Enrichment success rate at 0.0%"
+      }
+    ],
+    "alerts": [
+      {
+        "level": "critical",
+        "title": "System Health Critical",
+        "description": "Multiple components showing poor performance",
+        "action_required": true,
+        "timestamp": "2025-08-01T18:15:12.003534"
+      },
+      {
+        "level": "critical",
+        "title": "Low Message Approval Rate",
+        "description": "Approval rate at 0.0%, below critical threshold of 40.0%",
+        "action_required": true,
+        "timestamp": "2025-08-01T18:15:12.003543"
+      },
+      {
+        "level": "critical",
+        "title": "Low Enrichment Success Rate",
+        "description": "Success rate at 0.0%, below critical threshold of 30.0%",
+        "action_required": true,
+        "timestamp": "2025-08-01T18:15:12.003547"
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "id": "e6aa2d5e-4c74-42ed-927b-ff0233a4b528",
+      "category": "system",
+      "priority": "HIGH",
+      "title": "Address System Health Issues",
+      "description": "Overall system health is 'critical'. Implement comprehensive improvements across all components.",
+      "action_items": [
+        {
+          "description": "Conduct comprehensive system audit",
+          "estimated_hours": 8,
+          "technical_complexity": "medium",
+          "dependencies": [],
+          "success_criteria": "Complete audit report with prioritized issues"
+        },
+        {
+          "description": "Implement monitoring and alerting for critical metrics",
+          "estimated_hours": 6,
+          "technical_complexity": "medium",
+          "dependencies": [
+            "System audit"
+          ],
+          "success_criteria": "Real-time monitoring for all critical system metrics"
+        },
+        {
+          "description": "Create system health dashboard",
+          "estimated_hours": 4,
+          "technical_complexity": "low",
+          "dependencies": [
+            "Monitoring"
+          ],
+          "success_criteria": "Dashboard shows real-time system health status"
+        }
+      ],
+      "estimated_impact": {
+        "metric_improvements": {
+          "system_health": 50.0,
+          "reliability": 30.0
+        },
+        "roi_estimate": 2.0,
+        "implementation_effort_hours": 18,
+        "confidence_level": 0.9
+      },
+      "created_at": "2025-08-01T18:15:12.004918",
+      "status": "PENDING",
+      "rationale": "System health status of 'critical' requires immediate attention to prevent further degradation and improve overall performance.",
+      "supporting_data": {
+        "current_health": "critical",
+        "target_health": "good",
+        "alerts_count": 3,
+        "components_affected": [
+          "message_generation",
+          "enrichment"
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "analysis_duration": 0.002724,
+    "total_logs_analyzed": 0,
+    "analysis_version": "1.0.0"
+  }
+}

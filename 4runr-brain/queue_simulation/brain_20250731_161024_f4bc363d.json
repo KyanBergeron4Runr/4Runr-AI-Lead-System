@@ -1,0 +1,64 @@
+{
+  "campaign_id": "brain_20250731_161024_f4bc363d",
+  "lead_id": "recNsbEgAPZgNbleU",
+  "lead_data": {
+    "name": "Ren\u00e9e Touzin",
+    "email": "renee.touzin@giro.ca",
+    "title": "Professional",
+    "company": "Giro \u00b7 Specialties:"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "smb",
+      "startup",
+      "agency",
+      "consultancy",
+      "challenger",
+      "niche_player",
+      "mature",
+      "formal",
+      "executive",
+      "creative"
+    ],
+    "primary_trait": "consultancy",
+    "messaging_angle": "client_success",
+    "campaign_tone": "professional",
+    "overall_quality_score": 57.43333333333334,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250731_161000_recNsbEgAPZgNbleU"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "client_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Ren\u00e9e,\nI recently came across Giro\u2019s commitment to delivering strategic value to clients through innovative solutions and expert consulting. Your expertise in accelerating business growth is impressive.\nIn an industry that's ever-evolving, one of the key challenges I've noticed is maintaining operational efficiency while delivering high-quality services. A strategic approach towards optimization can truly be a game-changer.\nAt 4Runr, we specialize in helping businesses like yours optimize operations through AI and strategic consulting, enhancing efficiency and effectiveness. Would you be open to exploring how Giro could further strengthen its strategic advisory and consulting services?\nBest regards,",
+      "quality_score": 53.2,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-07-31T16:10:24.947897",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "capability_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Ren\u00e9e,\nI came across Giro's dedication towards delivering innovative solutions and expert consulting. Your focus on business strategy, operations, and growth acceleration truly stood out.\nIn the rapidly evolving professional services sector, operational efficiency can often be a critical differentiator. Balancing innovation with operational simplicity is a challenge we've seen many firms like Giro grapple with.\nAt 4Runr, we specialize in optimizing operations through AI and strategic consulting, aiding businesses to streamline their processes and enhance strategic value. Without the sales pitch, I believe there could be significant synergies between our firms.\nWould you be open to a brief conversation to explore how we might help Giro further enhance its operational efficiency?\nBest regards,",
+      "quality_score": 54.1,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T16:10:24.947905",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "competitive_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Ren\u00e9e,\nI recently visited Giro's website and was impressed by your commitment to delivering strategic value through innovative solutions and professional consulting. Your focus on business strategy, operations, and growth acceleration stands out in today's competitive landscape.\nGiven the ever-evolving industry trends and increasing operational challenges, have you considered leveraging AI-driven insights to further optimize your business operations?\nAt 4Runr, we specialize in enhancing operational efficiency through strategic AI solutions tailored to our clients' specific needs. By integrating AI into your current strategies, we believe Giro could elevate its service offerings and drive even more value for your clients.\nWould you be open to discussing how we could collaborate to help Giro stay ahead of the curve?\nBest regards,",
+      "quality_score": 65.0,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-07T16:10:24.947911",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-07-31T16:10:24.947917",
+  "campaign_status": "active"
+}

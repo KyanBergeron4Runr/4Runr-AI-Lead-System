@@ -1,0 +1,286 @@
+{
+  "execution_id": "campaign_20250731_161051_recXG8nrZBn2lLUwa",
+  "timestamp": "2025-07-31T16:10:51.374646",
+  "node_path": [
+    "traitdetector_2025-07-31T16:10:51.376010",
+    "memorymanager_2025-07-31T16:10:51.378810",
+    "campaignplanner_2025-07-31T16:10:51.381560",
+    "messagegenerator_2025-07-31T16:10:51.383870",
+    "messagereviewer_2025-07-31T16:11:14.808505",
+    "qualitygatekeeper_2025-07-31T16:11:14.810756",
+    "injector_2025-07-31T16:11:14.812533"
+  ],
+  "lead_data": {
+    "id": "recXG8nrZBn2lLUwa",
+    "Name": "St\u00e9phane Paquet",
+    "LinkedIn_URL": "https://ca.linkedin.com/in/st%C3%A9phane-paquet-621b022b",
+    "Email": null,
+    "Company": "St\u00e9phane Paquet",
+    "Title": "Professional",
+    "company_data": {
+      "description": "Professional services and consulting company",
+      "services": "Business consulting, professional services, and strategic advisory",
+      "tone": "Professional"
+    },
+    "scraped_content": {
+      "homepage_text": "Professional services company focused on delivering strategic value to clients through innovative solutions and expert consulting.",
+      "about_page": "Established professional services firm with expertise in business strategy, operations, and growth acceleration."
+    }
+  },
+  "company_data": {
+    "description": "Professional services and consulting company",
+    "services": "Business consulting, professional services, and strategic advisory",
+    "tone": "Professional"
+  },
+  "scraped_content": {
+    "homepage_text": "Professional services company focused on delivering strategic value to clients through innovative solutions and expert consulting.",
+    "about_page": "Established professional services firm with expertise in business strategy, operations, and growth acceleration."
+  },
+  "traits": [
+    "smb",
+    "startup",
+    "agency",
+    "consultancy",
+    "challenger",
+    "niche_player",
+    "mature",
+    "formal",
+    "executive",
+    "creative"
+  ],
+  "trait_confidence": {
+    "smb": 14.3,
+    "startup": 11.1,
+    "agency": 45.0,
+    "consultancy": 72.0,
+    "challenger": 16.7,
+    "niche_player": 31.4,
+    "mature": 14.3,
+    "formal": 36.7,
+    "executive": 14.3,
+    "creative": 14.3
+  },
+  "trait_reasoning": {
+    "smb": "Matched keywords: established",
+    "startup": "Matched keywords: innovative",
+    "agency": "Matched keywords: services, client, consulting",
+    "consultancy": "Matched keywords: consulting, advisory, professional services",
+    "challenger": "Matched keywords: innovative",
+    "niche_player": "Matched keywords: focused, expert",
+    "mature": "Matched keywords: established",
+    "formal": "Matched keywords: professional, business",
+    "executive": "Matched keywords: strategic",
+    "creative": "Matched keywords: innovative"
+  },
+  "primary_trait": "consultancy",
+  "campaign_sequence": [
+    "client_hook",
+    "capability_proof",
+    "competitive_fomo"
+  ],
+  "messaging_angle": "client_success",
+  "campaign_tone": "professional",
+  "sequence_reasoning": "Agencies care about client outcomes and competitive differentiation (based on trait: agency)",
+  "messages": [
+    {
+      "message_type": "client_hook",
+      "subject": "Unlocking Your Business Potential with Strategic Optimization",
+      "body": "Hello St\u00e9phane,\nI was thoroughly impressed by your approach to delivering strategic value through innovative solutions and expert consulting at St\u00e9phane Paquet.\nIn today's rapidly evolving business landscape, operational efficiency is paramount. I noticed your focus on business strategy, operations, and growth acceleration - areas that are crucial to maintaining a competitive edge.\nAt 4Runr, we specialize in providing AI-driven strategies that streamline operations and optimize business processes. Our approach might be an interesting addition to your suite of professional services.\nWould you be open to exploring how we might work together to drive even more value for your clients?\nBest regards,",
+      "generation_attempt": 1,
+      "quality_score": 67.3,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "competitive",
+        "landscape",
+        "efficiency",
+        "growth",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 102,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "capability_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello St\u00e9phane,\nAs a fellow advocate for strategic business consulting, I was inspired by your firm's commitment to delivering innovative solutions and expert consulting. Your focus on accelerating growth and optimizing operations is indeed commendable.\nIn today's dynamic market, operational efficiency is no longer a luxury but a necessity. The convergence of AI and strategic consulting could potentially unlock new levels of productivity and business optimization for your clients.\nAt 4Runr, we've seen how a strategic approach to AI integration can transform operations and drive measurable outcomes. Perhaps there could be value in exploring how such strategies could further enhance your service delivery?\nBest regards,",
+      "generation_attempt": 1,
+      "quality_score": 45.8,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "market",
+        "efficiency",
+        "growth",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 105,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "competitive_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear St\u00e9phane,\nAs a keen observer of successful consulting firms, I noticed your unique approach to delivering strategic value through innovative solutions and expert consulting. It's impressive how your firm accelerates growth while maintaining operational efficiency.\nAs markets evolve, professional service firms face the challenge of optimizing operations without compromising client success. This delicate balance is where 4Runr could potentially add strategic value.\nBy leveraging AI and strategic consulting, we have helped similar firms amplify their operational efficiency, aligning their business strategy for sustained growth. Could there be an opportunity for us to explore how 4Runr could assist St\u00e9phane Paquet in further enhancing your service delivery?\nBest regards,",
+      "generation_attempt": 1,
+      "quality_score": 52.0,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "market",
+        "efficiency",
+        "growth",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 108,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "client_hook_attempt": 1,
+    "capability_proof_attempt": 1,
+    "competitive_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "client_hook_score": 67.3,
+    "capability_proof_score": 45.8,
+    "competitive_fomo_score": 52.0,
+    "overall_score": 55.03333333333333
+  },
+  "quality_issues": [
+    "client_hook: Low personalization score",
+    "client_hook: Lacks strategic insight",
+    "client_hook: Clarity issues",
+    "capability_proof: Low personalization score",
+    "capability_proof: Lacks strategic insight",
+    "capability_proof: Clarity issues",
+    "competitive_fomo: Low personalization score",
+    "competitive_fomo: Lacks strategic insight",
+    "competitive_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "client_hook": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "capability_proof": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "competitive_fomo": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ]
+  },
+  "overall_quality_score": 55.03333333333333,
+  "decision_path": [
+    "traitdetector: Detected 10 traits (Primary: consultancy (72.0% confidence)): Primary: consultancy (72.0% confidence)",
+    "memorymanager: Retrieved memory for lead recXG8nrZBn2lLUwa (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected client_success angle with professional tone (Sequence: client_hook \u2192 capability_proof \u2192 competitive_fomo): Sequence: client_hook \u2192 capability_proof \u2192 competitive_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['client_hook', 'capability_proof', 'competitive_fomo']): Types: ['client_hook', 'capability_proof', 'competitive_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 55.0/100, Issues: 9): Overall score: 55.0/100, Issues: 9",
+    "qualitygatekeeper: APPROVED for delivery (Score 55.0 >= 50.0 threshold): Score 55.0 >= 50.0 threshold",
+    "injector: Successfully saved AI Message for manual sending (Campaign formatted and saved to Airtable AI Message field): Campaign formatted and saved to Airtable AI Message field"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.APPROVED",
+  "status_reason": "Quality score 55.0 meets threshold 50.0",
+  "memory_context": {
+    "lead_id": "recXG8nrZBn2lLUwa",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250731_161051_recXG8nrZBn2lLUwa",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-07-31T16:10:51.379197"
+      }
+    ],
+    "trait_history": [
+      {
+        "traits": [
+          "smb",
+          "startup",
+          "agency",
+          "consultancy",
+          "challenger",
+          "niche_player",
+          "mature",
+          "formal",
+          "executive",
+          "creative"
+        ],
+        "confidence": {
+          "smb": 14.3,
+          "startup": 11.1,
+          "agency": 45.0,
+          "consultancy": 72.0,
+          "challenger": 16.7,
+          "niche_player": 31.4,
+          "mature": 14.3,
+          "formal": 36.7,
+          "executive": 14.3,
+          "creative": 14.3
+        },
+        "primary_trait": "consultancy",
+        "timestamp": "2025-07-31T16:10:51.379183"
+      }
+    ],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-07-31T16:10:51.379178",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "success",
+  "delivery_method": "manual_only",
+  "queue_id": null,
+  "airtable_update_status": "success",
+  "formatted_linkedin_campaign": "CLIENT_HOOK: Hello {{first_name}},\nI was thoroughly impressed by your approach to delivering strategic value through innovative solutions and expert consulting at {{first_name}} Paquet.\nIn today's rapidly evolving business landscape, operational efficiency is paramount. I noticed your focus on business strategy, operations, and growth acceleration - areas that are crucial to maintaining a competitive edge.\nAt 4Runr, we specialize in providing AI-driven strategies that streamline operations and optimize business processes. Our approach might be an interesting addition to your suite of professional services.\nWould you be open to exploring how we might work together to drive even more value for your clients?\nBest regards,\n\nCAPABILITY_PROOF: Hello {{first_name}},\nAs a fellow advocate for strategic business consulting, I was inspired by your firm's commitment to delivering innovative solutions and expert consulting. Your focus on accelerating growth and optimizing operations is indeed commendable.\nIn today's dynamic market, operational efficiency is no longer a luxury but a necessity. The convergence of AI and strategic consulting could potentially unlock new levels of productivity and business optimization for your clients.\nAt 4Runr, we've seen how a strategic approach to AI integration can transform operations and drive measurable outcomes. Perhaps there could be value in exploring how such strategies could further enhance your service delivery?\nBest regards,\n\nCOMPETITIVE_FOMO: Dear {{first_name}},\nAs a keen observer of successful consulting firms, I noticed your unique approach to delivering strategic value through innovative solutions and expert consulting. It's impressive how your firm accelerates growth while maintaining operational efficiency.\nAs markets evolve, professional service firms face the challenge of optimizing operations without compromising client success. This delicate balance is where 4Runr could potentially add strategic value.\nBy leveraging AI and strategic consulting, we have helped similar firms amplify their operational efficiency, aligning their business strategy for sustained growth. Could there be an opportunity for us to explore how 4Runr could assist {{first_name}} Paquet in further enhancing your service delivery?\nBest regards,",
+  "delivery_schedule": null,
+  "errors": [],
+  "warnings": []
+}

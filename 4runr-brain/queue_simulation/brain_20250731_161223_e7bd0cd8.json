@@ -1,0 +1,64 @@
+{
+  "campaign_id": "brain_20250731_161223_e7bd0cd8",
+  "lead_id": "recYkIYOwmMqKP2dZ",
+  "lead_data": {
+    "name": "Elie Wahnoun",
+    "email": "wahnounelie@gmail.com",
+    "title": "Professional",
+    "company": "Courimo"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "smb",
+      "startup",
+      "agency",
+      "consultancy",
+      "challenger",
+      "niche_player",
+      "mature",
+      "formal",
+      "executive",
+      "creative"
+    ],
+    "primary_trait": "consultancy",
+    "messaging_angle": "client_success",
+    "campaign_tone": "professional",
+    "overall_quality_score": 64.43333333333334,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250731_161159_recYkIYOwmMqKP2dZ"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "client_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Elie,\nI recently visited Courimo's website and was impressed by your commitment to delivering strategic value to clients through innovative solutions and expert consulting. Your blend of business strategy, operations, and growth acceleration is commendable.\nIn today's rapidly evolving marketplace, businesses like Courimo that are at the forefront of their industry face unique operational challenges. Balancing growth with efficiency can be tricky. Here's where 4Runr comes in: we specialize in optimizing operations through strategic AI-driven solutions, helping companies like yours navigate the complexities of growth.\nHow about we set up a brief conversation to discuss how 4Runr could potentially support Courimo in boosting operational efficiency while maintaining your high standards of service?\nBest regards,",
+      "quality_score": 59.8,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-07-31T16:12:23.367963",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "capability_proof",
+      "subject": "Elevating Courimo's Strategic Consultancy with AI-Powered Solutions",
+      "body": "Dear Elie,\nI recently visited the Courimo website and was impressed by your dedication to delivering strategic value through innovative solutions and expert consulting. As a business that shares a similar ethos, I understand the unique challenges and evolving trends within the professional services sector.\nThe industry is increasingly recognizing the potential of AI to optimize operations and accelerate growth. Have you considered leveraging AI to enhance your consultancy services?\nAt 4Runr, we specialize in supporting businesses like Courimo to strategically integrate AI into their operations. We believe this could further elevate the value you offer to your clients.\nWould you be interested in discussing how 4Runr could add strategic value to Courimo\u2019s existing offerings?\nBest regards,",
+      "quality_score": 64.3,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T16:12:23.367983",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "competitive_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Elie,\nI recently came across Courimo, a professional services firm specializing in strategic advisory and delivering innovative solutions. Your commitment to providing expert consulting and driving growth acceleration for clients is commendable.\nIn the current business landscape, efficiency and optimized operations are key to maintaining a competitive edge. Yet, navigating the complex terrain of industry trends and operational challenges can be demanding.\nThat's where 4Runr comes in. We help businesses like Courimo streamline operations through AI and strategic consulting, ensuring you stay ahead of the curve while focusing on your core competencies.\nWould you be open to exploring how we could potentially assist in strengthening Courimo's operational efficiency and strategic initiatives?\nBest regards,",
+      "quality_score": 69.2,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-07T16:12:23.367994",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-07-31T16:12:23.368006",
+  "campaign_status": "active"
+}

@@ -1,0 +1,38 @@
+{
+  "campaign_id": "brain_20250801_131234_ccc7fba5",
+  "lead_id": "test_batch_002",
+  "lead_data": {
+    "name": "James Wilson",
+    "email": "kyanberg@outlook.com",
+    "title": "Director",
+    "company": "DataCorp"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_cto",
+      "role_director",
+      "senior_decision_maker",
+      "technical_focus"
+    ],
+    "primary_trait": "senior_decision_maker",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 52.0,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_131231_test_batch_002"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "fallback_hook",
+      "subject": "Unseen Potential: Unlock Hidden Gains for DataCorp?",
+      "body": "Hi James,\nEver wondered what's hiding in your blind spots? We specialize in unveiling unseen operational efficiencies. Let's talk if DataCorp is ready for bold, transformative strides.\n\u2013 4Runr Team",
+      "quality_score": 52.0,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T13:12:34.569638",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:12:34.569648",
+  "campaign_status": "active"
+}

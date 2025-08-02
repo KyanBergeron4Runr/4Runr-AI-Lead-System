@@ -1,0 +1,37 @@
+{
+  "campaign_id": "brain_20250801_131237_1cc8f866",
+  "lead_id": "test_batch_003",
+  "lead_data": {
+    "name": "Lisa Park",
+    "email": "kyanberg@outlook.com",
+    "title": "VP",
+    "company": "CloudTech"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "cloud_native",
+      "role_vp",
+      "senior_decision_maker"
+    ],
+    "primary_trait": "senior_decision_maker",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 51.9,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_131234_test_batch_003"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "fallback_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hi Lisa,\nEver wonder what's hiding in CloudTech's blind spots? We've been clandestinely transforming similar companies with AI and strategy. Intrigued? Let's unveil the unseen potential together.\n\u2013 4Runr Team",
+      "quality_score": 51.9,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T13:12:37.684366",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:12:37.684375",
+  "campaign_status": "active"
+}

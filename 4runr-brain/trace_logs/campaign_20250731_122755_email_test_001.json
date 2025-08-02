@@ -1,0 +1,294 @@
+{
+  "execution_id": "campaign_20250731_122755_email_test_001",
+  "timestamp": "2025-07-31T12:27:55.586229",
+  "node_path": [
+    "traitdetector_2025-07-31T12:27:55.598321",
+    "memorymanager_2025-07-31T12:27:55.600940",
+    "campaignplanner_2025-07-31T12:27:55.602539",
+    "messagegenerator_2025-07-31T12:27:55.604399",
+    "messagereviewer_2025-07-31T12:28:19.855988",
+    "qualitygatekeeper_2025-07-31T12:28:19.858635",
+    "injector_2025-07-31T12:28:19.860667"
+  ],
+  "lead_data": {
+    "id": "email_test_001",
+    "Name": "Sarah Johnson",
+    "Title": "VP of Product",
+    "Company": "CloudTech Solutions",
+    "Email": "sarah.johnson@cloudtech.com",
+    "company_data": {
+      "description": "CloudTech provides SaaS solutions for enterprise workflow management and digital transformation",
+      "services": "Software as a Service, API integrations, Cloud platforms, Workflow automation",
+      "tone": "Professional"
+    },
+    "scraped_content": {
+      "homepage_text": "Transform your business with cloud-native solutions that scale with your growth. Our enterprise-grade platform helps companies streamline operations and accelerate digital transformation.",
+      "about_page": "Founded in 2018, CloudTech has been at the forefront of enterprise digital transformation. We serve Fortune 500 companies with mission-critical workflow solutions."
+    }
+  },
+  "company_data": {
+    "description": "CloudTech provides SaaS solutions for enterprise workflow management and digital transformation",
+    "services": "Software as a Service, API integrations, Cloud platforms, Workflow automation",
+    "tone": "Professional"
+  },
+  "scraped_content": {
+    "homepage_text": "Transform your business with cloud-native solutions that scale with your growth. Our enterprise-grade platform helps companies streamline operations and accelerate digital transformation.",
+    "about_page": "Founded in 2018, CloudTech has been at the forefront of enterprise digital transformation. We serve Fortune 500 companies with mission-critical workflow solutions."
+  },
+  "traits": [
+    "enterprise",
+    "startup",
+    "saas",
+    "api_first",
+    "cloud_native",
+    "ai_powered",
+    "disruptor",
+    "early_stage",
+    "transformation",
+    "formal",
+    "technical",
+    "role_vp",
+    "senior_decision_maker"
+  ],
+  "trait_confidence": {
+    "enterprise": 40.0,
+    "startup": 11.1,
+    "saas": 60.0,
+    "api_first": 27.5,
+    "cloud_native": 27.5,
+    "ai_powered": 31.4,
+    "disruptor": 16.7,
+    "early_stage": 12.5,
+    "transformation": 36.7,
+    "formal": 36.7,
+    "technical": 14.3,
+    "role_vp": 30,
+    "senior_decision_maker": 40
+  },
+  "trait_reasoning": {
+    "enterprise": "Matched keywords: enterprise, fortune, enterprise-grade",
+    "startup": "Matched keywords: founded",
+    "saas": "Matched keywords: saas, software as a service, platform",
+    "api_first": "Matched keywords: api, integration",
+    "cloud_native": "Matched keywords: cloud, cloud-native",
+    "ai_powered": "Matched keywords: ml, automation",
+    "disruptor": "Matched keywords: transform",
+    "early_stage": "Matched keywords: founded",
+    "transformation": "Matched keywords: transformation, digital transformation",
+    "formal": "Matched keywords: business, enterprise-grade",
+    "technical": "Matched keywords: api",
+    "role_vp": "Title contains: vp",
+    "senior_decision_maker": "Senior indicators: vp"
+  },
+  "primary_trait": "saas",
+  "campaign_sequence": [
+    "platform_hook",
+    "integration_proof",
+    "market_fomo"
+  ],
+  "messaging_angle": "platform_optimization",
+  "campaign_tone": "technical",
+  "sequence_reasoning": "SaaS companies need platform and integration messaging (based on trait: saas)",
+  "messages": [
+    {
+      "message_type": "platform_hook",
+      "subject": "Line:** Elevating CloudTech's SaaS Capabilities with Strategic Optimization",
+      "body": "Body:**\nHi Sarah,\nIn the rapidly evolving SaaS landscape, maintaining seamless integration while optimizing operational efficiency is pivotal. As CloudTech Solutions continues to lead in enterprise workflow transformation, the strategic deployment of AI-driven platforms is becoming a significant differentiator.\nAt 4Runr, we specialize in harnessing AI to enhance platform architecture and boost performance. Our expertise lies in crafting bespoke solutions that align with your API-first and cloud-native strategies, ensuring a robust and scalable framework for your SaaS offerings.\nI\u2019d love to explore how we can support CloudTech\u2019s journey towards even greater efficiency and innovation. Could we schedule a brief conversation to discuss potential synergies?\nBest regards,\n[Your Full Name]\nStrategic Outreach Specialist\n4Runr",
+      "generation_attempt": 1,
+      "quality_score": 73.0,
+      "quality_issues": [
+        "Lacks strategic insight"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "landscape",
+        "evolving",
+        "efficiency",
+        "performance",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 113,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "integration_proof",
+      "subject": "Line:** Elevating SaaS Efficiency in an API-First World",
+      "body": "Body:**\nHi Sarah,\nIn the evolving landscape of SaaS and enterprise workflow management, the race to optimize platform performance while maintaining flexibility is more crucial than ever. At CloudTech Solutions, your commitment to digital transformation and API-first strategies stands out as a beacon of innovation.\nIn this climate, achieving peak operational efficiency isn't just about scaling infrastructure\u2014it's about architecting solutions that anticipate tomorrow's challenges today. At 4Runr, we specialize in enhancing platform capabilities through strategic AI and consulting, ensuring your systems not only meet but exceed industry benchmarks.\nWould you be open to a brief conversation on how we can collaboratively drive CloudTech's operational excellence further?\nLooking forward to exploring synergies.\nBest regards,\n[Your Full Name]\nStrategic Outreach Specialist\n4Runr",
+      "generation_attempt": 1,
+      "quality_score": 75.7,
+      "quality_issues": [
+        "Lacks strategic insight",
+        "Tone mismatch"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": false,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "industry",
+        "landscape",
+        "efficiency",
+        "optimize",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 120,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "market_fomo",
+      "subject": "Line:** Elevating CloudTech's SaaS Architecture for the Future",
+      "body": "Body:**\nHi Sarah,\nIn today's rapidly evolving SaaS landscape, staying ahead demands not just innovation but also strategic optimization of existing platforms. As CloudTech Solutions continues to lead in enterprise workflow management, ensuring your architecture remains agile and robust is crucial.\nAt 4Runr, we specialize in enhancing operational efficiency through AI-driven insights and advanced platform strategies. Our approach aligns with the needs of cloud-native disruptors like CloudTech, focusing on seamless API integrations and scalable solutions.\nI\u2019d love to explore how we can strategically support CloudTech\u2019s ongoing transformation efforts. Are you open to a brief conversation to discuss potential synergies?\nBest regards,\n[Your Full Name]\nStrategic Outreach Specialist\n4Runr",
+      "generation_attempt": 1,
+      "quality_score": 69.3,
+      "quality_issues": [
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": true,
+        "has_role_reference": true,
+        "has_industry_terms": true
+      },
+      "strategic_elements": [
+        "landscape",
+        "evolving",
+        "efficiency",
+        "strategic",
+        "transformation"
+      ],
+      "tone_indicators": [],
+      "word_count": 108,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "platform_hook_attempt": 1,
+    "integration_proof_attempt": 1,
+    "market_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "platform_hook_score": 73.0,
+    "integration_proof_score": 75.7,
+    "market_fomo_score": 69.3,
+    "overall_score": 72.66666666666667
+  },
+  "quality_issues": [
+    "platform_hook: Lacks strategic insight",
+    "integration_proof: Lacks strategic insight",
+    "integration_proof: Tone mismatch",
+    "market_fomo: Lacks strategic insight",
+    "market_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "platform_hook": [
+      "Include market observations or business value propositions"
+    ],
+    "integration_proof": [
+      "Include market observations or business value propositions",
+      "Adjust language to match technical tone"
+    ],
+    "market_fomo": [
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ]
+  },
+  "overall_quality_score": 72.66666666666667,
+  "decision_path": [
+    "traitdetector: Detected 13 traits (Primary: saas (60.0% confidence)): Primary: saas (60.0% confidence)",
+    "memorymanager: Retrieved memory for lead email_test_001 (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected platform_optimization angle with technical tone (Sequence: platform_hook \u2192 integration_proof \u2192 market_fomo): Sequence: platform_hook \u2192 integration_proof \u2192 market_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['platform_hook', 'integration_proof', 'market_fomo']): Types: ['platform_hook', 'integration_proof', 'market_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 72.7/100, Issues: 5): Overall score: 72.7/100, Issues: 5",
+    "qualitygatekeeper: APPROVED for delivery (Score 72.7 >= 60.0 threshold): Score 72.7 >= 60.0 threshold",
+    "injector: Successfully injected to email queue (Queue ID: queue_d612e9a35b38): Queue ID: queue_d612e9a35b38"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.APPROVED",
+  "status_reason": "Quality score 72.7 meets threshold 60.0",
+  "memory_context": {
+    "lead_id": "email_test_001",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250731_122755_email_test_001",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-07-31T12:27:55.601180"
+      }
+    ],
+    "trait_history": [
+      {
+        "traits": [
+          "enterprise",
+          "startup",
+          "saas",
+          "api_first",
+          "cloud_native",
+          "ai_powered",
+          "disruptor",
+          "early_stage",
+          "transformation",
+          "formal",
+          "technical",
+          "role_vp",
+          "senior_decision_maker"
+        ],
+        "confidence": {
+          "enterprise": 40.0,
+          "startup": 11.1,
+          "saas": 60.0,
+          "api_first": 27.5,
+          "cloud_native": 27.5,
+          "ai_powered": 31.4,
+          "disruptor": 16.7,
+          "early_stage": 12.5,
+          "transformation": 36.7,
+          "formal": 36.7,
+          "technical": 14.3,
+          "role_vp": 30,
+          "senior_decision_maker": 40
+        },
+        "primary_trait": "saas",
+        "timestamp": "2025-07-31T12:27:55.601174"
+      }
+    ],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-07-31T12:27:55.601171",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "success",
+  "delivery_method": "email_queue",
+  "queue_id": "queue_d612e9a35b38",
+  "airtable_update_status": null,
+  "formatted_linkedin_campaign": null,
+  "delivery_schedule": {
+    "platform_hook": "2025-07-31T12:28:19.861093",
+    "integration_proof": "2025-08-04T12:28:19.861107",
+    "market_fomo": "2025-08-07T12:28:19.861114"
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -39,7 +39,6 @@ def check_environment():
     required_files = [
         "scraper/app.py",
         "enricher/app.py",
-        "engager/app.py",
         "docker-compose.yml",
         ".env"
     ]

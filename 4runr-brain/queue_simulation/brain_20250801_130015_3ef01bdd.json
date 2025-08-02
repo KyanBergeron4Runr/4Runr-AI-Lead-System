@@ -1,0 +1,56 @@
+{
+  "campaign_id": "brain_20250801_130015_3ef01bdd",
+  "lead_id": "test_batch_003",
+  "lead_data": {
+    "name": "Amina Hassan",
+    "email": "kyanberg@outlook.com",
+    "title": "CEO",
+    "company": "MetaScale"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_ceo",
+      "business_focus"
+    ],
+    "primary_trait": "business_focus",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 51.4,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_125956_test_batch_003"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "\"Hello Amina,\nThe most successful companies operate on secrets. Have you wondered why? At 4Runr, we're not just any strategic partner. We're the silent player behind major business victories, and we're very selective about who we let in on our strategy.\nOur expertise? Building AI-driven infrastructures that discreetly outperform competition. The teams we work with? They don't disclose what gives them an edge.\nAre you ready to unlock the silent advantage that could redefine your business success?\nBest,\n[Your Name]\"",
+      "quality_score": 44.0,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T13:00:15.755757",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Transforming Operations with AI: Your Next Move?",
+      "body": "Hello Amina,\nFollowing our previous conversation, I wanted to share the transformative results we've seen with businesses like MetaScale. We've noticed that many companies attempt to duct-tape AI onto their existing systems, often resulting in inefficiencies and missed opportunities.\nAt 4Runr, we're not about quick fixes. We've successfully transitioned teams from scattered tools to fully integrated AI-powered systems \u2014 virtually overnight. This transition has led to an average performance improvement of 45% across various industries.\nWe're committed to delivering compounding performance, no fluff. I'm curious, how is MetaScale currently integrating AI into its operations?\nBest,\n[Your Name]",
+      "quality_score": 55.4,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T13:00:15.755764",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Amina,\nNot all businesses are ready for what's next. But if MetaScale is committed to staying ahead of the curve, it's crucial to act now. Some of your competitors are already optimizing operations with AI. Will you join the front-runners? Let's discuss how 4Runr can strategically elevate your operations.\nNext step: Schedule a call this week. Time waits for no one.",
+      "quality_score": 54.8,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-08T13:00:15.755768",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:00:15.755772",
+  "campaign_status": "active"
+}

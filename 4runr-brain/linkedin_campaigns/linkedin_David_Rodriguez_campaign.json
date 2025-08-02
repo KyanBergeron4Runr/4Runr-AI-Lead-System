@@ -1,0 +1,26 @@
+{
+  "execution_id": "campaign_20250801_135329_test_batch_002",
+  "lead_data": {
+    "name": "David Rodriguez",
+    "company": "BrightForge",
+    "linkedin_url": "https://linkedin.com/in/davidrodriguez-brightforge"
+  },
+  "formatted_campaign": "BOLD_HOOK: \"Hello {{first_name}},\nWe're 4Runr and you haven't heard of us. That's no accident. Our partnerships are carefully selected, our strategies highly coveted. We're the secret fuel behind some of the most successful businesses, quietly revolutionizing their operations through AI and strategic consulting.\nWhat if you could unlock a level of optimization that your competitors can only dream of? The opportunity for exclusivity is now in your hands. Are you ready to uncover what could be your biggest competitive advantage?\nLooking forward to exploring the possibilities.\nBest,\n[Your Name]\"  OUTCOME_PROOF: Hello {{first_name}},\nTouching base following my previous note - you're likely no stranger to the challenges businesses face in integrating AI into their systems.\nAt 4Runr, we've transformed the operations of numerous companies, turning scattered, ineffective tools into robust, streamlined systems \u2014 virtually overnight. Our clients have seen a dramatic increase in efficiency and profitability, with an average performance improvement of 35%.\nWe're not about fluff or empty promises. Our focus is on delivering tangible, measurable results. In this high-stakes business environment, can you afford to let potential performance gains remain untapped?\nLooking forward to hearing about your current operational landscape.\nBest,\n[Your Name]  URGENT_FOMO: {{first_name}},\nNot all CEOs are ready to strategically elevate their operations. If you're committed to outperforming competitors and future-proofing {{company}}, it's time to act. Several industry leaders are already advancing with 4Runr. Are you in?\nLet's discuss your strategic roadmap. Reply to schedule a call.\nBoldly,\n[Your Name]",
+  "airtable_updates": {
+    "AI Message": "BOLD_HOOK: \"Hello {{first_name}},\nWe're 4Runr and you haven't heard of us. That's no accident. Our partnerships are carefully selected, our strategies highly coveted. We're the secret fuel behind some of the most successful businesses, quietly revolutionizing their operations through AI and strategic consulting.\nWhat if you could unlock a level of optimization that your competitors can only dream of? The opportunity for exclusivity is now in your hands. Are you ready to uncover what could be your biggest competitive advantage?\nLooking forward to exploring the possibilities.\nBest,\n[Your Name]\"  OUTCOME_PROOF: Hello {{first_name}},\nTouching base following my previous note - you're likely no stranger to the challenges businesses face in integrating AI into their systems.\nAt 4Runr, we've transformed the operations of numerous companies, turning scattered, ineffective tools into robust, streamlined systems \u2014 virtually overnight. Our clients have seen a dramatic increase in efficiency and profitability, with an average performance improvement of 35%.\nWe're not about fluff or empty promises. Our focus is on delivering tangible, measurable results. In this high-stakes business environment, can you afford to let potential performance gains remain untapped?\nLooking forward to hearing about your current operational landscape.\nBest,\n[Your Name]  URGENT_FOMO: {{first_name}},\nNot all CEOs are ready to strategically elevate their operations. If you're committed to outperforming competitors and future-proofing {{company}}, it's time to act. Several industry leaders are already advancing with 4Runr. Are you in?\nLet's discuss your strategic roadmap. Reply to schedule a call.\nBoldly,\n[Your Name]",
+    "Messaging Method": "Manual LinkedIn",
+    "Manual Message Sent": false,
+    "AI Message Type": "personalized",
+    "Extra Info": "Quality Score: 50.6/100 | Used Fallback: No | Message Tone: consultative | Data Quality: 4/10 | Website Insights: 0 | Website: Low Signal Content"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_ceo",
+      "business_focus"
+    ],
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 50.56666666666666
+  },
+  "created_at": "2025-08-01T13:53:48.125101"
+}

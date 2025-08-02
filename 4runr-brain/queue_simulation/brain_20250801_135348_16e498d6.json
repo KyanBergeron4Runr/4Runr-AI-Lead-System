@@ -1,0 +1,56 @@
+{
+  "campaign_id": "brain_20250801_135348_16e498d6",
+  "lead_id": "test_batch_002",
+  "lead_data": {
+    "name": "David Rodriguez",
+    "email": "kyanberg@outlook.com",
+    "title": "CEO",
+    "company": "BrightForge"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_ceo",
+      "business_focus"
+    ],
+    "primary_trait": "business_focus",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 50.56666666666666,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_135329_test_batch_002"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "\"Hello David,\nWe're 4Runr and you haven't heard of us. That's no accident. Our partnerships are carefully selected, our strategies highly coveted. We're the secret fuel behind some of the most successful businesses, quietly revolutionizing their operations through AI and strategic consulting.\nWhat if you could unlock a level of optimization that your competitors can only dream of? The opportunity for exclusivity is now in your hands. Are you ready to uncover what could be your biggest competitive advantage?\nLooking forward to exploring the possibilities.\nBest,\n[Your Name]\"",
+      "quality_score": 46.4,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T13:53:48.126160",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello David,\nTouching base following my previous note - you're likely no stranger to the challenges businesses face in integrating AI into their systems.\nAt 4Runr, we've transformed the operations of numerous companies, turning scattered, ineffective tools into robust, streamlined systems \u2014 virtually overnight. Our clients have seen a dramatic increase in efficiency and profitability, with an average performance improvement of 35%.\nWe're not about fluff or empty promises. Our focus is on delivering tangible, measurable results. In this high-stakes business environment, can you afford to let potential performance gains remain untapped?\nLooking forward to hearing about your current operational landscape.\nBest,\n[Your Name]",
+      "quality_score": 52.5,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T13:53:48.126168",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "David,\nNot all CEOs are ready to strategically elevate their operations. If you're committed to outperforming competitors and future-proofing BrightForge, it's time to act. Several industry leaders are already advancing with 4Runr. Are you in?\nLet's discuss your strategic roadmap. Reply to schedule a call.\nBoldly,\n[Your Name]",
+      "quality_score": 52.8,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-08T13:53:48.126172",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:53:48.126177",
+  "campaign_status": "active"
+}

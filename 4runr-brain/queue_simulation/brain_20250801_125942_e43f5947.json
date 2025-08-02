@@ -1,0 +1,56 @@
+{
+  "campaign_id": "brain_20250801_125942_e43f5947",
+  "lead_id": "test_batch_001",
+  "lead_data": {
+    "name": "Sarah Mitchell",
+    "email": "kyanberg@outlook.com",
+    "title": "CEO",
+    "company": "PulseNova"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_ceo",
+      "business_focus"
+    ],
+    "primary_trait": "business_focus",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 52.26666666666666,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_125926_test_batch_001"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "\"Sarah, not many know about us \u2014 and we like it that way. At 4Runr, we are selective about who we partner with, and for a good reason. Our strategic AI solutions quietly amplify businesses, creating an edge that our clients would rather keep under wraps. Are you prepared to unlock the unadvertised potential that could redefine PulseNova's trajectory? Let's explore what 4Runr could mean for you.\"",
+      "quality_score": 53.9,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T12:59:42.645169",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Elevate PulseNova's Performance - Proven Results Await",
+      "body": "Hello Sarah,\nFollowing up on my previous note, I noticed an opportunity for PulseNova to achieve even greater success.\nMany companies are stuck duct-taping AI onto old systems, resulting in subpar performance. At 4Runr, we've transformed this scenario for numerous businesses, helping them transition from scattered tools to fully integrated systems \u2014 practically overnight.\nOur clients have consistently reported up to a 35% increase in operational efficiency. No fluff, just compounding performance.\nAt 4Runr, we believe in delivering results that matter. I'm curious, how is PulseNova currently addressing operational efficiency?\nBest,\n[Your Name]",
+      "quality_score": 51.8,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T12:59:42.645178",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Sarah, 4Runr isn't for everyone. But if you're serious about optimizing PulseNova's operations, this message is for you. Many of your competitors are already actioning strategic change. Don't be left behind. Let's discuss how we can future-proof your business together. Schedule a call with us today. Time is of the essence.",
+      "quality_score": 51.1,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-08T12:59:42.645182",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T12:59:42.645187",
+  "campaign_status": "active"
+}

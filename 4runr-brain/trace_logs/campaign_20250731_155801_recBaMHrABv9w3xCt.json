@@ -1,0 +1,267 @@
+{
+  "execution_id": "campaign_20250731_155801_recBaMHrABv9w3xCt",
+  "timestamp": "2025-07-31T15:58:01.530999",
+  "node_path": [
+    "traitdetector_2025-07-31T15:58:01.546983",
+    "memorymanager_2025-07-31T15:58:01.549667",
+    "campaignplanner_2025-07-31T15:58:01.551842",
+    "messagegenerator_2025-07-31T15:58:01.554175",
+    "messagereviewer_2025-07-31T15:58:24.188188",
+    "qualitygatekeeper_2025-07-31T15:58:24.190571",
+    "injector_2025-07-31T15:58:24.192882"
+  ],
+  "lead_data": {
+    "id": "recBaMHrABv9w3xCt",
+    "Name": "Yves-Gabriel Leboeuf",
+    "LinkedIn_URL": "https://ca.linkedin.com/in/ygl",
+    "Email": null,
+    "Company": "Unknown Company",
+    "company_data": {
+      "description": "Professional services company",
+      "services": "Business consulting and professional services",
+      "tone": "Professional"
+    },
+    "scraped_content": {
+      "homepage_text": "Professional services and business consulting",
+      "about_page": "Established professional services firm"
+    }
+  },
+  "company_data": {
+    "description": "Professional services company",
+    "services": "Business consulting and professional services",
+    "tone": "Professional"
+  },
+  "scraped_content": {
+    "homepage_text": "Professional services and business consulting",
+    "about_page": "Established professional services firm"
+  },
+  "traits": [
+    "smb",
+    "agency",
+    "consultancy",
+    "mature",
+    "formal"
+  ],
+  "trait_confidence": {
+    "smb": 14.3,
+    "agency": 27.5,
+    "consultancy": 44.0,
+    "mature": 14.3,
+    "formal": 36.7
+  },
+  "trait_reasoning": {
+    "smb": "Matched keywords: established",
+    "agency": "Matched keywords: services, consulting",
+    "consultancy": "Matched keywords: consulting, professional services",
+    "mature": "Matched keywords: established",
+    "formal": "Matched keywords: professional, business"
+  },
+  "primary_trait": "consultancy",
+  "campaign_sequence": [
+    "client_hook",
+    "capability_proof",
+    "competitive_fomo"
+  ],
+  "messaging_angle": "client_success",
+  "campaign_tone": "professional",
+  "sequence_reasoning": "Agencies care about client outcomes and competitive differentiation (based on trait: agency)",
+  "messages": [
+    {
+      "message_type": "client_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Yves-Gabriel Leboeuf,\nIn the dynamic world of professional services and consultancy, operational efficiency is key to maintaining a competitive edge. I've noticed that businesses like yours are continuously seeking ways to streamline processes, maximize resource utilization and deliver superior client outcomes.\nAt 4Runr, we specialize in leveraging AI and strategic consulting to optimize operations. We've assisted numerous consultancies in enhancing their operational efficiency, which has directly contributed to their client success.\nWould you be open to a brief discussion on how 4Runr might assist in elevating your operational performance? Our strategic insights could prove beneficial for your business growth.\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "generation_attempt": 1,
+      "quality_score": 54.1,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "competitive",
+        "efficiency",
+        "growth",
+        "strategic",
+        "competitive edge"
+      ],
+      "tone_indicators": [],
+      "word_count": 108,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "capability_proof",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Yves-Gabriel Leboeuf,\nIn a world where professional services are becoming increasingly complex and competitive, operational efficiency is more critical than ever. I've noticed that firms like yours are facing unique challenges in balancing customer expectations, business growth, and operational cost-effectiveness.\nAt 4Runr, we specialize in harnessing AI and strategic consulting to help businesses optimize operations and stay ahead of the curve. We\u2019ve helped similar agencies and consultancies streamline processes, improve decision-making and ultimately, enhance client success.\nWould you be open to a brief conversation about how we might support your business goals through strategic optimization? I believe we could provide some valuable insights that could benefit your company.\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "generation_attempt": 1,
+      "quality_score": 48.7,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Tone mismatch",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": true,
+        "has_company_name": false,
+        "has_role_reference": true,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "competitive",
+        "efficiency",
+        "growth",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 117,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    },
+    {
+      "message_type": "competitive_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Dear Mr. Leboeuf,\nIn the professional services landscape, the demand for greater operational efficiency and business optimization has become increasingly paramount. Given the rapid industry evolution, many mature consultancies are seeking innovative strategies to stay competitive.\nAt 4Runr, we specialize in leveraging AI and strategic consulting to streamline operations and drive tangible business outcomes. While our approach is consultative and not salesy, our results have proven transformative for businesses similar to yours.\nWould you be open to a brief conversation to explore how 4Runr could help your company navigate operational challenges and capitalize on industry trends?\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "generation_attempt": 1,
+      "quality_score": 50.2,
+      "quality_issues": [
+        "Low personalization score",
+        "Lacks strategic insight",
+        "Clarity issues"
+      ],
+      "personalization_elements": {
+        "has_lead_name": false,
+        "has_company_name": false,
+        "has_role_reference": false,
+        "has_industry_terms": false
+      },
+      "strategic_elements": [
+        "industry",
+        "competitive",
+        "efficiency",
+        "results",
+        "strategic"
+      ],
+      "tone_indicators": [],
+      "word_count": 104,
+      "readability_score": 0.0,
+      "brand_compliance_score": 100.0
+    }
+  ],
+  "generation_attempts": {
+    "client_hook_attempt": 1,
+    "capability_proof_attempt": 1,
+    "competitive_fomo_attempt": 1
+  },
+  "generation_errors": [],
+  "quality_scores": {
+    "client_hook_score": 54.1,
+    "capability_proof_score": 48.7,
+    "competitive_fomo_score": 50.2,
+    "overall_score": 51.0
+  },
+  "quality_issues": [
+    "client_hook: Low personalization score",
+    "client_hook: Lacks strategic insight",
+    "client_hook: Tone mismatch",
+    "client_hook: Clarity issues",
+    "capability_proof: Low personalization score",
+    "capability_proof: Lacks strategic insight",
+    "capability_proof: Tone mismatch",
+    "capability_proof: Clarity issues",
+    "competitive_fomo: Low personalization score",
+    "competitive_fomo: Lacks strategic insight",
+    "competitive_fomo: Clarity issues"
+  ],
+  "quality_feedback": {
+    "client_hook": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "capability_proof": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Adjust language to match professional tone",
+      "Improve message structure and call-to-action clarity"
+    ],
+    "competitive_fomo": [
+      "Add more specific references to lead name, company, and industry",
+      "Include market observations or business value propositions",
+      "Improve message structure and call-to-action clarity"
+    ]
+  },
+  "overall_quality_score": 51.0,
+  "decision_path": [
+    "traitdetector: Detected 5 traits (Primary: consultancy (44.0% confidence)): Primary: consultancy (44.0% confidence)",
+    "memorymanager: Retrieved memory for lead recBaMHrABv9w3xCt (Previous attempts: 1, Success rate: 0.0%): Previous attempts: 1, Success rate: 0.0%",
+    "campaignplanner: Selected client_success angle with professional tone (Sequence: client_hook \u2192 capability_proof \u2192 competitive_fomo): Sequence: client_hook \u2192 capability_proof \u2192 competitive_fomo",
+    "messagegenerator: Generated 3/3 messages successfully (Types: ['client_hook', 'capability_proof', 'competitive_fomo']): Types: ['client_hook', 'capability_proof', 'competitive_fomo']",
+    "messagereviewer: Reviewed 3 messages (Overall score: 51.0/100, Issues: 11): Overall score: 51.0/100, Issues: 11",
+    "qualitygatekeeper: APPROVED for delivery (Score 51.0 >= 50.0 threshold): Score 51.0 >= 50.0 threshold",
+    "injector: Successfully saved AI Message for manual sending (Campaign formatted and saved to Airtable AI Message field): Campaign formatted and saved to Airtable AI Message field"
+  ],
+  "retry_count": 0,
+  "final_status": "CampaignStatus.APPROVED",
+  "status_reason": "Quality score 51.0 meets threshold 50.0",
+  "memory_context": {
+    "lead_id": "recBaMHrABv9w3xCt",
+    "previous_attempts": [
+      {
+        "execution_id": "campaign_20250731_155801_recBaMHrABv9w3xCt",
+        "messaging_angle": "",
+        "campaign_tone": "",
+        "campaign_sequence": [],
+        "overall_quality_score": 0.0,
+        "final_status": "processing",
+        "retry_count": 0,
+        "timestamp": "2025-07-31T15:58:01.549963"
+      }
+    ],
+    "trait_history": [
+      {
+        "traits": [
+          "smb",
+          "agency",
+          "consultancy",
+          "mature",
+          "formal"
+        ],
+        "confidence": {
+          "smb": 14.3,
+          "agency": 27.5,
+          "consultancy": 44.0,
+          "mature": 14.3,
+          "formal": 36.7
+        },
+        "primary_trait": "consultancy",
+        "timestamp": "2025-07-31T15:58:01.549957"
+      }
+    ],
+    "quality_history": [],
+    "best_performing_angles": [],
+    "failed_approaches": [],
+    "last_contact_date": "2025-07-31T15:58:01.549954",
+    "total_attempts": 1,
+    "success_rate": 0.0
+  },
+  "historical_insights": [
+    "Recent contact: 0 days ago"
+  ],
+  "injection_status": "success",
+  "delivery_method": "manual_only",
+  "queue_id": null,
+  "airtable_update_status": "success",
+  "formatted_linkedin_campaign": "CLIENT_HOOK: Dear {{first_name}} Leboeuf,\nIn the dynamic world of professional services and consultancy, operational efficiency is key to maintaining a competitive edge. I've noticed that businesses like yours are continuously seeking ways to streamline processes, maximize resource utilization and deliver superior client outcomes.\nAt 4Runr, we specialize in leveraging AI and strategic consulting to optimize operations. We've assisted numerous consultancies in enhancing their operational efficiency, which has directly contributed to their client success.\nWould you be open to a brief discussion on how 4Runr might assist in elevating your operational performance? Our strategic insights could prove beneficial for your business growth.\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr\n\nCAPABILITY_PROOF: Dear {{first_name}} Leboeuf,\nIn a world where professional services are becoming increasingly complex and competitive, operational efficiency is more critical than ever. I've noticed that firms like yours are facing unique challenges in balancing customer expectations, business growth, and operational cost-effectiveness.\nAt 4Runr, we specialize in harnessing AI and strategic consulting to help businesses optimize operations and stay ahead of the curve. We\u2019ve helped similar agencies and consultancies streamline processes, improve decision-making and ultimately, enhance client success.\nWould you be open to a brief conversation about how we might support your business goals through strategic optimization? I believe we could provide some valuable insights that could benefit your company.\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr\n\nCOMPETITIVE_FOMO: Dear Mr. Leboeuf,\nIn the professional services landscape, the demand for greater operational efficiency and business optimization has become increasingly paramount. Given the rapid industry evolution, many mature consultancies are seeking innovative strategies to stay competitive.\nAt 4Runr, we specialize in leveraging AI and strategic consulting to streamline operations and drive tangible business outcomes. While our approach is consultative and not salesy, our results have proven transformative for businesses similar to yours.\nWould you be open to a brief conversation to explore how 4Runr could help your company navigate operational challenges and capitalize on industry trends?\nBest regards,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+  "delivery_schedule": null,
+  "errors": [],
+  "warnings": []
+}

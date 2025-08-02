@@ -1,0 +1,23 @@
+{
+  "execution_id": "campaign_20250801_131520_recqux3tKNc61GjGs",
+  "lead_data": {
+    "name": "Pascal Jarry",
+    "company": "Yapla",
+    "linkedin_url": "https://ca.linkedin.com/in/pascaljarry"
+  },
+  "formatted_campaign": "BOLD_HOOK: \"Hello {{first_name}},\nYou might not have come across 4Runr yet \u2014 and there's a good reason for that. Our client roster is intentionally selective, reserved for those who understand the silent power of strategic advantage.\nWe're in the business of creating unseen leverage, the kind that subtly but significantly boosts operations and outcomes. The teams we partner with don't shout about their secret weapon, they're too busy enjoying the results.\nCurious about what this could mean for you? Let's explore the possibilities together.\nBest,\n[Your Name]\"  OUTCOME_PROOF: Hello {{first_name}},\nFollowing up on my previous message, it's clear that businesses often try to fix old systems with new technology - a patchwork approach that rarely yields optimal results.\nAt 4Runr, we don't just duct-tape AI onto old systems. We've empowered companies to transform from scattered tools to fully integrated systems, leading to an average performance improvement of 35% within the first six months.\nOur strategy? No fluff. Just compounding performance. We focus on delivering tangible results and driving transformation that makes a difference.\n{{first_name}}, how is {{company}} currently approaching operational optimization? I'm curious to learn more about your strategy.\nBest,\n[Your Name]  URGENT_FOMO: {{first_name}},\nNot every business qualifies for 4Runr's strategic services. But for professionals like you, serious about optimizing {{company}}'s operations, this is a game-changer. Your competitors are already making moves. Don't be left behind.\nAct now. Let's discuss how 4Runr can propel {{company}} ahead of the pack.\nNext step? Simply reply to this email.\nBest,\n[Your Name]",
+  "airtable_updates": {
+    "AI Message": "BOLD_HOOK: \"Hello {{first_name}},\nYou might not have come across 4Runr yet \u2014 and there's a good reason for that. Our client roster is intentionally selective, reserved for those who understand the silent power of strategic advantage.\nWe're in the business of creating unseen leverage, the kind that subtly but significantly boosts operations and outcomes. The teams we partner with don't shout about their secret weapon, they're too busy enjoying the results.\nCurious about what this could mean for you? Let's explore the possibilities together.\nBest,\n[Your Name]\"  OUTCOME_PROOF: Hello {{first_name}},\nFollowing up on my previous message, it's clear that businesses often try to fix old systems with new technology - a patchwork approach that rarely yields optimal results.\nAt 4Runr, we don't just duct-tape AI onto old systems. We've empowered companies to transform from scattered tools to fully integrated systems, leading to an average performance improvement of 35% within the first six months.\nOur strategy? No fluff. Just compounding performance. We focus on delivering tangible results and driving transformation that makes a difference.\n{{first_name}}, how is {{company}} currently approaching operational optimization? I'm curious to learn more about your strategy.\nBest,\n[Your Name]  URGENT_FOMO: {{first_name}},\nNot every business qualifies for 4Runr's strategic services. But for professionals like you, serious about optimizing {{company}}'s operations, this is a game-changer. Your competitors are already making moves. Don't be left behind.\nAct now. Let's discuss how 4Runr can propel {{company}} ahead of the pack.\nNext step? Simply reply to this email.\nBest,\n[Your Name]",
+    "Messaging Method": "Manual LinkedIn",
+    "Manual Message Sent": false,
+    "AI Message Type": "personalized",
+    "Extra Info": "Quality Score: 53.0/100 | Used Fallback: No | Message Tone: consultative | Data Quality: 4/10 | Website Insights: 0 | Website: Low Signal Content"
+  },
+  "campaign_metadata": {
+    "traits": [],
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 53.0
+  },
+  "created_at": "2025-08-01T13:15:43.777022"
+}

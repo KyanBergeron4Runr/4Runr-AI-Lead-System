@@ -1,0 +1,56 @@
+{
+  "campaign_id": "brain_20250801_114051_e43b9d2a",
+  "lead_id": "test_no_website_001",
+  "lead_data": {
+    "name": "John Smith",
+    "email": "john@genericcorp.com",
+    "title": "CEO",
+    "company": "Generic Corp"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_ceo",
+      "business_focus"
+    ],
+    "primary_trait": "business_focus",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 57.70000000000001,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_114035_test_no_website_001"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "John,\nYou may not be familiar with us, but the most successful businesses are. We choose our partners with intention, working behind the scenes to catalyze their growth and ensure they remain a step ahead.\nAt 4Runr, we don't just optimize operations, we redefine them. Our strategic consulting and AI-powered solutions are the secret force behind industry leaders quietly winning more deals.\nReady to explore the unseen advantage that could amplify your success? Let's talk.\nBest,\n[Your Name]",
+      "quality_score": 56.4,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T11:40:51.047805",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "\"Transformative Performance: Your Next Step with 4Runr\"",
+      "body": "Hello John,\nFollowing up on my previous note, I've been thinking about the potential for transformation at Generic Corp.\nIn today's rapidly evolving business landscape, many firms are merely duct-taping AI onto their existing systems, often leading to sub-optimal outcomes. That's where we come in.\nAt 4Runr, we\u2019ve consistently helped companies like yours shift from scattered tools to fully integrated systems, often overnight. Our clients experience significant performance improvements, with an average of a 30% increase in operational efficiency.\nWe're all about results, not fluff. We focus on creating compounding performance improvements that are strategic, bold, and directly tied to your bottom line.\nJohn, how is Generic Corp currently navigating its operational efficiency challenges?\nBest,\n[Your Name]",
+      "quality_score": 63.5,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T11:40:51.047817",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "\"John, not every CEO is ready for this pivotal step. But if you're serious about future-proofing Generic Corp's operations, it's time to act. Some of your competitors are already moving. Join 4Runr now to gain a strategic edge. Let's discuss how we can optimize your operations. Reply to schedule a consultation.\"",
+      "quality_score": 53.2,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-08T11:40:51.047823",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T11:40:51.047830",
+  "campaign_status": "active"
+}

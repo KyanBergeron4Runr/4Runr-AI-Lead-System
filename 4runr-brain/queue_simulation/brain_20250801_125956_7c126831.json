@@ -1,0 +1,56 @@
+{
+  "campaign_id": "brain_20250801_125956_7c126831",
+  "lead_id": "test_batch_002",
+  "lead_data": {
+    "name": "David Chen",
+    "email": "kyanberg@outlook.com",
+    "title": "CEO",
+    "company": "BrightForge"
+  },
+  "campaign_metadata": {
+    "traits": [
+      "role_ceo",
+      "business_focus"
+    ],
+    "primary_trait": "business_focus",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 58.36666666666667,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_125942_test_batch_002"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "\"Hello David,\nYou may not have heard of us - that's by design. We're 4Runr, the secret weapon behind some of the most successful businesses. Our work is not advertised, it's quietly transforming operations, optimizing efficiency and boosting bottom lines.\nWe're selective about who we partner with, but we see a potential alignment with BrightForge. Are you ready to uncover the strategic advantage that others would rather keep hidden?\nLet's explore this further.\nBest,\n[Your Name]\"",
+      "quality_score": 56.9,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-01T12:59:56.009264",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Transforming Performance, No Fluff Attached",
+      "body": "Hello David,\nI hope you had a chance to review the strategic insights I shared in my last message.\nIn today's rapidly evolving business landscape, most companies are slapping AI onto outdated systems, yielding disjointed results. At 4Runr, we're shattering this approach.\nWe've led teams from scattered tools to seamlessly integrated systems \u2014 overnight, enabling 35% average operational efficiency improvement and up to 50% reduction in decision-making time. We are relentlessly focused on delivering tangible outcomes, no fluff, just compounding performance.\nI'm curious, David - how does BrightForge currently navigate its operational efficiency?\nLooking forward to your thoughts.\nBest,\n[Your Name]",
+      "quality_score": 61.1,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-04T12:59:56.009271",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Exclusive Opportunity: Secure BrightForge's Future Now",
+      "body": "David,\nNot every CEO is ready to future-proof their operations. If you are, now's the time. Some of your competitors are already partnering with us at 4Runr. Our collaboration offers select businesses a strategic edge. Act now, before this exclusive opportunity is off the table. Let's discuss how we can solidify BrightForge's competitive advantage.\nNext step? Reply to schedule a strategic discussion.",
+      "quality_score": 57.1,
+      "generation_attempt": 1,
+      "scheduled_date": "2025-08-08T12:59:56.009274",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T12:59:56.009279",
+  "campaign_status": "active"
+}

@@ -1,0 +1,53 @@
+{
+  "campaign_id": "brain_20250801_131457_5082331d",
+  "lead_id": "recjXRq3GDlTY7rKy",
+  "lead_data": {
+    "name": "Yves-Gabriel Leboeuf",
+    "email": "yvesgabriel.leboeuf@teck.com",
+    "title": "Professional",
+    "company": "Teck Resources Limited"
+  },
+  "campaign_metadata": {
+    "traits": [],
+    "primary_trait": "",
+    "messaging_angle": "high_conviction_mystery",
+    "campaign_tone": "confident",
+    "overall_quality_score": 50.800000000000004,
+    "generated_by": "campaign_brain",
+    "execution_id": "campaign_20250801_131407_recjXRq3GDlTY7rKy"
+  },
+  "messages": [
+    {
+      "message_number": 1,
+      "message_type": "bold_hook",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Hello Yves-Gabriel,\nYou haven't heard of us, and we're very selective about who we approach. But we noticed something in your professional aura that made us think you're ready for 4Runr.\nWe're the silent partner behind some of the most successful businesses, providing them with AI-powered strategies that subtly, yet powerfully, optimize their operations. They don't advertise it - a competitive edge is best kept secret.\nWe're extending an exclusive invitation to explore how we can redefine success together. Ready to unlock the hidden potential of your operations?\nBest,\n[Your Name]\nStrategic Outreach Specialist, 4Runr",
+      "quality_score": 44.8,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-01T13:14:57.868794",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 2,
+      "message_type": "outcome_proof",
+      "subject": "Transform Operations for Unprecedented Results with 4Runr",
+      "body": "Hello Yves-Gabriel,\nI trust you found our previous outreach informative. Today, I'd like to share an observation \u2014 many professionals like yourself struggle with integrating AI into existing systems. It's not a patchwork task, it's a transformation.\nAt 4Runr, we've turned this challenge into a strategic advantage for businesses. We've successfully transitioned teams from disjointed tools to robust, unified systems \u2014 virtually overnight. The result? An average performance improvement of 35% in the first quarter alone.\nWe're not just about AI; we're about compounding performance and streamlined operations. I'm curious, Yves-Gabriel, how does Teck Resources currently approach operational efficiency?\nLooking forward to your thoughts.\nBest,\n[Your Name]",
+      "quality_score": 55.0,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-04T13:14:57.868803",
+      "status": "scheduled"
+    },
+    {
+      "message_number": 3,
+      "message_type": "urgent_fomo",
+      "subject": "Strategic Partnership Opportunity",
+      "body": "Yves-Gabriel, not every professional will recognize this moment's strategic significance. However, if you're serious about optimizing operations at Teck Resources, this is crucial. Several industry players are already harnessing AI with 4Runr to gain a competitive edge. The question is, will you let them outpace you? Let's discuss how 4Runr can shape Teck Resources' future. Act now. Time waits for no one.",
+      "quality_score": 52.6,
+      "generation_attempt": 2,
+      "scheduled_date": "2025-08-08T13:14:57.868807",
+      "status": "scheduled"
+    }
+  ],
+  "created_at": "2025-08-01T13:14:57.868813",
+  "campaign_status": "active"
+}

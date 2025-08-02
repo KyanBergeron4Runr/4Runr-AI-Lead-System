@@ -3,8 +3,7 @@ services:
   scraper:
     build: 
       context: ./scraper
-      dockerfile: Dockerfile
-      target: production
+      dockerfile: Dockerfile.simple
     image: 4runr/scraper:latest
     container_name: 4runr-scraper
     volumes:
@@ -55,34 +54,6 @@ services:
     depends_on:
       - scraper
 
-  engager:
-    build: 
-      context: ./engager
-      dockerfile: Dockerfile
-      target: production
-    image: 4runr/engager:latest
-    container_name: 4runr-engager
-    volumes:
-      # Mount shared directory for inter-agent communication
-      - ./shared:/shared
-      # Mount logs directory for persistent logs
-      - ./logs:/app/logs
-    env_file:
-      - .env
-    environment:
-      - ENGAGER_DELAY_SECONDS=300
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "python", "-c", "import os; exit(0 if os.path.exists('/shared') else 1)"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 5s
-    networks:
-      - 4runr-network
-    depends_on:
-      - enricher
-
   # Pipeline runner service for one-time execution
   pipeline:
     build:
@@ -116,7 +87,6 @@ services:
     depends_on:
       - scraper
       - enricher
-      - engager
     networks:
       - 4runr-network
 
