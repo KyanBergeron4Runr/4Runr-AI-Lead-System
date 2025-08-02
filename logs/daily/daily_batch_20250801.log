@@ -1,0 +1,3 @@
+2025-08-01 21:22:53,989 - INFO - Configuration: batch_size=20, dry_run=True
+2025-08-01 21:23:03,514 - INFO - Processing attempt 1/3
+2025-08-01 21:28:03,657 - INFO - Processing attempt 2/3
