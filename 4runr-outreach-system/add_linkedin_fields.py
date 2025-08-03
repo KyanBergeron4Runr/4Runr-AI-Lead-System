@@ -12,8 +12,11 @@ def main():
         # Get the first record to test field updates
         records = client.table.all(max_records=1)
         
-        if records:
-            record_id = records[0]['id']
+        # Convert generator to list to avoid subscriptable errors
+        records_list = list(records)
+        
+        if records_list:
+            record_id = records_list[0]['id']
             print(f"Testing field update on record: {record_id}")
             
             # Try to add the LinkedIn fields

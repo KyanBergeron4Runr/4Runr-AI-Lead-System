@@ -27,8 +27,11 @@ def get_leads_needing_ai_messages(limit=10):
             max_records=limit
         )
         
+        # Convert generator to list to avoid subscriptable errors
+        records_list = list(records)
+        
         leads = []
-        for record in records:
+        for record in records_list:
             fields = record['fields']
             
             # Convert Airtable record to Campaign Brain format

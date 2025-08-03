@@ -80,6 +80,9 @@ class CampaignBrainService:
         # Load Campaign Brain config
         brain_config = CampaignBrainConfig()
         
+        # Enable debug logging for troubleshooting
+        brain_config.log_level = 'DEBUG'
+        
         # Validate configuration
         validation_issues = brain_config.validate()
         if validation_issues:
@@ -166,12 +169,20 @@ class CampaignBrainService:
         try:
             # Get leads ready for campaign brain
             if self.integrated_mode:
+                print("DEBUG: Getting leads from Airtable")
                 leads = self._get_leads_for_brain_processing(batch_size)
             else:
                 # Standalone mode - get from leads directory
-                leads = self._get_leads_from_directory(batch_size)
+                print("DEBUG: Getting leads from directory")
+                try:
+                    leads = self._get_leads_from_directory(batch_size)
+                    print(f"DEBUG: Retrieved {len(leads) if leads else 0} leads from directory")
+                except Exception as e:
+                    print(f"DEBUG: Error in _get_leads_from_directory: {str(e)}")
+                    raise
             
             if not leads:
+                print("DEBUG: No leads found ready for processing")
                 self.logger.info("No leads found ready for processing")
                 return {
                     'processed': 0,
@@ -179,6 +190,7 @@ class CampaignBrainService:
                     'message': 'No leads ready for processing'
                 }
             
+            print(f"DEBUG: Found {len(leads)} leads ready for processing")
             self.logger.info(f"Found {len(leads)} leads ready for processing")
             
             # Process leads concurrently (with limit)
@@ -189,9 +201,15 @@ class CampaignBrainService:
                     return await self._process_single_lead(lead, dry_run)
             
             # Process all leads
-            results = await asyncio.gather(*[
-                process_with_semaphore(lead) for lead in leads
-            ], return_exceptions=True)
+            print(f"DEBUG: Creating tasks for {len(leads)} leads")
+            try:
+                tasks = [process_with_semaphore(lead) for lead in leads]
+                print(f"DEBUG: Created {len(tasks)} tasks")
+                results = await asyncio.gather(*tasks, return_exceptions=True)
+                print(f"DEBUG: Gathered results: {len(results)}")
+            except Exception as e:
+                print(f"DEBUG: Error in task creation or gathering: {str(e)}")
+                raise
             
             # Process results
             processed_results = []
@@ -321,14 +339,17 @@ class CampaignBrainService:
             # These should be leads that have been enriched but not yet processed by brain
             formula = "AND({Company_Description} != '', {Custom_Message} = '', {Brain_Status} != 'Processed')"
             
+            # Get records without sorting first to avoid field name issues
             records = self.airtable_client.table.all(
                 formula=formula,
-                max_records=limit,
-                sort=['-Created At']
+                max_records=limit
             )
             
+            # Convert generator to list to avoid subscriptable errors
+            records_list = list(records)
+            
             leads = []
-            for record in records:
+            for record in records_list:
                 lead_data = {
                     'id': record['id'],
                     **record['fields']
@@ -344,19 +365,37 @@ class CampaignBrainService:
     def _get_leads_from_directory(self, limit: int) -> List[Dict[str, Any]]:
         """Get leads from local directory (standalone mode)"""
         
+        print(f"DEBUG: _get_leads_from_directory called with limit={limit}")
         leads_dir = Path("leads")
+        print(f"DEBUG: Checking leads directory: {leads_dir}")
         if not leads_dir.exists():
+            print("DEBUG: Leads directory does not exist")
             return []
         
         leads = []
-        for lead_file in leads_dir.glob("*.json")[:limit]:
+        # Convert generator to list to allow slicing
+        print("DEBUG: Getting lead files from directory")
+        try:
+            glob_result = leads_dir.glob("*.json")
+            print(f"DEBUG: glob result type: {type(glob_result)}")
+            all_files = list(glob_result)
+            print(f"DEBUG: Found {len(all_files)} JSON files")
+            lead_files = all_files[:limit]
+            print(f"DEBUG: Processing {len(lead_files)} files (limit: {limit})")
+        except Exception as e:
+            print(f"DEBUG: Error in glob/list conversion: {str(e)}")
+            raise
+        
+        for lead_file in lead_files:
             try:
+                print(f"DEBUG: Loading lead file: {lead_file}")
                 with open(lead_file, 'r') as f:
                     lead_data = json.load(f)
                     leads.append(lead_data)
             except Exception as e:
-                self.logger.warning(f"Error loading lead file {lead_file}: {str(e)}")
+                print(f"DEBUG: Error loading lead file {lead_file}: {str(e)}")
         
+        print(f"DEBUG: Successfully loaded {len(leads)} leads")
         return leads
     
     async def _inject_campaign(self, brain_result, lead_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -607,7 +646,8 @@ Examples:
                 print(f"Errors: {stats['errors']}")
                 print(f"Approval Rate: {stats['approval_rate']:.1f}%")
         
-        return result['processed'] > 0
+        # Return True if no error occurred, even if no leads were processed
+        return 'error' not in result
         
     except KeyboardInterrupt:
         print("\n\nService interrupted by user")

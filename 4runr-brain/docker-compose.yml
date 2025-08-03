@@ -25,8 +25,8 @@ services:
       - ./config:/app/config
     depends_on:
       - redis
-    restart: unless-stopped
-    command: python serve_campaign_brain.py --batch-size 10
+    restart: "no"
+    command: python serve_campaign_brain.py --batch-size 10 --dry-run
 
   redis:
     image: redis:7-alpine

@@ -41,12 +41,14 @@ class AirtableClient:
             
             records = self.table.all(
                 formula=formula,
-                max_records=limit,
-                sort=['-Created At']
+                max_records=limit
             )
             
+            # Convert generator to list to avoid subscriptable errors
+            records_list = list(records)
+            
             leads = []
-            for record in records:
+            for record in records_list:
                 lead_data = {
                     'id': record['id'],
                     **record['fields']
@@ -76,12 +78,14 @@ class AirtableClient:
             
             records = self.table.all(
                 formula=formula,
-                max_records=limit,
-                sort=['-Created At']
+                max_records=limit
             )
             
+            # Convert generator to list to avoid subscriptable errors
+            records_list = list(records)
+            
             leads = []
-            for record in records:
+            for record in records_list:
                 lead_data = {
                     'id': record['id'],
                     **record['fields']
@@ -111,12 +115,14 @@ class AirtableClient:
             
             records = self.table.all(
                 formula=formula,
-                max_records=limit,
-                sort=['-Created At']
+                max_records=limit
             )
             
+            # Convert generator to list to avoid subscriptable errors
+            records_list = list(records)
+            
             leads = []
-            for record in records:
+            for record in records_list:
                 lead_data = {
                     'id': record['id'],
                     **record['fields']

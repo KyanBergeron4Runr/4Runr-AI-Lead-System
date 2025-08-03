@@ -12,10 +12,13 @@ def main():
         # Get records with LinkedIn URL
         records = client.table.all(max_records=10)
         
+        # Convert generator to list to avoid subscriptable errors
+        records_list = list(records)
+        
         print("Looking for leads with LinkedIn URLs:")
         print("-" * 50)
         
-        for record in records:
+        for record in records_list:
             fields = record['fields']
             linkedin_url = fields.get('LinkedIn URL')
             email = fields.get('Email')

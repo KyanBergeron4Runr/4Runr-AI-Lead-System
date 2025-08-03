@@ -12,12 +12,15 @@ def main():
         # Get all records without filtering to see what fields exist
         records = client.table.all(max_records=3)
         
-        if records:
+        # Convert generator to list to avoid subscriptable errors
+        records_list = list(records)
+        
+        if records_list:
             print("Available fields in Airtable:")
             print("-" * 50)
             
             # Show fields from first record
-            first_record = records[0]
+            first_record = records_list[0]
             print(f"Record ID: {first_record['id']}")
             print("Fields:")
             for field_name, value in first_record['fields'].items():
