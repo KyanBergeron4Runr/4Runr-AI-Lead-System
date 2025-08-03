@@ -154,17 +154,26 @@ class LeadCache:
     
     # Write operations (cache + mark for sync)
     
-    def update_lead(self, lead_id: str, updates: Dict[str, Any]) -> bool:
-        """Update lead in cache and mark for sync"""
+    def update_lead(self, lead_id: str, updates: Dict[str, Any], agent_name: str = "unknown") -> bool:
+        """Update lead in cache and mark for sync with data validation"""
+        if not lead_id or not updates:
+            print(f"❌ Invalid update: lead_id={lead_id}, updates={updates}")
+            return False
+            
         conn = self._get_connection()
         try:
             cursor = conn.cursor()
             
-            # Get current lead data
-            cursor.execute('SELECT data_json FROM leads WHERE id = ?', (lead_id,))
+            # Verify lead exists first
+            cursor.execute('SELECT id, data_json, name, company FROM leads WHERE id = ?', (lead_id,))
             row = cursor.fetchone()
             if not row:
+                print(f"❌ Lead {lead_id} not found in cache")
                 return False
+            
+            # Log the update for tracking
+            print(f"🔄 [{agent_name}] Updating lead {lead_id} ({row['name']} at {row['company']})")
+            print(f"   Updates: {list(updates.keys())}")
             
             # Parse current data
             current_data = {}
@@ -172,22 +181,32 @@ class LeadCache:
                 try:
                     current_data = json.loads(row['data_json'])
                 except json.JSONDecodeError:
-                    pass
+                    print(f"⚠️ Warning: Could not parse existing data for lead {lead_id}")
+                    current_data = {}
             
-            # Merge updates
+            # Validate critical fields don't change unexpectedly
+            critical_fields = ['Name', 'Company', 'LinkedIn URL']
+            for field in critical_fields:
+                if field in updates and field in current_data:
+                    old_value = current_data.get(field, '')
+                    new_value = updates.get(field, '')
+                    if old_value and new_value and old_value != new_value:
+                        print(f"⚠️ Warning: Changing {field} from '{old_value}' to '{new_value}' for lead {lead_id}")
+            
+            # Merge updates safely
             current_data.update(updates)
             
-            # Update main fields for indexing
-            name = updates.get('Name') or updates.get('name') or current_data.get('Name', '')
-            company = updates.get('Company') or updates.get('company') or current_data.get('Company', '')
-            email = updates.get('Email') or updates.get('email') or current_data.get('Email', '')
-            status = updates.get('Status') or updates.get('status') or current_data.get('Status', '')
-            title = updates.get('Title') or updates.get('title') or current_data.get('Title', '')
-            linkedin_url = updates.get('LinkedIn URL') or updates.get('linkedin_url') or current_data.get('LinkedIn URL', '')
-            website = updates.get('Website') or updates.get('website') or current_data.get('Website', '')
-            location = updates.get('Location') or updates.get('location') or current_data.get('Location', '')
+            # Update main fields for indexing (with fallbacks)
+            name = current_data.get('Name') or current_data.get('Full Name', '')
+            company = current_data.get('Company', '')
+            email = current_data.get('Email', '')
+            status = current_data.get('Status', 'new')
+            title = current_data.get('Title') or current_data.get('Job Title', '')
+            linkedin_url = current_data.get('LinkedIn URL', '')
+            website = current_data.get('Website', '')
+            location = current_data.get('Location', '')
             
-            # Update lead in database
+            # Update lead in database with transaction
             cursor.execute('''
                 UPDATE leads 
                 SET name = ?, company = ?, email = ?, status = ?, title = ?,
@@ -197,13 +216,24 @@ class LeadCache:
             ''', (name, company, email, status, title, linkedin_url, website, location,
                   json.dumps(current_data), lead_id))
             
-            # Add to pending sync
+            if cursor.rowcount == 0:
+                print(f"❌ Failed to update lead {lead_id} in database")
+                return False
+            
+            # Add to pending sync with metadata
+            sync_data = {
+                'updates': updates,
+                'agent': agent_name,
+                'timestamp': datetime.now().isoformat()
+            }
+            
             cursor.execute('''
                 INSERT INTO pending_sync (lead_id, action, changes_json)
                 VALUES (?, 'update', ?)
-            ''', (lead_id, json.dumps(updates)))
+            ''', (lead_id, json.dumps(sync_data)))
             
             conn.commit()
+            print(f"✅ [{agent_name}] Successfully updated lead {lead_id}")
             return True
             
         except Exception as e:
@@ -213,42 +243,70 @@ class LeadCache:
         finally:
             conn.close()
     
-    def add_lead(self, lead_data: Dict[str, Any]) -> bool:
-        """Add new lead to cache and mark for sync"""
+    def add_lead(self, lead_data: Dict[str, Any], agent_name: str = "unknown") -> bool:
+        """Add new lead to cache and mark for sync with validation"""
+        if not lead_data:
+            print("❌ Cannot add empty lead data")
+            return False
+            
         conn = self._get_connection()
         try:
             cursor = conn.cursor()
             
+            # Validate required fields
             lead_id = lead_data.get('id') or lead_data.get('Id', '')
             if not lead_id:
                 print("❌ Cannot add lead without ID")
                 return False
             
-            # Extract main fields for indexing
-            name = lead_data.get('Name') or lead_data.get('name', '')
-            company = lead_data.get('Company') or lead_data.get('company', '')
-            email = lead_data.get('Email') or lead_data.get('email', '')
-            status = lead_data.get('Status') or lead_data.get('status', 'new')
-            title = lead_data.get('Title') or lead_data.get('title', '')
-            linkedin_url = lead_data.get('LinkedIn URL') or lead_data.get('linkedin_url', '')
-            website = lead_data.get('Website') or lead_data.get('website', '')
-            location = lead_data.get('Location') or lead_data.get('location', '')
+            name = lead_data.get('Name') or lead_data.get('Full Name', '')
+            company = lead_data.get('Company', '')
             
-            # Insert lead
+            if not name or not company:
+                print(f"❌ Cannot add lead {lead_id} without name ({name}) or company ({company})")
+                return False
+            
+            # Check if lead already exists
+            cursor.execute('SELECT id, name, company FROM leads WHERE id = ?', (lead_id,))
+            existing = cursor.fetchone()
+            
+            if existing:
+                print(f"⚠️ Lead {lead_id} already exists ({existing['name']} at {existing['company']})")
+                print(f"   Use update_lead() instead of add_lead()")
+                return False
+            
+            print(f"➕ [{agent_name}] Adding new lead: {name} at {company}")
+            
+            # Extract and validate main fields for indexing
+            email = lead_data.get('Email', '')
+            status = lead_data.get('Status', 'new')
+            title = lead_data.get('Title') or lead_data.get('Job Title', '')
+            linkedin_url = lead_data.get('LinkedIn URL', '')
+            website = lead_data.get('Website', '')
+            location = lead_data.get('Location', '')
+            
+            # Insert lead with validation
             cursor.execute('''
-                INSERT OR REPLACE INTO leads 
+                INSERT INTO leads 
                 (id, name, company, email, status, title, linkedin_url, website, location, data_json, last_updated)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
             ''', (lead_id, name, company, email, status, title, linkedin_url, website, location,
                   json.dumps(lead_data)))
             
-            # Add to pending sync
+            # Add to pending sync with metadata
+            sync_data = {
+                'lead_data': lead_data,
+                'agent': agent_name,
+                'timestamp': datetime.now().isoformat()
+            }
+            
             cursor.execute('''
                 INSERT INTO pending_sync (lead_id, action, changes_json)
                 VALUES (?, 'create', ?)
-            ''', (lead_id, json.dumps(lead_data)))
+            ''', (lead_id, json.dumps(sync_data)))
             
             conn.commit()
+            print(f"✅ [{agent_name}] Successfully added lead {lead_id}")
             return True
             
         except Exception as e:
