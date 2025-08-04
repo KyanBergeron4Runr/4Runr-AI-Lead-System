@@ -42,11 +42,15 @@ env/
 *.log
 logs/
 *.log.*
+trace_logs/
+**/trace_logs/
 
 # Database
 *.db
 *.sqlite
 *.sqlite3
+*.db-shm
+*.db-wal
 
 # Node modules
 node_modules/
