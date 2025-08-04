@@ -13,6 +13,15 @@ from dotenv import load_dotenv
 import requests
 from urllib.parse import quote
 
+# Import database components
+try:
+    from database.lead_database import get_lead_database
+    DATABASE_AVAILABLE = True
+except ImportError as e:
+    print(f"Warning: Could not import database components: {e}")
+    DATABASE_AVAILABLE = False
+
+
 # Load environment variables
 load_dotenv()
 

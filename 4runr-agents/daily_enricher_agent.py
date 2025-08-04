@@ -21,6 +21,15 @@ from urllib.parse import urlparse, urljoin
 from urllib.parse import quote
 import hashlib
 
+# Import database components
+try:
+    from database.lead_database import get_lead_database
+    DATABASE_AVAILABLE = True
+except ImportError as e:
+    print(f"Warning: Could not import database components: {e}")
+    DATABASE_AVAILABLE = False
+
+
 # Add shared directory to path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'shared'))
 
