@@ -1,0 +1,79 @@
+# Multi-stage Dockerfile for Validation-First Pipeline
+FROM python:3.11-slim as base
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    wget \
+    gnupg \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Playwright dependencies
+RUN pip install playwright==1.40.0 && \
+    playwright install chromium && \
+    playwright install-deps chromium
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY . .
+
+# Create necessary directories
+RUN mkdir -p /app/shared /app/logs
+
+# Set environment variables
+ENV PYTHONPATH=/app
+ENV HEADLESS=true
+ENV RUN_ONCE=true
+
+# Create entrypoint script
+RUN echo '#!/bin/bash\n\
+set -e\n\
+\n\
+# Default to running full pipeline\n\
+AGENT=${1:-pipeline}\n\
+\n\
+case $AGENT in\n\
+  scraper)\n\
+    echo "Running Scraper Agent"\n\
+    cd /app/scraper && python app.py\n\
+    ;;\n\
+  verifier)\n\
+    echo "Running Verifier Agent"\n\
+    cd /app/verifier && python app.py\n\
+    ;;\n\
+  enricher)\n\
+    echo "Running Enricher Agent"\n\
+    cd /app/enricher && python app.py\n\
+    ;;\n\
+  engager)\n\
+    echo "Running Engager Agent"\n\
+    cd /app/engager && python app.py\n\
+    ;;\n\
+  health)\n\
+    echo "Running Health Check"\n\
+    python verify_pipeline_health.py\n\
+    ;;\n\
+  test)\n\
+    echo "Running Pipeline Test"\n\
+    python test_validation_pipeline.py\n\
+    ;;\n\
+  pipeline|*)\n\
+    echo "Running Full Validation Pipeline"\n\
+    python run_validation_pipeline.py\n\
+    ;;\n\
+esac' > /app/entrypoint.sh
+
+RUN chmod +x /app/entrypoint.sh
+
+# Expose volume for shared data
+VOLUME ["/app/shared", "/app/logs"]
+
+# Set entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["pipeline"]

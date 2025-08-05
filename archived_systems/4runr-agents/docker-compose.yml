@@ -1,0 +1,100 @@
+services:
+  # Individual agent services for continuous operation
+  scraper:
+    build: 
+      context: ./scraper
+      dockerfile: Dockerfile.simple
+    image: 4runr/scraper:latest
+    container_name: 4runr-scraper
+    volumes:
+      # Mount shared directory for inter-agent communication
+      - ./shared:/shared
+      # Mount logs directory for persistent logs
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    environment:
+      - SCRAPER_LEAD_COUNT=5
+      - SCRAPER_DELAY_SECONDS=3600
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os; exit(0 if os.path.exists('/shared') else 1)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - 4runr-network
+
+  enricher:
+    build: 
+      context: ./enricher
+      dockerfile: Dockerfile
+      target: production
+    image: 4runr/enricher:latest
+    container_name: 4runr-enricher
+    volumes:
+      # Mount shared directory for inter-agent communication
+      - ./shared:/shared
+      # Mount logs directory for persistent logs
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    environment:
+      - ENRICHER_DELAY_SECONDS=60
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os; exit(0 if os.path.exists('/shared') else 1)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - 4runr-network
+    depends_on:
+      - scraper
+
+  # Pipeline runner service for one-time execution
+  pipeline:
+    build:
+      context: .
+      dockerfile: pipeline.Dockerfile
+      target: production
+    image: 4runr/pipeline:latest
+    container_name: 4runr-pipeline
+    volumes:
+      # Mount shared directory for inter-agent communication
+      - ./shared:/app/shared
+      # Mount logs directory for persistent logs
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    environment:
+      - RUN_ONCE=true
+    networks:
+      - 4runr-network
+    command: python run_pipeline.py
+
+  # Cron service for scheduled tasks
+  cron:
+    image: alpine:latest
+    container_name: 4runr-cron
+    volumes:
+      - ./scripts/crontab:/etc/crontabs/root:ro
+      - ./logs:/logs
+    restart: unless-stopped
+    entrypoint: ["crond", "-f", "-d", "8"]
+    depends_on:
+      - scraper
+      - enricher
+    networks:
+      - 4runr-network
+
+networks:
+  4runr-network:
+    driver: bridge
+
+volumes:
+  # Define named volumes for persistence
+  shared:
+  logs:

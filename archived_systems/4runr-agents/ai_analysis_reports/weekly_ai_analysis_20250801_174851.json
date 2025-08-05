@@ -1,0 +1,108 @@
+{
+  "analysis_period": {
+    "start_date": "2025-07-25T17:48:51.146014",
+    "end_date": "2025-08-01T17:48:51.146028",
+    "days_analyzed": 7
+  },
+  "ai_message_generation": {
+    "total_messages": 3,
+    "template_usage": {
+      "unknown": 2,
+      "professional_intro": 1
+    },
+    "tone_distribution": {
+      "unknown": 2,
+      "professional": 1
+    },
+    "success_rates": {
+      "approval_rate": 0.3333333333333333
+    },
+    "personalization_analysis": {
+      "low": 1,
+      "medium": 2
+    },
+    "quality_trends": {
+      "average_quality": 23.333333333333332,
+      "max_quality": 70,
+      "min_quality": 0
+    },
+    "common_issues": [
+      "High rate of low-quality messages: 2/3"
+    ]
+  },
+  "enrichment_decisions": {
+    "total_enrichments": 4,
+    "success_rates": {
+      "enrichment_success_rate": 0.0
+    },
+    "method_effectiveness": {
+      "stealth_system_failure": 4,
+      "stealth_domain_discovery_failure": 4,
+      "stealth_pattern_generation_failure": 3
+    },
+    "timing_analysis": {
+      "average_duration": 43.993258250000004,
+      "max_duration": 78.729657,
+      "min_duration": 30.780867
+    },
+    "quality_distribution": {
+      "very_low": 4
+    },
+    "common_failures": [
+      "High rate of very low quality results: 4/4",
+      "Slow enrichment processes: 1 took over 60 seconds"
+    ]
+  },
+  "overall_insights": {
+    "system_health": "needs_attention",
+    "key_metrics": {
+      "message_approval_rate": "33.3%",
+      "enrichment_success_rate": "0.0%"
+    },
+    "trends": [
+      "Message generation showing quality issues",
+      "Enrichment process experiencing performance issues"
+    ],
+    "alerts": [
+      "Low message approval rate - consider template optimization",
+      "Low enrichment success rate - review data sources"
+    ]
+  },
+  "improvement_recommendations": [
+    {
+      "category": "message_generation",
+      "priority": "high",
+      "title": "Improve Message Approval Rate",
+      "description": "Current approval rate is 33.3%. Consider A/B testing new templates.",
+      "action_items": [
+        "Analyze top-performing message templates",
+        "Create variations of successful templates",
+        "Implement personalization improvements",
+        "Review and update tone guidelines"
+      ]
+    },
+    {
+      "category": "message_generation",
+      "priority": "medium",
+      "title": "Increase Template Diversity",
+      "description": "Template 'unknown' is overused (2 times). Add more variety.",
+      "action_items": [
+        "Create new template variations",
+        "Implement better template selection logic",
+        "Test different messaging approaches"
+      ]
+    },
+    {
+      "category": "enrichment",
+      "priority": "high",
+      "title": "Improve Enrichment Success Rate",
+      "description": "Current success rate is 0.0%. Review enrichment methods.",
+      "action_items": [
+        "Analyze most effective enrichment methods",
+        "Improve domain discovery accuracy",
+        "Enhance email pattern generation",
+        "Add new data sources"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "log_type": "enrichment_decision",
+  "session_id": "525736e8",
+  "timestamp": "2025-08-01T16:26:56.233036",
+  "lead_identifier": {
+    "name": "Maxime Leclair",
+    "company": "Maximize It. Maximize",
+    "linkedin_url": "https://ca.linkedin.com/in/maxime-leclair"
+  },
+  "enrichment_input": {
+    "initial_data_quality": 0,
+    "website_data_available": false,
+    "existing_email": "",
+    "company_description_length": 0
+  },
+  "enrichment_output": {
+    "email_found": false,
+    "email_confidence_level": "unknown",
+    "engagement_status": "unknown",
+    "final_data_quality": 0,
+    "enrichment_method": "unknown"
+  },
+  "decision_reasoning": {
+    "domain_discovery": "Found domain: maximize.com",
+    "email_methods": [
+      "stealth_system",
+      "stealth_domain_discovery"
+    ],
+    "confidence_level": "none",
+    "enrichment_duration": 78.729657,
+    "success": false
+  },
+  "training_labels": {
+    "enrichment_success": false,
+    "email_quality": "very_low",
+    "engagement_readiness": false,
+    "data_improvement": false
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "4runr-lead-system",
+  "version": "1.0.0",
+  "description": "Backend-only lead generation and outreach system for 4Runr",
+  "main": "index.js",
+  "scripts": {
+    "scrape": "node scraper/scrapeLinkedIn.js",
+    "list-leads": "node cli/listLeads.js",
+    "sanity-check": "node cli/sanityCheck.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lead-generation",
+    "airtable",
+    "linkedin",
+    "scraper"
+  ],
+  "author": "4Runr",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "airtable": "^0.12.2",
+    "axios": "^1.6.2",
+    "chalk": "^4.1.2",
+    "dotenv": "^16.3.1",
+    "openai": "^4.0.0"
+  }
+}
