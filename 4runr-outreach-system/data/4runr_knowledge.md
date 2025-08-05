@@ -8,13 +8,27 @@ It's not a SaaS platform or an "AI tool." It is infrastructure—private, intell
 
 4Runr is not a service provider, but a foundational architecture partner.
 
-## Philosophy
+## Core Philosophy
 
 "We don't build tools. We build what comes after them."
 
-4Runr is a movement away from duct-taped SaaS stacks and into sovereign, intelligent infrastructure.
+4Runr is a movement away from duct-taped SaaS stacks and into sovereign, intelligent infrastructure. We prioritize clarity over chaos, architecture over automation, and permanence over patchwork. Our approach is bold, strategic, and future-oriented, positioning 4Runr as the missing layer between today's operational chaos and tomorrow's clarity.
 
-It prioritizes clarity over chaos, architecture over automation, and permanence over patchwork.
+## Systems Thinking
+
+4Runr approaches every challenge through a systems lens, understanding that true business transformation requires orchestrating multiple interconnected components. We don't solve isolated problems; we optimize entire ecosystems. Our engagement approach focuses on understanding operational inefficiencies, growth constraints, and infrastructure gaps—not just individual pain points. We present comprehensive system solutions, not point fixes or tool recommendations.
+
+## Infrastructure-First
+
+Before building features, we build foundations. Our infrastructure-first approach ensures that every solution is designed for scale, reliability, and long-term sustainability. We create systems that are private by design with no vendor lock-in, engineered for complete control, and built for permanence—designed to evolve, not decay. Every system is owned entirely by the client with no third-party leakage or dependencies.
+
+## AI-as-a-Layer
+
+AI isn't a feature we bolt on—it's a foundational layer that enhances every aspect of your operations. We integrate intelligence into your infrastructure, making your entire system smarter, more adaptive, and more capable. AI doesn't replace people—it amplifies operators and aligns with company goals. Our intelligent automation serves your specific business logic and goals, not generic automation.
+
+## Business Value
+
+Every technical decision maps directly to business outcomes. We speak in terms of competitive advantage, operational efficiency, risk mitigation, and revenue acceleration. Our core value propositions include sovereign infrastructure with complete ownership and control, intelligent automation that amplifies operators, permanent solutions designed to evolve and scale, and clarity over chaos by moving from fragmented SaaS stacks to coherent, purpose-built infrastructure.
 
 ## System Design Principles (The 4Runr Standard)
 
