@@ -110,8 +110,8 @@ class AirtableClient:
             List of lead records ready for engagement
         """
         try:
-            # Get leads with Auto-Send status and Real/Pattern email confidence
-            formula = "AND({Engagement_Status} = 'Auto-Send', OR({Email_Confidence_Level} = 'Real', {Email_Confidence_Level} = 'Pattern'))"
+            # Get leads that have email addresses - simplified for existing fields
+            formula = "NOT({Email} = '')"
             
             records = self.table.all(
                 formula=formula,

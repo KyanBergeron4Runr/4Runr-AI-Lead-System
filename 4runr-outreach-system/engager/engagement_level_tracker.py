@@ -11,6 +11,7 @@ from dataclasses import dataclass
 
 from shared.airtable_client import get_airtable_client
 from shared.logging_utils import get_logger
+from shared.field_mapping import map_lead_data
 from .local_database_manager import LocalDatabaseManager
 
 
@@ -256,18 +257,9 @@ class EngagementLevelTracker:
             List of lead records ready for engagement, filtered by level
         """
         try:
-            # Get leads with Auto-Send status and Real/Pattern email confidence
-            # Also exclude leads that have reached maximum engagement level
-            formula = """AND(
-                {Engagement_Status} = 'Auto-Send',
-                OR({Email_Confidence_Level} = 'Real', {Email_Confidence_Level} = 'Pattern'),
-                OR(
-                    {Level Engaged} = '',
-                    {Level Engaged} = '1st degree',
-                    {Level Engaged} = '2nd degree',
-                    {Level Engaged} = '3rd degree'
-                )
-            )"""
+            # Get leads that have email addresses - using only existing fields
+            # Simplified query to work with current Airtable structure
+            formula = "NOT({Email} = '')"
             
             records = self.airtable_client.table.all(
                 formula=formula,
@@ -279,10 +271,8 @@ class EngagementLevelTracker:
             
             leads = []
             for record in records_list:
-                lead_data = {
-                    'id': record['id'],
-                    **record['fields']
-                }
+                # Map Airtable fields to code field names
+                lead_data = map_lead_data(record)
                 
                 # Double-check that lead should not be skipped
                 if not self.should_skip_lead(lead_data):
