@@ -12,8 +12,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "4runr-agents"))
 from database.lead_database import get_lead_database
 
 def main():
-    # Use the database from the 4runr-agents directory
-    db_path = str(Path(__file__).parent.parent / "4runr-agents" / "data" / "leads.db")
+    # Use the database from the new 4runr-lead-scraper directory
+    db_path = str(Path(__file__).parent.parent / "4runr-lead-scraper" / "data" / "leads.db")
     db = get_lead_database(db_path)
     
     print(f"Database path: {db_path}")

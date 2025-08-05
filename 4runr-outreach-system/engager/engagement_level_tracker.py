@@ -186,8 +186,12 @@ class EngagementLevelTracker:
                     'timestamp': current_timestamp
                 })
                 
-                # Sync to local database
+                # Sync to local database with complete lead data
                 engagement_data = {
+                    'name': lead.get('Name') or lead.get('Full Name', ''),
+                    'email': lead.get('Email', ''),
+                    'company': lead.get('Company', ''),
+                    'company_website': lead.get('company_website_url', ''),
                     'engagement_stage': next_level,
                     'last_contacted': current_timestamp,
                     'previous_stage': current_level,

@@ -57,8 +57,8 @@ class CampaignBrainService:
         self.lead_db = None
         if DATABASE_AVAILABLE:
             try:
-                # Use the database from the 4runr-agents directory
-                db_path = str(Path(__file__).parent.parent / "4runr-agents" / "data" / "leads.db")
+                # Use the database from the new 4runr-lead-scraper directory
+                db_path = str(Path(__file__).parent.parent / "4runr-lead-scraper" / "data" / "leads.db")
                 self.lead_db = get_lead_database(db_path)
                 self.logger.info(f"Connected to lead database successfully: {db_path}")
                 

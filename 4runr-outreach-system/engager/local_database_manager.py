@@ -5,6 +5,7 @@ Handles local database operations for engagement tracking, including schema
 management, data synchronization, and engagement history logging.
 """
 
+import os
 import sqlite3
 import json
 import datetime
@@ -25,11 +26,17 @@ class LocalDatabaseManager:
         Args:
             db_path: Path to the SQLite database file
         """
-        self.db_path = db_path
+        # Ensure we use the correct database path relative to the script location
+        if not os.path.isabs(db_path):
+            script_dir = Path(__file__).parent.parent  # Go up to 4runr-outreach-system
+            self.db_path = str(script_dir / db_path)
+        else:
+            self.db_path = db_path
+            
         self.logger = get_logger('engager')
         
         # Ensure data directory exists
-        db_file = Path(db_path)
+        db_file = Path(self.db_path)
         db_file.parent.mkdir(parents=True, exist_ok=True)
         
         # Initialize database schema
@@ -180,17 +187,26 @@ class LocalDatabaseManager:
                 # Start transaction
                 cursor.execute("BEGIN TRANSACTION")
                 
-                # Update or insert lead record
+                # Update or insert lead record with complete data
                 cursor.execute("""
                     INSERT OR REPLACE INTO leads (
-                        id, engagement_stage, last_contacted, engagement_history, updated_at
-                    ) VALUES (?, ?, ?, ?, ?)
+                        id, name, email, company, company_website,
+                        engagement_stage, last_contacted, engagement_history, 
+                        created_at, updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 
+                             COALESCE((SELECT created_at FROM leads WHERE id = ?), ?), ?)
                 """, (
                     lead_id,
+                    engagement_data.get('name', ''),
+                    engagement_data.get('email', ''),
+                    engagement_data.get('company', ''),
+                    engagement_data.get('company_website', ''),
                     engagement_data.get('engagement_stage', '1st degree'),
                     engagement_data.get('last_contacted'),
                     engagement_data.get('engagement_history'),
-                    datetime.datetime.now().isoformat()
+                    lead_id,  # For COALESCE check
+                    datetime.datetime.now().isoformat(),  # Default created_at
+                    datetime.datetime.now().isoformat()   # updated_at
                 ))
                 
                 # Insert detailed engagement tracking record
@@ -215,7 +231,10 @@ class LocalDatabaseManager:
                 conn.commit()
                 
                 self.logger.log_module_activity('engager', lead_id, 'success', {
-                    'message': 'Updated local database with engagement data',
+                    'message': 'Updated local database with complete lead data',
+                    'name': engagement_data.get('name', 'Unknown'),
+                    'email': engagement_data.get('email', 'No email'),
+                    'company': engagement_data.get('company', 'Unknown'),
                     'engagement_stage': engagement_data.get('engagement_stage'),
                     'success': engagement_data.get('success', True)
                 })
@@ -504,6 +523,75 @@ class LocalDatabaseManager:
             return True
         except Exception as e:
             self.logger.log_error(e, {'action': 'create_engagement_tables'})
+            return False
+    
+    def upsert_lead(self, lead_data: Dict[str, Any]) -> bool:
+        """
+        Insert or update a lead with complete data, preventing duplicates.
+        
+        Args:
+            lead_data: Complete lead information
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            with self.get_connection() as conn:
+                cursor = conn.cursor()
+                
+                lead_id = lead_data.get('id') or lead_data.get('airtable_id')
+                email = lead_data.get('email', '')
+                
+                # Check for existing lead by email to prevent duplicates
+                if email:
+                    cursor.execute("SELECT id FROM leads WHERE email = ? AND id != ?", (email, lead_id or ''))
+                    existing = cursor.fetchone()
+                    if existing:
+                        self.logger.log_module_activity('engager', lead_id or 'unknown', 'warning', {
+                            'message': f'Duplicate email found, updating existing lead: {existing["id"]}',
+                            'email': email
+                        })
+                        lead_id = existing['id']
+                
+                # Insert or update with complete data
+                cursor.execute("""
+                    INSERT OR REPLACE INTO leads (
+                        id, name, email, company, company_website,
+                        engagement_stage, last_contacted, engagement_history,
+                        created_at, updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?,
+                             COALESCE((SELECT created_at FROM leads WHERE id = ?), ?), ?)
+                """, (
+                    lead_id,
+                    lead_data.get('name') or lead_data.get('full_name', ''),
+                    email,
+                    lead_data.get('company', ''),
+                    lead_data.get('website') or lead_data.get('company_website', ''),
+                    lead_data.get('engagement_stage', '1st degree'),
+                    lead_data.get('last_contacted'),
+                    lead_data.get('engagement_history'),
+                    lead_id,  # For COALESCE check
+                    datetime.datetime.now().isoformat(),  # Default created_at
+                    datetime.datetime.now().isoformat()   # updated_at
+                ))
+                
+                conn.commit()
+                
+                self.logger.log_module_activity('engager', lead_id, 'success', {
+                    'message': 'Lead upserted successfully',
+                    'name': lead_data.get('name') or lead_data.get('full_name', ''),
+                    'email': email,
+                    'company': lead_data.get('company', ''),
+                    'action': 'upsert'
+                })
+                
+                return True
+                
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'upsert_lead',
+                'lead_data': lead_data
+            })
             return False
     
     def test_database_connection(self) -> bool:
