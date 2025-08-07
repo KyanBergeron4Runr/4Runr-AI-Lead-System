@@ -13,9 +13,13 @@ from datetime import datetime, timedelta
 from typing import Dict, Any, Optional, List
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from .airtable_sync import AirtableSync
-from ..database.models import get_lead_database
-from ..config.settings import get_settings
+from database.models import get_lead_database
+from config.settings import get_settings
 
 logger = logging.getLogger('sync-manager')
 
@@ -143,7 +147,22 @@ class SyncManager:
             
             if result['success']:
                 self.sync_stats['last_sync_to_airtable'] = datetime.now().isoformat()
-                logger.info(f"✅ Sync to Airtable completed: {result['synced_count']} leads synced")
+                
+                # Log sync results
+                synced_count = result['synced_count']
+                logger.info(f"✅ Sync to Airtable completed: {synced_count} leads synced")
+                
+                # Log engagement defaults results if available
+                if 'defaults_applied' in result:
+                    defaults = result['defaults_applied']
+                    defaults_count = defaults.get('count', 0)
+                    if defaults_count > 0:
+                        fields_updated = defaults.get('fields_updated', [])
+                        logger.info(f"🎯 Engagement defaults applied: {defaults_count} leads updated with fields {fields_updated}")
+                    elif defaults.get('errors'):
+                        logger.warning(f"⚠️ Engagement defaults had errors: {defaults['errors']}")
+                    else:
+                        logger.debug("🎯 No engagement defaults needed (all leads already have values)")
             else:
                 logger.error(f"❌ Sync to Airtable failed: {result['failed_count']} failures")
             

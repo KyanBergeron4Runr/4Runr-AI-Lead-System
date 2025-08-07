@@ -6,75 +6,155 @@ The 4Runr Autonomous Outreach System is an intelligent lead engagement platform 
 
 ## Architecture
 
-The system follows a modular autonomous architecture where each module can operate independently while working together in a coordinated pipeline. The system processes enriched leads from Airtable through four specialized modules:
+The system follows a modular autonomous architecture where each module can operate independently while working together in a coordinated pipeline. The system processes enriched leads from Airtable through seven specialized modules:
 
-1. **Website Scraper Agent**: Extracts company information from websites
-2. **Message Generator Agent**: Creates personalized outreach messages using AI
-3. **Email Validation Upgrade**: Classifies email confidence levels
-4. **Engager Agent**: Sends messages only to validated email addresses
+1. **LinkedIn Scraper (SerpAPI Agent)**: Extracts website URLs from SerpAPI responses
+2. **Google Website Scraper (Playwright Agent)**: Fallback Google search for missing websites
+3. **Website Content Scraper Agent**: Extracts company information from discovered websites
+4. **Improved Enricher Agent**: Uses website content to extract business traits and insights
+5. **Enhanced Message Generator Agent**: Creates personalized outreach with fallback logic
+6. **Email Validation Upgrade**: Classifies email confidence levels
+7. **Engager Agent**: Sends messages only to validated email addresses
 
 ```mermaid
 graph TD
-    A[Enriched Leads from Airtable] --> B[Website Scraper Agent]
-    B --> C[Company Data + Website Insights]
-    C --> D[Message Generator Agent]
-    D --> E[Custom Messages + Engagement Status]
-    E --> F[Email Validation Upgrade]
-    F --> G[Email Confidence Classification]
-    G --> H[Engager Agent]
-    H --> I[Outreach Execution]
-    I --> J[Airtable Updates]
+    A[Enriched Leads from Airtable] --> B[LinkedIn Scraper - SerpAPI Agent]
+    B --> C{Website Found?}
+    C -->|Yes| E[Website Content Scraper Agent]
+    C -->|No| D[Google Website Scraper - Playwright Agent]
+    D --> E
+    E --> F[Improved Enricher Agent]
+    F --> G[Enhanced Message Generator Agent]
+    G --> H{Enrichment Data Available?}
+    H -->|Yes| I[Personalized Message]
+    H -->|No| J[Fallback Message Logic]
+    I --> K[Email Validation Upgrade]
+    J --> K
+    K --> L[Email Confidence Classification]
+    L --> M[Engager Agent]
+    M --> N[Outreach Execution]
+    N --> O[Airtable Updates]
     
-    K[Shared Modules] --> B
-    K --> D
-    K --> F
-    K --> H
+    P[Shared Modules] --> B
+    P --> D
+    P --> E
+    P --> F
+    P --> G
+    P --> K
+    P --> M
     
-    L[AI/LLM Services] --> D
-    M[Email Validation Services] --> F
-    N[Email Sending Services] --> H
+    Q[SerpAPI Service] --> B
+    R[Google Search] --> D
+    S[AI/LLM Services] --> F
+    S --> G
+    T[Email Validation Services] --> K
+    U[Email Sending Services] --> M
 ```
 
 ## Components and Interfaces
 
-### 1. Website Scraper Agent
+### 1. LinkedIn Scraper (SerpAPI Agent)
 
-The Website Scraper Agent extracts company information from websites to provide context for personalized outreach.
+The LinkedIn Scraper extracts website URLs from SerpAPI responses during the lead scraping process.
 
 **Interface:**
-- `scrape_company_website(company_website_url)`: Scrapes website content and extracts key information
+- `extract_website_from_serpapi(serpapi_response)`: Extracts website field from SerpAPI JSON response
+- `update_lead_website(lead_dict, website_url)`: Adds website to scraped lead dictionary
+- `save_website_to_airtable(lead_id, website_url)`: Updates Airtable with discovered website
+
+**Implementation Details:**
+- Integrates with existing SerpAPI response parsing logic in 4runr-lead-scraper
+- Extracts website field if present in SerpAPI response JSON
+- Sets "Website": website_url in scraped lead dictionary when found
+- Sets "Website": None when not found to trigger fallback Google scraping
+- Maintains existing scraper functionality without breaking changes
+- Uses existing Airtable integration to write Website field
+
+### 2. Google Website Scraper (Playwright Agent)
+
+The Google Website Scraper performs fallback Google searches to find company websites when SerpAPI doesn't provide them.
+
+**Interface:**
+- `search_google_for_website(full_name, company_name)`: Performs Google search for company website
+- `parse_organic_results(search_results)`: Extracts URL from first organic result
+- `validate_website_url(url)`: Validates discovered URL format and accessibility
+- `update_enrichment_status(lead_id, status)`: Updates status when website search fails
+
+**Implementation Details:**
+- Located in 4runr-agents/shared/google_scraper.py or similar modular path
+- Uses Playwright for Google search automation
+- Implements search query: "{full_name}" "{company_name}" site:.com OR site:.ca
+- Parses first organic result (excludes ads) to extract website URL
+- Only executes when lead.get("Website") is None or empty string
+- Updates Airtable Website field with discovered URL
+- Sets Enrichment Status = "Failed - No Website" when no results found
+
+### 3. Website Content Scraper Agent
+
+The Website Content Scraper Agent extracts company information from discovered websites to provide context for personalized outreach.
+
+**Interface:**
+- `scrape_company_website(website_url)`: Scrapes website content and extracts key information
 - `extract_company_description(content)`: Generates brief company summary from About/Home pages
 - `extract_top_services(content)`: Identifies key services or offerings
 - `analyze_website_tone(content)`: Estimates company communication tone
 - `clean_content(raw_content)`: Removes navigation, footer, and cookie banner text
 
 **Implementation Details:**
-- Uses Playwright or BeautifulSoup for web scraping
+- Uses existing scraper module from 4runr-agents architecture
 - Prioritizes /about, /services, /home, and /contact pages
 - Implements fallback logic for non-standard website structures
 - Applies content cleaning algorithms to focus on meaningful text
 - Stores raw scraped sections as Website_Insights for context
 - Updates Airtable with Company_Description, Top_Services, Tone, and Website_Insights
 
-### 2. Message Generator Agent
+### 4. Improved Enricher Agent
 
-The Message Generator Agent creates personalized outreach messages using AI while maintaining 4Runr's brand voice.
+The Improved Enricher Agent uses website content to extract business traits, pain points, and insights for targeted outreach.
 
 **Interface:**
-- `generate_custom_message(lead_data, company_data)`: Creates personalized outreach email
+- `enrich_lead_with_website(lead_data, website_url)`: Enriches lead using website content
+- `extract_business_type(website_content)`: Identifies business category (B2B SaaS, e-commerce, law firm, etc.)
+- `identify_business_traits(website_content)`: Extracts traits (local service, AI-powered, needs automation)
+- `infer_pain_points(website_content)`: Identifies pain points from messaging and product descriptions
+- `cache_enrichment_results(lead_id, enrichment_data)`: Saves results to avoid re-processing
+
+**Implementation Details:**
+- Located in 4runr-agents/enricher following existing architecture
+- Uses existing scraper module to scrape homepage/meta content
+- Integrates with OpenAI or similar LLM for business analysis
+- Extracts Business Type, Traits, and Pain Points from website content
+- Updates Response Notes field with comprehensive business insights
+- Saves Business Type as optional new Airtable field
+- Implements caching in Airtable to avoid re-running enrichment
+- Maintains existing enricher functionality while adding website-based analysis
+
+### 5. Enhanced Message Generator Agent with Fallback Logic
+
+The Enhanced Message Generator Agent creates personalized outreach messages with fallback capabilities when enrichment data is incomplete.
+
+**Interface:**
+- `generate_custom_message(lead_data, enrichment_data)`: Creates personalized outreach email
+- `generate_fallback_message(lead_data)`: Creates message when enrichment data is missing
+- `extract_company_from_email(email)`: Derives company context from email domain
 - `determine_engagement_status(email_confidence)`: Sets Auto-Send/Skip/Needs Review status
 - `validate_message_quality(message)`: Ensures message meets 4Runr standards
 - `apply_4runr_tone(message)`: Ensures helpful, strategic, non-salesy tone
 
 **Implementation Details:**
-- Integrates with OpenAI GPT or similar LLM for message generation
-- Uses Company_Description, Top_Services, Tone, Lead_Name, Lead_Role, Company_Name as inputs
+- Located in 4runr_outreach_system.engager.enhanced_engager_agent
+- Checks for Response Notes and Website availability before message generation
+- When enrichment data available: Uses Company_Description, Top_Services, Tone, Business Type, Response Notes
+- When enrichment data missing: Generates fallback using person name, email domain, job title
+- Extracts company context from email domain (e.g., @xyz.com → xyz)
+- Applies generic pain points based on industry guess from domain/title
+- Marks fallback messages with "Used Fallback: ✅" flag in Airtable
+- Uses existing generate_message() method with fallback=True flag
 - Implements 4Runr tone guidelines: helpful, strategic, tailored, non-salesy but clear value
-- Avoids templates and generic intros, ensuring unique personalization
-- Sets Engagement_Status based on Email_Confidence_Level (Auto-Send for Real/Pattern, Skip for Guess)
-- Updates Airtable with Custom_Message and Engagement_Status
+- Sets Engagement_Status based on Email_Confidence_Level
+- Updates Airtable with Custom_Message, Engagement_Status, and Used Fallback flag
 
-### 3. Email Validation Upgrade
+### 6. Email Validation Upgrade
 
 The Email Validation Upgrade classifies email addresses by confidence level to ensure outreach quality.
 
@@ -92,7 +172,7 @@ The Email Validation Upgrade classifies email addresses by confidence level to e
 - Optionally performs SMTP verification for higher confidence
 - Updates Airtable Email_Confidence_Level field with classification
 
-### 4. Engager Agent
+### 7. Engager Agent
 
 The Engager Agent executes outreach campaigns while maintaining strict validation gates.
 
@@ -153,18 +233,26 @@ The Enhanced Lead model represents a lead with comprehensive outreach data:
   "email": str,                 # Email address
   "company_website_url": str,   # Company website URL for scraping
   
+  # Website Discovery Data
+  "website": str,               # Company website URL discovered via SerpAPI or Google
+  
   # Website Scraping Data
   "company_description": str,   # Brief summary from About/Home pages
   "top_services": str,          # Key services or offerings
   "tone": str,                  # Website tone (formal, bold, friendly)
   "website_insights": str,      # Raw scraped content for context
   
+  # Enrichment Data
+  "response_notes": str,        # Business insights, traits, and pain points
+  "business_type": str,         # Business category (B2B SaaS, e-commerce, etc.)
+  
   # Email Validation Data
   "email_confidence_level": str, # Real/Pattern/Guess classification
   
   # Message Generation Data
   "custom_message": str,        # AI-generated personalized message
-  "engagement_status": str,     # Auto-Send/Skip/Needs Review/Error
+  "engagement_status": str,     # Auto-Send/Skip/Needs Review/Error/Failed - No Website
+  "used_fallback": bool,        # Indicates if fallback message logic was used
   
   # Engagement Tracking Data
   "message_preview": str,       # Snapshot of sent message
@@ -186,7 +274,11 @@ The Airtable base "Leads" table includes the following fields:
 - Company (Single line text)
 - Title (Single line text)
 - Email (Email)
-- Company Website URL (URL)
+- Company Website URL (URL) - Original website if available
+- Website (URL) - Discovered website via SerpAPI or Google search
+
+**Website Discovery Fields:**
+- Website (URL) - Company website discovered via SerpAPI or Google search
 
 **Website Scraping Fields:**
 - Company_Description (Long text) - Summary scraped from site
@@ -194,12 +286,17 @@ The Airtable base "Leads" table includes the following fields:
 - Tone (Single select) - Bold, Formal, Friendly, Casual, Professional
 - Website_Insights (Long text) - Raw scraped page content
 
+**Enrichment Fields:**
+- Response Notes (Long text) - Business insights, traits, and pain points
+- Business Type (Single select) - B2B SaaS, e-commerce, law firm, etc.
+
 **Email Validation Fields:**
 - Email_Confidence_Level (Single select) - Real, Pattern, Guess
 
 **Message Generation Fields:**
 - Custom_Message (Long text) - Auto-generated outreach message
-- Engagement_Status (Single select) - Sent, Skipped, Needs Review, Error
+- Engagement_Status (Single select) - Sent, Skipped, Needs Review, Error, Failed - No Website
+- Used Fallback (Checkbox) - Indicates if fallback message logic was used
 
 **Engagement Tracking Fields:**
 - Message_Preview (Long text) - Message text snapshot

@@ -300,6 +300,113 @@ class DatabaseMigration:
                     DROP TRIGGER IF EXISTS leads_fts_insert;
                     DROP TABLE IF EXISTS leads_fts;
                 '''
+            },
+            {
+                'version': '1.0.3',
+                'description': 'Add website field for SerpAPI extracted websites',
+                'sql': '''
+                    -- Add website column to leads table
+                    ALTER TABLE leads ADD COLUMN website TEXT;
+                    
+                    -- Create index for website field
+                    CREATE INDEX IF NOT EXISTS idx_leads_website ON leads(website);
+                    
+                    -- Update FTS table to include website field if it exists
+                    DROP TABLE IF EXISTS leads_fts;
+                    CREATE VIRTUAL TABLE IF NOT EXISTS leads_fts USING fts5(
+                        name, company, title, search_context, website,
+                        content='leads',
+                        content_rowid='rowid'
+                    );
+                    
+                    -- Populate FTS table with new schema
+                    INSERT INTO leads_fts(rowid, name, company, title, search_context, website)
+                    SELECT rowid, name, company, title, search_context, website FROM leads;
+                    
+                    -- Recreate triggers with website field
+                    DROP TRIGGER IF EXISTS leads_fts_insert;
+                    DROP TRIGGER IF EXISTS leads_fts_delete;
+                    DROP TRIGGER IF EXISTS leads_fts_update;
+                    
+                    CREATE TRIGGER IF NOT EXISTS leads_fts_insert AFTER INSERT ON leads BEGIN
+                        INSERT INTO leads_fts(rowid, name, company, title, search_context, website)
+                        VALUES (new.rowid, new.name, new.company, new.title, new.search_context, new.website);
+                    END;
+                    
+                    CREATE TRIGGER IF NOT EXISTS leads_fts_delete AFTER DELETE ON leads BEGIN
+                        INSERT INTO leads_fts(leads_fts, rowid, name, company, title, search_context, website)
+                        VALUES ('delete', old.rowid, old.name, old.company, old.title, old.search_context, old.website);
+                    END;
+                    
+                    CREATE TRIGGER IF NOT EXISTS leads_fts_update AFTER UPDATE ON leads BEGIN
+                        INSERT INTO leads_fts(leads_fts, rowid, name, company, title, search_context, website)
+                        VALUES ('delete', old.rowid, old.name, old.company, old.title, old.search_context, old.website);
+                        INSERT INTO leads_fts(rowid, name, company, title, search_context, website)
+                        VALUES (new.rowid, new.name, new.company, new.title, new.search_context, new.website);
+                    END;
+                ''',
+                'rollback_sql': '''
+                    -- Remove website column (SQLite doesn't support DROP COLUMN directly)
+                    -- This would require recreating the table, so we'll just mark it as deprecated
+                    UPDATE leads SET website = NULL;
+                    
+                    -- Remove index
+                    DROP INDEX IF EXISTS idx_leads_website;
+                    
+                    -- Revert FTS table to original schema
+                    DROP TRIGGER IF EXISTS leads_fts_update;
+                    DROP TRIGGER IF EXISTS leads_fts_delete;
+                    DROP TRIGGER IF EXISTS leads_fts_insert;
+                    DROP TABLE IF EXISTS leads_fts;
+                    
+                    CREATE VIRTUAL TABLE IF NOT EXISTS leads_fts USING fts5(
+                        name, company, title, search_context,
+                        content='leads',
+                        content_rowid='rowid'
+                    );
+                    
+                    INSERT INTO leads_fts(rowid, name, company, title, search_context)
+                    SELECT rowid, name, company, title, search_context FROM leads;
+                    
+                    CREATE TRIGGER IF NOT EXISTS leads_fts_insert AFTER INSERT ON leads BEGIN
+                        INSERT INTO leads_fts(rowid, name, company, title, search_context)
+                        VALUES (new.rowid, new.name, new.company, new.title, new.search_context);
+                    END;
+                    
+                    CREATE TRIGGER IF NOT EXISTS leads_fts_delete AFTER DELETE ON leads BEGIN
+                        INSERT INTO leads_fts(leads_fts, rowid, name, company, title, search_context)
+                        VALUES ('delete', old.rowid, old.name, old.company, old.title, old.search_context);
+                    END;
+                    
+                    CREATE TRIGGER IF NOT EXISTS leads_fts_update AFTER UPDATE ON leads BEGIN
+                        INSERT INTO leads_fts(leads_fts, rowid, name, company, title, search_context)
+                        VALUES ('delete', old.rowid, old.name, old.company, old.title, old.search_context);
+                        INSERT INTO leads_fts(rowid, name, company, title, search_context)
+                        VALUES (new.rowid, new.name, new.company, new.title, new.search_context);
+                    END;
+                '''
+            },
+            {
+                'version': '1.0.4',
+                'description': 'Add Google scraper tracking fields',
+                'sql': '''
+                    -- Add fields for tracking Google website search attempts
+                    ALTER TABLE leads ADD COLUMN website_search_attempted BOOLEAN DEFAULT FALSE;
+                    ALTER TABLE leads ADD COLUMN website_search_timestamp TIMESTAMP;
+                    
+                    -- Create indexes for the new fields
+                    CREATE INDEX IF NOT EXISTS idx_leads_website_search_attempted ON leads(website_search_attempted);
+                    CREATE INDEX IF NOT EXISTS idx_leads_website_search_timestamp ON leads(website_search_timestamp);
+                ''',
+                'rollback_sql': '''
+                    -- Note: SQLite doesn't support DROP COLUMN directly
+                    -- This would require recreating the table, so we'll just mark as deprecated
+                    UPDATE leads SET website_search_attempted = NULL, website_search_timestamp = NULL;
+                    
+                    -- Remove indexes
+                    DROP INDEX IF EXISTS idx_leads_website_search_attempted;
+                    DROP INDEX IF EXISTS idx_leads_website_search_timestamp;
+                '''
             }
         ]
     

@@ -21,12 +21,16 @@ from scraper.lead_finder import LeadFinder
 from enricher.email_enricher import EmailEnricher
 from enricher.profile_enricher import ProfileEnricher
 from sync.sync_manager import get_sync_manager
+from sync.engagement_defaults import EngagementDefaultsManager, is_defaults_enabled
 from scripts.migrate_data import DataMigrationTool
 from scripts.daily_scraper import DailyScraperAgent
 from config.settings import get_settings
 
 # Import enhanced sync commands
-from .sync_commands import sync as enhanced_sync
+try:
+    from .sync_commands import sync as enhanced_sync
+except ImportError:
+    from sync_commands import sync as enhanced_sync
 
 # Configure logging
 logging.basicConfig(
@@ -810,6 +814,202 @@ def daily(ctx, max_leads, dry_run, scrape_only, enrich_only, sync_only, save_rep
     
     except Exception as e:
         click.echo(f"❌ Daily automation failed: {e}", err=True)
+        sys.exit(1)
+
+@cli.command()
+@click.option('--dry-run', is_flag=True, help='Show what would be done without making changes')
+@click.option('--filter-status', type=click.Choice(['pending', 'synced', 'failed', 'all']), 
+              default='synced', help='Filter leads by sync status (default: synced)')
+@click.option('--limit', type=int, help='Maximum number of leads to process')
+@click.option('--lead-id', help='Apply defaults to a specific lead ID')
+@click.option('--batch-size', type=int, default=10, help='Number of leads to process in each batch (default: 10)')
+@click.option('--confirm', is_flag=True, help='Skip confirmation prompt')
+@click.pass_context
+def apply_defaults(ctx, dry_run, filter_status, limit, lead_id, batch_size, confirm):
+    """Apply engagement defaults to existing leads in Airtable."""
+    try:
+        # Check if engagement defaults are enabled
+        if not is_defaults_enabled():
+            click.echo("❌ Engagement defaults are disabled in configuration", err=True)
+            click.echo("   Set APPLY_ENGAGEMENT_DEFAULTS=true to enable this feature")
+            sys.exit(1)
+        
+        # Initialize components
+        db = get_lead_database()
+        defaults_manager = EngagementDefaultsManager()
+        
+        # Validate configuration
+        config_errors = defaults_manager.validate_configuration()
+        if config_errors:
+            click.echo("❌ Configuration errors found:", err=True)
+            for error in config_errors:
+                click.echo(f"   • {error}", err=True)
+            sys.exit(1)
+        
+        click.echo("🎯 Engagement Defaults Application")
+        click.echo("=" * 40)
+        
+        # Show current configuration
+        config = defaults_manager.get_configuration_summary()
+        click.echo(f"📋 Default Values:")
+        for field, value in config['default_values'].items():
+            display_value = f'"{value}"' if value else '(empty string)'
+            click.echo(f"   • {field}: {display_value}")
+        
+        # Handle specific lead ID
+        if lead_id:
+            click.echo(f"\n🔍 Processing specific lead: {lead_id}")
+            
+            # Find the lead
+            leads = db.search_leads({'id': lead_id}, limit=1)
+            if not leads:
+                click.echo(f"❌ Lead with ID '{lead_id}' not found", err=True)
+                sys.exit(1)
+            
+            lead = leads[0]
+            if not lead.airtable_id:
+                click.echo(f"❌ Lead '{lead_id}' has no Airtable record ID", err=True)
+                sys.exit(1)
+            
+            # Apply defaults to single lead
+            if not dry_run and not confirm:
+                if not click.confirm(f"Apply defaults to lead '{lead.name}' ({lead_id})?"):
+                    click.echo("Operation cancelled.")
+                    return
+            
+            if dry_run:
+                click.echo(f"🧪 DRY RUN: Would apply defaults to lead '{lead.name}' (Airtable: {lead.airtable_id})")
+            else:
+                click.echo(f"🔧 Applying defaults to lead '{lead.name}'...")
+                result = defaults_manager.apply_defaults_to_lead(lead_id, lead.airtable_id)
+                
+                if result['success']:
+                    if result['fields_updated']:
+                        click.echo(f"✅ Applied defaults to fields: {', '.join(result['fields_updated'])}")
+                    else:
+                        click.echo("✅ No defaults needed - all fields already have values")
+                else:
+                    click.echo(f"❌ Failed to apply defaults: {result.get('error', 'Unknown error')}", err=True)
+                    sys.exit(1)
+            
+            return
+        
+        # Build filter for leads
+        filters = {}
+        if filter_status != 'all':
+            filters['sync_status'] = filter_status
+        
+        # Get leads that need processing
+        click.echo(f"\n🔍 Finding leads with sync status: {filter_status}")
+        leads = db.search_leads(filters, limit=limit or 1000)
+        
+        if not leads:
+            click.echo(f"✅ No leads found with status '{filter_status}'")
+            return
+        
+        # Filter out leads without Airtable IDs
+        leads_with_airtable = [lead for lead in leads if lead.airtable_id]
+        leads_without_airtable = len(leads) - len(leads_with_airtable)
+        
+        if leads_without_airtable > 0:
+            click.echo(f"⚠️  Skipping {leads_without_airtable} leads without Airtable record IDs")
+        
+        if not leads_with_airtable:
+            click.echo("❌ No leads have Airtable record IDs", err=True)
+            sys.exit(1)
+        
+        click.echo(f"📊 Found {len(leads_with_airtable)} leads to process")
+        
+        # Show batch information
+        total_batches = (len(leads_with_airtable) + batch_size - 1) // batch_size
+        click.echo(f"📦 Processing in {total_batches} batches of {batch_size} leads each")
+        
+        # Confirmation prompt
+        if not dry_run and not confirm:
+            click.echo(f"\n⚠️  This will apply engagement defaults to {len(leads_with_airtable)} leads in Airtable")
+            if not click.confirm("Continue?"):
+                click.echo("Operation cancelled.")
+                return
+        
+        if dry_run:
+            click.echo(f"\n🧪 DRY RUN: Would process {len(leads_with_airtable)} leads")
+            click.echo("   No changes will be made to Airtable")
+            
+            # Show sample of leads that would be processed
+            sample_size = min(5, len(leads_with_airtable))
+            click.echo(f"\n📋 Sample of leads that would be processed:")
+            for i, lead in enumerate(leads_with_airtable[:sample_size]):
+                click.echo(f"   {i+1}. {lead.name} (ID: {lead.id}, Airtable: {lead.airtable_id})")
+            
+            if len(leads_with_airtable) > sample_size:
+                click.echo(f"   ... and {len(leads_with_airtable) - sample_size} more")
+            
+            return
+        
+        # Process leads in batches
+        click.echo(f"\n🚀 Starting batch processing...")
+        
+        total_updated = 0
+        total_skipped = 0
+        total_failed = 0
+        
+        for batch_num in range(total_batches):
+            start_idx = batch_num * batch_size
+            end_idx = min(start_idx + batch_size, len(leads_with_airtable))
+            batch_leads = leads_with_airtable[start_idx:end_idx]
+            
+            click.echo(f"\n📦 Processing batch {batch_num + 1}/{total_batches} ({len(batch_leads)} leads)...")
+            
+            # Prepare lead records for batch processing
+            lead_records = [
+                {
+                    'lead_id': lead.id,
+                    'airtable_record_id': lead.airtable_id
+                }
+                for lead in batch_leads
+            ]
+            
+            # Apply defaults to batch
+            with click.progressbar(length=len(batch_leads), label='Applying defaults') as bar:
+                result = defaults_manager.apply_defaults_to_multiple_leads(lead_records)
+                bar.update(len(batch_leads))
+            
+            # Update totals
+            total_updated += result['updated_count']
+            total_skipped += result['skipped_count']
+            total_failed += result['failed_count']
+            
+            # Show batch results
+            click.echo(f"   ✅ Updated: {result['updated_count']}")
+            click.echo(f"   ⏭️  Skipped: {result['skipped_count']}")
+            click.echo(f"   ❌ Failed: {result['failed_count']}")
+            
+            if result['errors']:
+                click.echo(f"   🔍 Errors in this batch:")
+                for error in result['errors'][:3]:  # Show first 3 errors
+                    click.echo(f"      • {error}")
+                if len(result['errors']) > 3:
+                    click.echo(f"      ... and {len(result['errors']) - 3} more errors")
+        
+        # Show final summary
+        click.echo(f"\n📊 Final Results:")
+        click.echo(f"   Total Leads Processed: {len(leads_with_airtable)}")
+        click.echo(f"   ✅ Updated: {total_updated}")
+        click.echo(f"   ⏭️  Skipped: {total_skipped}")
+        click.echo(f"   ❌ Failed: {total_failed}")
+        
+        if total_updated > 0:
+            click.echo(f"\n🎉 Successfully applied engagement defaults to {total_updated} leads!")
+        
+        if total_failed > 0:
+            click.echo(f"\n⚠️  {total_failed} leads failed to update. Check logs for details.")
+            sys.exit(1)
+    
+    except Exception as e:
+        click.echo(f"❌ Failed to apply engagement defaults: {e}", err=True)
+        if ctx.obj.get('verbose'):
+            import traceback
+            traceback.print_exc()
         sys.exit(1)
 
 # Add enhanced sync commands as a subgroup

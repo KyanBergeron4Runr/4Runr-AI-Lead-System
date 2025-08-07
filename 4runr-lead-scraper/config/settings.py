@@ -99,6 +99,73 @@ class EnrichmentConfig:
     mark_as_enriched_with_partial: bool = True
 
 @dataclass
+class EngagementDefaultsConfig:
+    """Configuration for engagement defaults application."""
+    enabled: bool = True
+    default_values: dict = field(default_factory=lambda: {
+        'Engagement_Status': 'Auto-Send',
+        'Email_Confidence_Level': 'Pattern',
+        'Level Engaged': ''
+    })
+    apply_on_scrape: bool = True
+    apply_on_enrich: bool = True
+    apply_on_verify: bool = True
+    
+    def __post_init__(self):
+        """Process engagement defaults configuration."""
+        # Validate default values structure
+        if not isinstance(self.default_values, dict):
+            raise ValueError("default_values must be a dictionary")
+        
+        # Validate that required fields are present if enabled
+        if self.enabled:
+            required_fields = ['Engagement_Status', 'Email_Confidence_Level', 'Level Engaged']
+            missing_fields = [field for field in required_fields if field not in self.default_values]
+            if missing_fields:
+                raise ValueError(f"Missing required engagement default fields: {missing_fields}")
+    
+    def validate_field_values(self) -> List[str]:
+        """
+        Validate the configured default field values.
+        
+        Returns:
+            List of validation errors
+        """
+        errors = []
+        
+        # Validate Engagement_Status values
+        valid_engagement_statuses = ['Auto-Send', 'Skip', 'Manual Review', 'Completed']
+        engagement_status = self.default_values.get('Engagement_Status')
+        if engagement_status and engagement_status not in valid_engagement_statuses:
+            errors.append(f"Invalid Engagement_Status value: {engagement_status}. Must be one of: {valid_engagement_statuses}")
+        
+        # Validate Email_Confidence_Level values
+        valid_confidence_levels = ['Real', 'Pattern', 'Guessed', 'Unknown']
+        confidence_level = self.default_values.get('Email_Confidence_Level')
+        if confidence_level and confidence_level not in valid_confidence_levels:
+            errors.append(f"Invalid Email_Confidence_Level value: {confidence_level}. Must be one of: {valid_confidence_levels}")
+        
+        # Level Engaged can be any string (including empty), so no validation needed
+        
+        return errors
+    
+    def get_summary(self) -> dict:
+        """
+        Get a summary of the engagement defaults configuration.
+        
+        Returns:
+            Dictionary with configuration summary
+        """
+        return {
+            'enabled': self.enabled,
+            'default_values': self.default_values.copy(),
+            'apply_on_scrape': self.apply_on_scrape,
+            'apply_on_enrich': self.apply_on_enrich,
+            'apply_on_verify': self.apply_on_verify,
+            'validation_errors': self.validate_field_values()
+        }
+
+@dataclass
 class LoggingConfig:
     """Configuration for logging."""
     log_level: str = "INFO"
@@ -125,6 +192,7 @@ class Settings:
     airtable: AirtableConfig
     sync: SyncConfig
     enrichment: EnrichmentConfig
+    engagement_defaults: EngagementDefaultsConfig
     logging: LoggingConfig
     system: SystemConfig
     
@@ -176,6 +244,31 @@ class Settings:
                 mark_as_enriched_with_partial=os.getenv('MARK_AS_ENRICHED_WITH_PARTIAL', 'true').lower() == 'true'
             )
             
+            # Engagement defaults configuration
+            engagement_defaults_values = {
+                'Engagement_Status': 'Auto-Send',
+                'Email_Confidence_Level': 'Pattern',
+                'Level Engaged': ''
+            }
+            
+            # Load custom defaults from environment if provided
+            custom_defaults_json = os.getenv('ENGAGEMENT_DEFAULT_VALUES')
+            if custom_defaults_json:
+                try:
+                    import json
+                    custom_defaults = json.loads(custom_defaults_json)
+                    engagement_defaults_values.update(custom_defaults)
+                except (json.JSONDecodeError, TypeError):
+                    pass  # Use defaults if parsing fails
+            
+            engagement_defaults = EngagementDefaultsConfig(
+                enabled=os.getenv('APPLY_ENGAGEMENT_DEFAULTS', 'true').lower() == 'true',
+                default_values=engagement_defaults_values,
+                apply_on_scrape=os.getenv('APPLY_DEFAULTS_ON_SCRAPE', 'true').lower() == 'true',
+                apply_on_enrich=os.getenv('APPLY_DEFAULTS_ON_ENRICH', 'true').lower() == 'true',
+                apply_on_verify=os.getenv('APPLY_DEFAULTS_ON_VERIFY', 'true').lower() == 'true'
+            )
+            
             # Logging configuration
             logging_config = LoggingConfig(
                 log_level=os.getenv('LOG_LEVEL', 'INFO'),
@@ -195,6 +288,7 @@ class Settings:
                 airtable=airtable,
                 sync=sync,
                 enrichment=enrichment,
+                engagement_defaults=engagement_defaults,
                 logging=logging_config,
                 system=system
             )
@@ -232,6 +326,24 @@ class Settings:
         if self.enrichment.enrichment_timeout_seconds <= 0:
             errors.append("ENRICHMENT_TIMEOUT_SECONDS must be positive")
         
+        # Validate engagement defaults settings
+        if self.engagement_defaults.enabled:
+            if not isinstance(self.engagement_defaults.default_values, dict):
+                errors.append("ENGAGEMENT_DEFAULT_VALUES must be a dictionary")
+            
+            if not self.engagement_defaults.default_values:
+                errors.append("ENGAGEMENT_DEFAULT_VALUES cannot be empty when engagement defaults are enabled")
+            
+            # Check for required engagement fields
+            required_fields = ['Engagement_Status', 'Email_Confidence_Level', 'Level Engaged']
+            for field in required_fields:
+                if field not in self.engagement_defaults.default_values:
+                    errors.append(f"Missing required engagement default field: {field}")
+            
+            # Validate field values
+            field_errors = self.engagement_defaults.validate_field_values()
+            errors.extend(field_errors)
+        
         return errors
     
     def to_dict(self) -> dict:
@@ -263,6 +375,13 @@ class Settings:
                 'use_pattern_emails': self.enrichment.use_pattern_emails,
                 'auto_ready_for_outreach': self.enrichment.auto_ready_for_outreach,
                 'mark_as_enriched_with_partial': self.enrichment.mark_as_enriched_with_partial
+            },
+            'engagement_defaults': {
+                'enabled': self.engagement_defaults.enabled,
+                'default_values': self.engagement_defaults.default_values,
+                'apply_on_scrape': self.engagement_defaults.apply_on_scrape,
+                'apply_on_enrich': self.engagement_defaults.apply_on_enrich,
+                'apply_on_verify': self.engagement_defaults.apply_on_verify
             },
             'logging': {
                 'log_level': self.logging.log_level,

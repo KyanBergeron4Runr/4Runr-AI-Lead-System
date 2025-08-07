@@ -46,6 +46,9 @@ class Lead:
     title: Optional[str] = None
     linkedin_url: Optional[str] = None
     company_website: Optional[str] = None
+    website: Optional[str] = None  # Website discovered via SerpAPI or Google search
+    website_search_attempted: bool = False  # Whether Google search was attempted
+    website_search_timestamp: Optional[str] = None  # When Google search was performed
     phone: Optional[str] = None
     
     # Scraping metadata
@@ -164,7 +167,8 @@ class LeadDatabase:
             # Insert into database
             query = """
                 INSERT INTO leads (
-                    id, name, email, company, title, linkedin_url, company_website, phone,
+                    id, name, email, company, title, linkedin_url, company_website, website, 
+                    website_search_attempted, website_search_timestamp, phone,
                     scraped_at, scraping_source, search_query, search_context,
                     enriched, enrichment_attempts, enrichment_last_attempt, enrichment_method,
                     qualified, qualification_date, qualification_criteria, lead_score, 
@@ -174,7 +178,7 @@ class LeadDatabase:
                     verified, verification_date,
                     created_at, updated_at
                 ) VALUES (
-                    ?, ?, ?, ?, ?, ?, ?, ?,
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
                     ?, ?, ?, ?,
                     ?, ?, ?, ?,
                     ?, ?, ?, ?, ?, ?, ?,
@@ -187,7 +191,8 @@ class LeadDatabase:
             
             params = (
                 lead.id, lead.name, lead.email, lead.company, lead.title, 
-                lead.linkedin_url, lead.company_website, lead.phone,
+                lead.linkedin_url, lead.company_website, lead.website, 
+                lead.website_search_attempted, lead.website_search_timestamp, lead.phone,
                 lead.scraped_at, lead.scraping_source, lead.search_query, lead.search_context,
                 lead.enriched, lead.enrichment_attempts, lead.enrichment_last_attempt, lead.enrichment_method,
                 lead.qualified, lead.qualification_date, lead.qualification_criteria, lead.lead_score,
@@ -460,7 +465,8 @@ class LeadDatabase:
             # Bulk insert
             query = """
                 INSERT OR IGNORE INTO leads (
-                    id, name, email, company, title, linkedin_url, company_website, phone,
+                    id, name, email, company, title, linkedin_url, company_website, website, 
+                    website_search_attempted, website_search_timestamp, phone,
                     scraped_at, scraping_source, search_query, search_context,
                     enriched, enrichment_attempts, enrichment_last_attempt, enrichment_method,
                     qualified, qualification_date, qualification_criteria, lead_score, 
@@ -470,7 +476,7 @@ class LeadDatabase:
                     verified, verification_date,
                     created_at, updated_at
                 ) VALUES (
-                    ?, ?, ?, ?, ?, ?, ?, ?,
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
                     ?, ?, ?, ?,
                     ?, ?, ?, ?,
                     ?, ?, ?, ?, ?, ?, ?,
@@ -485,7 +491,8 @@ class LeadDatabase:
             for lead in prepared_leads:
                 params = (
                     lead.id, lead.name, lead.email, lead.company, lead.title, 
-                    lead.linkedin_url, lead.company_website, lead.phone,
+                    lead.linkedin_url, lead.company_website, lead.website, 
+                    lead.website_search_attempted, lead.website_search_timestamp, lead.phone,
                     lead.scraped_at, lead.scraping_source, lead.search_query, lead.search_context,
                     lead.enriched, lead.enrichment_attempts, lead.enrichment_last_attempt, lead.enrichment_method,
                     lead.qualified, lead.qualification_date, lead.qualification_criteria, lead.lead_score,

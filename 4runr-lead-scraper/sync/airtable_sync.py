@@ -52,6 +52,21 @@ class AirtableSync:
         self.last_request_time = 0
         self.min_request_interval = 0.2  # 200ms between requests (5 requests/second)
         
+        # Initialize engagement defaults manager if enabled
+        self.engagement_defaults_manager = None
+        if self.settings.engagement_defaults.enabled:
+            try:
+                # Try relative import first, then absolute
+                try:
+                    from .engagement_defaults import EngagementDefaultsManager
+                except ImportError:
+                    from engagement_defaults import EngagementDefaultsManager
+                
+                self.engagement_defaults_manager = EngagementDefaultsManager()
+                logger.info("🎯 Engagement defaults manager initialized")
+            except Exception as e:
+                logger.warning(f"⚠️ Failed to initialize engagement defaults manager: {e}")
+        
         logger.info("📊 Airtable sync manager initialized")
         logger.info(f"📋 Target table: {self.table_name}")
     
@@ -84,7 +99,8 @@ class AirtableSync:
                     'success': True,
                     'synced_count': 0,
                     'failed_count': 0,
-                    'errors': []
+                    'errors': [],
+                    'defaults_applied': {'count': 0, 'fields_updated': [], 'errors': []}
                 }
             
             logger.info(f"📋 Syncing {len(leads)} leads to Airtable")
@@ -94,6 +110,7 @@ class AirtableSync:
             synced_count = 0
             failed_count = 0
             errors = []
+            all_synced_records = []
             
             for i in range(0, len(leads), batch_size):
                 batch = leads[i:i + batch_size]
@@ -103,6 +120,10 @@ class AirtableSync:
                     synced_count += batch_result['synced']
                     failed_count += batch_result['failed']
                     errors.extend(batch_result['errors'])
+                    
+                    # Collect synced records for defaults application
+                    if 'synced_records' in batch_result:
+                        all_synced_records.extend(batch_result['synced_records'])
                     
                     logger.info(f"✅ Batch {i//batch_size + 1}: {batch_result['synced']} synced, {batch_result['failed']} failed")
                     
@@ -119,11 +140,21 @@ class AirtableSync:
             
             logger.info(f"📊 Airtable sync completed: {synced_count} synced, {failed_count} failed")
             
+            # Apply engagement defaults if enabled and we have synced records
+            defaults_result = {'count': 0, 'fields_updated': [], 'errors': []}
+            if all_synced_records and self.engagement_defaults_manager:
+                try:
+                    defaults_result = self._apply_engagement_defaults_after_sync(all_synced_records)
+                except Exception as e:
+                    logger.error(f"❌ Failed to apply engagement defaults: {str(e)}")
+                    defaults_result['errors'].append(str(e))
+            
             return {
                 'success': failed_count == 0,
                 'synced_count': synced_count,
                 'failed_count': failed_count,
-                'errors': errors
+                'errors': errors,
+                'defaults_applied': defaults_result
             }
             
         except Exception as e:
@@ -132,7 +163,8 @@ class AirtableSync:
                 'success': False,
                 'synced_count': 0,
                 'failed_count': 0,
-                'errors': [str(e)]
+                'errors': [str(e)],
+                'defaults_applied': {'count': 0, 'fields_updated': [], 'errors': []}
             }
     
     def sync_updates_from_airtable(self, force: bool = False) -> Dict[str, Any]:
@@ -225,7 +257,7 @@ class AirtableSync:
                 continue
         
         if not records:
-            return {'synced': 0, 'failed': len(batch), 'errors': ['No valid records to sync']}
+            return {'synced': 0, 'failed': len(batch), 'errors': ['No valid records to sync'], 'synced_records': []}
         
         # Send to Airtable
         try:
@@ -238,22 +270,28 @@ class AirtableSync:
                 
                 # Update database with Airtable IDs
                 synced_count = 0
+                synced_records = []
                 for i, airtable_record in enumerate(created_records):
                     if i < len(batch):
                         lead = batch[i]
+                        airtable_id = airtable_record['id']
                         success = self.db.update_lead(lead.id, {
-                            'airtable_id': airtable_record['id'],
+                            'airtable_id': airtable_id,
                             'airtable_synced': datetime.now().isoformat(),
                             'sync_status': 'synced'
                         })
                         
                         if success:
                             synced_count += 1
+                            # Update the lead object with the Airtable ID for defaults application
+                            lead.airtable_id = airtable_id
+                            synced_records.append(lead)
                 
                 return {
                     'synced': synced_count,
                     'failed': len(batch) - synced_count,
-                    'errors': []
+                    'errors': [],
+                    'synced_records': synced_records
                 }
             
             else:
@@ -262,7 +300,8 @@ class AirtableSync:
                 return {
                     'synced': 0,
                     'failed': len(batch),
-                    'errors': [error_msg]
+                    'errors': [error_msg],
+                    'synced_records': []
                 }
                 
         except Exception as e:
@@ -271,7 +310,8 @@ class AirtableSync:
             return {
                 'synced': 0,
                 'failed': len(batch),
-                'errors': [error_msg]
+                'errors': [error_msg],
+                'synced_records': []
             }
     
     def _format_lead_for_airtable(self, lead: Lead) -> Dict[str, Any]:
@@ -295,6 +335,11 @@ class AirtableSync:
         # Add email if available
         if lead.email:
             airtable_record['Email'] = lead.email
+        
+        # Add website if available (extracted from SerpAPI)
+        if hasattr(lead, 'website') and lead.website:
+            airtable_record['Website'] = lead.website
+            logger.debug(f"✅ Adding website to Airtable record: {lead.website}")
         
         # Remove empty/None fields
         return {k: v for k, v in airtable_record.items() if v is not None and v != ''}
@@ -402,7 +447,7 @@ class AirtableSync:
         Returns:
             Dictionary formatted for lead database
         """
-        return {
+        lead_data = {
             'name': fields.get('Full Name', ''),
             'email': fields.get('Email', ''),
             'linkedin_url': fields.get('LinkedIn URL', ''),
@@ -412,6 +457,13 @@ class AirtableSync:
             'airtable_synced': datetime.now().isoformat(),
             'sync_status': 'synced'
         }
+        
+        # Add website if available
+        if fields.get('Website'):
+            lead_data['website'] = fields['Website']
+            logger.debug(f"✅ Adding website from Airtable: {fields['Website']}")
+        
+        return lead_data
     
     def _get_sync_cutoff_time(self, force: bool) -> Optional[datetime]:
         """Get cutoff time for incremental sync."""
@@ -501,6 +553,80 @@ class AirtableSync:
                 'error': str(e),
                 'last_checked': datetime.now().isoformat()
             }
+    
+    def _apply_engagement_defaults_after_sync(self, synced_leads: List[Lead]) -> Dict[str, Any]:
+        """
+        Apply engagement defaults to leads after they've been synced to Airtable.
+        
+        Args:
+            synced_leads: List of leads that were successfully synced
+            
+        Returns:
+            Dictionary with defaults application results
+        """
+        if not self.engagement_defaults_manager:
+            return {'count': 0, 'fields_updated': [], 'errors': ['Engagement defaults manager not available']}
+        
+        logger.info(f"🎯 Applying engagement defaults to {len(synced_leads)} synced leads")
+        
+        # Prepare lead records for defaults application
+        lead_records = []
+        for lead in synced_leads:
+            if hasattr(lead, 'airtable_id') and lead.airtable_id:
+                lead_records.append({
+                    'lead_id': str(lead.id),
+                    'airtable_record_id': lead.airtable_id
+                })
+        
+        if not lead_records:
+            logger.warning("⚠️ No leads have Airtable IDs for defaults application")
+            return {'count': 0, 'fields_updated': [], 'errors': ['No leads with Airtable IDs']}
+        
+        # Apply defaults using the engagement defaults manager
+        try:
+            result = self.engagement_defaults_manager.apply_defaults_to_multiple_leads(lead_records)
+            
+            logger.info(f"🎯 Engagement defaults applied: {result['updated_count']} updated, "
+                       f"{result['skipped_count']} skipped, {result['failed_count']} failed")
+            
+            return {
+                'count': result['updated_count'],
+                'fields_updated': result['fields_updated'],
+                'errors': result['errors'],
+                'skipped_count': result['skipped_count'],
+                'failed_count': result['failed_count']
+            }
+            
+        except Exception as e:
+            logger.error(f"❌ Exception applying engagement defaults: {str(e)}")
+            return {
+                'count': 0,
+                'fields_updated': [],
+                'errors': [str(e)]
+            }
+    
+    def sync_leads_to_airtable_with_defaults(self, leads: List[Lead] = None, force: bool = False) -> Dict[str, Any]:
+        """
+        Sync leads to Airtable and apply engagement defaults.
+        This is a convenience method that combines sync and defaults application.
+        
+        Args:
+            leads: Optional list of specific leads to sync
+            force: Force sync even if already synced
+            
+        Returns:
+            Dictionary with sync and defaults results
+        """
+        logger.info("📤 Starting database to Airtable sync with engagement defaults")
+        
+        # Perform the regular sync
+        sync_result = self.sync_leads_to_airtable(leads, force)
+        
+        # The sync method already applies defaults, so we just return the result
+        logger.info(f"📊 Sync with defaults completed: {sync_result['synced_count']} synced, "
+                   f"{sync_result['defaults_applied']['count']} defaults applied")
+        
+        return sync_result
 
 
 # Convenience functions
@@ -517,6 +643,20 @@ def sync_to_airtable(leads: List[Lead] = None, force: bool = False) -> Dict[str,
     """
     sync_manager = AirtableSync()
     return sync_manager.sync_leads_to_airtable(leads, force)
+
+def sync_to_airtable_with_defaults(leads: List[Lead] = None, force: bool = False) -> Dict[str, Any]:
+    """
+    Sync leads to Airtable with engagement defaults application (convenience function).
+    
+    Args:
+        leads: Optional list of specific leads to sync
+        force: Force sync even if already synced
+        
+    Returns:
+        Sync result dictionary with defaults application results
+    """
+    sync_manager = AirtableSync()
+    return sync_manager.sync_leads_to_airtable_with_defaults(leads, force)
 
 def sync_from_airtable(force: bool = False) -> Dict[str, Any]:
     """

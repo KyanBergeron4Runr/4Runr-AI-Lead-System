@@ -34,10 +34,10 @@ class SerpAPILeadScraper:
         Args:
             api_key: SerpAPI key. If None, reads from environment.
         """
-        self.serpapi_key = api_key or os.getenv('SERPAPI_KEY')
+        self.serpapi_key = api_key or os.getenv('SERPAPI_KEY') or os.getenv('SERPAPI_API_KEY')
         
         if not self.serpapi_key:
-            raise ValueError("SERPAPI_KEY not found in environment variables")
+            raise ValueError("SERPAPI_KEY or SERPAPI_API_KEY not found in environment variables")
         
         # Get configuration from environment
         self.max_leads_per_run = int(os.getenv('MAX_LEADS_PER_RUN', '10'))
@@ -259,6 +259,15 @@ class SerpAPILeadScraper:
             if 'linkedin.com/in/' not in link:
                 return None
             
+            # Extract website URL if present in SerpAPI response
+            website_url = self._extract_website_from_serpapi_result(result)
+            
+            # Log website extraction result for debugging
+            if website_url:
+                logger.debug(f"🌐 Website found for {title}: {website_url}")
+            else:
+                logger.debug(f"🌐 No website found for {title} - will trigger Google fallback")
+            
             # Extract name from title (usually "Name - Title - Company | LinkedIn")
             name = ""
             job_title = ""
@@ -320,6 +329,7 @@ class SerpAPILeadScraper:
                 "linkedin_url": link,
                 "location": self.search_location,
                 "email": None,
+                "website": website_url,  # Add website URL from SerpAPI response
                 "verified": False,
                 "enriched": False,
                 "scraped_at": datetime.now().isoformat(),
@@ -353,6 +363,202 @@ class SerpAPILeadScraper:
                 return line.strip()
         
         return ""
+    
+    def _extract_website_from_serpapi_result(self, result: Dict) -> Optional[str]:
+        """
+        Extract website URL from SerpAPI search result.
+        
+        Args:
+            result: SerpAPI search result dictionary
+            
+        Returns:
+            Website URL if found, None otherwise
+        """
+        try:
+            # Method 1: Check if SerpAPI response has a direct website field
+            if 'website' in result:
+                website = result['website']
+                if website and self._is_valid_website_url(website):
+                    logger.debug(f"✅ Found website in SerpAPI direct field: {website}")
+                    return website
+            
+            # Method 2: Check for company website in rich snippets or structured data
+            rich_snippet = result.get('rich_snippet', {})
+            if rich_snippet:
+                # Check top-level rich snippet data
+                if 'top' in rich_snippet:
+                    top_data = rich_snippet['top']
+                    if isinstance(top_data, dict):
+                        # Check detected extensions
+                        if 'detected_extensions' in top_data:
+                            extensions = top_data['detected_extensions']
+                            if isinstance(extensions, dict) and 'website' in extensions:
+                                website = extensions['website']
+                                if self._is_valid_website_url(website):
+                                    logger.debug(f"✅ Found website in rich snippet extensions: {website}")
+                                    return website
+                        
+                        # Check for website in top data directly
+                        if 'website' in top_data:
+                            website = top_data['website']
+                            if self._is_valid_website_url(website):
+                                logger.debug(f"✅ Found website in rich snippet top: {website}")
+                                return website
+                
+                # Check other rich snippet fields
+                for field_name in ['extensions', 'menus', 'links']:
+                    if field_name in rich_snippet:
+                        field_data = rich_snippet[field_name]
+                        if isinstance(field_data, list):
+                            for item in field_data:
+                                if isinstance(item, str) and self._is_valid_website_url(item):
+                                    logger.debug(f"✅ Found website in rich snippet {field_name}: {item}")
+                                    return item
+            
+            # Method 3: Check for sitelinks (common in company searches)
+            sitelinks = result.get('sitelinks', [])
+            if sitelinks and isinstance(sitelinks, list):
+                for sitelink in sitelinks:
+                    if isinstance(sitelink, dict) and 'link' in sitelink:
+                        link = sitelink['link']
+                        if self._is_valid_website_url(link) and 'linkedin.com' not in link:
+                            logger.debug(f"✅ Found website in sitelinks: {link}")
+                            return link
+            
+            # Method 4: Extract from displayed link (sometimes shows company domain)
+            displayed_link = result.get('displayed_link', '')
+            if displayed_link and self._is_valid_website_url(f"https://{displayed_link}"):
+                # Clean up displayed link
+                website = displayed_link
+                if not website.startswith('http'):
+                    website = f"https://{website}"
+                if 'linkedin.com' not in website:
+                    logger.debug(f"✅ Found website in displayed link: {website}")
+                    return website
+            
+            # Method 5: Look for website mentions in the snippet text
+            snippet = result.get('snippet', '')
+            if snippet:
+                website = self._extract_website_from_text(snippet)
+                if website:
+                    logger.debug(f"✅ Found website in snippet text: {website}")
+                    return website
+            
+            # Method 6: Look for website in title (sometimes company websites are mentioned)
+            title = result.get('title', '')
+            if title:
+                website = self._extract_website_from_text(title)
+                if website:
+                    logger.debug(f"✅ Found website in title: {website}")
+                    return website
+            
+            # No website found - this will trigger fallback Google scraping
+            logger.debug("⚠️ No website found in SerpAPI result - will trigger Google fallback")
+            return None
+            
+        except Exception as e:
+            logger.warning(f"⚠️ Error extracting website from SerpAPI result: {str(e)}")
+            return None
+    
+    def _extract_website_from_text(self, text: str) -> Optional[str]:
+        """
+        Extract website URL from text using pattern matching.
+        
+        Args:
+            text: Text to search for website URLs
+            
+        Returns:
+            Website URL if found, None otherwise
+        """
+        import re
+        
+        # Enhanced website patterns for better extraction
+        patterns = [
+            # Direct URL patterns
+            r'https?://(?:www\.)?([a-zA-Z0-9-]+\.(?:com|ca|org|net|co|io|ai|biz|info|tech|dev|app))',
+            r'(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+\.(?:com|ca|org|net|co|io|ai|biz|info|tech|dev|app))',
+            
+            # Context-based patterns
+            r'Visit\s+(?:us\s+at\s+)?(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+\.(?:com|ca|org|net|co|io|ai|biz|info|tech|dev|app))',
+            r'Website:\s*(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+\.(?:com|ca|org|net|co|io|ai|biz|info|tech|dev|app))',
+            r'(?:at|@)\s+(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+\.(?:com|ca|org|net|co|io|ai|biz|info|tech|dev|app))',
+            r'(?:see|visit|check)\s+(?:https?://)?(?:www\.)?([a-zA-Z0-9-]+\.(?:com|ca|org|net|co|io|ai|biz|info|tech|dev|app))',
+            
+            # Company domain patterns (more specific)
+            r'([a-zA-Z0-9-]+\.(?:com|ca|org|net|co|io|ai|biz|info|tech|dev|app))(?:\s|$|\.|\)|,)',
+            
+            # Email domain extraction (company.com from email@company.com)
+            r'@([a-zA-Z0-9-]+\.(?:com|ca|org|net|co|io|ai|biz|info|tech|dev|app))',
+        ]
+        
+        found_websites = []
+        
+        for pattern in patterns:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            for match in matches:
+                # Clean up the match
+                website = match.strip().lower()
+                
+                # Skip common non-company domains
+                skip_domains = [
+                    'linkedin.com', 'facebook.com', 'twitter.com', 'instagram.com',
+                    'youtube.com', 'google.com', 'gmail.com', 'outlook.com',
+                    'yahoo.com', 'hotmail.com', 'example.com', 'test.com',
+                    'domain.com', 'company.com', 'business.com', 'website.com'
+                ]
+                
+                # Skip if it's a common non-company domain
+                if any(skip_domain in website for skip_domain in skip_domains):
+                    continue
+                
+                # Skip very short domains (likely false positives)
+                domain_part = website.replace('www.', '').split('.')[0]
+                if len(domain_part) < 3:
+                    continue
+                
+                # Add protocol if missing
+                if not website.startswith('http'):
+                    website = f"https://{website}"
+                
+                # Validate and add to found websites
+                if self._is_valid_website_url(website):
+                    found_websites.append(website)
+        
+        # Return the first valid website found
+        if found_websites:
+            # Prefer .com domains over others
+            com_domains = [w for w in found_websites if '.com' in w]
+            if com_domains:
+                return com_domains[0]
+            else:
+                return found_websites[0]
+        
+        return None
+    
+    def _is_valid_website_url(self, url: str) -> bool:
+        """
+        Validate if a URL looks like a valid website.
+        
+        Args:
+            url: URL to validate
+            
+        Returns:
+            True if URL appears valid
+        """
+        if not url or not isinstance(url, str):
+            return False
+        
+        # Basic URL validation
+        import re
+        url_pattern = re.compile(
+            r'^https?://'  # http:// or https://
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+[A-Z]{2,6}\.?|'  # domain...
+            r'localhost|'  # localhost...
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
+            r'(?::\d+)?'  # optional port
+            r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+        
+        return bool(url_pattern.match(url))
     
     def _get_location_indicators(self) -> List[str]:
         """Get location indicators based on configured search location."""

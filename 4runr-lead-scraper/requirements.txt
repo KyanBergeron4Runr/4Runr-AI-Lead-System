@@ -22,6 +22,9 @@ dnspython>=2.4.0
 beautifulsoup4>=4.12.0
 lxml>=4.9.0
 
+# Web automation for Google search fallback
+playwright>=1.40.0
+
 # Testing (optional)
 pytest>=7.4.0
 pytest-asyncio>=0.21.0
