@@ -6,13 +6,15 @@ company-focused personalization, engagement level tracking, and autonomous opera
 """
 
 import datetime
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 from .app import EngagerAgent
 from .knowledge_base_loader import KnowledgeBaseLoader
 from .website_scraper_service import WebsiteScraperService
 from .engagement_level_tracker import EngagementLevelTracker
 from .message_generator_enhanced import MessageGeneratorEnhanced
+from .local_database_manager import LocalDatabaseManager
+from .reengagement_strategy import ReengagementStrategy
 from shared.logging_utils import get_logger
 
 
@@ -29,6 +31,11 @@ class EnhancedEngagerAgent(EngagerAgent):
         self.website_scraper = WebsiteScraperService()
         self.engagement_tracker = EngagementLevelTracker()
         self.message_generator = MessageGeneratorEnhanced()
+        self.database_manager = LocalDatabaseManager()
+        self.reengagement_strategy = ReengagementStrategy()
+        
+        # Create database backup on startup
+        self._create_startup_backup()
         
         # Cache 4Runr knowledge at startup
         self._4runr_knowledge = None
@@ -36,7 +43,7 @@ class EnhancedEngagerAgent(EngagerAgent):
         
         self.logger.log_module_activity('engager', 'system', 'success', {
             'message': 'Enhanced Engager Agent initialized successfully',
-            'components': ['knowledge_base', 'website_scraper', 'engagement_tracker', 'message_generator']
+            'components': ['knowledge_base', 'website_scraper', 'engagement_tracker', 'message_generator', 'database_manager', 'reengagement_strategy']
         })
     
     def _load_4runr_knowledge(self) -> None:
@@ -50,6 +57,21 @@ class EnhancedEngagerAgent(EngagerAgent):
         except Exception as e:
             self.logger.log_error(e, {'action': 'load_4runr_knowledge'})
             self._4runr_knowledge = "4Runr builds custom AI infrastructure—private, intelligent, and permanent."
+    
+    def _create_startup_backup(self) -> None:
+        """Create database backup on agent startup."""
+        try:
+            backup_success = self.database_manager.create_database_backup()
+            if backup_success:
+                self.logger.log_module_activity('engager', 'system', 'success', {
+                    'message': 'Startup database backup created successfully'
+                })
+            else:
+                self.logger.log_module_activity('engager', 'system', 'warning', {
+                    'message': 'Startup database backup failed or skipped'
+                })
+        except Exception as e:
+            self.logger.log_error(e, {'action': 'create_startup_backup'})
     
     def process_leads(self, limit: int = None) -> Dict[str, int]:
         """
@@ -364,6 +386,227 @@ class EnhancedEngagerAgent(EngagerAgent):
             health_status['error'] = str(e)
         
         return health_status
+    
+    def process_reengagement_leads(self, limit: int = None) -> Dict[str, int]:
+        """
+        Process leads marked for re-engagement with adjusted messaging.
+        
+        Args:
+            limit: Maximum number of re-engagement leads to process
+            
+        Returns:
+            Dictionary with re-engagement processing statistics
+        """
+        self.logger.log_module_activity('engager', 'system', 'info', {
+            'message': 'Starting re-engagement lead processing',
+            'limit': limit
+        })
+        
+        # Get leads marked for re-engagement
+        reengagement_leads = self.reengagement_strategy.get_reengagement_leads(limit)
+        
+        if not reengagement_leads:
+            self.logger.log_module_activity('engager', 'system', 'info', {
+                'message': 'No leads found ready for re-engagement'
+            })
+            return {'processed': 0, 'successful': 0, 'errors': 0, 'skipped': 0}
+        
+        self.logger.log_module_activity('engager', 'system', 'info', {
+            'message': f'Processing {len(reengagement_leads)} re-engagement leads'
+        })
+        
+        stats = {'processed': 0, 'successful': 0, 'errors': 0, 'skipped': 0}
+        
+        for i, lead in enumerate(reengagement_leads):
+            try:
+                self.logger.log_module_activity('engager', lead['id'], 'start', {
+                    'message': f'Processing re-engagement for {lead["name"]} ({lead["follow_up_stage"]})',
+                    'email': lead['email'],
+                    'follow_up_stage': lead['follow_up_stage']
+                })
+                
+                result = self._process_single_reengagement_lead(lead)
+                
+                stats['processed'] += 1
+                if result == 'success':
+                    stats['successful'] += 1
+                elif result == 'skip':
+                    stats['skipped'] += 1
+                else:
+                    stats['errors'] += 1
+                    
+            except Exception as e:
+                self.logger.log_error(e, {
+                    'action': 'process_reengagement_leads',
+                    'lead_id': lead.get('id', 'unknown'),
+                    'lead_index': i
+                })
+                stats['processed'] += 1
+                stats['errors'] += 1
+        
+        self.logger.log_module_activity('engager', 'system', 'success', {
+            'message': 'Re-engagement processing completed',
+            'processed': stats['processed'],
+            'successful': stats['successful'],
+            'errors': stats['errors'],
+            'skipped': stats['skipped']
+        })
+        
+        return stats
+    
+    def _process_single_reengagement_lead(self, lead: Dict[str, Any]) -> str:
+        """
+        Process a single lead for re-engagement with adjusted messaging.
+        
+        Args:
+            lead: Re-engagement lead data dictionary
+            
+        Returns:
+            Result status: 'success', 'skip', or 'error'
+        """
+        lead_id = lead['id']
+        lead_name = lead['name']
+        email = lead['email']
+        follow_up_stage = lead['follow_up_stage']
+        
+        try:
+            # Check if lead should be skipped
+            if lead['response_status'] in ['Converted', 'Rejected', 'Interested']:
+                self.logger.log_module_activity('engager', lead_id, 'skip', {
+                    'message': f'Skipping re-engagement - Response status: {lead["response_status"]}',
+                    'response_status': lead['response_status']
+                })
+                
+                # Mark as completed
+                self.reengagement_strategy.complete_reengagement(lead_id, success=True)
+                return 'skip'
+            
+            # Generate re-engagement message with adjusted tone
+            reengagement_message = self._generate_reengagement_message(lead)
+            
+            if not reengagement_message:
+                self.logger.log_module_activity('engager', lead_id, 'error', {
+                    'message': 'Failed to generate re-engagement message'
+                })
+                self.reengagement_strategy.complete_reengagement(
+                    lead_id, success=False, error_message="Message generation failed"
+                )
+                return 'error'
+            
+            # Send the re-engagement email
+            send_success = self._send_reengagement_email(lead, reengagement_message)
+            
+            if send_success:
+                # Update engagement tracking
+                engagement_data = {
+                    'engagement_stage': f'reengagement_{follow_up_stage.lower()}',
+                    'last_contacted': datetime.datetime.now().isoformat(),
+                    'message_sent': reengagement_message[:500],  # Truncate for storage
+                    'success': True,
+                    'follow_up_stage': follow_up_stage
+                }
+                
+                # Sync to local database
+                self.database_manager.update_engagement_data(lead_id, engagement_data)
+                
+                # Mark re-engagement as completed
+                self.reengagement_strategy.complete_reengagement(lead_id, success=True)
+                
+                self.logger.log_module_activity('engager', lead_id, 'success', {
+                    'message': f'Successfully sent re-engagement message ({follow_up_stage})',
+                    'follow_up_stage': follow_up_stage,
+                    'message_length': len(reengagement_message)
+                })
+                
+                return 'success'
+            else:
+                self.reengagement_strategy.complete_reengagement(
+                    lead_id, success=False, error_message="Email sending failed"
+                )
+                return 'error'
+                
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'process_single_reengagement_lead',
+                'lead_id': lead_id,
+                'follow_up_stage': follow_up_stage
+            })
+            
+            self.reengagement_strategy.complete_reengagement(
+                lead_id, success=False, error_message=str(e)
+            )
+            return 'error'
+    
+    def _generate_reengagement_message(self, lead: Dict[str, Any]) -> Optional[str]:
+        """
+        Generate a re-engagement message with adjusted tone and urgency.
+        
+        Args:
+            lead: Lead data dictionary
+            
+        Returns:
+            Generated re-engagement message or None if generation fails
+        """
+        try:
+            follow_up_stage = lead['follow_up_stage']
+            
+            # Create re-engagement context
+            reengagement_context = {
+                'is_reengagement': True,
+                'follow_up_stage': follow_up_stage,
+                'follow_up_number': 1 if follow_up_stage == 'Followup_1' else 2,
+                'days_since_last_contact': (
+                    datetime.datetime.now() - 
+                    datetime.datetime.fromisoformat(lead['last_contacted'])
+                ).days if lead.get('last_contacted') else 7
+            }
+            
+            # Use the enhanced message generator with re-engagement context
+            message = self.message_generator.generate_reengagement_message(
+                lead, self._4runr_knowledge, reengagement_context
+            )
+            
+            return message
+            
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'generate_reengagement_message',
+                'lead_id': lead.get('id', 'unknown'),
+                'follow_up_stage': lead.get('follow_up_stage')
+            })
+            return None
+    
+    def _send_reengagement_email(self, lead: Dict[str, Any], message: str) -> bool:
+        """
+        Send re-engagement email with appropriate tracking.
+        
+        Args:
+            lead: Lead data dictionary
+            message: Re-engagement message to send
+            
+        Returns:
+            True if email was sent successfully, False otherwise
+        """
+        try:
+            # For now, simulate email sending
+            # In a real implementation, this would integrate with the email sending system
+            
+            self.logger.log_module_activity('engager', lead['id'], 'info', {
+                'message': f'Sending re-engagement email to {lead["email"]}',
+                'follow_up_stage': lead['follow_up_stage'],
+                'message_preview': message[:100] + "..." if len(message) > 100 else message
+            })
+            
+            # Simulate successful sending
+            return True
+            
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'send_reengagement_email',
+                'lead_id': lead.get('id', 'unknown'),
+                'email': lead.get('email')
+            })
+            return False
 
 
 def main():
@@ -376,6 +619,7 @@ def main():
     parser.add_argument('--stats', action='store_true', help='Show enhanced processing statistics')
     parser.add_argument('--health', action='store_true', help='Run health check on all components')
     parser.add_argument('--dry-run', action='store_true', help='Simulate sending without actually sending emails')
+    parser.add_argument('--reengage-only', action='store_true', help='Process only re-engagement leads')
     
     args = parser.parse_args()
     
@@ -418,6 +662,19 @@ def main():
         result = agent.process_specific_lead(args.lead_id)
         print(f"Result: {result}")
         return result == 'success'
+    
+    if args.reengage_only:
+        # Process only re-engagement leads
+        print("🔄 Processing re-engagement leads only...")
+        results = agent.process_reengagement_leads(limit=args.limit)
+        
+        print(f"Re-engagement Results:")
+        print(f"  Processed: {results['processed']}")
+        print(f"  Successful: {results['successful']}")
+        print(f"  Skipped: {results['skipped']}")
+        print(f"  Errors: {results['errors']}")
+        
+        return results['successful'] > 0
     
     # Process leads in batch with enhancements
     results = agent.process_leads(limit=args.limit)

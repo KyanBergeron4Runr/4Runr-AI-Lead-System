@@ -9,6 +9,8 @@ import os
 import sqlite3
 import json
 import datetime
+import shutil
+import glob
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 from contextlib import contextmanager
@@ -38,6 +40,10 @@ class LocalDatabaseManager:
         # Ensure data directory exists
         db_file = Path(self.db_path)
         db_file.parent.mkdir(parents=True, exist_ok=True)
+        
+        # Set up backup directory
+        self.backup_dir = db_file.parent / "backups"
+        self.backup_dir.mkdir(exist_ok=True)
         
         # Initialize database schema
         self._ensure_schema()
@@ -81,6 +87,9 @@ class LocalDatabaseManager:
                         engagement_stage TEXT DEFAULT '1st degree',
                         last_contacted TIMESTAMP,
                         engagement_history TEXT,
+                        follow_up_stage TEXT,
+                        response_status TEXT DEFAULT 'No Response',
+                        eligible_for_reengagement BOOLEAN DEFAULT FALSE,
                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                     )
@@ -155,7 +164,10 @@ class LocalDatabaseManager:
             required_columns = {
                 'engagement_stage': 'TEXT DEFAULT "1st degree"',
                 'last_contacted': 'TIMESTAMP',
-                'engagement_history': 'TEXT'
+                'engagement_history': 'TEXT',
+                'follow_up_stage': 'TEXT',
+                'response_status': 'TEXT DEFAULT "No Response"',
+                'eligible_for_reengagement': 'BOOLEAN DEFAULT FALSE'
             }
             
             for column_name, column_def in required_columns.items():
@@ -630,3 +642,284 @@ class LocalDatabaseManager:
         except Exception as e:
             self.logger.log_error(e, {'action': 'test_database_connection'})
             return False
+    
+    def create_database_backup(self) -> bool:
+        """
+        Create a timestamped backup of the leads database.
+        
+        Returns:
+            True if backup created successfully, False otherwise
+        """
+        try:
+            # Check if database file exists and has content
+            db_file = Path(self.db_path)
+            if not db_file.exists():
+                self.logger.log_module_activity('engager', 'system', 'warning', {
+                    'message': 'Database file does not exist, skipping backup',
+                    'db_path': self.db_path
+                })
+                return False
+            
+            # Check file size (should be > 0)
+            if db_file.stat().st_size == 0:
+                self.logger.log_module_activity('engager', 'system', 'warning', {
+                    'message': 'Database file is empty, skipping backup',
+                    'db_path': self.db_path
+                })
+                return False
+            
+            # Create timestamped backup filename
+            timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            backup_filename = f"leads_cache_{timestamp}.db"
+            backup_path = self.backup_dir / backup_filename
+            
+            # Create backup using shutil.copy2 to preserve metadata
+            shutil.copy2(self.db_path, backup_path)
+            
+            # Verify backup integrity
+            if not self._verify_backup_integrity(backup_path):
+                backup_path.unlink()  # Delete corrupted backup
+                raise Exception("Backup integrity verification failed")
+            
+            # Clean up old backups (keep only latest 10)
+            self._cleanup_old_backups()
+            
+            backup_size = backup_path.stat().st_size
+            
+            self.logger.log_module_activity('engager', 'system', 'success', {
+                'message': 'Database backup created successfully',
+                'backup_path': str(backup_path),
+                'backup_size_bytes': backup_size,
+                'original_size_bytes': db_file.stat().st_size
+            })
+            
+            return True
+            
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'create_database_backup',
+                'db_path': self.db_path,
+                'backup_dir': str(self.backup_dir)
+            })
+            return False
+    
+    def _verify_backup_integrity(self, backup_path: Path) -> bool:
+        """
+        Verify that a backup file is a valid SQLite database.
+        
+        Args:
+            backup_path: Path to the backup file
+            
+        Returns:
+            True if backup is valid, False otherwise
+        """
+        try:
+            # Check file size
+            if backup_path.stat().st_size == 0:
+                return False
+            
+            # Try to open and query the backup database
+            with sqlite3.connect(str(backup_path)) as conn:
+                cursor = conn.cursor()
+                
+                # Test basic query
+                cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+                tables = cursor.fetchall()
+                
+                # Verify expected tables exist
+                table_names = [table[0] for table in tables]
+                expected_tables = ['leads', 'engagement_tracking']
+                
+                for expected_table in expected_tables:
+                    if expected_table not in table_names:
+                        self.logger.log_module_activity('engager', 'system', 'warning', {
+                            'message': f'Expected table {expected_table} not found in backup',
+                            'backup_path': str(backup_path),
+                            'found_tables': table_names
+                        })
+                        return False
+                
+                # Test a simple query on each table
+                for table in expected_tables:
+                    cursor.execute(f"SELECT COUNT(*) FROM {table}")
+                    cursor.fetchone()
+                
+                return True
+                
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'verify_backup_integrity',
+                'backup_path': str(backup_path)
+            })
+            return False
+    
+    def _cleanup_old_backups(self, max_backups: int = 10) -> None:
+        """
+        Clean up old backup files, keeping only the most recent ones.
+        
+        Args:
+            max_backups: Maximum number of backups to keep
+        """
+        try:
+            # Get all backup files
+            backup_pattern = str(self.backup_dir / "leads_cache_*.db")
+            backup_files = glob.glob(backup_pattern)
+            
+            if len(backup_files) <= max_backups:
+                return  # No cleanup needed
+            
+            # Sort by modification time (newest first)
+            backup_files.sort(key=lambda x: os.path.getmtime(x), reverse=True)
+            
+            # Delete old backups
+            files_to_delete = backup_files[max_backups:]
+            deleted_count = 0
+            
+            for old_backup in files_to_delete:
+                try:
+                    os.unlink(old_backup)
+                    deleted_count += 1
+                except Exception as e:
+                    self.logger.log_error(e, {
+                        'action': 'delete_old_backup',
+                        'backup_file': old_backup
+                    })
+            
+            if deleted_count > 0:
+                self.logger.log_module_activity('engager', 'system', 'info', {
+                    'message': f'Cleaned up {deleted_count} old backup files',
+                    'max_backups': max_backups,
+                    'remaining_backups': len(backup_files) - deleted_count
+                })
+                
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'cleanup_old_backups',
+                'backup_dir': str(self.backup_dir),
+                'max_backups': max_backups
+            })
+    
+    def list_backups(self) -> List[Dict[str, Any]]:
+        """
+        List all available database backups.
+        
+        Returns:
+            List of backup information dictionaries
+        """
+        try:
+            backup_pattern = str(self.backup_dir / "leads_cache_*.db")
+            backup_files = glob.glob(backup_pattern)
+            
+            backups = []
+            for backup_file in backup_files:
+                backup_path = Path(backup_file)
+                stat = backup_path.stat()
+                
+                backups.append({
+                    'filename': backup_path.name,
+                    'path': str(backup_path),
+                    'size_bytes': stat.st_size,
+                    'created_at': datetime.datetime.fromtimestamp(stat.st_ctime).isoformat(),
+                    'modified_at': datetime.datetime.fromtimestamp(stat.st_mtime).isoformat()
+                })
+            
+            # Sort by creation time (newest first)
+            backups.sort(key=lambda x: x['created_at'], reverse=True)
+            
+            return backups
+            
+        except Exception as e:
+            self.logger.log_error(e, {'action': 'list_backups'})
+            return []
+    
+    def restore_from_backup(self, backup_filename: str) -> bool:
+        """
+        Restore database from a backup file.
+        
+        Args:
+            backup_filename: Name of the backup file to restore from
+            
+        Returns:
+            True if restore successful, False otherwise
+        """
+        try:
+            backup_path = self.backup_dir / backup_filename
+            
+            if not backup_path.exists():
+                self.logger.log_module_activity('engager', 'system', 'error', {
+                    'message': f'Backup file not found: {backup_filename}',
+                    'backup_path': str(backup_path)
+                })
+                return False
+            
+            # Verify backup integrity before restore
+            if not self._verify_backup_integrity(backup_path):
+                self.logger.log_module_activity('engager', 'system', 'error', {
+                    'message': f'Backup file is corrupted: {backup_filename}',
+                    'backup_path': str(backup_path)
+                })
+                return False
+            
+            # Create a backup of current database before restore
+            current_backup_created = self.create_database_backup()
+            if not current_backup_created:
+                self.logger.log_module_activity('engager', 'system', 'warning', {
+                    'message': 'Could not create backup of current database before restore'
+                })
+            
+            # Restore from backup
+            shutil.copy2(backup_path, self.db_path)
+            
+            # Verify restored database
+            if not self.test_database_connection():
+                raise Exception("Restored database failed connection test")
+            
+            self.logger.log_module_activity('engager', 'system', 'success', {
+                'message': f'Database restored successfully from backup: {backup_filename}',
+                'backup_path': str(backup_path),
+                'restored_to': self.db_path
+            })
+            
+            return True
+            
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'restore_from_backup',
+                'backup_filename': backup_filename
+            })
+            return False
+    
+    def get_backup_statistics(self) -> Dict[str, Any]:
+        """
+        Get statistics about database backups.
+        
+        Returns:
+            Dictionary with backup statistics
+        """
+        try:
+            backups = self.list_backups()
+            
+            if not backups:
+                return {
+                    'total_backups': 0,
+                    'total_size_bytes': 0,
+                    'oldest_backup': None,
+                    'newest_backup': None,
+                    'backup_dir': str(self.backup_dir)
+                }
+            
+            total_size = sum(backup['size_bytes'] for backup in backups)
+            
+            return {
+                'total_backups': len(backups),
+                'total_size_bytes': total_size,
+                'total_size_mb': round(total_size / (1024 * 1024), 2),
+                'oldest_backup': backups[-1]['filename'] if backups else None,
+                'newest_backup': backups[0]['filename'] if backups else None,
+                'backup_dir': str(self.backup_dir),
+                'backups': backups
+            }
+            
+        except Exception as e:
+            self.logger.log_error(e, {'action': 'get_backup_statistics'})
+            return {'error': str(e)}

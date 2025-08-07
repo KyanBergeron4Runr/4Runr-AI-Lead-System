@@ -504,3 +504,269 @@ Best regards,
         except Exception as e:
             self.logger.log_error(e, {'action': 'test_message_generation'})
             return False
+    
+    def generate_reengagement_message(self, 
+                                    lead: Dict[str, Any], 
+                                    knowledge_base: str, 
+                                    reengagement_context: Dict[str, Any]) -> str:
+        """
+        Generate re-engagement message with adjusted tone and urgency.
+        
+        Args:
+            lead: Lead data dictionary
+            knowledge_base: 4Runr knowledge base content
+            reengagement_context: Re-engagement specific context
+            
+        Returns:
+            Generated re-engagement message
+        """
+        try:
+            follow_up_stage = reengagement_context.get('follow_up_stage', 'Followup_1')
+            follow_up_number = reengagement_context.get('follow_up_number', 1)
+            days_since_contact = reengagement_context.get('days_since_last_contact', 7)
+            
+            # Build re-engagement specific prompt
+            reengagement_prompt = self._build_reengagement_prompt(
+                lead, knowledge_base, follow_up_stage, follow_up_number, days_since_contact
+            )
+            
+            self.logger.log_module_activity('engager', lead.get('id', 'unknown'), 'info', {
+                'message': f'Generating re-engagement message ({follow_up_stage})',
+                'follow_up_number': follow_up_number,
+                'days_since_contact': days_since_contact
+            })
+            
+            # Generate message with OpenAI
+            response = self.openai_client.chat.completions.create(
+                model=self.ai_config['model'],
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are a strategic B2B outreach specialist for 4Runr, focused on re-engaging prospects with adjusted messaging that acknowledges the follow-up nature while maintaining value and urgency."
+                    },
+                    {
+                        "role": "user",
+                        "content": reengagement_prompt
+                    }
+                ],
+                max_tokens=800,
+                temperature=0.7
+            )
+            
+            message = response.choices[0].message.content.strip()
+            
+            # Validate re-engagement message quality
+            if self._validate_reengagement_message_quality(message, lead, follow_up_stage):
+                self.logger.log_module_activity('engager', lead.get('id', 'unknown'), 'success', {
+                    'message': f'Successfully generated re-engagement message ({follow_up_stage})',
+                    'message_length': len(message)
+                })
+                return message
+            else:
+                # Use fallback re-engagement template
+                return self._get_reengagement_fallback_message(lead, follow_up_stage, days_since_contact)
+                
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'generate_reengagement_message',
+                'lead_id': lead.get('id', 'unknown'),
+                'follow_up_stage': follow_up_stage
+            })
+            return self._get_reengagement_fallback_message(lead, follow_up_stage, days_since_contact)
+    
+    def _build_reengagement_prompt(self, 
+                                 lead: Dict[str, Any], 
+                                 knowledge_base: str, 
+                                 follow_up_stage: str, 
+                                 follow_up_number: int, 
+                                 days_since_contact: int) -> str:
+        """
+        Build AI prompt for re-engagement message generation.
+        
+        Args:
+            lead: Lead data dictionary
+            knowledge_base: 4Runr knowledge base content
+            follow_up_stage: Current follow-up stage
+            follow_up_number: Follow-up attempt number
+            days_since_contact: Days since last contact
+            
+        Returns:
+            Complete prompt for AI generation
+        """
+        company_name = lead.get('company', lead.get('Company', 'the company'))
+        lead_name = lead.get('name', lead.get('Name', 'there'))
+        
+        base_prompt = f"""
+Generate a strategic re-engagement email for 4Runr's outreach to {company_name}.
+
+CONTEXT:
+- This is follow-up #{follow_up_number} ({follow_up_stage})
+- {days_since_contact} days have passed since last contact
+- Previous message received no response
+- Need to adjust tone and approach while maintaining value
+
+LEAD INFORMATION:
+- Name: {lead_name}
+- Company: {company_name}
+- Email: {lead.get('email', lead.get('Email', ''))}
+
+4RUNR KNOWLEDGE BASE:
+{knowledge_base}
+
+RE-ENGAGEMENT GUIDELINES:
+"""
+        
+        if follow_up_number == 1:
+            guidelines = """
+- Acknowledge this is a follow-up without being apologetic
+- Provide additional value or perspective not covered in first message
+- Maintain confidence and strategic positioning
+- Focus on missed opportunity or competitive advantage
+- Use phrases like "wanted to follow up" or "circling back"
+- Slightly more direct than initial outreach
+"""
+        else:  # follow_up_number == 2
+            guidelines = """
+- This is the final follow-up - make it count
+- Create urgency around competitive threats or missed opportunities
+- Be more direct about the consequences of inaction
+- Use phrases like "final outreach" or "last opportunity"
+- Challenge their current approach more directly
+- Emphasize what they stand to lose
+"""
+        
+        tone_guidance = f"""
+TONE FOR FOLLOW-UP #{follow_up_number}:
+{guidelines}
+
+MESSAGE REQUIREMENTS:
+- Subject line that acknowledges follow-up nature
+- Professional but slightly more urgent tone
+- Reference the passage of time naturally
+- Maintain 4Runr's strategic, infrastructure-focused messaging
+- Include clear call-to-action
+- 150-300 words
+- Avoid generic follow-up language
+- Don't be pushy or desperate
+- Focus on value and strategic importance
+
+Generate a complete email including subject line.
+"""
+        
+        return base_prompt + tone_guidance
+    
+    def _validate_reengagement_message_quality(self, 
+                                             message: str, 
+                                             lead: Dict[str, Any], 
+                                             follow_up_stage: str) -> bool:
+        """
+        Validate re-engagement message meets quality standards.
+        
+        Args:
+            message: Generated re-engagement message
+            lead: Lead data for context
+            follow_up_stage: Current follow-up stage
+            
+        Returns:
+            True if message meets re-engagement quality standards
+        """
+        # Basic quality checks
+        if not self._validate_message_quality(message, lead):
+            return False
+        
+        message_lower = message.lower()
+        
+        # Check for follow-up acknowledgment
+        followup_indicators = [
+            'follow up', 'following up', 'circling back', 'wanted to follow up',
+            'final outreach', 'last opportunity', 'final message'
+        ]
+        
+        has_followup_indicator = any(indicator in message_lower for indicator in followup_indicators)
+        
+        if not has_followup_indicator:
+            self.logger.log_module_activity('engager', lead.get('id', 'unknown'), 'warning', {
+                'message': 'Re-engagement message lacks follow-up acknowledgment',
+                'follow_up_stage': follow_up_stage
+            })
+            return False
+        
+        # Check for appropriate urgency based on follow-up stage
+        if follow_up_stage == 'Followup_2':
+            urgency_indicators = [
+                'final', 'last', 'opportunity', 'competitors', 'miss out', 'lose'
+            ]
+            has_urgency = any(indicator in message_lower for indicator in urgency_indicators)
+            
+            if not has_urgency:
+                self.logger.log_module_activity('engager', lead.get('id', 'unknown'), 'warning', {
+                    'message': 'Final follow-up message lacks appropriate urgency',
+                    'follow_up_stage': follow_up_stage
+                })
+                return False
+        
+        return True
+    
+    def _get_reengagement_fallback_message(self, 
+                                         lead: Dict[str, Any], 
+                                         follow_up_stage: str, 
+                                         days_since_contact: int) -> str:
+        """
+        Get fallback re-engagement message when AI generation fails.
+        
+        Args:
+            lead: Lead data dictionary
+            follow_up_stage: Current follow-up stage
+            days_since_contact: Days since last contact
+            
+        Returns:
+            Fallback re-engagement message
+        """
+        company_name = lead.get('company', lead.get('Company', 'your company'))
+        lead_name = lead.get('name', lead.get('Name', 'there'))
+        
+        if follow_up_stage == 'Followup_1':
+            fallback_message = f"""Subject: Following up: {company_name}'s Infrastructure Strategy
+
+Hi {lead_name},
+
+Wanted to follow up on my message from {days_since_contact} days ago about {company_name}'s infrastructure approach.
+
+While you're managing today's operational challenges, your competitors might be building the systems that will define tomorrow's advantages.
+
+4Runr creates custom AI infrastructure that's private, intelligent, and permanent. Instead of duct-taping SaaS subscriptions together, you get sovereign systems designed for your specific business logic.
+
+The companies investing in owned infrastructure now will have significant advantages over those still dependent on vendor ecosystems.
+
+Worth a 15-minute conversation about {company_name}'s infrastructure future?
+
+Best regards,
+4Runr Team"""
+        
+        else:  # Followup_2
+            fallback_message = f"""Subject: Final opportunity: {company_name}'s Infrastructure Sovereignty
+
+Hi {lead_name},
+
+This is my final outreach about {company_name}'s infrastructure transformation.
+
+It's been {days_since_contact} days since my last message, and I wanted to give you one last opportunity to discuss how 4Runr builds infrastructure that companies actually own.
+
+The market is rapidly dividing: companies building sovereign AI infrastructure versus those renting it through subscriptions.
+
+{company_name} can either continue managing vendor relationships or start owning intelligent systems that evolve with your business.
+
+Your competitors who choose ownership over subscriptions will have permanent advantages. The window for this strategic decision is closing.
+
+If you're ready to explore infrastructure sovereignty, reply. If not, I understand and won't reach out again.
+
+Best regards,
+4Runr Team"""
+        
+        self.logger.log_module_activity('engager', lead.get('id', 'unknown'), 'info', {
+            'message': f'Using fallback re-engagement template ({follow_up_stage})',
+            'company': company_name,
+            'days_since_contact': days_since_contact
+        })
+        
+        return fallback_message

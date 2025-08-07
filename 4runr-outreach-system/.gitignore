@@ -54,6 +54,9 @@ screenshots/
 !requirements.json
 !package.json
 
+# Database backups
+data/backups/
+
 # OS
 .DS_Store
 Thumbs.db
