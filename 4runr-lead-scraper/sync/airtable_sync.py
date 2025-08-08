@@ -328,6 +328,8 @@ class AirtableSync:
         airtable_record = {
             'Full Name': lead.name or '',
             'LinkedIn URL': lead.linkedin_url or '',
+            'Job Title': getattr(lead, 'title', '') or '',
+            'Company': getattr(lead, 'company', '') or '',
             'Needs Enrichment': not lead.enriched,
             'Date Scraped': self._format_date_for_airtable(lead.scraped_at),
         }
@@ -451,6 +453,8 @@ class AirtableSync:
             'name': fields.get('Full Name', ''),
             'email': fields.get('Email', ''),
             'linkedin_url': fields.get('LinkedIn URL', ''),
+            'title': fields.get('Job Title', ''),
+            'company': fields.get('Company', ''),
             'enriched': not fields.get('Needs Enrichment', True),
             'scraped_at': fields.get('Date Scraped', ''),
             'airtable_id': airtable_id,

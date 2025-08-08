@@ -144,7 +144,7 @@ class ModularMessageGenerator:
         context_vars = {
             'first_name': self._extract_first_name(lead_data.get('Name', '')),
             'company': lead_data.get('Company', ''),
-            'title': lead_data.get('Title', ''),
+            'title': lead_data.get('Job Title', ''),
             'industry': industry
         }
         

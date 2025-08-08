@@ -113,7 +113,7 @@ class MessageGeneratorAgent:
             lead_data = {
                 'Name': lead.get('Name', ''),
                 'Company': lead.get('Company', ''),
-                'Title': lead.get('Title', ''),
+                'Job Title': lead.get('Job Title', ''),
                 'Email': lead.get('Email', ''),
                 'Email_Confidence_Level': lead.get('Email_Confidence_Level', 'Guess')
             }

@@ -30,7 +30,7 @@ def demo_recycling_message_types():
     lead_data = {
         'Name': 'Johannes Reck',
         'Company': 'trivago',
-        'Title': 'CEO',
+        'Job Title': 'CEO',
         'Email': 'johannes@trivago.com'
     }
     
@@ -87,7 +87,7 @@ def demo_recycling_scenarios():
             'lead_data': {
                 'Name': 'Sarah Chen',
                 'Company': 'CloudTech',
-                'Title': 'CEO',
+                'Job Title': 'CEO',
                 'Email': 'sarah@cloudtech.com'
             },
             'company_data': {
@@ -101,7 +101,7 @@ def demo_recycling_scenarios():
             'lead_data': {
                 'Name': 'Mike Rodriguez',
                 'Company': 'ShopFast',
-                'Title': 'CTO',
+                'Job Title': 'CTO',
                 'Email': 'mike@shopfast.com'
             },
             'company_data': {

@@ -333,7 +333,7 @@ class EnhancedEngagerIntegration:
             # Add messaging data
             if message_result.get('generation_success'):
                 update_data.update({
-                    'custom_message': message_result.get('message', ''),
+                    'AI Message': message_result.get('message', ''),
                     'message_subject': message_result.get('subject_line', ''),
                     'message_confidence': message_result.get('confidence', 'none'),
                     'used_fallback': message_result.get('used_fallback', False),
@@ -345,7 +345,7 @@ class EnhancedEngagerIntegration:
                     update_data['fallback_reason'] = message_result.get('fallback_reason', '')
             else:
                 update_data.update({
-                    'custom_message': '',
+                    'AI Message': '',
                     'message_confidence': 'none',
                     'ready_for_outreach': False,
                     'skip_reason': message_result.get('skip_reason', 'Message generation failed')

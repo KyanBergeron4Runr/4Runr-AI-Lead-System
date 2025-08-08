@@ -144,7 +144,7 @@ class EnhancedEngagerAgent(EngagerAgent):
         lead_name = lead.get('Name', 'Unknown')
         email = lead.get('Email', '')
         company_name = lead.get('Company', 'Unknown Company')
-        company_website = lead.get('company_website_url', '')
+        company_website = lead.get('Website', '')
         
         self.logger.log_module_activity('engager', lead_id, 'start', {
             'message': f'Processing enhanced engagement for {lead_name} at {company_name}',

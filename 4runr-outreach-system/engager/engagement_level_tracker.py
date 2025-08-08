@@ -68,7 +68,7 @@ class EngagementLevelTracker:
         
         # Field names in Airtable
         self.level_engaged_field = 'Level Engaged'
-        self.last_contacted_field = 'Last_Contacted_Date'
+        self.last_contacted_field = 'Date Messaged'
         
     def get_current_engagement_level(self, lead: Dict[str, Any]) -> str:
         """
@@ -192,7 +192,7 @@ class EngagementLevelTracker:
                     'name': lead.get('Name') or lead.get('Full Name', ''),
                     'email': lead.get('Email', ''),
                     'company': lead.get('Company', ''),
-                    'company_website': lead.get('company_website_url', ''),
+                    'company_website': lead.get('Website', ''),
                     'engagement_stage': next_level,
                     'last_contacted': current_timestamp,
                     'previous_stage': current_level,

@@ -112,7 +112,7 @@ class EnhancedOutreachPipeline:
         lead_id = lead.get('id', 'unknown')
         lead_name = lead.get('Name', 'Unknown')
         company = lead.get('Company', 'Unknown Company')
-        website_url = lead.get('company_website_url', '')
+        website_url = lead.get('Website', '')
         email = lead.get('Email', '')
         
         self.logger.log_module_activity('enhanced_pipeline', lead_id, 'start', 
@@ -228,11 +228,9 @@ class EnhancedOutreachPipeline:
                 }, ensure_ascii=False)[:1000],
                 
                 # Enhanced message data
-                'Custom_Message': message_result['message'],
+                'AI Message': message_result['message'],
                 'Engagement_Status': 'Sent',
-                'Message_Preview': message_result['message'][:500],
-                'Last_Contacted_Date': datetime.now().date().isoformat(),
-                'Delivery_Method': 'Email',
+                'Date Messaged': datetime.now().date().isoformat(),
                 
                 # Enhanced analytics fields
                 'Industry_Classification': traits_data.get('traits', {}).get('industry', ''),
@@ -267,7 +265,7 @@ class EnhancedOutreachPipeline:
             'lead_name': lead.get('Name', 'Unknown'),
             'company': lead.get('Company', 'Unknown Company'),
             'email': lead.get('Email', ''),
-            'website_url': lead.get('company_website_url', ''),
+            'website_url': lead.get('Website', ''),
             
             # Enhanced scraping data
             'scraped_features_count': len(scraped_data.get('features', [])),
@@ -318,7 +316,7 @@ class EnhancedOutreachPipeline:
         }
         
         for lead in leads:
-            if lead.get('company_website_url'):
+            if lead.get('Website'):
                 stats['leads_with_websites'] += 1
             else:
                 stats['leads_without_websites'] += 1
@@ -326,7 +324,7 @@ class EnhancedOutreachPipeline:
             if lead.get('Email') and validate_email_format(lead['Email']):
                 stats['leads_with_valid_emails'] += 1
             
-            if (lead.get('company_website_url') and 
+            if (lead.get('Website') and 
                 lead.get('Email') and 
                 validate_email_format(lead['Email'])):
                 stats['leads_ready_for_enhanced_processing'] += 1

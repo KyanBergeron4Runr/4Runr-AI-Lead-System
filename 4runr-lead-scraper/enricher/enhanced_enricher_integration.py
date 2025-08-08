@@ -321,11 +321,8 @@ class EnhancedEnricherIntegration:
             'Pain_Points': traits.get('Pain_Points', []),
             'Strategic_Insight': traits.get('Strategic_Insight', ''),
             
-            # Website content data
-            'Company_Description': self._generate_company_description(content),
-            'Top_Services': self._extract_top_services(content),
-            'Tone': self._analyze_website_tone(content),
-            'Website_Insights': self._create_website_insights(content, traits),
+            # Website content data (using Extra info field for now)
+            'Extra info': self._create_combined_website_data(content, traits),
             
             # Metadata
             'enrichment_success': traits.get('extraction_success', False),
@@ -401,6 +398,32 @@ class EnhancedEnricherIntegration:
         else:
             return 'Professional'
     
+    def _create_combined_website_data(self, content: Dict[str, Any], traits: Dict[str, Any]) -> str:
+        """Create combined website data for Extra info field."""
+        data_parts = []
+        
+        # Company description
+        description = self._generate_company_description(content)
+        if description and description != 'No description available':
+            data_parts.append(f"Company: {description}")
+        
+        # Top services
+        services = self._extract_top_services(content)
+        if services and services != 'Services not specified':
+            data_parts.append(f"Services: {services}")
+        
+        # Website tone
+        tone = self._analyze_website_tone(content)
+        if tone:
+            data_parts.append(f"Tone: {tone}")
+        
+        # Website insights
+        insights = self._create_website_insights(content, traits)
+        if insights:
+            data_parts.append(f"Insights: {insights}")
+        
+        return " | ".join(data_parts) if data_parts else ""
+    
     def _create_website_insights(self, content: Dict[str, Any], traits: Dict[str, Any]) -> str:
         """Create structured website insights."""
         insights_parts = []
@@ -448,7 +471,7 @@ class EnhancedEnricherIntegration:
             # Add enrichment fields if they exist in the database schema
             enrichment_fields = [
                 'Business_Type', 'Business_Traits', 'Pain_Points', 'Strategic_Insight',
-                'Company_Description', 'Top_Services', 'Tone', 'Website_Insights'
+                'Extra info'
             ]
             
             for field in enrichment_fields:

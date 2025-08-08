@@ -36,8 +36,8 @@ class AirtableClient:
             List of lead records with their fields
         """
         try:
-            # Get leads that have company_website_url but haven't been processed yet
-            formula = "AND({company_website_url} != '', {Company_Description} = '')"
+            # Get leads that have Website but haven't been processed yet
+            formula = "AND({Website} != '', {Company Description} = '')"
             
             records = self.table.all(
                 formula=formula,
@@ -73,8 +73,8 @@ class AirtableClient:
             List of lead records ready for message generation
         """
         try:
-            # Get leads that have company data but no custom message yet
-            formula = "AND({Company_Description} != '', {Custom_Message} = '')"
+            # Get leads that have company data but no AI message yet
+            formula = "AND({Company Description} != '', {AI Message} = '')"
             
             records = self.table.all(
                 formula=formula,

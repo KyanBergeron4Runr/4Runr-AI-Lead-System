@@ -19,18 +19,16 @@ AIRTABLE_FIELD_MAPPING = {
     "Last_Contacted_Date": "Date Messaged",
     "Full_Name": "Full Name",
     
-    # Fields that need alternatives until created
-    "Engagement_Status": "Lead Quality",  # Temporary mapping
-    "Email_Confidence_Level": "Source",   # Temporary mapping - could indicate confidence
-    "Message_Preview": "AI Message",      # Use same as Custom_Message for now
-    "company_website_url": "Extra info",  # Temporary storage
-    "Company_Description": "Extra info",  # Temporary storage
-    
-    # Fields that don't exist yet - will need to be created
-    "Top_Services": None,
-    "Tone": None,
-    "Website_Insights": None,
-    "Delivery_Method": None
+    # Correct field mappings to actual Airtable schema
+    "Engagement_Status": "Engagement_Status",
+    "Email_Confidence_Level": "Email_Confidence_Level",
+    "company_website_url": "Website",
+    "Company_Description": "Extra info",  # Combined website data stored here
+    "Website_Insights": "Extra info",     # Combined website data stored here
+    "Top_Services": "Extra info",         # Combined website data stored here
+    "Business_Type": "Business_Type",
+    "Follow_Up_Stage": "Follow_Up_Stage",
+    "Response_Status": "Response_Status"
 }
 
 # Reverse mapping for easy lookup

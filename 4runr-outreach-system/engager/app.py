@@ -345,9 +345,7 @@ class EngagerAgent:
             # Prepare update fields
             airtable_fields = {
                 'Engagement_Status': status,
-                'Message_Preview': message[:500] + "..." if len(message) > 500 else message,  # Truncate if too long
-                'Last_Contacted_Date': datetime.date.today().isoformat(),
-                'Delivery_Method': 'Email' if status == 'Sent' else 'Skipped'
+                'Date Messaged': datetime.date.today().isoformat(),
             }
             
             # Validate fields

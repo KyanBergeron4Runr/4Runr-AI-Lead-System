@@ -318,7 +318,7 @@ class TraitDetectorNode(CampaignNode):
         scraped_content = state.scraped_content
         
         # Check for missing website
-        has_website = bool(lead_data.get('company_website_url') or 
+        has_website = bool(lead_data.get('Website') or 
                           lead_data.get('website') or 
                           company_data.get('website'))
         

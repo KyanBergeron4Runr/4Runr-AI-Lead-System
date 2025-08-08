@@ -81,7 +81,7 @@ def demo_message_generation():
     lead_data = {
         'Name': 'Kyan Bergeron',
         'Company': '4Runr',
-        'Title': 'Founder/CEO',
+        'Job Title': 'Founder/CEO',
         'Email': 'kyanberg@outlook.com',
         'Email_Confidence_Level': 'Real'
     }

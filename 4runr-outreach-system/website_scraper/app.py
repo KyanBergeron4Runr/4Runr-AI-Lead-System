@@ -101,7 +101,7 @@ class WebsiteScraperAgent:
         """
         lead_id = lead.get('id', 'unknown')
         company_name = lead.get('Company', 'Unknown Company')
-        website_url = lead.get('company_website_url')
+        website_url = lead.get('Website')
         
         self.logger.log_module_activity('website_scraper', lead_id, 'start', 
                                        {'message': f'Processing {company_name}', 'website_url': website_url})
@@ -199,7 +199,7 @@ class WebsiteScraperAgent:
         }
         
         for lead in leads:
-            if lead.get('company_website_url'):
+            if lead.get('Website'):
                 stats['leads_with_websites'] += 1
             else:
                 stats['leads_without_websites'] += 1

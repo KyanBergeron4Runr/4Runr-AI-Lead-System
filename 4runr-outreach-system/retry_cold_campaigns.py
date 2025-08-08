@@ -158,7 +158,7 @@ class ColdLeadRecycler:
                 'id': original_campaign['lead_id'],
                 'Name': lead_traits.get('Name', 'Unknown'),
                 'Company': original_campaign['company'],
-                'Title': lead_traits.get('Title', 'Unknown'),
+                'Job Title': lead_traits.get('Job Title', 'Unknown'),
                 'Email': lead_traits.get('Email', '')
             }
             

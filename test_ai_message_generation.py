@@ -47,13 +47,13 @@ def get_leads_without_ai_messages(limit=10):
                 "id": record['id'],
                 "name": fields.get('Full Name', ''),
                 "full_name": fields.get('Full Name', ''),
-                "title": fields.get('Title', 'Professional'),
+                "title": fields.get('Job Title', 'Professional'),
                 "company": fields.get('Company', 'Unknown Company'),
                 
-                # Website data fields
-                "company_description": fields.get('Company_Description', ''),
-                "website_insights": fields.get('Website_Insights', ''),
-                "top_services": fields.get('Top_Services', ''),
+                # Website data fields (using Extra info field for now)
+                "company_description": fields.get('Extra info', ''),
+                "website_insights": fields.get('Extra info', ''),
+                "top_services": fields.get('Extra info', ''),
                 "tone": fields.get('Tone', 'Professional'),
                 
                 # Response notes for exclusion checking

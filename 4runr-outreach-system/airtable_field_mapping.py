@@ -32,23 +32,23 @@ def main():
         "Level Engaged"
     ]
     
-    # Fields the code expects
+    # Fields the code expects (updated to match actual Airtable schema)
     expected_fields = [
         "Engagement_Status",
         "Email_Confidence_Level", 
         "Level Engaged",
         "Company",
-        "Title",
+        "Job Title",
         "Email",
-        "Custom_Message",
-        "Message_Preview",
-        "Last_Contacted_Date",
-        "company_website_url",
-        "Company_Description",
-        "Top_Services",
-        "Tone",
-        "Website_Insights",
-        "Delivery_Method"
+        "AI Message",
+        "Date Messaged",
+        "Website",
+        "Company Description",
+        "Top Services",
+        "Website Insights",
+        "Business_Type",
+        "Follow_Up_Stage",
+        "Response_Status"
     ]
     
     print("📋 Existing Airtable Fields:")
@@ -62,28 +62,31 @@ def main():
     print(f"\n🔗 Field Mapping Analysis:")
     print("-" * 50)
     
-    # Create mapping
+    # Create mapping (updated to match actual Airtable schema)
     field_mapping = {
         # Direct matches
         "Level Engaged": "Level Engaged",  # ✅ Exact match
         "Company": "Company",              # ✅ Exact match  
         "Email": "Email",                  # ✅ Exact match
+        "Full Name": "Full Name",          # ✅ Exact match
+        "LinkedIn URL": "LinkedIn URL",    # ✅ Exact match
+        "Job Title": "Job Title",          # ✅ Exact match
+        "AI Message": "AI Message",        # ✅ Exact match
+        "Response Notes": "Response Notes", # ✅ Exact match
+        "Date Scraped": "Date Scraped",    # ✅ Exact match
+        "Date Enriched": "Date Enriched",  # ✅ Exact match
+        "Date Messaged": "Date Messaged",  # ✅ Exact match
+        "Website": "Website",              # ✅ Exact match
+        "Business_Type": "Business_Type",  # ✅ Exact match
+        "Follow_Up_Stage": "Follow_Up_Stage", # ✅ Exact match
+        "Response_Status": "Response_Status", # ✅ Exact match
+        "Engagement_Status": "Engagement_Status", # ✅ Exact match
+        "Email_Confidence_Level": "Email_Confidence_Level", # ✅ Exact match
         
-        # Close matches that can be mapped
-        "Title": "Job Title",              # Close match
-        "Custom_Message": "AI Message",    # Close match
-        "Last_Contacted_Date": "Date Messaged",  # Close match
-        
-        # Missing fields that need to be created or have alternatives
-        "Engagement_Status": "MISSING - could use Lead Quality or create new",
-        "Email_Confidence_Level": "MISSING - needs to be created",
-        "Message_Preview": "MISSING - could derive from AI Message", 
-        "company_website_url": "MISSING - needs to be created",
-        "Company_Description": "MISSING - could use Extra info or create new",
-        "Top_Services": "MISSING - needs to be created",
-        "Tone": "MISSING - needs to be created", 
-        "Website_Insights": "MISSING - needs to be created",
-        "Delivery_Method": "MISSING - needs to be created"
+        # Fields that need space instead of underscore
+        "Company Description": "Company Description",  # ✅ Correct spacing
+        "Website Insights": "Website Insights",        # ✅ Correct spacing
+        "Top Services": "Top Services",                # ✅ Correct spacing
     }
     
     print("✅ Direct Matches:")

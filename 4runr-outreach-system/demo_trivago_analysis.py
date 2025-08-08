@@ -87,7 +87,7 @@ def demo_trivago_analysis():
     lead_data = {
         'Name': 'Johannes Thomas',  # Example Trivago executive name
         'Company': 'trivago',
-        'Title': 'Chief Technology Officer',
+        'Job Title': 'Chief Technology Officer',
         'Email': 'j.thomas@trivago.com',  # Example email
         'Email_Confidence_Level': 'Pattern'
     }

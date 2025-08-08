@@ -40,7 +40,7 @@ def validate_lead_data(lead: Dict[str, Any]) -> Dict[str, List[str]]:
         errors.append(f"Invalid email format: {email}")
     
     # Company website URL validation
-    website_url = lead.get('company_website_url')
+    website_url = lead.get('Website')
     if website_url and not validate_website_url(website_url):
         warnings.append(f"Invalid website URL format: {website_url}")
     

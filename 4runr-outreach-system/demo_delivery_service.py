@@ -41,7 +41,7 @@ def demo_complete_workflow():
                 'id': 'demo_001',
                 'Name': 'Johannes Reck',
                 'Company': 'trivago',
-                'Title': 'CEO',
+                'Job Title': 'CEO',
                 'Email': 'johannes@trivago.com'
             },
             'company_data': {
@@ -56,7 +56,7 @@ def demo_complete_workflow():
                 'id': 'demo_002',
                 'Name': 'Sarah Johnson',
                 'Company': 'CloudTech',
-                'Title': 'VP of Product',
+                'Job Title': 'VP of Product',
                 'Email': 'sarah@cloudtech.com'
             },
             'company_data': {
@@ -151,7 +151,7 @@ def demo_message_examples():
         'id': 'sample_001',
         'Name': 'Johannes Reck',
         'Company': 'trivago',
-        'Title': 'CEO',
+        'Job Title': 'CEO',
         'Email': 'johannes@trivago.com'
     }
     
