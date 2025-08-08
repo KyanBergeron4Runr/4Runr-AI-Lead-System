@@ -244,13 +244,13 @@ class AirtableClient:
             return None
 
 
+# Import the new configurable client for backward compatibility
+from .configurable_airtable_client import get_configurable_airtable_client, ConfigurableAirtableClient
+
 # Global client instance
 _client = None
 
 
-def get_airtable_client() -> AirtableClient:
-    """Get the global Airtable client instance."""
-    global _client
-    if _client is None:
-        _client = AirtableClient()
-    return _client
+def get_airtable_client() -> ConfigurableAirtableClient:
+    """Get the global Airtable client instance (now uses configurable client)."""
+    return get_configurable_airtable_client()

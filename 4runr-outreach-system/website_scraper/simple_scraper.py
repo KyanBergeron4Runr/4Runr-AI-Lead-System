@@ -11,8 +11,8 @@ from typing import Dict, List, Optional
 from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 
-from ..shared.config import config
-from ..shared.logging_utils import get_logger
+from outreach.shared.config import config
+from outreach.shared.logging_utils import get_logger
 
 
 class SimpleScrapingEngine:

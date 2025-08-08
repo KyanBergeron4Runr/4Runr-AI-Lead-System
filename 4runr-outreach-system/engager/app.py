@@ -10,15 +10,15 @@ import sys
 import datetime
 import requests
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 # Add the project root to Python path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from shared.airtable_client import get_airtable_client
-from shared.logging_utils import get_logger
-from shared.validation import validate_email_format, validate_airtable_fields
-from shared.config import config
+from outreach.shared.airtable_client import get_airtable_client
+from outreach.shared.logging_utils import get_logger
+from outreach.shared.validation import validate_email_format, validate_airtable_fields
+from outreach.shared.config import config
 
 
 class EngagerAgent:
@@ -111,12 +111,20 @@ class EngagerAgent:
             return 'skip'
         
         try:
+            # Get or generate message with fallback
+            message_to_send = self._get_or_generate_message(lead)
+            
+            if not message_to_send:
+                self.logger.log_module_activity('engager', lead_id, 'error', 
+                                               {'message': 'Failed to get or generate any message'})
+                return 'error'
+            
             # Send the email
-            send_success = self._send_email(lead, custom_message)
+            send_success = self._send_email(lead, message_to_send)
             
             if send_success:
                 # Update Airtable with engagement results
-                update_success = self._update_engagement_status(lead, 'Sent', custom_message)
+                update_success = self._update_engagement_status(lead, 'Sent', message_to_send)
                 
                 if update_success:
                     # Log engagement for analysis
@@ -125,7 +133,8 @@ class EngagerAgent:
                     self.logger.log_module_activity('engager', lead_id, 'success', 
                                                    {'message': f'Successfully sent message to {lead_name}',
                                                     'email': email,
-                                                    'message_length': len(custom_message)})
+                                                    'message_length': len(message_to_send),
+                                                    'message_source': 'generated' if not custom_message else 'custom'})
                     return 'success'
                 else:
                     self.logger.log_module_activity('engager', lead_id, 'error', 
@@ -133,7 +142,7 @@ class EngagerAgent:
                     return 'error'
             else:
                 # Update status as error
-                self._update_engagement_status(lead, 'Error', custom_message)
+                self._update_engagement_status(lead, 'Error', message_to_send)
                 return 'error'
                 
         except Exception as e:
@@ -146,7 +155,7 @@ class EngagerAgent:
             
             # Try to update status as error
             try:
-                self._update_engagement_status(lead, 'Error', custom_message)
+                self._update_engagement_status(lead, 'Error', message_to_send if 'message_to_send' in locals() else 'Error during processing')
             except:
                 pass  # Don't fail if we can't update status
             
@@ -186,11 +195,11 @@ class EngagerAgent:
                                            {'message': f'Email confidence level is {email_confidence}, not Real or Pattern'})
             return False
         
-        # Must have custom message
+        # Generate fallback message if no custom message available
         if not custom_message:
-            self.logger.log_module_activity('engager', lead_id, 'skip', 
-                                           {'message': 'No custom message available'})
-            return False
+            self.logger.log_module_activity('engager', lead_id, 'warning', 
+                                           {'message': 'No custom message available, will generate fallback'})
+            # Don't skip - we'll generate a fallback message
         
         # Engagement status must be Auto-Send
         if engagement_status != 'Auto-Send':
@@ -438,6 +447,121 @@ class EngagerAgent:
                 stats['leads_with_messages'] += 1
         
         return stats
+    
+    def _get_or_generate_message(self, lead: Dict[str, Any]) -> Optional[str]:
+        """
+        Get existing custom message or generate fallback message.
+        
+        Args:
+            lead: Lead data dictionary
+            
+        Returns:
+            Message string or None if all generation fails
+        """
+        lead_id = lead.get('id', 'unknown')
+        custom_message = lead.get('Custom_Message', '')
+        
+        # Try to use existing custom message first
+        if custom_message and len(custom_message.strip()) > 10:
+            self.logger.log_module_activity('engager', lead_id, 'info', 
+                                           {'message': 'Using existing custom message'})
+            return custom_message.strip()
+        
+        # Generate fallback message from basic lead data
+        self.logger.log_module_activity('engager', lead_id, 'warning', 
+                                       {'message': 'No custom message available, generating fallback'})
+        
+        fallback_message = self._generate_fallback_message(lead)
+        
+        if fallback_message:
+            self.logger.log_module_activity('engager', lead_id, 'success', 
+                                           {'message': 'Generated fallback message successfully'})
+            return fallback_message
+        
+        return None
+    
+    def _generate_fallback_message(self, lead: Dict[str, Any]) -> Optional[str]:
+        """
+        Generate a fallback message from basic lead data.
+        
+        Args:
+            lead: Lead data dictionary
+            
+        Returns:
+            Generated message or None if generation fails
+        """
+        try:
+            # Extract basic information
+            lead_name = lead.get('Name', '').split()[0] if lead.get('Name') else 'there'
+            company_name = lead.get('Company', 'your company')
+            job_title = lead.get('Job Title', '')
+            website = lead.get('Website', '')
+            company_description = lead.get('Company Description', '')
+            
+            # Determine focus area based on available data
+            if 'technology' in company_description.lower() or 'software' in company_description.lower():
+                focus_area = "technology and digital innovation"
+                value_prop = "streamline their tech operations and accelerate digital transformation"
+            elif 'consulting' in company_description.lower():
+                focus_area = "strategic consulting and business optimization"
+                value_prop = "enhance their consulting capabilities and deliver better client outcomes"
+            elif 'marketing' in company_description.lower():
+                focus_area = "marketing strategy and customer engagement"
+                value_prop = "amplify their marketing impact and improve customer engagement"
+            else:
+                focus_area = "operational efficiency and strategic growth"
+                value_prop = "optimize their operations and drive sustainable growth"
+            
+            # Generate personalized message
+            greeting = f"Hi {lead_name}," if lead_name != 'there' else "Hello,"
+            
+            # Build context-aware opening
+            if company_description:
+                opening = f"I noticed {company_name}'s work in {focus_area} and was impressed by your approach."
+            elif website:
+                opening = f"I came across {company_name} and was interested in your focus on business growth."
+            else:
+                opening = f"I wanted to reach out regarding {company_name} and potential collaboration opportunities."
+            
+            # Add role context if available
+            role_context = ""
+            if job_title:
+                role_context = f" As a {job_title}, you're likely focused on driving results and staying ahead of industry trends."
+            
+            # Build complete message
+            message = f"""{greeting}
+
+{opening}{role_context}
+
+At 4Runr, we specialize in helping companies like yours {value_prop} through strategic AI implementation and intelligent automation systems.
+
+I'd love to share how we've helped similar organizations achieve measurable improvements in their operations. Would you be open to a brief conversation about your current priorities?
+
+Best regards,
+4Runr Team"""
+            
+            return message
+            
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'generate_fallback_message',
+                'lead_id': lead.get('id', 'unknown')
+            })
+            
+            # Return minimal fallback as last resort
+            lead_name = lead.get('Name', '').split()[0] if lead.get('Name') else 'there'
+            company_name = lead.get('Company', 'your company')
+            
+            return f"""Hi {lead_name},
+
+I wanted to reach out regarding potential opportunities for {company_name}.
+
+At 4Runr, we help companies optimize their operations through intelligent automation and strategic AI implementation.
+
+Would you be interested in a brief conversation about how we might be able to help?
+
+Best regards,
+4Runr Team"""
 
 
 def main():

@@ -14,13 +14,13 @@ from typing import List, Dict, Any
 # Add the project root to Python path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from shared.airtable_client import get_airtable_client
-from shared.logging_utils import get_logger
-from shared.validation import validate_website_url, validate_airtable_fields
-from shared.config import config
+from outreach.shared.airtable_client import get_airtable_client
+from outreach.shared.logging_utils import get_logger
+from outreach.shared.validation import validate_website_url, validate_airtable_fields
+from outreach.shared.config import config
 
-from .scraping_engine import WebScrapingEngine
-from .content_analyzer import ContentAnalyzer
+from outreach.website_scraper.scraping_engine import WebScrapingEngine
+from outreach.website_scraper.content_analyzer import ContentAnalyzer
 
 
 class WebsiteScraperAgent:

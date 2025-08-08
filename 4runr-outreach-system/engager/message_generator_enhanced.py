@@ -6,11 +6,13 @@ company context, and engagement-level-specific tone and messaging.
 """
 
 import re
+import os
+import httpx
 from typing import Dict, Any, Optional
 from openai import OpenAI
 
-from shared.config import config
-from shared.logging_utils import get_logger
+from outreach.shared.config import config
+from outreach.shared.logging_utils import get_logger
 
 
 class MessageGeneratorEnhanced:
@@ -19,8 +21,24 @@ class MessageGeneratorEnhanced:
     def __init__(self):
         """Initialize the Enhanced Message Generator."""
         self.ai_config = config.get_ai_config()
-        self.openai_client = OpenAI(api_key=self.ai_config['api_key'])
-        self.logger = get_logger('engager')
+        
+        # Initialize OpenAI client with proxy support
+        try:
+            proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")
+            
+            if proxy:
+                http_client = httpx.Client(proxies=proxy, timeout=60)
+                self.openai_client = OpenAI(api_key=self.ai_config['api_key'], http_client=http_client)
+            else:
+                self.openai_client = OpenAI(api_key=self.ai_config['api_key'])
+            
+            self.logger = get_logger('engager')
+            self.logger.log_module_activity('message_generator_enhanced', 'system', 'info', 
+                                           {'message': 'OpenAI API connection established'})
+        except Exception as e:
+            self.logger = get_logger('engager')
+            self.logger.log_error(e, {'action': 'initialize_openai_client'})
+            self.openai_client = None
         
         # Message quality thresholds
         self.min_message_length = 100

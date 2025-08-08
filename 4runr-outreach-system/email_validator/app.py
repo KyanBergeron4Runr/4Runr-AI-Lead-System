@@ -13,10 +13,10 @@ from typing import List, Dict, Any
 # Add the project root to Python path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from shared.airtable_client import get_airtable_client
-from shared.logging_utils import get_logger
-from shared.validation import validate_email_format, classify_email_confidence, validate_airtable_fields
-from shared.config import config
+from outreach.shared.airtable_client import get_airtable_client
+from outreach.shared.logging_utils import get_logger
+from outreach.shared.validation import validate_email_format, classify_email_confidence, validate_airtable_fields
+from outreach.shared.config import config
 
 
 class EmailValidatorAgent:

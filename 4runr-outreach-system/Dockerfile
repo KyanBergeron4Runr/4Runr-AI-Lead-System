@@ -19,12 +19,14 @@ RUN pip install --no-cache-dir --user -r requirements.txt
 # Production stage
 FROM python:3.11-slim as production
 
-# Install system dependencies for runtime
+# Install system dependencies for runtime and Playwright
 RUN apt-get update && apt-get install -y \
     curl \
+    wget \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Playwright browsers
+# Install Playwright browsers (using specific version from requirements)
 RUN pip install playwright==1.40.0 && \
     playwright install chromium && \
     playwright install-deps chromium
@@ -53,9 +55,12 @@ ENV PATH=/home/outreach/.local/bin:$PATH
 # Set Python path
 ENV PYTHONPATH=/app
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD python -c "from shared.config import config; print('OK')" || exit 1
+# Expose port for health checks and API
+EXPOSE 8080
 
-# Default command
-CMD ["python", "run_outreach_pipeline.py"]
+# Health check using HTTP endpoint
+HEALTHCHECK --interval=30s --timeout=5s --retries=5 --start-period=30s \
+    CMD curl -fsS http://localhost:8080/health || exit 1
+
+# Default command - start the API service
+CMD ["python", "-m", "outreach.api"]

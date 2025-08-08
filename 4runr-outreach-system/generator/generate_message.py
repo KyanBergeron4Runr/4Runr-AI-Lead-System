@@ -25,7 +25,9 @@ except ImportError:
     JINJA2_AVAILABLE = False
 
 try:
-    import openai
+    import os
+    import httpx
+    from openai import OpenAI
     OPENAI_AVAILABLE = True
 except ImportError:
     OPENAI_AVAILABLE = False
@@ -49,7 +51,17 @@ class ModularMessageGenerator:
         
         if OPENAI_AVAILABLE and self.ai_config.get('api_key'):
             try:
-                self.openai_client = openai.OpenAI(api_key=self.ai_config['api_key'])
+                # Check for proxy configuration
+                proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")
+                
+                if proxy:
+                    http_client = httpx.Client(proxies=proxy, timeout=60)
+                    self.openai_client = OpenAI(api_key=self.ai_config['api_key'], http_client=http_client)
+                else:
+                    self.openai_client = OpenAI(api_key=self.ai_config['api_key'])
+                
+                self.logger.log_module_activity('message_generator', 'system', 'info', 
+                                               {'message': 'OpenAI API connection established'})
             except Exception as e:
                 self.logger.log_error(e, {'action': 'initialize_openai_client'})
                 self.openai_client = None

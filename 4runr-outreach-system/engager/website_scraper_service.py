@@ -11,10 +11,12 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 from typing import Dict, Any, Optional
+import os
+import httpx
 from openai import OpenAI
 
-from shared.logging_utils import get_logger
-from shared.config import config
+from outreach.shared.logging_utils import get_logger
+from outreach.shared.config import config
 
 
 class WebsiteScraperService:
@@ -24,8 +26,24 @@ class WebsiteScraperService:
         """Initialize the Website Scraper Service."""
         self.scraping_config = config.get_scraping_config()
         self.ai_config = config.get_ai_config()
-        self.openai_client = OpenAI(api_key=self.ai_config['api_key'])
-        self.logger = get_logger('engager')
+        
+        # Initialize OpenAI client with proxy support
+        try:
+            proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")
+            
+            if proxy:
+                http_client = httpx.Client(proxies=proxy, timeout=60)
+                self.openai_client = OpenAI(api_key=self.ai_config['api_key'], http_client=http_client)
+            else:
+                self.openai_client = OpenAI(api_key=self.ai_config['api_key'])
+            
+            self.logger = get_logger('engager')
+            self.logger.log_module_activity('website_scraper_service', 'system', 'info', 
+                                           {'message': 'OpenAI API connection established'})
+        except Exception as e:
+            self.logger = get_logger('engager')
+            self.logger.log_error(e, {'action': 'initialize_openai_client'})
+            self.openai_client = None
         
         # Request session for connection reuse
         self.session = requests.Session()

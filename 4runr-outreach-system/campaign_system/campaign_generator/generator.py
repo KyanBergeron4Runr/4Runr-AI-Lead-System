@@ -20,9 +20,12 @@ from campaign_system.config import get_config
 from shared.logging_utils import get_logger
 
 try:
-    import openai
+    import os
+    import httpx
+    from openai import OpenAI
+    OPENAI_AVAILABLE = True
 except ImportError:
-    openai = None
+    OPENAI_AVAILABLE = False
 
 
 class CampaignGenerator:
@@ -34,8 +37,22 @@ class CampaignGenerator:
         self.config = get_config()
         self.ai_config = self.config.get_ai_config()
         
-        if openai and self.ai_config.get('api_key'):
-            self.client = openai.OpenAI(api_key=self.ai_config['api_key'])
+        if OPENAI_AVAILABLE and self.ai_config.get('api_key'):
+            try:
+                # Check for proxy configuration
+                proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")
+                
+                if proxy:
+                    http_client = httpx.Client(proxies=proxy, timeout=60)
+                    self.client = OpenAI(api_key=self.ai_config['api_key'], http_client=http_client)
+                else:
+                    self.client = OpenAI(api_key=self.ai_config['api_key'])
+                
+                self.logger.log_module_activity('campaign_generator', 'system', 'info', 
+                                               {'message': 'OpenAI API connection established'})
+            except Exception as e:
+                self.logger.log_error(e, {'action': 'initialize_openai_client'})
+                self.client = None
         else:
             self.client = None
             self.logger.log_module_activity('campaign_generator', 'system', 'warning', 

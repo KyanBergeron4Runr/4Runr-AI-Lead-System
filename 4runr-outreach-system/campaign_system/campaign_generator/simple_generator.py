@@ -10,9 +10,12 @@ from typing import Dict, Any, List
 from datetime import datetime
 
 try:
-    import openai
+    import os
+    import httpx
+    from openai import OpenAI
+    OPENAI_AVAILABLE = True
 except ImportError:
-    openai = None
+    OPENAI_AVAILABLE = False
 
 
 class SimpleCampaignGenerator:
@@ -22,8 +25,21 @@ class SimpleCampaignGenerator:
         """Initialize the campaign generator"""
         self.openai_api_key = openai_api_key
         
-        if openai and openai_api_key:
-            self.client = openai.OpenAI(api_key=openai_api_key)
+        if OPENAI_AVAILABLE and openai_api_key:
+            try:
+                # Check for proxy configuration
+                proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")
+                
+                if proxy:
+                    http_client = httpx.Client(proxies=proxy, timeout=60)
+                    self.client = OpenAI(api_key=openai_api_key, http_client=http_client)
+                else:
+                    self.client = OpenAI(api_key=openai_api_key)
+                
+                print("✅ OpenAI API connection established")
+            except Exception as e:
+                print(f"❌ Failed to initialize OpenAI client: {e}")
+                self.client = None
         else:
             self.client = None
             print("⚠️  OpenAI not available, using fallback generator")

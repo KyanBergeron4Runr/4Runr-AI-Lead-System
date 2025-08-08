@@ -8,6 +8,8 @@ services:
       target: production
     image: 4runr/outreach-system:latest
     container_name: 4runr-outreach-system
+    ports:
+      - "8080:8080"
     volumes:
       - ./logs:/app/logs
       - ./.env:/app/.env:ro
@@ -17,11 +19,11 @@ services:
     networks:
       - outreach-network
     healthcheck:
-      test: ["CMD", "python", "-c", "from shared.config import config; print('OK')"]
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/health || exit 1"]
       interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   # Individual module services for independent execution
   website-scraper:
@@ -31,7 +33,7 @@ services:
       target: production
     image: 4runr/outreach-system:latest
     container_name: 4runr-website-scraper
-    command: ["python", "run_outreach_pipeline.py", "--module", "website_scraper"]
+    command: ["python", "-m", "outreach.website_scraper.main"]
     volumes:
       - ./logs:/app/logs
       - ./.env:/app/.env:ro
@@ -49,7 +51,7 @@ services:
       target: production
     image: 4runr/outreach-system:latest
     container_name: 4runr-message-generator
-    command: ["python", "run_outreach_pipeline.py", "--module", "message_generator"]
+    command: ["python", "-m", "outreach.message_generator.main"]
     volumes:
       - ./logs:/app/logs
       - ./.env:/app/.env:ro
@@ -67,7 +69,7 @@ services:
       target: production
     image: 4runr/outreach-system:latest
     container_name: 4runr-email-validator
-    command: ["python", "run_outreach_pipeline.py", "--module", "email_validator"]
+    command: ["python", "-m", "outreach.email_validator.main"]
     volumes:
       - ./logs:/app/logs
       - ./.env:/app/.env:ro
@@ -85,7 +87,7 @@ services:
       target: production
     image: 4runr/outreach-system:latest
     container_name: 4runr-engager
-    command: ["python", "run_outreach_pipeline.py", "--module", "engager"]
+    command: ["python", "-m", "outreach.engager.main"]
     volumes:
       - ./logs:/app/logs
       - ./.env:/app/.env:ro

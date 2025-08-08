@@ -1,0 +1,49 @@
+# Locked dependencies for 4Runr Outreach System
+# Generated for reproducible builds
+# Use: pip install -r requirements-lock.txt
+
+# Core dependencies
+python-dotenv==1.0.0
+pyairtable==2.3.3
+validators==0.22.0
+
+# Web scraping and browser automation
+requests==2.31.0
+beautifulsoup4==4.12.2
+playwright==1.40.0
+
+# AI/LLM integration
+openai==1.30.5
+httpx==0.27.0
+
+# Template engine
+jinja2==3.1.2
+
+# Web service framework
+fastapi==0.104.1
+uvicorn==0.24.0
+
+# Email validation and processing
+email-validator==2.1.0
+
+# Utilities and system tools
+colorama==0.4.6
+tqdm==4.66.1
+
+# Sub-dependencies (automatically installed but locked for reproducibility)
+certifi==2023.11.17
+charset-normalizer==3.3.2
+click==8.1.7
+h11==0.14.0
+idna==3.6
+MarkupSafe==2.1.3
+pydantic==2.5.2
+pydantic-core==2.14.5
+sniffio==1.3.0
+soupsieve==2.5
+starlette==0.27.0
+typing-extensions==4.8.0
+urllib3==2.1.0
+
+# Note: This file should be regenerated when dependencies change
+# Command: pip freeze > requirements-lock.txt
