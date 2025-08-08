@@ -5,6 +5,7 @@ Provides a robust Airtable integration with configurable field names,
 defensive error handling, and fallback mechanisms for 422 INVALID_FILTER_BY_FORMULA errors.
 """
 
+from __future__ import annotations
 import os
 import time
 import logging
@@ -43,10 +44,30 @@ class ConfigurableAirtableClient:
         self.field_engagement_status = os.getenv("AIRTABLE_FIELD_ENGAGEMENT_STATUS", "Engagement_Status")
         self.field_date_messaged = os.getenv("AIRTABLE_FIELD_DATE_MESSAGED", "Date Messaged")
         
+        # Create field mapping dictionary for defensive formula building
+        self.fields = {
+            'website': self.field_website,
+            'company_description': self.field_company_description,
+            'email': self.field_email,
+            'company_name': self.field_company_name,
+            'name': self.field_name,
+            'job_title': self.field_job_title,
+            'email_confidence_level': self.field_email_confidence_level,
+            'ai_message': self.field_custom_message,
+            'custom_message': self.field_custom_message,
+            'engagement_status': self.field_engagement_status,
+            'contacted': self.field_engagement_status,  # Use engagement_status as contacted indicator
+            'date_messaged': self.field_date_messaged
+        }
+        
+        # Set default limit for record fetching
+        self.default_limit = int(os.getenv("AIRTABLE_DEFAULT_LIMIT", "10"))
+        
         self.logger.log_module_activity('airtable_client', 'system', 'info', {
             'message': 'Configurable Airtable client initialized',
             'base_id': self.base_id,
             'table_name': self.table_name,
+            'default_limit': self.default_limit,
             'field_mappings': {
                 'website': self.field_website,
                 'company_description': self.field_company_description,
@@ -123,7 +144,7 @@ class ConfigurableAirtableClient:
             })
             return []
     
-    def get_leads_for_message_generation(self, max_records: int = 20) -> List[Dict[str, Any]]:
+    def get_leads_for_message_generation_legacy(self, max_records: int = 20) -> List[Dict[str, Any]]:
         """
         Get leads ready for message generation with defensive error handling.
         
@@ -181,7 +202,7 @@ class ConfigurableAirtableClient:
             })
             return []
     
-    def get_leads_for_engagement(self, max_records: int = 20) -> List[Dict[str, Any]]:
+    def get_leads_for_engagement_legacy(self, max_records: int = 20) -> List[Dict[str, Any]]:
         """
         Get leads ready for engagement with defensive error handling.
         
@@ -428,6 +449,117 @@ class ConfigurableAirtableClient:
                 'message': f'Airtable connection test failed: {str(e)}'
             })
             return False
+    
+    def get_leads_for_outreach(self, limit: Optional[int] = None) -> List[Dict[str, Any]]:
+        """Leads that are candidates for website scraping / enrichment."""
+        formula = self._formula_for_outreach()
+        return self._fetch_records(formula=formula, limit=limit)
+    
+    def get_leads_for_message_generation(self, limit: Optional[int] = None) -> List[Dict[str, Any]]:
+        """Leads that need an AI message generated."""
+        formula = self._formula_for_message_generation()
+        return self._fetch_records(formula=formula, limit=limit)
+    
+    def get_leads_for_engagement(self, limit: Optional[int] = None) -> List[Dict[str, Any]]:
+        """Leads ready to be engaged (e.g., have an email + a generated message)."""
+        formula = self._formula_for_engagement()
+        return self._fetch_records(formula=formula, limit=limit)
+    
+    def _fetch_records(self, *, formula: Optional[str], limit: Optional[int]) -> List[Dict[str, Any]]:
+        """
+        Shared helper for fetching records from Airtable.
+        
+        Args:
+            formula: Optional Airtable formula for filtering
+            limit: Optional limit on number of records (uses default if None)
+            
+        Returns:
+            List of record dictionaries
+        """
+        max_records = int(limit) if limit else int(getattr(self, "default_limit", 10))
+        kwargs: Dict[str, Any] = {"max_records": max_records}
+        if formula:
+            # pyairtable supports 'formula=' kwarg
+            kwargs["formula"] = formula
+        
+        try:
+            records = self.table.all(**kwargs)
+            leads = self._convert_records_to_leads(records)
+            
+            self.logger.log_module_activity('airtable_client', 'system', 'success', {
+                'message': f'Retrieved {len(leads)} records',
+                'formula': formula,
+                'max_records': max_records
+            })
+            
+            return leads
+            
+        except Exception as e:
+            self.logger.log_module_activity('airtable_client', 'system', 'error', {
+                'message': 'Airtable fetch failed',
+                'error': str(e),
+                'kwargs': kwargs,
+                'available_fields': self._get_available_field_names()
+            })
+            return []
+    
+    def _formula_for_outreach(self) -> Optional[str]:
+        """
+        Prefer records that have a website but likely haven't been scraped/messaged yet.
+        Only build a formula if mapped fields exist; otherwise return None (no filter).
+        """
+        website = self.fields.get("website")
+        if not website:
+            return None
+        # Basic: website present
+        return f"AND(NOT({{{website}}} = ''), {{{website}}})"
+    
+    def _formula_for_message_generation(self) -> Optional[str]:
+        """
+        Prefer records with email present and (optionally) without a generated message.
+        If we don't know the message field, still filter on email.
+        """
+        email = self.fields.get("email")
+        # Optional best-effort message field names people commonly use
+        msg_field = (
+            self.fields.get("ai_message")
+            or self.fields.get("message")
+            or self.fields.get("email_message")
+        )
+        if email and msg_field:
+            # Email present AND message empty
+            return f"AND(NOT({{{email}}} = ''), OR({{{msg_field}}} = '', NOT({{{msg_field}}})))"
+        if email:
+            return f"AND(NOT({{{email}}} = ''), {{{email}}})"
+        return None
+    
+    def _formula_for_engagement(self) -> Optional[str]:
+        """
+        Prefer records ready to be contacted:
+          - email present
+          - generated message present (if known)
+          - (optionally) not already contacted
+        """
+        email = self.fields.get("email")
+        msg_field = (
+            self.fields.get("ai_message")
+            or self.fields.get("message")
+            or self.fields.get("email_message")
+        )
+        contacted = self.fields.get("contacted")  # optional boolean
+        if email and msg_field and contacted:
+            return (
+                "AND("
+                f"NOT({{{email}}} = ''), "
+                f"NOT({{{msg_field}}} = ''), "
+                f"OR({{{contacted}}} = '', NOT({{{contacted}}}))"
+                ")"
+            )
+        if email and msg_field:
+            return f"AND(NOT({{{email}}} = ''), NOT({{{msg_field}}} = ''))"
+        if email:
+            return f"AND(NOT({{{email}}} = ''), {{{email}}})"
+        return None
     
     def _convert_records_to_leads(self, records) -> List[Dict[str, Any]]:
         """
