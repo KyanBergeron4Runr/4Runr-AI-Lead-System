@@ -14,7 +14,7 @@ from typing import List, Dict, Any, Optional
 # Add the project root to Python path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from outreach.shared.airtable_client import get_airtable_client
+from outreach.shared.configurable_airtable_client import get_configurable_airtable_client
 from outreach.shared.logging_utils import get_logger
 from outreach.shared.validation import validate_email_format, validate_airtable_fields
 from outreach.shared.config import config
@@ -26,7 +26,7 @@ class ResilientEngager:
     def __init__(self):
         """Initialize the Resilient Engager."""
         self.logger = get_logger('resilient_engager')
-        self.airtable_client = get_airtable_client()
+        self.airtable_client = get_configurable_airtable_client()
         self.email_config = config.get_email_config()
         self.system_config = config.get_system_config()
     

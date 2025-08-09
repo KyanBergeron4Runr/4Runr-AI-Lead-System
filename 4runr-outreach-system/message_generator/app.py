@@ -13,7 +13,7 @@ from typing import List, Dict, Any
 # Add the project root to Python path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from outreach.shared.airtable_client import get_airtable_client
+from outreach.shared.configurable_airtable_client import get_configurable_airtable_client
 from outreach.shared.logging_utils import get_logger
 from outreach.shared.validation import validate_message_quality, validate_airtable_fields
 from outreach.shared.config import config
@@ -27,7 +27,7 @@ class MessageGeneratorAgent:
     def __init__(self):
         """Initialize the Message Generator Agent."""
         self.logger = get_logger('message_generator')
-        self.airtable_client = get_airtable_client()
+        self.airtable_client = get_configurable_airtable_client()
         self.ai_generator = AIMessageGenerator()
         self.system_config = config.get_system_config()
     

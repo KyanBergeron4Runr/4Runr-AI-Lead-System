@@ -51,11 +51,11 @@ def test_airtable_configuration():
         print(f"  Processing leads: {len(processing_leads)} found")
         
         # Test message generation leads
-        message_leads = client.get_leads_for_message_generation(max_records=5)
+        message_leads = client.get_leads_for_message_generation(limit=5)
         print(f"  Message generation leads: {len(message_leads)} found")
         
         # Test engagement leads
-        engagement_leads = client.get_leads_for_engagement(max_records=5)
+        engagement_leads = client.get_leads_for_engagement(limit=5)
         print(f"  Engagement leads: {len(engagement_leads)} found")
         
         # Show sample lead data if available
