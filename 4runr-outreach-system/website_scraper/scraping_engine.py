@@ -11,8 +11,8 @@ from typing import Dict, List, Optional, Tuple
 from urllib.parse import urljoin, urlparse
 from playwright.async_api import async_playwright, Browser, Page, TimeoutError as PlaywrightTimeoutError
 
-from outreach.shared.config import config
-from outreach.shared.logging_utils import get_logger
+from shared.config import config
+from shared.logging_utils import get_logger
 
 
 class WebScrapingEngine:
@@ -132,7 +132,7 @@ class WebScrapingEngine:
             page = await self.browser.new_page()
             
             # Set user agent and viewport
-            await page.set_user_agent(self.config['user_agent'])
+            await page.set_extra_http_headers({'User-Agent': self.config['user_agent']})
             await page.set_viewport_size({'width': 1920, 'height': 1080})
             
             # Get priority pages content

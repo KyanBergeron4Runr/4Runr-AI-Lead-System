@@ -14,8 +14,8 @@ from typing import List, Dict, Any, Optional
 from pyairtable import Api
 from pyairtable.formulas import match
 
-from outreach.shared.config import get_airtable_config
-from outreach.shared.logging_utils import get_logger
+from shared.config import get_airtable_config
+from shared.logging_utils import get_logger
 
 
 class ConfigurableAirtableClient:
