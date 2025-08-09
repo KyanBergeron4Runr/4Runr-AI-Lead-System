@@ -193,6 +193,7 @@ def run_pipeline_cycle() -> bool:
     
     try:
         # Import modules here to avoid blocking startup
+        from outreach.google_enricher.app import GoogleEnricherAgent
         from outreach.website_scraper.app import WebsiteScraperAgent
         from outreach.message_generator.app import MessageGeneratorAgent
         from outreach.email_validator.app import EmailValidatorAgent
@@ -205,7 +206,20 @@ def run_pipeline_cycle() -> bool:
             'message': f'Starting pipeline cycle with batch size {batch_size}'
         })
         
-        # Step 1: Website Scraper
+        # Step 1: Google Enricher (Enrich leads with missing company/website info)
+        try:
+            enricher = GoogleEnricherAgent()
+            enricher_results = asyncio.run(enricher.process_leads(limit=batch_size))
+            logger.log_module_activity('api', 'system', 'info', {
+                'message': f'Google enricher processed {enricher_results.get("processed", 0)} leads'
+            })
+        except Exception as e:
+            logger.log_module_activity('api', 'system', 'warning', {
+                'message': f'Google enricher failed: {str(e)}'
+            })
+            success = False
+        
+        # Step 2: Website Scraper
         try:
             scraper = WebsiteScraperAgent()
             scraper_results = asyncio.run(scraper.process_leads(limit=batch_size))
@@ -218,7 +232,7 @@ def run_pipeline_cycle() -> bool:
             })
             success = False
         
-        # Step 2: Email Validator
+        # Step 3: Email Validator
         try:
             validator = EmailValidatorAgent()
             validator_results = validator.process_leads(limit=batch_size)
@@ -231,7 +245,7 @@ def run_pipeline_cycle() -> bool:
             })
             success = False
         
-        # Step 3: Message Generator
+        # Step 4: Message Generator
         try:
             generator = MessageGeneratorAgent()
             generator_results = generator.process_leads(limit=batch_size)
@@ -244,7 +258,7 @@ def run_pipeline_cycle() -> bool:
             })
             success = False
         
-        # Step 4: Engager
+        # Step 5: Engager
         try:
             engager = EngagerAgent()
             engager_results = engager.process_leads(limit=batch_size)
