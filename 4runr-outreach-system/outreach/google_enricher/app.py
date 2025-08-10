@@ -222,6 +222,14 @@ class GoogleEnricherAgent:
                 self.logger.log_module_activity('google_enricher', lead_id, 'skip', 
                                                {'message': 'No company/website information found via Google search'})
                 return False
+                
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'process_single_lead',
+                'lead_id': lead_id,
+                'full_name': full_name
+            })
+            return False
     
     def _final_validation_check(self, value: str, full_name: str, field_type: str) -> bool:
         """
