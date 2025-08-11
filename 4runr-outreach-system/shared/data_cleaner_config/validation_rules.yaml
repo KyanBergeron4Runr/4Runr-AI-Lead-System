@@ -1,0 +1,401 @@
+# Data Cleaner - Validation Rules Configuration
+# This file defines comprehensive validation criteria for ensuring data quality
+# and professional standards compliance.
+
+company_name:
+  # Minimum confidence threshold for accepting company names
+  min_confidence: 0.7
+  
+  # Required patterns that company names must match
+  required_patterns:
+    - "^[A-Za-z0-9\\s&,.'-]+$"  # Allow letters, numbers, spaces, and common business punctuation
+  
+  # Patterns that indicate invalid/garbage company names
+  forbidden_patterns:
+    # Search engines and social media
+    - google
+    - search
+    - results
+    - linkedin
+    - facebook
+    - twitter
+    - instagram
+    - youtube
+    
+    # Placeholder and error values
+    - unknown
+    - not found
+    - error
+    - none
+    - null
+    - undefined
+    - n/a
+    - na
+    - tbd
+    - pending
+    
+    # Web artifacts
+    - www\.
+    - http
+    - https
+    - \.com
+    - \.org
+    - \.net
+    - website
+    - page
+    - profile
+    
+    # Test and demo data
+    - test
+    - demo
+    - sample
+    - example
+    - placeholder
+    - temp
+    - temporary
+    
+    # Generic terms that aren't company names
+    - company1
+    - mycompany
+    - yourcompany
+    - business
+    - enterprise
+    
+  # Indicators of professional/legitimate company names
+  professional_indicators:
+    # English legal entities
+    - Inc
+    - LLC
+    - Corp
+    - Ltd
+    - Company
+    - Group
+    - Limited
+    - Corporation
+    - Incorporated
+    - Co
+    - PLC
+    - Partners
+    - Associates
+    
+    # International legal entities
+    - GmbH
+    - AG
+    - SA
+    - SARL
+    - SAS
+    - BV
+    - NV
+    - AB
+    - AS
+    - 'Pty Ltd'
+    - 'Pvt Ltd'
+    - 'Pte Ltd'
+    - 'Sdn Bhd'
+    
+    # Business type indicators
+    - Solutions
+    - Technologies
+    - Systems
+    - Services
+    - Consulting
+    - Holdings
+    - Investments
+    - Development
+    - Manufacturing
+    - Trading
+    - International
+    - Global
+    - Worldwide
+    - Enterprises
+    - Industries
+    
+    # Industry-specific terms
+    - Tech
+    - Digital
+    - Software
+    - Engineering
+    - Construction
+    - Finance
+    - Medical
+    - Pharmaceutical
+    - Automotive
+    - Logistics
+    - Transport
+  
+  # Length constraints
+  min_length: 2
+  max_length: 150
+  
+  # Quality scoring weights
+  scoring:
+    has_legal_entity: 0.4      # Company has Inc, LLC, etc.
+    proper_capitalization: 0.2  # First letter capitalized
+    business_words: 0.2         # Contains business-related words
+    reasonable_length: 0.1      # Not too short or too long
+    no_forbidden_patterns: 0.1  # Doesn't contain garbage patterns
+
+website_url:
+  # Minimum confidence threshold for accepting website URLs
+  min_confidence: 0.8
+  
+  # Required format for valid URLs
+  required_format: "^https?://[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}.*$"
+  
+  # Domains that should be rejected (not business websites)
+  forbidden_domains:
+    # Search engines
+    - google.com
+    - google.ca
+    - google.co.uk
+    - bing.com
+    - yahoo.com
+    - duckduckgo.com
+    
+    # Social media
+    - linkedin.com
+    - facebook.com
+    - twitter.com
+    - instagram.com
+    - youtube.com
+    - tiktok.com
+    - snapchat.com
+    - pinterest.com
+    - reddit.com
+    
+    # Generic/test domains
+    - example.com
+    - test.com
+    - localhost
+    - domain.com
+    - website.com
+    
+    # Email providers
+    - gmail.com
+    - yahoo.com
+    - hotmail.com
+    - outlook.com
+    - aol.com
+    
+    # Other non-business sites
+    - wikipedia.org
+    - craigslist.org
+    - ebay.com
+    - amazon.com
+    - alibaba.com
+  
+  # Professional domain indicators
+  professional_domains:
+    # Business-focused TLDs
+    - .biz
+    - .pro
+    - .company
+    - .business
+    - .corp
+    
+    # Country-specific business domains
+    - .co.uk
+    - .com.au
+    - .co.nz
+    - .co.jp
+    - .co.kr
+    - .com.br
+    - .co.za
+    - .co.in
+  
+  # SSL/HTTPS preference
+  ssl_preferred: true
+  ssl_bonus_score: 0.1
+  
+  # Quality scoring weights
+  scoring:
+    valid_format: 0.4          # Matches URL format
+    professional_domain: 0.3   # Has professional TLD
+    https_protocol: 0.2        # Uses HTTPS
+    reasonable_length: 0.1     # Not too long or short
+
+data_quality:
+  # Overall data quality thresholds
+  min_overall_confidence: 0.7
+  
+  # Required fields that must be present
+  required_fields:
+    - company
+    - website
+  
+  # Optional fields that improve quality score
+  optional_fields:
+    - phone
+    - email
+    - address
+    - industry
+    - description
+    - employees
+    - revenue
+    - founded
+  
+  # Professional standards threshold
+  professional_standards_threshold: 0.6
+  
+  # International support settings
+  international_support: true
+  cultural_variations: true
+  
+  # Field-specific quality requirements
+  field_requirements:
+    company:
+      min_length: 2
+      max_length: 150
+      required_confidence: 0.7
+    website:
+      min_length: 10  # Minimum for "http://a.co"
+      max_length: 500
+      required_confidence: 0.8
+    phone:
+      min_length: 10
+      max_length: 20
+      required_confidence: 0.6
+    email:
+      min_length: 5
+      max_length: 100
+      required_confidence: 0.8
+  
+  # Data completeness scoring
+  completeness_scoring:
+    required_field_weight: 0.7    # Weight for required fields
+    optional_field_weight: 0.3    # Weight for optional fields
+    quality_penalty: 0.2          # Penalty per quality issue
+
+# Validation engine settings
+validation_engine:
+  # Enable/disable specific validation modules
+  modules:
+    company_name_validation: true
+    website_url_validation: true
+    data_completeness_validation: true
+    professional_standards_validation: true
+    context_consistency_validation: true
+    business_legitimacy_validation: true
+    data_freshness_validation: true
+  
+  # Performance settings
+  max_validation_time: 10  # Maximum time per validation (seconds)
+  
+  # Statistics tracking
+  track_statistics: true
+  statistics_retention_days: 30
+  
+  # Error handling
+  strict_mode: false  # If true, fail on any validation error
+  fallback_to_defaults: true  # Use default values on validation failure
+
+# Context validation settings
+context_validation:
+  # Company-website consistency checking
+  domain_matching:
+    enabled: true
+    fuzzy_matching: true
+    international_characters: true
+    similarity_threshold: 0.6
+  
+  # Lead name consistency checking
+  name_consistency:
+    enabled: true
+    check_name_in_company: true
+    suspicious_threshold: 0.8
+  
+  # Business legitimacy indicators
+  legitimacy_checks:
+    entity_indicators: true
+    professional_domains: true
+    reasonable_naming: true
+    no_test_data: true
+
+# International support configuration
+international:
+  # Supported character sets
+  character_sets:
+    - latin
+    - cyrillic
+    - chinese
+    - japanese
+    - korean
+    - arabic
+    - hebrew
+  
+  # Character normalization
+  normalize_characters: true
+  
+  # International business entities
+  business_entities:
+    # German
+    - GmbH
+    - AG
+    - KG
+    - OHG
+    - GbR
+    
+    # French
+    - SA
+    - SARL
+    - SAS
+    - SCA
+    - SCI
+    
+    # Spanish
+    - SL
+    - SA
+    - SRL
+    - SCL
+    
+    # Italian
+    - SpA
+    - SRL
+    - SNC
+    - SAS
+    
+    # Dutch
+    - BV
+    - NV
+    - CV
+    - VOF
+    
+    # Scandinavian
+    - AB
+    - AS
+    - APS
+    - OYJ
+    
+    # Asian
+    - 'Pty Ltd'
+    - 'Pvt Ltd'
+    - 'Pte Ltd'
+    - 'Sdn Bhd'
+    - 'Bhd'
+  
+  # Country-specific validation rules
+  country_rules:
+    # Enable country-specific business name validation
+    enabled: true
+    
+    # Default to international standards if country not specified
+    fallback_to_international: true
+
+# Performance and monitoring
+performance:
+  # Processing limits
+  max_processing_time: 30      # Maximum total processing time (seconds)
+  max_memory_usage: 100        # Maximum memory usage (MB)
+  
+  # Batch processing settings
+  batch_size: 100              # Records to process in one batch
+  parallel_processing: true    # Enable parallel validation
+  max_workers: 4               # Maximum worker threads
+  
+  # Monitoring and alerting
+  monitoring:
+    enabled: true
+    alert_on_high_rejection_rate: true
+    rejection_rate_threshold: 0.5  # Alert if >50% rejection rate
+    performance_monitoring: true
+    quality_trend_tracking: true

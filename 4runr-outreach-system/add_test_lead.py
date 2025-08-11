@@ -14,13 +14,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from shared.airtable_client import get_airtable_client
-from engager.local_database_manager import LocalDatabaseManager
-from shared.logging_utils import get_logger
+from lead_database import LeadDatabase
+from database_logger import database_logger, log_database_event
 
 
 def add_lead():
     """Add Kyan Bergeron as regular lead to database and Airtable."""
-    logger = get_logger('lead_addition')
     
     # Lead data (as if scraped naturally)
     lead_data = {
@@ -44,7 +43,7 @@ def add_lead():
     # Initialize clients
     try:
         airtable_client = get_airtable_client()
-        db_manager = LocalDatabaseManager()
+        db = LeadDatabase()
         print("   ✅ Clients initialized successfully")
     except Exception as e:
         print(f"   ❌ Failed to initialize clients: {e}")
@@ -108,44 +107,34 @@ def add_lead():
     # Add to Local Database
     print("\n💾 Adding to Local Database...")
     try:
-        # First, add the complete lead data to local database
-        with db_manager.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("""
-                INSERT OR REPLACE INTO leads (
-                    id, name, email, company, company_website, 
-                    engagement_stage, last_contacted, engagement_history, 
-                    created_at, updated_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, (
-                record_id,
-                lead_data['full_name'],
-                lead_data['email'],
-                lead_data['company'],
-                lead_data['website'],
-                '1st degree',
-                None,  # Not contacted yet
-                None,
-                lead_data['created_at'],
-                lead_data['updated_at']
-            ))
-            conn.commit()
-        
-        # Then add engagement tracking record
-        engagement_data = {
-            'engagement_stage': '1st degree',
-            'last_contacted': None,
-            'engagement_history': None,
-            'success': True,
-            'airtable_synced': True
+        # Prepare complete lead data for database
+        database_lead_data = {
+            'id': record_id,
+            'full_name': lead_data['full_name'],
+            'name': lead_data['full_name'],  # For backward compatibility
+            'email': lead_data['email'],
+            'company': lead_data['company'],
+            'company_website': lead_data['website'],
+            'linkedin_url': f"https://linkedin.com/in/kyan-bergeron",
+            'status': 'new',
+            'source': lead_data['source'],
+            'verified': True,
+            'enriched': True,
+            'needs_enrichment': False,
+            'airtable_id': record_id,
+            'airtable_synced': True,
+            'sync_pending': False,
+            'scraped_at': lead_data['created_at'],
+            'enriched_at': lead_data['created_at']
         }
         
-        db_success = db_manager.update_engagement_data(record_id, engagement_data)
+        # Add lead using new database API
+        lead_id = db.add_lead(database_lead_data)
         
-        if db_success:
-            print("   ✅ Successfully added to local database")
+        if lead_id:
+            print(f"   ✅ Successfully added to database with ID: {lead_id}")
         else:
-            print("   ❌ Failed to add to local database")
+            print("   ❌ Failed to add to database")
             return False
             
     except Exception as e:
@@ -172,13 +161,14 @@ def add_lead():
     print("   • Update engagement level after sending")
     print("   • Log comprehensive engagement data")
     
-    logger.log_module_activity('lead_addition', 'system', 'success', {
-        'message': 'Lead added successfully',
-        'lead_name': lead_data['full_name'],
-        'email': lead_data['email'],
-        'company': lead_data['company'],
-        'source': lead_data['source'],
-        'airtable_id': record_id
+    # Log the successful lead addition
+    log_database_event("database_operation", database_lead_data, {
+        "success": True,
+        "records_affected": 1,
+        "operation_type": "add_test_lead"
+    }, {
+        "operation_type": "add_lead",
+        "performance_metrics": {"execution_time_ms": 0}
     })
     
     return True
@@ -190,19 +180,23 @@ def verify_lead():
     
     try:
         airtable_client = get_airtable_client()
-        db_manager = LocalDatabaseManager()
+        db = LeadDatabase()
         
         # Check Airtable
         leads = airtable_client.table.all(formula="AND({Email} = 'kyan@4runr.com')")
         airtable_found = len(list(leads)) > 0
         
         # Check Local Database
-        db_stats = db_manager.get_engagement_statistics()
+        db_stats = db.get_database_stats()
+        
+        # Also try to find the specific lead
+        search_results = db.search_leads({'email': 'kyan@4runr.com'})
+        database_found = len(search_results) > 0
         
         print(f"   📋 Airtable: {'✅ Found' if airtable_found else '❌ Not found'}")
-        print(f"   💾 Local DB: {db_stats.get('total_leads', 0)} total leads")
+        print(f"   💾 Local DB: {'✅ Found' if database_found else '❌ Not found'} ({db_stats.get('total_leads', 0)} total leads)")
         
-        return airtable_found
+        return airtable_found and database_found
         
     except Exception as e:
         print(f"   ❌ Verification failed: {e}")

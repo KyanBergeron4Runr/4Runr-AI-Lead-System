@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from shared.airtable_client import get_airtable_client
 from shared.logging_utils import get_logger
 from shared.config import config
+from shared.data_cleaner import DataCleaner
 from website_scraper.scraping_engine import WebScrapingEngine
 
 
@@ -29,6 +30,21 @@ class GoogleEnricherAgent:
         self.logger = get_logger('google_enricher')
         self.airtable_client = get_airtable_client()
         self.system_config = config.get_system_config()
+        
+        # Initialize DataCleaner for comprehensive data cleaning and validation
+        try:
+            self.data_cleaner = DataCleaner()
+            self.logger.log_module_activity('google_enricher', 'system', 'success', {
+                'message': 'DataCleaner initialized successfully',
+                'data_quality_enabled': True
+            })
+        except Exception as e:
+            self.logger.log_error(e, {'action': 'initialize_data_cleaner'})
+            self.data_cleaner = None
+            self.logger.log_module_activity('google_enricher', 'system', 'warning', {
+                'message': 'DataCleaner initialization failed, falling back to basic validation',
+                'data_quality_enabled': False
+            })
     
     async def process_leads(self, limit: int = None) -> Dict[str, int]:
         """
@@ -174,49 +190,105 @@ class GoogleEnricherAgent:
             
             # Update Airtable if we found new information
             if enrichment_data:
-                # Only update fields that are currently empty
-                airtable_fields = {}
+                # Prepare raw data for cleaning and validation
+                raw_data = {}
                 
+                # Only include fields that are currently empty and we found new data for
                 if not current_company and enrichment_data.get('company'):
-                    # FINAL VALIDATION: Double-check company before updating
-                    if self._final_validation_check(enrichment_data['company'], full_name, 'company'):
-                        airtable_fields['Company'] = enrichment_data['company']
-                    else:
-                        self.logger.log_module_activity('google_enricher', lead_id, 'warning', 
-                                                       {'message': f'Company {enrichment_data["company"]} failed final validation for {full_name}'})
+                    raw_data['Company'] = enrichment_data['company']
                 
                 if not current_website and enrichment_data.get('website'):
-                    # FINAL VALIDATION: Double-check website before updating
-                    if self._final_validation_check(enrichment_data['website'], full_name, 'website'):
-                        airtable_fields['Website'] = enrichment_data['website']
-                    else:
-                        self.logger.log_module_activity('google_enricher', lead_id, 'warning', 
-                                                       {'message': f'Website {enrichment_data["website"]} failed final validation for {full_name}'})
+                    raw_data['Website'] = enrichment_data['website']
                 
-                if airtable_fields:
-                    # LOG WHAT WE'RE ABOUT TO UPDATE for audit trail
-                    self.logger.log_module_activity('google_enricher', lead_id, 'info', 
-                                                   {'message': f'UPDATING AIRTABLE for {full_name}',
-                                                    'fields_to_update': airtable_fields,
-                                                    'validation_passed': True})
-                    
-                    update_success = self.airtable_client.update_lead_fields(lead_id, airtable_fields)
-                    
-                    if update_success:
-                        self.logger.log_module_activity('google_enricher', lead_id, 'success', 
-                                                       {'message': f'✅ SUCCESSFULLY ENRICHED {full_name}',
-                                                        'enriched_fields': list(airtable_fields.keys()),
-                                                        'company': airtable_fields.get('Company'),
-                                                        'website': airtable_fields.get('Website'),
-                                                        'confidence': 'HIGH - Passed all validations'})
-                        return True
+                if raw_data:
+                    # Use DataCleaner for comprehensive cleaning and validation
+                    if self.data_cleaner:
+                        try:
+                            # Create lead context for validation
+                            lead_context = {
+                                'id': lead_id,
+                                'Full Name': full_name,
+                                'LinkedIn URL': linkedin_url,
+                                'source': 'google_enricher'
+                            }
+                            
+                            # Clean and validate the data using our comprehensive system
+                            cleaning_result = self.data_cleaner.clean_and_validate(raw_data, lead_context)
+                            
+                            if cleaning_result.success:
+                                # Use the cleaned data for Airtable update
+                                airtable_fields = cleaning_result.cleaned_data
+                                
+                                # Log comprehensive cleaning results
+                                self.logger.log_module_activity('google_enricher', lead_id, 'info', {
+                                    'message': f'DataCleaner processed data for {full_name}',
+                                    'original_data': raw_data,
+                                    'cleaned_data': airtable_fields,
+                                    'cleaning_actions': len(cleaning_result.cleaning_actions),
+                                    'validation_results': len(cleaning_result.validation_results),
+                                    'confidence_score': cleaning_result.confidence_score
+                                })
+                                
+                                # Update Airtable with cleaned data
+                                if airtable_fields:
+                                    self.logger.log_module_activity('google_enricher', lead_id, 'info', {
+                                        'message': f'UPDATING AIRTABLE for {full_name} with cleaned data',
+                                        'fields_to_update': airtable_fields,
+                                        'data_quality_score': cleaning_result.confidence_score,
+                                        'cleaning_system': 'DataCleaner v2.0'
+                                    })
+                                    
+                                    update_success = self.airtable_client.update_lead_fields(lead_id, airtable_fields)
+                                    
+                                    if update_success:
+                                        self.logger.log_module_activity('google_enricher', lead_id, 'success', {
+                                            'message': f'✅ SUCCESSFULLY ENRICHED {full_name} with DataCleaner',
+                                            'enriched_fields': list(airtable_fields.keys()),
+                                            'company': airtable_fields.get('Company'),
+                                            'website': airtable_fields.get('Website'),
+                                            'confidence_score': cleaning_result.confidence_score,
+                                            'data_quality': 'PROFESSIONAL GRADE - DataCleaner validated'
+                                        })
+                                        return True
+                                    else:
+                                        self.logger.log_module_activity('google_enricher', lead_id, 'error', {
+                                            'message': 'Failed to update Airtable with cleaned data'
+                                        })
+                                        return False
+                                else:
+                                    self.logger.log_module_activity('google_enricher', lead_id, 'skip', {
+                                        'message': 'No data remaining after DataCleaner processing'
+                                    })
+                                    return False
+                            else:
+                                # Data was rejected by DataCleaner
+                                self.logger.log_module_activity('google_enricher', lead_id, 'warning', {
+                                    'message': f'DataCleaner rejected data for {full_name}',
+                                    'original_data': raw_data,
+                                    'rejection_reasons': cleaning_result.rejection_reasons,
+                                    'confidence_score': cleaning_result.confidence_score
+                                })
+                                return False
+                                
+                        except Exception as e:
+                            self.logger.log_error(e, {
+                                'action': 'data_cleaner_processing',
+                                'lead_id': lead_id,
+                                'raw_data': raw_data
+                            })
+                            
+                            # Fallback to basic validation if DataCleaner fails
+                            self.logger.log_module_activity('google_enricher', lead_id, 'warning', {
+                                'message': 'DataCleaner failed, falling back to basic validation'
+                            })
+                            return self._fallback_validation_and_update(lead_id, full_name, raw_data)
                     else:
-                        self.logger.log_module_activity('google_enricher', lead_id, 'error', 
-                                                       {'message': 'Failed to update Airtable'})
-                        return False
+                        # DataCleaner not available, use fallback validation
+                        return self._fallback_validation_and_update(lead_id, full_name, raw_data)
                 else:
-                    self.logger.log_module_activity('google_enricher', lead_id, 'skip', 
-                                                   {'message': 'No validated information to update - all data failed final validation'})
+                    self.logger.log_module_activity('google_enricher', lead_id, 'skip', {
+                        'message': 'No new data to process - all fields already populated'
+                    })
                     return False
             else:
                 self.logger.log_module_activity('google_enricher', lead_id, 'skip', 
@@ -228,6 +300,75 @@ class GoogleEnricherAgent:
                 'action': 'process_single_lead',
                 'lead_id': lead_id,
                 'full_name': full_name
+            })
+            return False
+    
+    def _fallback_validation_and_update(self, lead_id: str, full_name: str, raw_data: Dict[str, str]) -> bool:
+        """
+        Fallback validation and update when DataCleaner is not available.
+        
+        Args:
+            lead_id: Lead ID
+            full_name: Person's full name
+            raw_data: Raw data to validate and update
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            airtable_fields = {}
+            
+            # Use basic validation for each field
+            for field_name, value in raw_data.items():
+                if field_name == 'Company':
+                    if self._final_validation_check(value, full_name, 'company'):
+                        airtable_fields['Company'] = value
+                    else:
+                        self.logger.log_module_activity('google_enricher', lead_id, 'warning', {
+                            'message': f'Company {value} failed basic validation for {full_name}'
+                        })
+                elif field_name == 'Website':
+                    if self._final_validation_check(value, full_name, 'website'):
+                        airtable_fields['Website'] = value
+                    else:
+                        self.logger.log_module_activity('google_enricher', lead_id, 'warning', {
+                            'message': f'Website {value} failed basic validation for {full_name}'
+                        })
+            
+            if airtable_fields:
+                self.logger.log_module_activity('google_enricher', lead_id, 'info', {
+                    'message': f'UPDATING AIRTABLE for {full_name} with basic validation',
+                    'fields_to_update': airtable_fields,
+                    'validation_method': 'FALLBACK - Basic validation only'
+                })
+                
+                update_success = self.airtable_client.update_lead_fields(lead_id, airtable_fields)
+                
+                if update_success:
+                    self.logger.log_module_activity('google_enricher', lead_id, 'success', {
+                        'message': f'✅ SUCCESSFULLY ENRICHED {full_name} with basic validation',
+                        'enriched_fields': list(airtable_fields.keys()),
+                        'company': airtable_fields.get('Company'),
+                        'website': airtable_fields.get('Website'),
+                        'data_quality': 'BASIC - Fallback validation only'
+                    })
+                    return True
+                else:
+                    self.logger.log_module_activity('google_enricher', lead_id, 'error', {
+                        'message': 'Failed to update Airtable with basic validation'
+                    })
+                    return False
+            else:
+                self.logger.log_module_activity('google_enricher', lead_id, 'skip', {
+                    'message': 'No data passed basic validation'
+                })
+                return False
+                
+        except Exception as e:
+            self.logger.log_error(e, {
+                'action': 'fallback_validation_and_update',
+                'lead_id': lead_id,
+                'raw_data': raw_data
             })
             return False
     
@@ -246,7 +387,7 @@ class GoogleEnricherAgent:
         try:
             if field_type == 'company':
                 # Company final validation
-                if not value or len(value.strip()) < 2:
+                if not value or len(value.strip()) < 3:
                     return False
                 
                 # Check for obvious bad values

@@ -1,0 +1,44 @@
+{
+  "log_type": "database_operation",
+  "session_id": "f5650704",
+  "timestamp": "2025-08-11T10:57:38.977770",
+  "operation_details": {
+    "operation_type": "add_lead",
+    "operation_id": "ac52fde9",
+    "execution_time_ms": 4.353523254394531,
+    "records_affected": 1,
+    "success": true,
+    "error_message": ""
+  },
+  "lead_identifier": {
+    "lead_id": "",
+    "name": "Unknown",
+    "company": "Workflow Corp",
+    "email": ""
+  },
+  "data_details": {
+    "fields_processed": [
+      "full_name",
+      "company",
+      "linkedin_url",
+      "source",
+      "needs_enrichment",
+      "enriched"
+    ],
+    "data_size_bytes": 193,
+    "duplicate_detected": false,
+    "duplicate_action": "created"
+  },
+  "performance_metrics": {
+    "execution_time_ms": 4.353523254394531,
+    "database_queries": 1,
+    "memory_usage_mb": 0,
+    "cpu_time_ms": 4.353523254394531
+  },
+  "training_labels": {
+    "operation_successful": true,
+    "performance_tier": "excellent",
+    "data_quality": "low",
+    "complexity_level": "low"
+  }
+}

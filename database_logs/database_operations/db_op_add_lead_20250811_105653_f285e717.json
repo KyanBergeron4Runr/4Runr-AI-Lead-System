@@ -1,0 +1,44 @@
+{
+  "log_type": "database_operation",
+  "session_id": "f285e717",
+  "timestamp": "2025-08-11T10:56:53.579229",
+  "operation_details": {
+    "operation_type": "add_lead",
+    "operation_id": "e9ce1ddb",
+    "execution_time_ms": 4.347801208496094,
+    "records_affected": 1,
+    "success": true,
+    "error_message": ""
+  },
+  "lead_identifier": {
+    "lead_id": "",
+    "name": "Unknown",
+    "company": "Agent Test Corp",
+    "email": "john@agenttest.com"
+  },
+  "data_details": {
+    "fields_processed": [
+      "full_name",
+      "company",
+      "email",
+      "linkedin_url",
+      "title",
+      "source"
+    ],
+    "data_size_bytes": 185,
+    "duplicate_detected": false,
+    "duplicate_action": "created"
+  },
+  "performance_metrics": {
+    "execution_time_ms": 4.347801208496094,
+    "database_queries": 1,
+    "memory_usage_mb": 0,
+    "cpu_time_ms": 4.347801208496094
+  },
+  "training_labels": {
+    "operation_successful": true,
+    "performance_tier": "excellent",
+    "data_quality": "medium",
+    "complexity_level": "low"
+  }
+}
