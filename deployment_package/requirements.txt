@@ -1,0 +1,494 @@
+# 4Runr AI Lead System - Python Dependencies
+
+# Core Dependencies
+python-dotenv>=1.0.0
+requests>=2.31.0
+sqlite3  # Built-in with Python
+psutil>=5.9.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+pyyaml>=6.0.0
+
+# AI and Machine Learning
+openai>=1.0.0
+tiktoken>=0.5.0
+
+# Web Framework (for monitoring dashboard)
+flask>=2.3.0
+flask-cors>=4.0.0
+
+# Database
+sqlalchemy>=2.0.0  # Optional for advanced database operations
+
+# HTTP and API
+aiohttp>=3.8.0
+urllib3>=2.0.0
+
+# Data Validation and Cleaning
+jsonschema>=4.17.0
+email-validator>=2.0.0
+phonenumbers>=8.13.0
+
+# Async Processing
+asyncio  # Built-in with Python 3.7+
+concurrent.futures  # Built-in with Python
+
+# Logging and Monitoring
+structlog>=23.1.0
+
+# Date and Time
+python-dateutil>=2.8.0
+
+# File Operations
+pathlib  # Built-in with Python 3.4+
+shutil  # Built-in with Python
+tarfile  # Built-in with Python
+gzip  # Built-in with Python
+
+# System Operations
+subprocess  # Built-in with Python
+os  # Built-in with Python
+sys  # Built-in with Python
+time  # Built-in with Python
+datetime  # Built-in with Python
+json  # Built-in with Python
+
+# Optional: Redis for caching (if using distributed setup)
+redis>=4.5.0
+
+# Optional: Celery for distributed task processing
+celery>=5.3.0
+
+# Development and Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Code Quality
+black>=23.7.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Documentation
+sphinx>=7.1.0
+sphinx-rtd-theme>=1.3.0
+
+# Security
+cryptography>=41.0.0
+
+# Performance Monitoring
+memory-profiler>=0.61.0
+line-profiler>=4.1.0
+
+# Email (if using SMTP)
+smtplib  # Built-in with Python
+email  # Built-in with Python
+
+# Web Scraping (if needed)
+beautifulsoup4>=4.12.0
+selenium>=4.11.0
+
+# Data Export/Import
+openpyxl>=3.1.0  # For Excel files
+csv  # Built-in with Python
+
+# Configuration Management
+configparser  # Built-in with Python
+
+# Networking
+socket  # Built-in with Python
+ssl  # Built-in with Python
+
+# Threading and Multiprocessing
+threading  # Built-in with Python
+multiprocessing  # Built-in with Python
+queue  # Built-in with Python
+
+# Regular Expressions
+re  # Built-in with Python
+
+# Math and Statistics
+statistics  # Built-in with Python
+math  # Built-in with Python
+random  # Built-in with Python
+
+# Collections and Data Structures
+collections  # Built-in with Python
+itertools  # Built-in with Python
+functools  # Built-in with Python
+
+# Error Handling
+traceback  # Built-in with Python
+warnings  # Built-in with Python
+
+# Environment and System Info
+platform  # Built-in with Python
+getpass  # Built-in with Python
+
+# Compression
+zipfile  # Built-in with Python
+
+# Temporary Files
+tempfile  # Built-in with Python
+
+# UUID Generation
+uuid  # Built-in with Python
+
+# Base64 Encoding
+base64  # Built-in with Python
+
+# Hash Functions
+hashlib  # Built-in with Python
+hmac  # Built-in with Python
+
+# URL Parsing
+urllib.parse  # Built-in with Python
+
+# XML Processing (if needed)
+xml.etree.ElementTree  # Built-in with Python
+
+# Pickle for serialization
+pickle  # Built-in with Python
+
+# Copy operations
+copy  # Built-in with Python
+
+# Garbage Collection
+gc  # Built-in with Python
+
+# Weak References
+weakref  # Built-in with Python
+
+# Context Management
+contextlib  # Built-in with Python
+
+# Decimal arithmetic
+decimal  # Built-in with Python
+
+# Fractions
+fractions  # Built-in with Python
+
+# Locale settings
+locale  # Built-in with Python
+
+# String operations
+string  # Built-in with Python
+
+# Text wrapping
+textwrap  # Built-in with Python
+
+# Glob pattern matching
+glob  # Built-in with Python
+
+# File comparison
+filecmp  # Built-in with Python
+
+# CSV dialect registration
+csv  # Built-in with Python
+
+# Argument parsing
+argparse  # Built-in with Python
+
+# Logging
+logging  # Built-in with Python
+
+# Unit testing
+unittest  # Built-in with Python
+
+# Debugging
+pdb  # Built-in with Python
+
+# Profiling
+cProfile  # Built-in with Python
+profile  # Built-in with Python
+
+# Timeit for performance measurement
+timeit  # Built-in with Python
+
+# Trace for debugging
+trace  # Built-in with Python
+
+# Dis for bytecode analysis
+dis  # Built-in with Python
+
+# Inspect for object introspection
+inspect  # Built-in with Python
+
+# Types for type hints
+typing  # Built-in with Python 3.5+
+types  # Built-in with Python
+
+# Enum for enumerations
+enum  # Built-in with Python 3.4+
+
+# Dataclasses
+dataclasses  # Built-in with Python 3.7+
+
+# Secrets for cryptographically strong random numbers
+secrets  # Built-in with Python 3.6+
+
+# Pathlib for path operations
+pathlib  # Built-in with Python 3.4+
+
+# Asyncio for asynchronous programming
+asyncio  # Built-in with Python 3.4+
+
+# Concurrent futures
+concurrent.futures  # Built-in with Python 3.2+
+
+# Subprocess for running external commands
+subprocess  # Built-in with Python
+
+# Signal handling
+signal  # Built-in with Python
+
+# Resource usage information
+resource  # Built-in with Python (Unix only)
+
+# Terminal control
+termios  # Built-in with Python (Unix only)
+tty  # Built-in with Python (Unix only)
+
+# Windows-specific modules (if on Windows)
+# winsound  # Built-in with Python (Windows only)
+# winreg  # Built-in with Python (Windows only)
+# msvcrt  # Built-in with Python (Windows only)
+
+# Network programming
+socketserver  # Built-in with Python
+http.server  # Built-in with Python
+http.client  # Built-in with Python
+ftplib  # Built-in with Python
+poplib  # Built-in with Python
+imaplib  # Built-in with Python
+nntplib  # Built-in with Python
+telnetlib  # Built-in with Python
+
+# Internet protocols and support
+urllib.request  # Built-in with Python
+urllib.error  # Built-in with Python
+urllib.robotparser  # Built-in with Python
+
+# HTML and XML processing
+html.parser  # Built-in with Python
+html.entities  # Built-in with Python
+
+# Internet data handling
+email.mime.text  # Built-in with Python
+email.mime.multipart  # Built-in with Python
+email.mime.base  # Built-in with Python
+
+# Multimedia services
+audioop  # Built-in with Python
+wave  # Built-in with Python
+chunk  # Built-in with Python
+sunau  # Built-in with Python
+aifc  # Built-in with Python
+
+# Internationalization
+gettext  # Built-in with Python
+
+# Program frameworks
+cmd  # Built-in with Python
+shlex  # Built-in with Python
+
+# Graphical user interfaces
+tkinter  # Built-in with Python (if Tk is installed)
+
+# Development tools
+pydoc  # Built-in with Python
+doctest  # Built-in with Python
+
+# Python runtime services
+atexit  # Built-in with Python
+tracemalloc  # Built-in with Python 3.4+
+faulthandler  # Built-in with Python 3.3+
+
+# Custom text processing
+difflib  # Built-in with Python
+pprint  # Built-in with Python
+reprlib  # Built-in with Python
+
+# Binary data services
+struct  # Built-in with Python
+codecs  # Built-in with Python
+
+# File formats
+configparser  # Built-in with Python
+netrc  # Built-in with Python
+xdrlib  # Built-in with Python
+plistlib  # Built-in with Python
+
+# Cryptographic services
+hashlib  # Built-in with Python
+hmac  # Built-in with Python
+
+# Generic operating system services
+io  # Built-in with Python
+time  # Built-in with Python
+argparse  # Built-in with Python
+getopt  # Built-in with Python
+logging.config  # Built-in with Python
+logging.handlers  # Built-in with Python
+getpass  # Built-in with Python
+curses  # Built-in with Python (Unix only)
+platform  # Built-in with Python
+errno  # Built-in with Python
+ctypes  # Built-in with Python
+
+# Concurrent execution
+_thread  # Built-in with Python
+threading  # Built-in with Python
+multiprocessing  # Built-in with Python
+multiprocessing.shared_memory  # Built-in with Python 3.8+
+concurrent.futures  # Built-in with Python 3.2+
+subprocess  # Built-in with Python
+sched  # Built-in with Python
+queue  # Built-in with Python
+
+# Interprocess communication and networking
+socket  # Built-in with Python
+ssl  # Built-in with Python
+select  # Built-in with Python
+selectors  # Built-in with Python 3.4+
+asyncio  # Built-in with Python 3.4+
+asyncore  # Built-in with Python (deprecated)
+asynchat  # Built-in with Python (deprecated)
+
+# Internet data handling
+json  # Built-in with Python
+mailcap  # Built-in with Python
+mailbox  # Built-in with Python
+mimetypes  # Built-in with Python
+base64  # Built-in with Python
+binhex  # Built-in with Python
+binascii  # Built-in with Python
+quopri  # Built-in with Python
+uu  # Built-in with Python
+
+# Structured markup processing tools
+html  # Built-in with Python
+xml.etree.ElementTree  # Built-in with Python
+xml.dom  # Built-in with Python
+xml.dom.minidom  # Built-in with Python
+xml.dom.pulldom  # Built-in with Python
+xml.sax  # Built-in with Python
+xml.sax.handler  # Built-in with Python
+xml.sax.saxutils  # Built-in with Python
+xml.sax.xmlreader  # Built-in with Python
+xml.parsers.expat  # Built-in with Python
+
+# File and directory access
+pathlib  # Built-in with Python 3.4+
+os.path  # Built-in with Python
+fileinput  # Built-in with Python
+stat  # Built-in with Python
+filecmp  # Built-in with Python
+tempfile  # Built-in with Python
+glob  # Built-in with Python
+fnmatch  # Built-in with Python
+linecache  # Built-in with Python
+shutil  # Built-in with Python
+
+# Data persistence
+pickle  # Built-in with Python
+copyreg  # Built-in with Python
+shelve  # Built-in with Python
+marshal  # Built-in with Python
+dbm  # Built-in with Python
+sqlite3  # Built-in with Python
+
+# Data compression and archiving
+zlib  # Built-in with Python
+gzip  # Built-in with Python
+bz2  # Built-in with Python
+lzma  # Built-in with Python 3.3+
+zipfile  # Built-in with Python
+tarfile  # Built-in with Python
+
+# Numeric and mathematical modules
+numbers  # Built-in with Python
+math  # Built-in with Python
+cmath  # Built-in with Python
+decimal  # Built-in with Python
+fractions  # Built-in with Python
+random  # Built-in with Python
+statistics  # Built-in with Python 3.4+
+
+# Functional programming modules
+itertools  # Built-in with Python
+functools  # Built-in with Python
+operator  # Built-in with Python
+
+# Python language services
+parser  # Built-in with Python (deprecated in 3.9)
+ast  # Built-in with Python
+symtable  # Built-in with Python
+symbol  # Built-in with Python
+token  # Built-in with Python
+keyword  # Built-in with Python
+tokenize  # Built-in with Python
+tabnanny  # Built-in with Python
+pyclbr  # Built-in with Python
+py_compile  # Built-in with Python
+compileall  # Built-in with Python
+dis  # Built-in with Python
+pickletools  # Built-in with Python
+
+# Miscellaneous services
+formatter  # Built-in with Python (deprecated)
+
+# MS Windows specific services (if on Windows)
+# msilib  # Built-in with Python (Windows only)
+# msvcrt  # Built-in with Python (Windows only)
+# winreg  # Built-in with Python (Windows only)
+# winsound  # Built-in with Python (Windows only)
+
+# Unix specific services (if on Unix)
+# posix  # Built-in with Python (Unix only)
+# pwd  # Built-in with Python (Unix only)
+# spwd  # Built-in with Python (Unix only)
+# grp  # Built-in with Python (Unix only)
+# crypt  # Built-in with Python (Unix only)
+# termios  # Built-in with Python (Unix only)
+# tty  # Built-in with Python (Unix only)
+# pty  # Built-in with Python (Unix only)
+# fcntl  # Built-in with Python (Unix only)
+# pipes  # Built-in with Python (Unix only)
+# resource  # Built-in with Python (Unix only)
+# nis  # Built-in with Python (Unix only)
+# syslog  # Built-in with Python (Unix only)
+
+# Superseded modules (deprecated or removed)
+# imp  # Built-in with Python (deprecated in 3.4)
+# importlib  # Built-in with Python 3.1+
+
+# Security considerations
+# Note: Some modules like 'imp' are deprecated for security reasons
+# Always use the latest recommended alternatives
+
+# Installation Notes:
+# 1. Run: pip install -r requirements.txt
+# 2. For development: pip install -r requirements.txt[dev]
+# 3. For production: pip install -r requirements.txt --no-dev
+# 4. Update regularly: pip install --upgrade -r requirements.txt
+
+# Version Notes:
+# - Minimum Python version: 3.8+
+# - Recommended Python version: 3.11+
+# - All versions are minimum required versions
+# - Some packages may require system dependencies
+
+# Platform Notes:
+# - Some packages are platform-specific (Windows/Unix)
+# - Redis and Celery are optional for distributed setups
+# - Selenium requires browser drivers for web scraping
+# - Some packages may require compilation (C extensions)
+
+# Security Notes:
+# - Keep all packages updated to latest versions
+# - Review security advisories for dependencies
+# - Use virtual environments to isolate dependencies
+# - Consider using pip-audit to check for vulnerabilities

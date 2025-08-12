@@ -1,0 +1,16 @@
+{
+  "id": "email_test_001",
+  "Name": "Sarah Johnson",
+  "Title": "VP of Product",
+  "Company": "CloudTech Solutions",
+  "Email": "sarah.johnson@cloudtech.com",
+  "company_data": {
+    "description": "CloudTech provides SaaS solutions for enterprise workflow management and digital transformation",
+    "services": "Software as a Service, API integrations, Cloud platforms, Workflow automation",
+    "tone": "Professional"
+  },
+  "scraped_content": {
+    "homepage_text": "Transform your business with cloud-native solutions that scale with your growth. Our enterprise-grade platform helps companies streamline operations and accelerate digital transformation.",
+    "about_page": "Founded in 2018, CloudTech has been at the forefront of enterprise digital transformation. We serve Fortune 500 companies with mission-critical workflow solutions."
+  }
+}

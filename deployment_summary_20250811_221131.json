@@ -1,0 +1,30 @@
+{
+  "deployment_date": "2025-08-11T22:11:31.634580",
+  "system_components": {
+    "4runr-brain": "AI campaign generation system",
+    "4runr-lead-scraper": "Lead discovery and data collection",
+    "4runr-outreach-system": "Lead processing and automation",
+    "email-delivery": "Email sending system",
+    "monitoring": "System health monitoring"
+  },
+  "databases": {
+    "primary": "4runr-lead-scraper/data/leads.db",
+    "leads_count": "Check with system_controller.py --health"
+  },
+  "services": {
+    "4runr-automation": "Main automation service",
+    "4runr-brain": "AI brain service",
+    "4runr-email": "Email delivery service"
+  },
+  "cron_jobs": [
+    "Daily sync at 6:00 AM",
+    "Email sending every 15 minutes",
+    "Health check every 4 hours",
+    "Backup at 2:00 AM daily"
+  ],
+  "monitoring": {
+    "health_check": "python3 system_controller.py --health",
+    "email_queue": "python3 email_delivery_system.py --queue",
+    "logs": "journalctl -u 4runr-automation -f"
+  }
+}

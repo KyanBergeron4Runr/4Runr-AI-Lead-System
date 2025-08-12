@@ -1,0 +1,12 @@
+{
+  "OPENAI_API_KEY": "your-openai-api-key-here",
+  "OPENAI_MODEL": "gpt-4o",
+  "CAMPAIGN_QUALITY_THRESHOLD": "80.0",
+  "CAMPAIGN_MAX_RETRIES": "2",
+  "LOG_LEVEL": "INFO",
+  "TRACE_LOGS_ENABLED": "true",
+  "CONCURRENT_LIMIT": "3",
+  "AIRTABLE_API_KEY": "your-airtable-api-key",
+  "AIRTABLE_BASE_ID": "your-base-id",
+  "AIRTABLE_TABLE_NAME": "Table 1"
+}
