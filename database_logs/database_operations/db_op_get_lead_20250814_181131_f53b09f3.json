@@ -1,0 +1,39 @@
+{
+  "log_type": "database_operation",
+  "session_id": "f53b09f3",
+  "timestamp": "2025-08-14T18:11:31.798876",
+  "operation_details": {
+    "operation_type": "get_lead",
+    "operation_id": "1de28c78",
+    "execution_time_ms": 30018.47767829895,
+    "records_affected": 1,
+    "success": true,
+    "error_message": ""
+  },
+  "lead_identifier": {
+    "lead_id": "cf1a11b5-2180-41c3-b52a-9bceb6abf84b",
+    "name": "Unknown",
+    "company": "Unknown",
+    "email": ""
+  },
+  "data_details": {
+    "fields_processed": [
+      "id"
+    ],
+    "data_size_bytes": 46,
+    "duplicate_detected": false,
+    "duplicate_action": "none"
+  },
+  "performance_metrics": {
+    "execution_time_ms": 30018.47767829895,
+    "database_queries": 1,
+    "memory_usage_mb": 0,
+    "cpu_time_ms": 30018.47767829895
+  },
+  "training_labels": {
+    "operation_successful": true,
+    "performance_tier": "very_slow",
+    "data_quality": "low",
+    "complexity_level": "low"
+  }
+}

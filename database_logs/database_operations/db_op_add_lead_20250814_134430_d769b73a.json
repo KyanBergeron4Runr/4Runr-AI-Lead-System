@@ -1,0 +1,55 @@
+{
+  "log_type": "database_operation",
+  "session_id": "d769b73a",
+  "timestamp": "2025-08-14T13:44:30.734920",
+  "operation_details": {
+    "operation_type": "add_lead",
+    "operation_id": "48f9b48a",
+    "execution_time_ms": 0,
+    "records_affected": 1,
+    "success": true,
+    "error_message": ""
+  },
+  "lead_identifier": {
+    "lead_id": "recjGKlQajFqcwnM3",
+    "name": "Kyan Bergeron",
+    "company": "4Runr",
+    "email": "kyan@4runr.com"
+  },
+  "data_details": {
+    "fields_processed": [
+      "id",
+      "full_name",
+      "name",
+      "email",
+      "company",
+      "company_website",
+      "linkedin_url",
+      "status",
+      "source",
+      "verified",
+      "enriched",
+      "needs_enrichment",
+      "airtable_id",
+      "airtable_synced",
+      "sync_pending",
+      "scraped_at",
+      "enriched_at"
+    ],
+    "data_size_bytes": 509,
+    "duplicate_detected": false,
+    "duplicate_action": "none"
+  },
+  "performance_metrics": {
+    "execution_time_ms": 0,
+    "database_queries": 1,
+    "memory_usage_mb": 0,
+    "cpu_time_ms": 0
+  },
+  "training_labels": {
+    "operation_successful": true,
+    "performance_tier": "excellent",
+    "data_quality": "high",
+    "complexity_level": "low"
+  }
+}

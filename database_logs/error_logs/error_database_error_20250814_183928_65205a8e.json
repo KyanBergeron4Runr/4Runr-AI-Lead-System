@@ -1,0 +1,32 @@
+{
+  "log_type": "error_log",
+  "session_id": "65205a8e",
+  "timestamp": "2025-08-14T18:39:28.892274",
+  "error_details": {
+    "error_type": "database_error",
+    "error_id": "014b7cf9",
+    "error_message": "Could not acquire connection within 30 seconds",
+    "error_code": "",
+    "stack_trace": "Traceback (most recent call last):\n  File \"C:\\Users\\kyanb\\4Runr AI Lead System\\4runr-outreach-system\\database_connection_pool.py\", line 212, in get_connection\n    connection_id = self._available_connections.get(timeout=timeout)\n  File \"C:\\Python313\\Lib\\queue.py\", line 212, in get\n    raise Empty\n_queue.Empty\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\kyanb\\4Runr AI Lead System\\4runr-outreach-system\\lead_database.py\", line 299, in get_lead\n    with self.get_connection() as conn:\n         ~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Python313\\Lib\\contextlib.py\", line 141, in __enter__\n    return next(self.gen)\n  File \"C:\\Users\\kyanb\\4Runr AI Lead System\\4runr-outreach-system\\lead_database.py\", line 93, in get_connection\n    with pool.get_connection() as conn:\n         ~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Python313\\Lib\\contextlib.py\", line 141, in __enter__\n    return next(self.gen)\n  File \"C:\\Users\\kyanb\\4Runr AI Lead System\\4runr-outreach-system\\database_connection_pool.py\", line 223, in get_connection\n    raise TimeoutError(f\"Could not acquire connection within {timeout} seconds\")\nTimeoutError: Could not acquire connection within 30 seconds\n",
+    "severity": "error"
+  },
+  "context": {
+    "operation_in_progress": "get_lead",
+    "lead_data": {},
+    "system_state": {},
+    "user_action": "",
+    "environment": "production"
+  },
+  "recovery_info": {
+    "recovery_attempted": false,
+    "recovery_successful": false,
+    "recovery_method": "",
+    "data_loss_occurred": false
+  },
+  "training_labels": {
+    "error_severity": "error",
+    "recoverable": false,
+    "user_error": false,
+    "system_error": true
+  }
+}

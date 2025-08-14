@@ -1,0 +1,34 @@
+{
+  "log_type": "performance_metrics",
+  "session_id": "f53b09f3",
+  "timestamp": "2025-08-14T18:12:32.293095",
+  "operation_info": {
+    "operation_name": "get_lead",
+    "operation_id": "ab22b743",
+    "start_time": "2025-08-14T18:12:02.282742",
+    "end_time": "2025-08-14T18:12:32.293090",
+    "total_duration_ms": 30010.345935821533
+  },
+  "performance_data": {
+    "cpu_usage_percent": 0,
+    "memory_usage_mb": 0,
+    "memory_peak_mb": 0,
+    "disk_io_mb": 0,
+    "network_io_mb": 0,
+    "database_queries": 0,
+    "api_calls": 0
+  },
+  "system_info": {
+    "database_size_mb": 0,
+    "total_leads": 0,
+    "pending_syncs": 0,
+    "active_connections": 0,
+    "system_load": 0
+  },
+  "training_labels": {
+    "performance_tier": "very_slow",
+    "resource_efficiency": "poor",
+    "scalability_indicator": "small_scale",
+    "optimization_needed": true
+  }
+}

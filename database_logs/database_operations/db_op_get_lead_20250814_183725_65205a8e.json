@@ -1,0 +1,39 @@
+{
+  "log_type": "database_operation",
+  "session_id": "65205a8e",
+  "timestamp": "2025-08-14T18:37:25.524298",
+  "operation_details": {
+    "operation_type": "get_lead",
+    "operation_id": "2c62df53",
+    "execution_time_ms": 30014.989852905273,
+    "records_affected": 0,
+    "success": true,
+    "error_message": "Lead not found"
+  },
+  "lead_identifier": {
+    "lead_id": null,
+    "name": "Unknown",
+    "company": "Unknown",
+    "email": ""
+  },
+  "data_details": {
+    "fields_processed": [
+      "id"
+    ],
+    "data_size_bytes": 12,
+    "duplicate_detected": false,
+    "duplicate_action": "none"
+  },
+  "performance_metrics": {
+    "execution_time_ms": 30014.989852905273,
+    "database_queries": 1,
+    "memory_usage_mb": 0,
+    "cpu_time_ms": 0
+  },
+  "training_labels": {
+    "operation_successful": true,
+    "performance_tier": "very_slow",
+    "data_quality": "low",
+    "complexity_level": "low"
+  }
+}

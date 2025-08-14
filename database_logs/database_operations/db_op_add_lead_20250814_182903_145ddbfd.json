@@ -1,0 +1,51 @@
+{
+  "log_type": "database_operation",
+  "session_id": "145ddbfd",
+  "timestamp": "2025-08-14T18:29:03.836205",
+  "operation_details": {
+    "operation_type": "add_lead",
+    "operation_id": "1c4e162c",
+    "execution_time_ms": 60027.087926864624,
+    "records_affected": 1,
+    "success": true,
+    "error_message": ""
+  },
+  "lead_identifier": {
+    "lead_id": "",
+    "name": "Unknown",
+    "company": "TravelTech Solutions",
+    "email": "mchen@traveltech.co"
+  },
+  "data_details": {
+    "fields_processed": [
+      "full_name",
+      "email",
+      "company",
+      "title",
+      "linkedin_url",
+      "website",
+      "location",
+      "industry",
+      "company_size",
+      "source",
+      "status",
+      "created_at",
+      "updated_at"
+    ],
+    "data_size_bytes": 447,
+    "duplicate_detected": false,
+    "duplicate_action": "created"
+  },
+  "performance_metrics": {
+    "execution_time_ms": 60027.087926864624,
+    "database_queries": 1,
+    "memory_usage_mb": 0,
+    "cpu_time_ms": 60027.087926864624
+  },
+  "training_labels": {
+    "operation_successful": true,
+    "performance_tier": "very_slow",
+    "data_quality": "medium",
+    "complexity_level": "low"
+  }
+}
