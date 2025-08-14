@@ -1,0 +1,51 @@
+{
+  "log_type": "database_operation",
+  "session_id": "a8d90c47",
+  "timestamp": "2025-08-14T18:56:50.389850",
+  "operation_details": {
+    "operation_type": "add_lead",
+    "operation_id": "f0e6a56b",
+    "execution_time_ms": 60010.1854801178,
+    "records_affected": 1,
+    "success": true,
+    "error_message": ""
+  },
+  "lead_identifier": {
+    "lead_id": "",
+    "name": "Unknown",
+    "company": "Startup.io",
+    "email": "jane.doe@startup.io"
+  },
+  "data_details": {
+    "fields_processed": [
+      "full_name",
+      "email",
+      "company",
+      "title",
+      "linkedin_url",
+      "company_website",
+      "location",
+      "industry",
+      "company_size",
+      "source",
+      "status",
+      "created_at",
+      "updated_at"
+    ],
+    "data_size_bytes": 404,
+    "duplicate_detected": false,
+    "duplicate_action": "created"
+  },
+  "performance_metrics": {
+    "execution_time_ms": 60010.1854801178,
+    "database_queries": 1,
+    "memory_usage_mb": 0,
+    "cpu_time_ms": 60010.1854801178
+  },
+  "training_labels": {
+    "operation_successful": true,
+    "performance_tier": "very_slow",
+    "data_quality": "medium",
+    "complexity_level": "low"
+  }
+}
