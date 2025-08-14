@@ -19,8 +19,8 @@ from shared.logging_utils import get_logger
 from shared.validation import validate_website_url, validate_airtable_fields
 from shared.config import config
 
-from outreach.website_scraper.scraping_engine import WebScrapingEngine
-from outreach.website_scraper.content_analyzer import ContentAnalyzer
+from website_scraper.scraping_engine import WebScrapingEngine
+from website_scraper.content_analyzer import ContentAnalyzer
 
 
 class WebsiteScraperAgent:
@@ -124,13 +124,21 @@ class WebsiteScraperAgent:
             # Analyze the content
             analysis_result = self.content_analyzer.analyze_content(scraped_data, lead_id)
             
-            # Prepare Airtable update
+            # Prepare Airtable update - use only existing fields for now
+            # Note: We need to add Company_Description, Services, and Tone fields to Airtable
             airtable_fields = {
-                'Company_Description': analysis_result['company_description'],
-                'Top_Services': analysis_result['top_services'],
-                'Tone': analysis_result['tone'],
-                'Website_Insights': analysis_result['website_insights']
+                # Only update existing fields for now
+                # 'Company_Description': analysis_result['company_description'],
+                # 'Services': analysis_result['top_services'],
+                # 'Tone': analysis_result['tone']
             }
+            
+            # Log the analysis results since we can't store them yet
+            self.logger.log_module_activity('website_scraper', lead_id, 'info', 
+                                           {'message': 'Analysis completed but no fields to update',
+                                            'company_description': analysis_result['company_description'][:100] + '...',
+                                            'top_services': analysis_result['top_services'],
+                                            'tone': analysis_result['tone']})
             
             # Validate fields before update
             validation_result = validate_airtable_fields(airtable_fields)

@@ -1,0 +1,13 @@
+{
+  "consolidation_date": "2025-08-14T10:39:05.730726",
+  "backup_location": "C:\\Users\\kyanb\\4Runr AI Lead System\\backups\\consolidation_backup_20250814_103905",
+  "databases_backed_up": [
+    "primary",
+    "outreach",
+    "campaigns",
+    "root",
+    "test",
+    "archived"
+  ],
+  "total_databases": 6
+}

@@ -11,14 +11,22 @@ from pathlib import Path
 from typing import List, Dict, Any
 
 # Add the project root to Python path
-sys.path.insert(0, str(Path(__file__).parent.parent))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from outreach.shared.configurable_airtable_client import get_configurable_airtable_client
-from outreach.shared.logging_utils import get_logger
-from outreach.shared.validation import validate_message_quality, validate_airtable_fields
-from outreach.shared.config import config
-
-from outreach.message_generator.ai_generator import AIMessageGenerator
+try:
+    # Try relative imports first
+    from ..shared.configurable_airtable_client import get_configurable_airtable_client
+    from ..shared.logging_utils import get_logger
+    from ..shared.validation import validate_message_quality, validate_airtable_fields
+    from ..shared.config import config
+    from .ai_generator import AIMessageGenerator
+except ImportError:
+    # Fallback to local imports
+    from shared.configurable_airtable_client import get_configurable_airtable_client
+    from shared.logging_utils import get_logger
+    from shared.validation import validate_message_quality, validate_airtable_fields
+    from shared.config import config
+    from ai_generator import AIMessageGenerator
 
 
 class MessageGeneratorAgent:

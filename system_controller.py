@@ -52,13 +52,13 @@ class SystemController:
                     count = cursor.fetchone()[0]
                     conn.close()
                     health_status['databases'][db_name] = {'status': 'healthy', 'leads': count}
-                    self.log(f"   ✅ {db_name} database: {count} leads")
+                    self.log(f"   [OK] {db_name} database: {count} leads")
                 except Exception as e:
                     health_status['databases'][db_name] = {'status': 'error', 'error': str(e)}
-                    self.log(f"   ❌ {db_name} database: {str(e)}")
+                    self.log(f"   [ERROR] {db_name} database: {str(e)}")
             else:
                 health_status['databases'][db_name] = {'status': 'missing'}
-                self.log(f"   ❌ {db_name} database: missing")
+                self.log(f"   [ERROR] {db_name} database: missing")
         
         # Check key files
         key_files = [
@@ -71,29 +71,29 @@ class SystemController:
         for file_path in key_files:
             if os.path.exists(file_path):
                 health_status['files'][file_path] = 'exists'
-                self.log(f"   ✅ {file_path}")
+                self.log(f"   [OK] {file_path}")
             else:
                 health_status['files'][file_path] = 'missing'
-                self.log(f"   ❌ {file_path}")
+                self.log(f"   [ERROR] {file_path}")
         
         # Check API keys
         api_keys = ['OPENAI_API_KEY', 'AIRTABLE_API_KEY', 'SERPAPI_API_KEY']
         for key in api_keys:
             if os.getenv(key):
                 health_status['apis'][key] = 'configured'
-                self.log(f"   ✅ {key}")
+                self.log(f"   [OK] {key}")
             else:
                 health_status['apis'][key] = 'missing'
-                self.log(f"   ❌ {key}")
+                self.log(f"   [ERROR] {key}")
         
         return health_status
     
     def unify_databases(self):
         """Unify all databases to use primary database as single source of truth"""
-        self.log("🔄 Unifying databases...")
+        self.log("[SYNC] Unifying databases...")
         
         if not os.path.exists(self.primary_db):
-            self.log(f"❌ Primary database not found: {self.primary_db}")
+            self.log(f"[ERROR] Primary database not found: {self.primary_db}")
             return False
         
         # Update all .env files to point to primary database
@@ -106,7 +106,7 @@ class SystemController:
         for env_file, key, value in env_updates:
             if os.path.exists(env_file):
                 self.update_env_file(env_file, key, value)
-                self.log(f"   ✅ Updated {env_file}")
+                self.log(f"   [OK] Updated {env_file}")
         
         # Backup and consolidate data from other databases
         if os.path.exists(self.outreach_db):
@@ -115,7 +115,7 @@ class SystemController:
         if os.path.exists(self.root_db):
             self.consolidate_database_data(self.root_db, self.primary_db)
         
-        self.log("✅ Database unification complete")
+        self.log("[OK] Database unification complete")
         return True
     
     def update_env_file(self, env_file, key, value):
@@ -182,10 +182,10 @@ class SystemController:
             source_conn.close()
             target_conn.close()
             
-            self.log(f"   ✅ Consolidated {consolidated_count} leads from {source_db}")
+            self.log(f"   [OK] Consolidated {consolidated_count} leads from {source_db}")
             
         except Exception as e:
-            self.log(f"   ❌ Error consolidating {source_db}: {str(e)}")
+            self.log(f"   [ERROR] Error consolidating {source_db}: {str(e)}")
     
     def run_data_cleaner_fix(self):
         """Run the data cleaner validation test to ensure it's working"""
@@ -196,38 +196,38 @@ class SystemController:
                 'python', '4runr-outreach-system/test_production_deployment_validation.py'
             ], capture_output=True, text=True, timeout=60)
             
-            if "Deployment Ready: ✅ YES" in result.stdout:
-                self.log("   ✅ Data cleaner validation passed")
+            if "Deployment Ready: [OK] YES" in result.stdout:
+                self.log("   [OK] Data cleaner validation passed")
                 return True
             else:
-                self.log("   ⚠️ Data cleaner needs improvement but functional")
+                self.log("   [WARNING] Data cleaner needs improvement but functional")
                 return True  # Allow system to continue
                 
         except Exception as e:
-            self.log(f"   ❌ Data cleaner test failed: {str(e)}")
+            self.log(f"   [ERROR] Data cleaner test failed: {str(e)}")
             return False
     
     def start_brain_service(self):
         """Start the 4Runr Brain service"""
-        self.log("🧠 Starting 4Runr Brain service...")
+        self.log("[BRAIN] Starting 4Runr Brain service...")
         
         try:
             # Check if brain is already running
             brain_dir = "4runr-brain"
             if os.path.exists(f"{brain_dir}/serve_campaign_brain.py"):
-                self.log("   ✅ 4Runr Brain service ready")
+                self.log("   [OK] 4Runr Brain service ready")
                 return True
             else:
-                self.log("   ❌ 4Runr Brain service files not found")
+                self.log("   [ERROR] 4Runr Brain service files not found")
                 return False
                 
         except Exception as e:
-            self.log(f"   ❌ Error starting brain service: {str(e)}")
+            self.log(f"   [ERROR] Error starting brain service: {str(e)}")
             return False
     
     def start_scraper_service(self):
         """Start the lead scraper service"""
-        self.log("🎯 Starting Lead Scraper service...")
+        self.log("[TARGET] Starting Lead Scraper service...")
         
         try:
             scraper_dir = "4runr-lead-scraper"
@@ -238,17 +238,17 @@ class SystemController:
                 ], capture_output=True, text=True, timeout=30)
                 
                 if result.returncode == 0:
-                    self.log("   ✅ Lead Scraper service ready")
+                    self.log("   [OK] Lead Scraper service ready")
                     return True
                 else:
-                    self.log(f"   ❌ Lead Scraper test failed: {result.stderr}")
+                    self.log(f"   [ERROR] Lead Scraper test failed: {result.stderr}")
                     return False
             else:
-                self.log("   ❌ Lead Scraper service files not found")
+                self.log("   [ERROR] Lead Scraper service files not found")
                 return False
                 
         except Exception as e:
-            self.log(f"   ❌ Error starting scraper service: {str(e)}")
+            self.log(f"   [ERROR] Error starting scraper service: {str(e)}")
             return False
     
     def start_outreach_service(self):
@@ -258,19 +258,19 @@ class SystemController:
         try:
             outreach_dir = "4runr-outreach-system"
             if os.path.exists(f"{outreach_dir}/shared/data_cleaner.py"):
-                self.log("   ✅ Outreach System service ready")
+                self.log("   [OK] Outreach System service ready")
                 return True
             else:
-                self.log("   ❌ Outreach System service files not found")
+                self.log("   [ERROR] Outreach System service files not found")
                 return False
                 
         except Exception as e:
-            self.log(f"   ❌ Error starting outreach service: {str(e)}")
+            self.log(f"   [ERROR] Error starting outreach service: {str(e)}")
             return False
     
     def run_complete_pipeline(self):
         """Run the complete lead processing pipeline"""
-        self.log("🚀 Running complete pipeline...")
+        self.log("[LAUNCH] Running complete pipeline...")
         
         pipeline_steps = [
             ("Health Check", self.check_system_health),
@@ -288,32 +288,32 @@ class SystemController:
                 result = step_func()
                 results[step_name] = result
                 if result:
-                    self.log(f"   ✅ {step_name} completed successfully")
+                    self.log(f"   [OK] {step_name} completed successfully")
                 else:
-                    self.log(f"   ⚠️ {step_name} completed with warnings")
+                    self.log(f"   [WARNING] {step_name} completed with warnings")
             except Exception as e:
-                self.log(f"   ❌ {step_name} failed: {str(e)}")
+                self.log(f"   [ERROR] {step_name} failed: {str(e)}")
                 results[step_name] = False
         
         # Generate summary
         self.log("\n" + "="*60)
-        self.log("🎯 PIPELINE EXECUTION SUMMARY")
+        self.log("[TARGET] PIPELINE EXECUTION SUMMARY")
         self.log("="*60)
         
         success_count = sum(1 for result in results.values() if result)
         total_count = len(results)
         
         for step_name, result in results.items():
-            status = "✅ PASS" if result else "❌ FAIL"
+            status = "[OK] PASS" if result else "[ERROR] FAIL"
             self.log(f"   {status} {step_name}")
         
-        self.log(f"\n📊 Overall Success Rate: {success_count}/{total_count} ({success_count/total_count*100:.1f}%)")
+        self.log(f"\n[STATS] Overall Success Rate: {success_count}/{total_count} ({success_count/total_count*100:.1f}%)")
         
         if success_count >= total_count * 0.8:  # 80% success rate
-            self.log("🎉 SYSTEM READY FOR DEPLOYMENT!")
+            self.log("[SUCCESS] SYSTEM READY FOR DEPLOYMENT!")
             return True
         else:
-            self.log("⚠️ SYSTEM NEEDS ATTENTION BEFORE DEPLOYMENT")
+            self.log("[WARNING] SYSTEM NEEDS ATTENTION BEFORE DEPLOYMENT")
             return False
     
     def create_deployment_package(self):
@@ -336,7 +336,7 @@ class SystemController:
         for dir_name in essential_dirs:
             if os.path.exists(dir_name):
                 shutil.copytree(dir_name, f"{deployment_dir}/{dir_name}")
-                self.log(f"   ✅ Copied {dir_name}")
+                self.log(f"   [OK] Copied {dir_name}")
         
         # Copy essential files
         essential_files = [
@@ -349,13 +349,13 @@ class SystemController:
         for file_name in essential_files:
             if os.path.exists(file_name):
                 shutil.copy2(file_name, f"{deployment_dir}/{file_name}")
-                self.log(f"   ✅ Copied {file_name}")
+                self.log(f"   [OK] Copied {file_name}")
         
         # Create deployment script
         deploy_script = f"""#!/bin/bash
 # 4Runr AI Lead System - EC2 Deployment Script
 
-echo "🚀 Deploying 4Runr AI Lead System..."
+echo "[LAUNCH] Deploying 4Runr AI Lead System..."
 
 # Install dependencies
 pip install -r requirements.txt
@@ -367,7 +367,7 @@ python system_controller.py --deploy
 echo "0 6 * * * cd $(pwd) && python system_controller.py --daily-sync" | crontab -
 echo "*/5 * * * * cd $(pwd) && python system_controller.py --health-check" | crontab -
 
-echo "✅ Deployment complete!"
+echo "[OK] Deployment complete!"
 """
         
         with open(f"{deployment_dir}/deploy.sh", "w") as f:
@@ -375,7 +375,7 @@ echo "✅ Deployment complete!"
         
         os.chmod(f"{deployment_dir}/deploy.sh", 0o755)
         
-        self.log(f"✅ Deployment package created in {deployment_dir}/")
+        self.log(f"[OK] Deployment package created in {deployment_dir}/")
         return True
 
 def main():
@@ -394,7 +394,7 @@ def main():
             controller.create_deployment_package()
         elif command == "--daily-sync":
             # Run daily sync operations
-            controller.log("🔄 Running daily sync...")
+            controller.log("[SYNC] Running daily sync...")
             # Add daily sync logic here
         elif command == "--health-check":
             # Run health check

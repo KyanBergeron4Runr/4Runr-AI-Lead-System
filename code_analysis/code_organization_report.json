@@ -1,0 +1,2726 @@
+{
+  "organization_date": "2025-08-14T10:39:35.974444",
+  "codebase_analysis": {
+    "total_files": 10270,
+    "total_lines": 246202,
+    "file_types": {},
+    "directories": {
+      "4runr-brain": {
+        "type": "directory",
+        "size": 791372,
+        "files": 28
+      },
+      "4runr-lead-scraper": {
+        "type": "directory",
+        "size": 2138891,
+        "files": 74
+      },
+      "4runr-outreach-system": {
+        "type": "directory",
+        "size": 6494856,
+        "files": 210
+      },
+      "archived_systems": {
+        "type": "directory",
+        "size": 2862910,
+        "files": 167
+      },
+      "backups": {
+        "type": "directory",
+        "size": 3650335,
+        "files": 0
+      },
+      "data": {
+        "type": "directory",
+        "size": 200704,
+        "files": 0
+      },
+      "database_logs": {
+        "type": "directory",
+        "size": 7763,
+        "files": 0
+      },
+      "deployment_package": {
+        "type": "directory",
+        "size": 9077700,
+        "files": 307
+      },
+      "logs": {
+        "type": "directory",
+        "size": 97968,
+        "files": 0
+      },
+      "tests": {
+        "type": "directory",
+        "size": 1780,
+        "files": 0
+      },
+      "test_backups": {
+        "type": "directory",
+        "size": 344365,
+        "files": 0
+      },
+      "__pycache__": {
+        "type": "directory",
+        "size": 40182,
+        "files": 0
+      }
+    },
+    "duplicate_files": [],
+    "large_files": [
+      {
+        "path": "deployment_package\\4runr-outreach-system\\shared\\data_cleaner.py",
+        "size": 133381,
+        "lines": 3181
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\outreach\\google_enricher\\app.py",
+        "size": 52451,
+        "lines": 1058
+      },
+      {
+        "path": "4runr-outreach-system\\shared\\data_cleaner.py",
+        "size": 133381,
+        "lines": 3181
+      },
+      {
+        "path": "4runr-outreach-system\\outreach\\google_enricher\\app.py",
+        "size": 52451,
+        "lines": 1058
+      }
+    ],
+    "test_files": [
+      {
+        "path": "test_ai_message_generation.py",
+        "size": 7507,
+        "lines": 198
+      },
+      {
+        "path": "test_campaigns.py",
+        "size": 826,
+        "lines": 24
+      },
+      {
+        "path": "test_field_names.py",
+        "size": 4280,
+        "lines": 110
+      },
+      {
+        "path": "test_final_field_verification.py",
+        "size": 5439,
+        "lines": 128
+      },
+      {
+        "path": "test_serpapi_website.py",
+        "size": 1097,
+        "lines": 33
+      },
+      {
+        "path": "4runr-brain\\test_basic.py",
+        "size": 2994,
+        "lines": 83
+      },
+      {
+        "path": "4runr-brain\\test_db_integration.py",
+        "size": 852,
+        "lines": 32
+      },
+      {
+        "path": "4runr-brain\\test_fallback_mode.py",
+        "size": 6046,
+        "lines": 153
+      },
+      {
+        "path": "4runr-brain\\test_generator_fix.py",
+        "size": 1208,
+        "lines": 42
+      },
+      {
+        "path": "4runr-brain\\test_integration.py",
+        "size": 9973,
+        "lines": 300
+      },
+      {
+        "path": "4runr-brain\\test_nodes_only.py",
+        "size": 9149,
+        "lines": 272
+      },
+      {
+        "path": "4runr-brain\\test_standalone.py",
+        "size": 12490,
+        "lines": 318
+      },
+      {
+        "path": "4runr-lead-scraper\\run_tests.py",
+        "size": 4330,
+        "lines": 139
+      },
+      {
+        "path": "4runr-lead-scraper\\simple_test.py",
+        "size": 5132,
+        "lines": 183
+      },
+      {
+        "path": "4runr-lead-scraper\\test_airtable_website_integration.py",
+        "size": 15046,
+        "lines": 365
+      },
+      {
+        "path": "4runr-lead-scraper\\test_business_trait_extractor.py",
+        "size": 22786,
+        "lines": 473
+      },
+      {
+        "path": "4runr-lead-scraper\\test_cli.py",
+        "size": 4171,
+        "lines": 142
+      },
+      {
+        "path": "4runr-lead-scraper\\test_complete_system.py",
+        "size": 9672,
+        "lines": 281
+      },
+      {
+        "path": "4runr-lead-scraper\\test_content_analysis.py",
+        "size": 16669,
+        "lines": 409
+      },
+      {
+        "path": "4runr-lead-scraper\\test_fallback_integration.py",
+        "size": 20000,
+        "lines": 496
+      },
+      {
+        "path": "4runr-lead-scraper\\test_fallback_messaging.py",
+        "size": 21941,
+        "lines": 566
+      },
+      {
+        "path": "4runr-lead-scraper\\test_google_enricher.py",
+        "size": 2818,
+        "lines": 84
+      },
+      {
+        "path": "4runr-lead-scraper\\test_google_integration.py",
+        "size": 15515,
+        "lines": 410
+      },
+      {
+        "path": "4runr-lead-scraper\\test_google_integration_simple.py",
+        "size": 8914,
+        "lines": 251
+      },
+      {
+        "path": "4runr-lead-scraper\\test_google_scraper.py",
+        "size": 11471,
+        "lines": 327
+      },
+      {
+        "path": "4runr-lead-scraper\\test_pipeline_integration.py",
+        "size": 11393,
+        "lines": 290
+      },
+      {
+        "path": "4runr-lead-scraper\\test_scraper_functionality.py",
+        "size": 7966,
+        "lines": 216
+      },
+      {
+        "path": "4runr-lead-scraper\\test_sync_flow.py",
+        "size": 4274,
+        "lines": 111
+      },
+      {
+        "path": "4runr-lead-scraper\\test_system.py",
+        "size": 5354,
+        "lines": 165
+      },
+      {
+        "path": "4runr-lead-scraper\\test_website_content_scraper.py",
+        "size": 10889,
+        "lines": 288
+      },
+      {
+        "path": "4runr-lead-scraper\\test_website_extraction.py",
+        "size": 7325,
+        "lines": 193
+      },
+      {
+        "path": "4runr-lead-scraper\\test_website_extraction_unit.py",
+        "size": 6149,
+        "lines": 168
+      },
+      {
+        "path": "4runr-lead-scraper\\test_web_content_scraper.py",
+        "size": 15917,
+        "lines": 421
+      },
+      {
+        "path": "4runr-outreach-system\\add_test_lead.py",
+        "size": 8062,
+        "lines": 218
+      },
+      {
+        "path": "4runr-outreach-system\\run_all_tests.py",
+        "size": 15688,
+        "lines": 431
+      },
+      {
+        "path": "4runr-outreach-system\\run_concurrent_access_tests.py",
+        "size": 13023,
+        "lines": 360
+      },
+      {
+        "path": "4runr-outreach-system\\send_test_message.py",
+        "size": 4827,
+        "lines": 118
+      },
+      {
+        "path": "4runr-outreach-system\\simple_test.py",
+        "size": 6643,
+        "lines": 201
+      },
+      {
+        "path": "4runr-outreach-system\\smoke_test.py",
+        "size": 10924,
+        "lines": 331
+      },
+      {
+        "path": "4runr-outreach-system\\sync_test.py",
+        "size": 2515,
+        "lines": 64
+      },
+      {
+        "path": "4runr-outreach-system\\test_agent_database_integration.py",
+        "size": 20497,
+        "lines": 489
+      },
+      {
+        "path": "4runr-outreach-system\\test_airtable_config.py",
+        "size": 4395,
+        "lines": 127
+      },
+      {
+        "path": "4runr-outreach-system\\test_airtable_fetch_methods.py",
+        "size": 4106,
+        "lines": 98
+      },
+      {
+        "path": "4runr-outreach-system\\test_airtable_leads.py",
+        "size": 886,
+        "lines": 31
+      },
+      {
+        "path": "4runr-outreach-system\\test_airtable_sync_manager.py",
+        "size": 19898,
+        "lines": 489
+      },
+      {
+        "path": "4runr-outreach-system\\test_campaign_foundation.py",
+        "size": 5655,
+        "lines": 185
+      },
+      {
+        "path": "4runr-outreach-system\\test_campaign_generation.py",
+        "size": 8427,
+        "lines": 235
+      },
+      {
+        "path": "4runr-outreach-system\\test_cleaning_rules_engine.py",
+        "size": 17010,
+        "lines": 465
+      },
+      {
+        "path": "4runr-outreach-system\\test_cold_recycling.py",
+        "size": 11916,
+        "lines": 288
+      },
+      {
+        "path": "4runr-outreach-system\\test_company_name_cleaning.py",
+        "size": 17071,
+        "lines": 487
+      },
+      {
+        "path": "4runr-outreach-system\\test_complete_system.py",
+        "size": 6714,
+        "lines": 170
+      },
+      {
+        "path": "4runr-outreach-system\\test_complete_system_functionality.py",
+        "size": 10272,
+        "lines": 254
+      },
+      {
+        "path": "4runr-outreach-system\\test_comprehensive_cleaning_rules.py",
+        "size": 31986,
+        "lines": 814
+      },
+      {
+        "path": "4runr-outreach-system\\test_concurrent_access_stress.py",
+        "size": 40441,
+        "lines": 951
+      },
+      {
+        "path": "4runr-outreach-system\\test_concurrent_integration.py",
+        "size": 37216,
+        "lines": 837
+      },
+      {
+        "path": "4runr-outreach-system\\test_configuration_files.py",
+        "size": 18345,
+        "lines": 446
+      },
+      {
+        "path": "4runr-outreach-system\\test_configuration_manager.py",
+        "size": 18315,
+        "lines": 498
+      },
+      {
+        "path": "4runr-outreach-system\\test_database_concurrency.py",
+        "size": 29843,
+        "lines": 703
+      },
+      {
+        "path": "4runr-outreach-system\\test_database_config.py",
+        "size": 19180,
+        "lines": 479
+      },
+      {
+        "path": "4runr-outreach-system\\test_database_logger.py",
+        "size": 20510,
+        "lines": 501
+      },
+      {
+        "path": "4runr-outreach-system\\test_database_manager.py",
+        "size": 5746,
+        "lines": 144
+      },
+      {
+        "path": "4runr-outreach-system\\test_data_cleaner_core.py",
+        "size": 5904,
+        "lines": 170
+      },
+      {
+        "path": "4runr-outreach-system\\test_delivery_pipeline.py",
+        "size": 5453,
+        "lines": 156
+      },
+      {
+        "path": "4runr-outreach-system\\test_delivery_system.py",
+        "size": 12614,
+        "lines": 325
+      },
+      {
+        "path": "4runr-outreach-system\\test_dependencies.py",
+        "size": 2036,
+        "lines": 58
+      },
+      {
+        "path": "4runr-outreach-system\\test_end_to_end_production.py",
+        "size": 46453,
+        "lines": 1051
+      },
+      {
+        "path": "4runr-outreach-system\\test_engagement_tracker.py",
+        "size": 4534,
+        "lines": 107
+      },
+      {
+        "path": "4runr-outreach-system\\test_engager_simple.py",
+        "size": 13915,
+        "lines": 360
+      },
+      {
+        "path": "4runr-outreach-system\\test_engager_system.py",
+        "size": 18095,
+        "lines": 461
+      },
+      {
+        "path": "4runr-outreach-system\\test_enhanced_agent.py",
+        "size": 3995,
+        "lines": 97
+      },
+      {
+        "path": "4runr-outreach-system\\test_enhanced_google_enricher.py",
+        "size": 6774,
+        "lines": 160
+      },
+      {
+        "path": "4runr-outreach-system\\test_enhanced_system.py",
+        "size": 8865,
+        "lines": 212
+      },
+      {
+        "path": "4runr-outreach-system\\test_enhanced_validation.py",
+        "size": 17289,
+        "lines": 469
+      },
+      {
+        "path": "4runr-outreach-system\\test_google_enricher.py",
+        "size": 1760,
+        "lines": 58
+      },
+      {
+        "path": "4runr-outreach-system\\test_google_enricher_datacleaner_integration.py",
+        "size": 3787,
+        "lines": 99
+      },
+      {
+        "path": "4runr-outreach-system\\test_google_enricher_integration.py",
+        "size": 15429,
+        "lines": 381
+      },
+      {
+        "path": "4runr-outreach-system\\test_health_check.py",
+        "size": 7621,
+        "lines": 212
+      },
+      {
+        "path": "4runr-outreach-system\\test_integrated_logging.py",
+        "size": 15625,
+        "lines": 361
+      },
+      {
+        "path": "4runr-outreach-system\\test_integration.py",
+        "size": 15480,
+        "lines": 416
+      },
+      {
+        "path": "4runr-outreach-system\\test_knowledge_base.py",
+        "size": 2519,
+        "lines": 69
+      },
+      {
+        "path": "4runr-outreach-system\\test_knowledge_base_validation.py",
+        "size": 10151,
+        "lines": 257
+      },
+      {
+        "path": "4runr-outreach-system\\test_lead_database.py",
+        "size": 19650,
+        "lines": 509
+      },
+      {
+        "path": "4runr-outreach-system\\test_linkedin_enricher.py",
+        "size": 1521,
+        "lines": 51
+      },
+      {
+        "path": "4runr-outreach-system\\test_message_generator.py",
+        "size": 5547,
+        "lines": 125
+      },
+      {
+        "path": "4runr-outreach-system\\test_method_calls.py",
+        "size": 5211,
+        "lines": 144
+      },
+      {
+        "path": "4runr-outreach-system\\test_method_signatures.py",
+        "size": 6925,
+        "lines": 171
+      },
+      {
+        "path": "4runr-outreach-system\\test_metrics_reporting.py",
+        "size": 31909,
+        "lines": 673
+      },
+      {
+        "path": "4runr-outreach-system\\test_migration_manager.py",
+        "size": 19294,
+        "lines": 448
+      },
+      {
+        "path": "4runr-outreach-system\\test_production_deployment_validation.py",
+        "size": 28707,
+        "lines": 627
+      },
+      {
+        "path": "4runr-outreach-system\\test_production_efficient.py",
+        "size": 35353,
+        "lines": 810
+      },
+      {
+        "path": "4runr-outreach-system\\test_quality_control.py",
+        "size": 12300,
+        "lines": 328
+      },
+      {
+        "path": "4runr-outreach-system\\test_quick_validation_fix.py",
+        "size": 2308,
+        "lines": 73
+      },
+      {
+        "path": "4runr-outreach-system\\test_real_scraping.py",
+        "size": 1600,
+        "lines": 49
+      },
+      {
+        "path": "4runr-outreach-system\\test_resilient_engagement.py",
+        "size": 11840,
+        "lines": 288
+      },
+      {
+        "path": "4runr-outreach-system\\test_simple_campaign_generation.py",
+        "size": 7966,
+        "lines": 224
+      },
+      {
+        "path": "4runr-outreach-system\\test_simple_enricher.py",
+        "size": 6571,
+        "lines": 166
+      },
+      {
+        "path": "4runr-outreach-system\\test_simple_enricher_integration.py",
+        "size": 21177,
+        "lines": 537
+      },
+      {
+        "path": "4runr-outreach-system\\test_standalone_quality.py",
+        "size": 16857,
+        "lines": 460
+      },
+      {
+        "path": "4runr-outreach-system\\test_thread_safety.py",
+        "size": 42111,
+        "lines": 998
+      },
+      {
+        "path": "4runr-outreach-system\\test_unit.py",
+        "size": 12290,
+        "lines": 352
+      },
+      {
+        "path": "4runr-outreach-system\\test_validation_engine.py",
+        "size": 21231,
+        "lines": 601
+      },
+      {
+        "path": "4runr-outreach-system\\test_website_scraper.py",
+        "size": 3182,
+        "lines": 85
+      },
+      {
+        "path": "4runr-outreach-system\\test_website_url_cleaning.py",
+        "size": 19371,
+        "lines": 550
+      },
+      {
+        "path": "deployment_package\\4runr-brain\\test_basic.py",
+        "size": 2994,
+        "lines": 83
+      },
+      {
+        "path": "deployment_package\\4runr-brain\\test_db_integration.py",
+        "size": 852,
+        "lines": 32
+      },
+      {
+        "path": "deployment_package\\4runr-brain\\test_fallback_mode.py",
+        "size": 6046,
+        "lines": 153
+      },
+      {
+        "path": "deployment_package\\4runr-brain\\test_generator_fix.py",
+        "size": 1208,
+        "lines": 42
+      },
+      {
+        "path": "deployment_package\\4runr-brain\\test_integration.py",
+        "size": 9973,
+        "lines": 300
+      },
+      {
+        "path": "deployment_package\\4runr-brain\\test_nodes_only.py",
+        "size": 9149,
+        "lines": 272
+      },
+      {
+        "path": "deployment_package\\4runr-brain\\test_standalone.py",
+        "size": 12490,
+        "lines": 318
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\run_tests.py",
+        "size": 4330,
+        "lines": 139
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\simple_test.py",
+        "size": 5132,
+        "lines": 183
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_airtable_website_integration.py",
+        "size": 15046,
+        "lines": 365
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_business_trait_extractor.py",
+        "size": 22786,
+        "lines": 473
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_cli.py",
+        "size": 4171,
+        "lines": 142
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_complete_system.py",
+        "size": 9672,
+        "lines": 281
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_content_analysis.py",
+        "size": 16669,
+        "lines": 409
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_fallback_integration.py",
+        "size": 20000,
+        "lines": 496
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_fallback_messaging.py",
+        "size": 21941,
+        "lines": 566
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_google_enricher.py",
+        "size": 2818,
+        "lines": 84
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_google_integration.py",
+        "size": 15515,
+        "lines": 410
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_google_integration_simple.py",
+        "size": 8914,
+        "lines": 251
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_google_scraper.py",
+        "size": 11471,
+        "lines": 327
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_pipeline_integration.py",
+        "size": 11393,
+        "lines": 290
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_scraper_functionality.py",
+        "size": 7966,
+        "lines": 216
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_sync_flow.py",
+        "size": 4274,
+        "lines": 111
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_system.py",
+        "size": 5354,
+        "lines": 165
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_website_content_scraper.py",
+        "size": 10889,
+        "lines": 288
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_website_extraction.py",
+        "size": 7325,
+        "lines": 193
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_website_extraction_unit.py",
+        "size": 6149,
+        "lines": 168
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\test_web_content_scraper.py",
+        "size": 15917,
+        "lines": 421
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\add_test_lead.py",
+        "size": 8062,
+        "lines": 218
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\run_all_tests.py",
+        "size": 15688,
+        "lines": 431
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\run_concurrent_access_tests.py",
+        "size": 13023,
+        "lines": 360
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\send_test_message.py",
+        "size": 4827,
+        "lines": 118
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\simple_test.py",
+        "size": 6643,
+        "lines": 201
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\smoke_test.py",
+        "size": 10924,
+        "lines": 331
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_agent_database_integration.py",
+        "size": 20497,
+        "lines": 489
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_airtable_config.py",
+        "size": 4395,
+        "lines": 127
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_airtable_fetch_methods.py",
+        "size": 4106,
+        "lines": 98
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_airtable_leads.py",
+        "size": 886,
+        "lines": 31
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_airtable_sync_manager.py",
+        "size": 19898,
+        "lines": 489
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_campaign_foundation.py",
+        "size": 5655,
+        "lines": 185
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_campaign_generation.py",
+        "size": 8427,
+        "lines": 235
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_cleaning_rules_engine.py",
+        "size": 17010,
+        "lines": 465
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_cold_recycling.py",
+        "size": 11916,
+        "lines": 288
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_company_name_cleaning.py",
+        "size": 17071,
+        "lines": 487
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_complete_system.py",
+        "size": 6714,
+        "lines": 170
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_complete_system_functionality.py",
+        "size": 10272,
+        "lines": 254
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_comprehensive_cleaning_rules.py",
+        "size": 31986,
+        "lines": 814
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_concurrent_access_stress.py",
+        "size": 40441,
+        "lines": 951
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_concurrent_integration.py",
+        "size": 37216,
+        "lines": 837
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_configuration_files.py",
+        "size": 18345,
+        "lines": 446
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_configuration_manager.py",
+        "size": 18315,
+        "lines": 498
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_database_concurrency.py",
+        "size": 29843,
+        "lines": 703
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_database_config.py",
+        "size": 19180,
+        "lines": 479
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_database_logger.py",
+        "size": 20510,
+        "lines": 501
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_database_manager.py",
+        "size": 5746,
+        "lines": 144
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_data_cleaner_core.py",
+        "size": 5904,
+        "lines": 170
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_delivery_pipeline.py",
+        "size": 5453,
+        "lines": 156
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_delivery_system.py",
+        "size": 12614,
+        "lines": 325
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_dependencies.py",
+        "size": 2036,
+        "lines": 58
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_end_to_end_production.py",
+        "size": 46453,
+        "lines": 1051
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_engagement_tracker.py",
+        "size": 4534,
+        "lines": 107
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_engager_simple.py",
+        "size": 13915,
+        "lines": 360
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_engager_system.py",
+        "size": 18095,
+        "lines": 461
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_enhanced_agent.py",
+        "size": 3995,
+        "lines": 97
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_enhanced_google_enricher.py",
+        "size": 6774,
+        "lines": 160
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_enhanced_system.py",
+        "size": 8865,
+        "lines": 212
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_enhanced_validation.py",
+        "size": 17289,
+        "lines": 469
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_google_enricher.py",
+        "size": 1760,
+        "lines": 58
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_google_enricher_datacleaner_integration.py",
+        "size": 3787,
+        "lines": 99
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_google_enricher_integration.py",
+        "size": 15429,
+        "lines": 381
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_health_check.py",
+        "size": 7621,
+        "lines": 212
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_integrated_logging.py",
+        "size": 15625,
+        "lines": 361
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_integration.py",
+        "size": 15480,
+        "lines": 416
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_knowledge_base.py",
+        "size": 2519,
+        "lines": 69
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_knowledge_base_validation.py",
+        "size": 10151,
+        "lines": 257
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_lead_database.py",
+        "size": 19650,
+        "lines": 509
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_linkedin_enricher.py",
+        "size": 1521,
+        "lines": 51
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_message_generator.py",
+        "size": 5547,
+        "lines": 125
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_method_calls.py",
+        "size": 5211,
+        "lines": 144
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_method_signatures.py",
+        "size": 6925,
+        "lines": 171
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_metrics_reporting.py",
+        "size": 31909,
+        "lines": 673
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_migration_manager.py",
+        "size": 19294,
+        "lines": 448
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_production_deployment_validation.py",
+        "size": 28707,
+        "lines": 627
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_production_efficient.py",
+        "size": 35353,
+        "lines": 810
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_quality_control.py",
+        "size": 12300,
+        "lines": 328
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_quick_validation_fix.py",
+        "size": 2308,
+        "lines": 73
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_real_scraping.py",
+        "size": 1600,
+        "lines": 49
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_resilient_engagement.py",
+        "size": 11840,
+        "lines": 288
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_simple_campaign_generation.py",
+        "size": 7966,
+        "lines": 224
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_simple_enricher.py",
+        "size": 6571,
+        "lines": 166
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_simple_enricher_integration.py",
+        "size": 21177,
+        "lines": 537
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_standalone_quality.py",
+        "size": 16857,
+        "lines": 460
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_thread_safety.py",
+        "size": 42111,
+        "lines": 998
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_unit.py",
+        "size": 12290,
+        "lines": 352
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_validation_engine.py",
+        "size": 21231,
+        "lines": 601
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_website_scraper.py",
+        "size": 3182,
+        "lines": 85
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\test_website_url_cleaning.py",
+        "size": 19371,
+        "lines": 550
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\tests\\test_cli_apply_defaults.py",
+        "size": 12128,
+        "lines": 294
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\tests\\test_engagement_defaults.py",
+        "size": 27231,
+        "lines": 603
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\tests\\test_integration_sync_defaults.py",
+        "size": 22459,
+        "lines": 533
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\check_latest_leads.py",
+        "size": 836,
+        "lines": 21
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\clear_test_logs.py",
+        "size": 4015,
+        "lines": 102
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\comprehensive_system_test.py",
+        "size": 23891,
+        "lines": 573
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\comprehensive_test_suite.py",
+        "size": 34474,
+        "lines": 825
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\create_test_leads.py",
+        "size": 2499,
+        "lines": 76
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\find_test_messages.py",
+        "size": 5549,
+        "lines": 115
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\run_pipeline_test.py",
+        "size": 11978,
+        "lines": 314
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\run_step_by_step_test.py",
+        "size": 6735,
+        "lines": 194
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_airtable.py",
+        "size": 4114,
+        "lines": 126
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_airtable_sync.py",
+        "size": 3246,
+        "lines": 94
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_ai_message_logging.py",
+        "size": 8016,
+        "lines": 194
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_business_fields.py",
+        "size": 3424,
+        "lines": 101
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_complete_outreach_pipeline.py",
+        "size": 14858,
+        "lines": 360
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_comprehensive_production_logging.py",
+        "size": 7421,
+        "lines": 190
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_enhanced_system.py",
+        "size": 12169,
+        "lines": 287
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_linkedin_login.py",
+        "size": 2505,
+        "lines": 85
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_pipeline_upgraded.py",
+        "size": 10080,
+        "lines": 237
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_real_production_logging.py",
+        "size": 5368,
+        "lines": 136
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_real_scraping.py",
+        "size": 5787,
+        "lines": 161
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_scraper.py",
+        "size": 1372,
+        "lines": 40
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_scraper_simple.py",
+        "size": 1772,
+        "lines": 59
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_serpapi.py",
+        "size": 2403,
+        "lines": 76
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_simple_airtable.py",
+        "size": 3043,
+        "lines": 89
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_stealth_scraper.py",
+        "size": 6638,
+        "lines": 184
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\test_validation_pipeline.py",
+        "size": 7281,
+        "lines": 196
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\database\\test_connection.py",
+        "size": 5172,
+        "lines": 158
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\database\\test_duplicate_detector.py",
+        "size": 16831,
+        "lines": 454
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\database\\test_lead_database.py",
+        "size": 18698,
+        "lines": 539
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\database\\test_search_engine.py",
+        "size": 20012,
+        "lines": 512
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\scripts\\test_env.py",
+        "size": 3685,
+        "lines": 120
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\scripts\\test_full_system.py",
+        "size": 8813,
+        "lines": 256
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\shared\\create_test_record.py",
+        "size": 2177,
+        "lines": 72
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\shared\\test_airtable.py",
+        "size": 1821,
+        "lines": 64
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\shared\\test_new_fields.py",
+        "size": 2113,
+        "lines": 72
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\shared\\test_table1.py",
+        "size": 3383,
+        "lines": 102
+      },
+      {
+        "path": "4runr-lead-scraper\\tests\\test_cli_apply_defaults.py",
+        "size": 12128,
+        "lines": 294
+      },
+      {
+        "path": "4runr-lead-scraper\\tests\\test_engagement_defaults.py",
+        "size": 27231,
+        "lines": 603
+      },
+      {
+        "path": "4runr-lead-scraper\\tests\\test_integration_sync_defaults.py",
+        "size": 22459,
+        "lines": 533
+      }
+    ],
+    "configuration_files": [
+      {
+        "path": "deployment_package\\4runr-outreach-system\\campaign_system\\config.py",
+        "size": 6063,
+        "lines": 157
+      },
+      {
+        "path": "deployment_package\\4runr-outreach-system\\shared\\config.py",
+        "size": 3874,
+        "lines": 112
+      },
+      {
+        "path": "deployment_package\\4runr-lead-scraper\\config\\settings.py",
+        "size": 19391,
+        "lines": 501
+      },
+      {
+        "path": "archived_systems\\4runr-agents\\ai_improvement_system\\config.py",
+        "size": 7958,
+        "lines": 193
+      },
+      {
+        "path": "4runr-outreach-system\\campaign_system\\config.py",
+        "size": 6063,
+        "lines": 157
+      },
+      {
+        "path": "4runr-outreach-system\\shared\\config.py",
+        "size": 3874,
+        "lines": 112
+      },
+      {
+        "path": "4runr-lead-scraper\\config\\settings.py",
+        "size": 19391,
+        "lines": 501
+      }
+    ],
+    "documentation_files": []
+  },
+  "file_categories": {
+    "core/database": [
+      "database_consolidation.py",
+      "4runr-brain\\test_db_integration.py",
+      "4runr-outreach-system\\database_backup.py",
+      "4runr-outreach-system\\database_concurrency.py",
+      "4runr-outreach-system\\database_config.py",
+      "4runr-outreach-system\\database_connection_pool.py",
+      "4runr-outreach-system\\database_health.py",
+      "4runr-outreach-system\\database_logger.py",
+      "4runr-outreach-system\\database_maintenance_cli.py",
+      "4runr-outreach-system\\demo_database_config.py",
+      "4runr-outreach-system\\demo_database_logging.py",
+      "4runr-outreach-system\\demo_migration.py",
+      "4runr-outreach-system\\lead_database.py",
+      "4runr-outreach-system\\migrate_database.py",
+      "4runr-outreach-system\\migration_manager.py",
+      "4runr-outreach-system\\scraper_agent_database.py",
+      "4runr-outreach-system\\test_agent_database_integration.py",
+      "4runr-outreach-system\\test_database_concurrency.py",
+      "4runr-outreach-system\\test_database_config.py",
+      "4runr-outreach-system\\test_database_logger.py",
+      "4runr-outreach-system\\test_database_manager.py",
+      "4runr-outreach-system\\test_lead_database.py",
+      "4runr-outreach-system\\test_migration_manager.py",
+      "deployment_package\\4runr-brain\\test_db_integration.py",
+      "deployment_package\\4runr-outreach-system\\database_backup.py",
+      "deployment_package\\4runr-outreach-system\\database_concurrency.py",
+      "deployment_package\\4runr-outreach-system\\database_config.py",
+      "deployment_package\\4runr-outreach-system\\database_connection_pool.py",
+      "deployment_package\\4runr-outreach-system\\database_health.py",
+      "deployment_package\\4runr-outreach-system\\database_logger.py",
+      "deployment_package\\4runr-outreach-system\\demo_database_config.py",
+      "deployment_package\\4runr-outreach-system\\demo_database_logging.py",
+      "deployment_package\\4runr-outreach-system\\demo_migration.py",
+      "deployment_package\\4runr-outreach-system\\lead_database.py",
+      "deployment_package\\4runr-outreach-system\\migrate_database.py",
+      "deployment_package\\4runr-outreach-system\\migration_manager.py",
+      "deployment_package\\4runr-outreach-system\\scraper_agent_database.py",
+      "deployment_package\\4runr-outreach-system\\test_agent_database_integration.py",
+      "deployment_package\\4runr-outreach-system\\test_database_concurrency.py",
+      "deployment_package\\4runr-outreach-system\\test_database_config.py",
+      "deployment_package\\4runr-outreach-system\\test_database_logger.py",
+      "deployment_package\\4runr-outreach-system\\test_database_manager.py",
+      "deployment_package\\4runr-outreach-system\\test_lead_database.py",
+      "deployment_package\\4runr-outreach-system\\test_migration_manager.py",
+      "deployment_package\\4runr-outreach-system\\engager\\local_database_manager.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\database\\connection.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\database\\schema.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\database\\__init__.py",
+      "deployment_package\\4runr-lead-scraper\\database\\connection.py",
+      "deployment_package\\4runr-lead-scraper\\database\\migrate_schema.py",
+      "deployment_package\\4runr-lead-scraper\\database\\migrations.py",
+      "deployment_package\\4runr-lead-scraper\\database\\models.py",
+      "deployment_package\\4runr-lead-scraper\\database\\sync_triggers.py",
+      "deployment_package\\4runr-lead-scraper\\database\\__init__.py",
+      "archived_systems\\4runr-agents\\check_database_schema.py",
+      "archived_systems\\4runr-agents\\create_verified_linkedin_database.py",
+      "archived_systems\\4runr-agents\\database_sync_agent.py",
+      "archived_systems\\4runr-agents\\migrate_to_database.py",
+      "archived_systems\\4runr-agents\\populate_database_from_airtable.py",
+      "archived_systems\\4runr-agents\\quick_db_view.py",
+      "archived_systems\\4runr-agents\\update_agents_for_database.py",
+      "archived_systems\\4runr-agents\\view_database.py",
+      "archived_systems\\4runr-agents\\database\\connection.py",
+      "archived_systems\\4runr-agents\\database\\demo_duplicate_detection.py",
+      "archived_systems\\4runr-agents\\database\\demo_lead_database.py",
+      "archived_systems\\4runr-agents\\database\\demo_search_functionality.py",
+      "archived_systems\\4runr-agents\\database\\duplicate_detector.py",
+      "archived_systems\\4runr-agents\\database\\init_database.py",
+      "archived_systems\\4runr-agents\\database\\lead_database.py",
+      "archived_systems\\4runr-agents\\database\\migration_manager.py",
+      "archived_systems\\4runr-agents\\database\\search_engine.py",
+      "archived_systems\\4runr-agents\\database\\test_connection.py",
+      "archived_systems\\4runr-agents\\database\\test_duplicate_detector.py",
+      "archived_systems\\4runr-agents\\database\\test_lead_database.py",
+      "archived_systems\\4runr-agents\\database\\test_search_engine.py",
+      "archived_systems\\4runr-agents\\database\\__init__.py",
+      "4runr-outreach-system\\engager\\local_database_manager.py",
+      "4runr-outreach-system\\shared\\database_maintenance.py",
+      "4runr-outreach-system\\campaign_system\\database\\connection.py",
+      "4runr-outreach-system\\campaign_system\\database\\schema.py",
+      "4runr-outreach-system\\campaign_system\\database\\__init__.py",
+      "4runr-lead-scraper\\database\\connection.py",
+      "4runr-lead-scraper\\database\\migrate_schema.py",
+      "4runr-lead-scraper\\database\\migrations.py",
+      "4runr-lead-scraper\\database\\models.py",
+      "4runr-lead-scraper\\database\\sync_triggers.py",
+      "4runr-lead-scraper\\database\\__init__.py"
+    ],
+    "core/config": [
+      "4runr-outreach-system\\test_airtable_config.py",
+      "4runr-outreach-system\\test_configuration_files.py",
+      "4runr-outreach-system\\test_configuration_manager.py",
+      "deployment_package\\4runr-outreach-system\\test_airtable_config.py",
+      "deployment_package\\4runr-outreach-system\\test_configuration_files.py",
+      "deployment_package\\4runr-outreach-system\\test_configuration_manager.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\config.py",
+      "deployment_package\\4runr-outreach-system\\shared\\config.py",
+      "deployment_package\\4runr-outreach-system\\shared\\configurable_airtable_client.py",
+      "deployment_package\\4runr-lead-scraper\\config\\settings.py",
+      "deployment_package\\4runr-lead-scraper\\config\\__init__.py",
+      "archived_systems\\4runr-agents\\enrichment_config.py",
+      "archived_systems\\4runr-agents\\ai_improvement_system\\config.py",
+      "archived_systems\\4runr-agents\\shared\\debug_container_config.py",
+      "4runr-outreach-system\\campaign_system\\config.py",
+      "4runr-outreach-system\\shared\\config.py",
+      "4runr-outreach-system\\shared\\configurable_airtable_client.py",
+      "4runr-lead-scraper\\config\\settings.py",
+      "4runr-lead-scraper\\config\\__init__.py"
+    ],
+    "core/utils": [
+      "check_table_schema.py",
+      "code_organization.py",
+      "organize_system.py",
+      "simple_maintenance.py",
+      "system_controller.py",
+      "verify_exact_fields.py",
+      "deployment_package\\4runr-outreach-system\\shared\\airtable_client.py",
+      "deployment_package\\4runr-outreach-system\\shared\\data_cleaner.py",
+      "deployment_package\\4runr-outreach-system\\shared\\error_handling.py",
+      "deployment_package\\4runr-outreach-system\\shared\\field_mapping.py",
+      "deployment_package\\4runr-outreach-system\\shared\\logging_utils.py",
+      "deployment_package\\4runr-outreach-system\\shared\\validation.py",
+      "deployment_package\\4runr-outreach-system\\shared\\__init__.py",
+      "deployment_package\\4runr-lead-scraper\\utils\\google_scraper.py",
+      "deployment_package\\4runr-lead-scraper\\utils\\google_scraper_integration.py",
+      "deployment_package\\4runr-lead-scraper\\utils\\logging.py",
+      "deployment_package\\4runr-lead-scraper\\utils\\pipeline_integration.py",
+      "deployment_package\\4runr-lead-scraper\\utils\\validators.py",
+      "deployment_package\\4runr-lead-scraper\\utils\\website_analysis_pipeline.py",
+      "deployment_package\\4runr-lead-scraper\\utils\\website_content_analyzer.py",
+      "deployment_package\\4runr-lead-scraper\\utils\\website_content_scraper.py",
+      "deployment_package\\4runr-lead-scraper\\utils\\web_content_scraper.py",
+      "deployment_package\\4runr-lead-scraper\\utils\\__init__.py",
+      "archived_systems\\4runr-agents\\add_verified_leads_only.py",
+      "archived_systems\\4runr-agents\\analyze_leads.py",
+      "archived_systems\\4runr-agents\\auto_lead_processor.py",
+      "archived_systems\\4runr-agents\\check_leads.py",
+      "archived_systems\\4runr-agents\\check_ready_leads.py",
+      "archived_systems\\4runr-agents\\check_recent_leads.py",
+      "archived_systems\\4runr-agents\\check_source_options.py",
+      "archived_systems\\4runr-agents\\clean_fake_data.py",
+      "archived_systems\\4runr-agents\\clear_processed_and_add_leads.py",
+      "archived_systems\\4runr-agents\\debug_search.py",
+      "archived_systems\\4runr-agents\\deduplicate_leads.py",
+      "archived_systems\\4runr-agents\\demo_full_pipeline.py",
+      "archived_systems\\4runr-agents\\demo_production_pipeline.py",
+      "archived_systems\\4runr-agents\\explain_linkedin_urls.py",
+      "archived_systems\\4runr-agents\\find_better_targets.py",
+      "archived_systems\\4runr-agents\\fix_encoding.py",
+      "archived_systems\\4runr-agents\\integrate_linkedin_lookup.py",
+      "archived_systems\\4runr-agents\\linkedin_lookup_agent.py",
+      "archived_systems\\4runr-agents\\manual_linkedin_login.py",
+      "archived_systems\\4runr-agents\\monitor_logs.py",
+      "archived_systems\\4runr-agents\\monitor_system.py",
+      "archived_systems\\4runr-agents\\pipeline_cli.py",
+      "archived_systems\\4runr-agents\\production_logging_summary.py",
+      "archived_systems\\4runr-agents\\promising_small_leads.py",
+      "archived_systems\\4runr-agents\\research_real_ceos.py",
+      "archived_systems\\4runr-agents\\run_agent.py",
+      "archived_systems\\4runr-agents\\run_clean_pipeline.py",
+      "archived_systems\\4runr-agents\\run_pipeline.py",
+      "archived_systems\\4runr-agents\\run_production_pipeline.py",
+      "archived_systems\\4runr-agents\\schedule_weekly_analysis.py",
+      "archived_systems\\4runr-agents\\search_good_targets_only.py",
+      "archived_systems\\4runr-agents\\search_small_montreal_companies.py",
+      "archived_systems\\4runr-agents\\show_efficiency_results.py",
+      "archived_systems\\4runr-agents\\show_linkedin_fix_results.py",
+      "archived_systems\\4runr-agents\\show_results.py",
+      "archived_systems\\4runr-agents\\show_todays_enriched_leads.py",
+      "archived_systems\\4runr-agents\\sync_fresh_leads_only.py",
+      "archived_systems\\4runr-agents\\sync_leads.py",
+      "archived_systems\\4runr-agents\\sync_new_leads.py",
+      "archived_systems\\4runr-agents\\validate_environment.py",
+      "archived_systems\\4runr-agents\\validate_linkedin_matches.py",
+      "archived_systems\\4runr-agents\\validate_linkedin_urls.py",
+      "archived_systems\\4runr-agents\\verify_clean_system.py",
+      "archived_systems\\4runr-agents\\verify_linkedin_urls.py",
+      "archived_systems\\4runr-agents\\view_all_decision_logs.py",
+      "archived_systems\\4runr-agents\\view_production_logs.py",
+      "archived_systems\\4runr-agents\\cache\\lead_cache.py",
+      "archived_systems\\4runr-agents\\cache\\models.py",
+      "archived_systems\\4runr-agents\\cache\\sync_manager.py",
+      "archived_systems\\4runr-agents\\cache\\__init__.py",
+      "archived_systems\\4runr-agents\\scripts\\monitor.py",
+      "archived_systems\\4runr-agents\\scripts\\monitor_logs.py",
+      "archived_systems\\4runr-agents\\scripts\\retry_failed_syncs.py",
+      "archived_systems\\4runr-agents\\scripts\\run_pipeline.py",
+      "archived_systems\\4runr-agents\\scripts\\sanity_check.py",
+      "archived_systems\\4runr-agents\\shared\\airtable_client.py",
+      "archived_systems\\4runr-agents\\shared\\airtable_client_fixed.py",
+      "archived_systems\\4runr-agents\\shared\\ai_message_generator.py",
+      "archived_systems\\4runr-agents\\shared\\check_table_fields.py",
+      "archived_systems\\4runr-agents\\shared\\create_test_record.py",
+      "archived_systems\\4runr-agents\\shared\\debug_airtable.py",
+      "archived_systems\\4runr-agents\\shared\\encoding_fixer.py",
+      "archived_systems\\4runr-agents\\shared\\enhanced_airtable_client.py",
+      "archived_systems\\4runr-agents\\shared\\find_all_fields.py",
+      "archived_systems\\4runr-agents\\shared\\linkedin_url_validator.py",
+      "archived_systems\\4runr-agents\\shared\\production_logger.py",
+      "archived_systems\\4runr-agents\\shared\\send_real_lead.py",
+      "archived_systems\\4runr-agents\\shared\\test_airtable.py",
+      "archived_systems\\4runr-agents\\shared\\test_new_fields.py",
+      "archived_systems\\4runr-agents\\shared\\test_table1.py",
+      "archived_systems\\4runr-agents\\shared\\website_scraper.py",
+      "archived_systems\\4runr-agents\\shared\\__init__.py",
+      "archived_systems\\4runr-agents\\verifier\\app.py",
+      "4runr-outreach-system\\shared\\airtable_client.py",
+      "4runr-outreach-system\\shared\\backup_manager.py",
+      "4runr-outreach-system\\shared\\data_cleaner.py",
+      "4runr-outreach-system\\shared\\data_synchronizer.py",
+      "4runr-outreach-system\\shared\\duplicate_detector.py",
+      "4runr-outreach-system\\shared\\error_handling.py",
+      "4runr-outreach-system\\shared\\field_mapping.py",
+      "4runr-outreach-system\\shared\\field_standardizer.py",
+      "4runr-outreach-system\\shared\\logging_utils.py",
+      "4runr-outreach-system\\shared\\validation.py",
+      "4runr-outreach-system\\shared\\__init__.py",
+      "4runr-lead-scraper\\utils\\google_scraper.py",
+      "4runr-lead-scraper\\utils\\google_scraper_integration.py",
+      "4runr-lead-scraper\\utils\\logging.py",
+      "4runr-lead-scraper\\utils\\pipeline_integration.py",
+      "4runr-lead-scraper\\utils\\validators.py",
+      "4runr-lead-scraper\\utils\\website_analysis_pipeline.py",
+      "4runr-lead-scraper\\utils\\website_content_analyzer.py",
+      "4runr-lead-scraper\\utils\\website_content_scraper.py",
+      "4runr-lead-scraper\\utils\\web_content_scraper.py",
+      "4runr-lead-scraper\\utils\\__init__.py"
+    ],
+    "core/api": [
+      "debug_airtable_request.py",
+      "ec2_airtable_debug.py",
+      "test_serpapi_website.py",
+      "4runr-lead-scraper\\test_airtable_website_integration.py",
+      "4runr-outreach-system\\airtable_field_mapping.py",
+      "4runr-outreach-system\\airtable_sync_manager.py",
+      "4runr-outreach-system\\api.py",
+      "4runr-outreach-system\\check_airtable_fields.py",
+      "4runr-outreach-system\\check_airtable_field_names.py",
+      "4runr-outreach-system\\demo_airtable_sync.py",
+      "4runr-outreach-system\\setup_airtable_fields.py",
+      "4runr-outreach-system\\start_api.py",
+      "4runr-outreach-system\\sync_to_airtable_updated.py",
+      "4runr-outreach-system\\test_airtable_fetch_methods.py",
+      "4runr-outreach-system\\test_airtable_leads.py",
+      "4runr-outreach-system\\test_airtable_sync_manager.py",
+      "4runr-outreach-system\\test_real_scraping.py",
+      "deployment_package\\4runr-lead-scraper\\test_airtable_website_integration.py",
+      "deployment_package\\4runr-outreach-system\\airtable_field_mapping.py",
+      "deployment_package\\4runr-outreach-system\\airtable_sync_manager.py",
+      "deployment_package\\4runr-outreach-system\\api.py",
+      "deployment_package\\4runr-outreach-system\\check_airtable_fields.py",
+      "deployment_package\\4runr-outreach-system\\check_airtable_field_names.py",
+      "deployment_package\\4runr-outreach-system\\demo_airtable_sync.py",
+      "deployment_package\\4runr-outreach-system\\setup_airtable_fields.py",
+      "deployment_package\\4runr-outreach-system\\start_api.py",
+      "deployment_package\\4runr-outreach-system\\sync_to_airtable_updated.py",
+      "deployment_package\\4runr-outreach-system\\test_airtable_fetch_methods.py",
+      "deployment_package\\4runr-outreach-system\\test_airtable_leads.py",
+      "deployment_package\\4runr-outreach-system\\test_airtable_sync_manager.py",
+      "deployment_package\\4runr-outreach-system\\test_real_scraping.py",
+      "deployment_package\\4runr-outreach-system\\outreach\\api.py",
+      "deployment_package\\4runr-outreach-system\\serpapi_enricher\\app.py",
+      "deployment_package\\4runr-outreach-system\\website_scraper\\scraping_engine.py",
+      "deployment_package\\4runr-lead-scraper\\scraper\\serpapi_scraper.py",
+      "deployment_package\\4runr-lead-scraper\\sync\\airtable_sync.py",
+      "archived_systems\\4runr-agents\\bypass_to_airtable.py",
+      "archived_systems\\4runr-agents\\check_airtable_fields.py",
+      "archived_systems\\4runr-agents\\check_airtable_schema.py",
+      "archived_systems\\4runr-agents\\check_airtable_tables.py",
+      "archived_systems\\4runr-agents\\cleanup_airtable.py",
+      "archived_systems\\4runr-agents\\cleanup_and_refresh_airtable.py",
+      "archived_systems\\4runr-agents\\show_airtable_success.py",
+      "archived_systems\\4runr-agents\\show_airtable_summary.py",
+      "archived_systems\\4runr-agents\\sync_to_airtable.py",
+      "archived_systems\\4runr-agents\\test_airtable.py",
+      "archived_systems\\4runr-agents\\test_airtable_sync.py",
+      "archived_systems\\4runr-agents\\test_real_scraping.py",
+      "archived_systems\\4runr-agents\\test_serpapi.py",
+      "archived_systems\\4runr-agents\\test_simple_airtable.py",
+      "archived_systems\\4runr-agents\\update_airtable_with_emails.py",
+      "archived_systems\\4runr-agents\\update_airtable_with_enriched_data.py",
+      "archived_systems\\4runr-agents\\update_existing_airtable_records.py",
+      "archived_systems\\4runr-agents\\scraper\\serpapi_linkedin_scraper.py",
+      "4runr-outreach-system\\outreach\\api.py",
+      "4runr-outreach-system\\serpapi_enricher\\app.py",
+      "4runr-outreach-system\\website_scraper\\scraping_engine.py",
+      "4runr-lead-scraper\\scraper\\serpapi_scraper.py",
+      "4runr-lead-scraper\\sync\\airtable_sync.py"
+    ],
+    "modules/brain": [
+      "add_ai_columns.py",
+      "test_ai_message_generation.py",
+      "4runr-brain\\campaign_brain.py",
+      "4runr-brain\\campaign_state.py",
+      "4runr-brain\\daily_ai_message_verification.py",
+      "4runr-brain\\daily_batch_processor.py",
+      "4runr-brain\\debug_search_result.py",
+      "4runr-brain\\deploy.py",
+      "4runr-brain\\process_empty_ai_message_leads.py",
+      "4runr-brain\\qa_validator.py",
+      "4runr-brain\\run_campaign_brain.py",
+      "4runr-brain\\send_from_queue.py",
+      "4runr-brain\\serve_campaign_brain.py",
+      "4runr-brain\\simple_email_sender.py",
+      "4runr-brain\\test_basic.py",
+      "4runr-brain\\test_fallback_mode.py",
+      "4runr-brain\\test_generator_fix.py",
+      "4runr-brain\\test_integration.py",
+      "4runr-brain\\test_nodes_only.py",
+      "4runr-brain\\test_standalone.py",
+      "deployment_package\\4runr-brain\\campaign_brain.py",
+      "deployment_package\\4runr-brain\\campaign_state.py",
+      "deployment_package\\4runr-brain\\daily_ai_message_verification.py",
+      "deployment_package\\4runr-brain\\daily_batch_processor.py",
+      "deployment_package\\4runr-brain\\debug_search_result.py",
+      "deployment_package\\4runr-brain\\deploy.py",
+      "deployment_package\\4runr-brain\\process_empty_ai_message_leads.py",
+      "deployment_package\\4runr-brain\\qa_validator.py",
+      "deployment_package\\4runr-brain\\run_campaign_brain.py",
+      "deployment_package\\4runr-brain\\send_from_queue.py",
+      "deployment_package\\4runr-brain\\serve_campaign_brain.py",
+      "deployment_package\\4runr-brain\\simple_email_sender.py",
+      "deployment_package\\4runr-brain\\test_basic.py",
+      "deployment_package\\4runr-brain\\test_fallback_mode.py",
+      "deployment_package\\4runr-brain\\test_generator_fix.py",
+      "deployment_package\\4runr-brain\\test_integration.py",
+      "deployment_package\\4runr-brain\\test_nodes_only.py",
+      "deployment_package\\4runr-brain\\test_standalone.py",
+      "deployment_package\\4runr-outreach-system\\message_generator\\ai_generator.py",
+      "deployment_package\\4runr-brain\\nodes\\base_node.py",
+      "deployment_package\\4runr-brain\\nodes\\campaign_planner.py",
+      "deployment_package\\4runr-brain\\nodes\\injector.py",
+      "deployment_package\\4runr-brain\\nodes\\memory_manager.py",
+      "deployment_package\\4runr-brain\\nodes\\message_generator.py",
+      "deployment_package\\4runr-brain\\nodes\\message_reviewer.py",
+      "deployment_package\\4runr-brain\\nodes\\quality_gatekeeper.py",
+      "deployment_package\\4runr-brain\\nodes\\trait_detector.py",
+      "deployment_package\\4runr-brain\\nodes\\__init__.py",
+      "archived_systems\\4runr-agents\\test_ai_message_logging.py",
+      "archived_systems\\4runr-agents\\weekly_ai_analysis.py",
+      "archived_systems\\4runr-agents\\ai_improvement_system\\analysis_engine.py",
+      "archived_systems\\4runr-agents\\ai_improvement_system\\logger.py",
+      "archived_systems\\4runr-agents\\ai_improvement_system\\main.py",
+      "archived_systems\\4runr-agents\\ai_improvement_system\\recommendation_engine.py",
+      "archived_systems\\4runr-agents\\ai_improvement_system\\report_manager.py",
+      "archived_systems\\4runr-agents\\ai_improvement_system\\scheduler.py",
+      "archived_systems\\4runr-agents\\ai_improvement_system\\__init__.py",
+      "4runr-outreach-system\\message_generator\\ai_generator.py",
+      "4runr-brain\\nodes\\base_node.py",
+      "4runr-brain\\nodes\\campaign_planner.py",
+      "4runr-brain\\nodes\\injector.py",
+      "4runr-brain\\nodes\\memory_manager.py",
+      "4runr-brain\\nodes\\message_generator.py",
+      "4runr-brain\\nodes\\message_reviewer.py",
+      "4runr-brain\\nodes\\quality_gatekeeper.py",
+      "4runr-brain\\nodes\\trait_detector.py",
+      "4runr-brain\\nodes\\__init__.py"
+    ],
+    "modules/scraper": [
+      "4runr-lead-scraper\\run_cli.py",
+      "4runr-lead-scraper\\run_tests.py",
+      "4runr-lead-scraper\\simple_cli.py",
+      "4runr-lead-scraper\\simple_test.py",
+      "4runr-lead-scraper\\test_business_trait_extractor.py",
+      "4runr-lead-scraper\\test_cli.py",
+      "4runr-lead-scraper\\test_complete_system.py",
+      "4runr-lead-scraper\\test_content_analysis.py",
+      "4runr-lead-scraper\\test_fallback_integration.py",
+      "4runr-lead-scraper\\test_fallback_messaging.py",
+      "4runr-lead-scraper\\test_google_enricher.py",
+      "4runr-lead-scraper\\test_google_integration.py",
+      "4runr-lead-scraper\\test_google_integration_simple.py",
+      "4runr-lead-scraper\\test_google_scraper.py",
+      "4runr-lead-scraper\\test_pipeline_integration.py",
+      "4runr-lead-scraper\\test_scraper_functionality.py",
+      "4runr-lead-scraper\\test_sync_flow.py",
+      "4runr-lead-scraper\\test_system.py",
+      "4runr-lead-scraper\\test_website_content_scraper.py",
+      "4runr-lead-scraper\\test_website_extraction.py",
+      "4runr-lead-scraper\\test_website_extraction_unit.py",
+      "4runr-lead-scraper\\test_web_content_scraper.py",
+      "4runr-lead-scraper\\working_cli.py",
+      "4runr-lead-scraper\\working_cli_safe.py",
+      "4runr-lead-scraper\\__init__.py",
+      "4runr-outreach-system\\scraper_agent_updated.py",
+      "4runr-outreach-system\\test_website_scraper.py",
+      "deployment_package\\4runr-lead-scraper\\run_cli.py",
+      "deployment_package\\4runr-lead-scraper\\run_tests.py",
+      "deployment_package\\4runr-lead-scraper\\simple_cli.py",
+      "deployment_package\\4runr-lead-scraper\\simple_test.py",
+      "deployment_package\\4runr-lead-scraper\\test_business_trait_extractor.py",
+      "deployment_package\\4runr-lead-scraper\\test_cli.py",
+      "deployment_package\\4runr-lead-scraper\\test_complete_system.py",
+      "deployment_package\\4runr-lead-scraper\\test_content_analysis.py",
+      "deployment_package\\4runr-lead-scraper\\test_fallback_integration.py",
+      "deployment_package\\4runr-lead-scraper\\test_fallback_messaging.py",
+      "deployment_package\\4runr-lead-scraper\\test_google_enricher.py",
+      "deployment_package\\4runr-lead-scraper\\test_google_integration.py",
+      "deployment_package\\4runr-lead-scraper\\test_google_integration_simple.py",
+      "deployment_package\\4runr-lead-scraper\\test_google_scraper.py",
+      "deployment_package\\4runr-lead-scraper\\test_pipeline_integration.py",
+      "deployment_package\\4runr-lead-scraper\\test_scraper_functionality.py",
+      "deployment_package\\4runr-lead-scraper\\test_sync_flow.py",
+      "deployment_package\\4runr-lead-scraper\\test_system.py",
+      "deployment_package\\4runr-lead-scraper\\test_website_content_scraper.py",
+      "deployment_package\\4runr-lead-scraper\\test_website_extraction.py",
+      "deployment_package\\4runr-lead-scraper\\test_website_extraction_unit.py",
+      "deployment_package\\4runr-lead-scraper\\test_web_content_scraper.py",
+      "deployment_package\\4runr-lead-scraper\\working_cli.py",
+      "deployment_package\\4runr-lead-scraper\\working_cli_safe.py",
+      "deployment_package\\4runr-lead-scraper\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\scraper_agent_updated.py",
+      "deployment_package\\4runr-outreach-system\\test_website_scraper.py",
+      "deployment_package\\4runr-outreach-system\\engager\\website_scraper_service.py",
+      "deployment_package\\4runr-outreach-system\\scraper\\scrape_site.py",
+      "deployment_package\\4runr-outreach-system\\scraper\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\website_scraper\\app.py",
+      "deployment_package\\4runr-outreach-system\\website_scraper\\content_analyzer.py",
+      "deployment_package\\4runr-outreach-system\\website_scraper\\main.py",
+      "deployment_package\\4runr-outreach-system\\website_scraper\\simple_scraper.py",
+      "deployment_package\\4runr-outreach-system\\website_scraper\\__init__.py",
+      "deployment_package\\4runr-lead-scraper\\cli\\cli.py",
+      "deployment_package\\4runr-lead-scraper\\cli\\sync_commands.py",
+      "deployment_package\\4runr-lead-scraper\\cli\\__init__.py",
+      "deployment_package\\4runr-lead-scraper\\enricher\\business_trait_extractor.py",
+      "deployment_package\\4runr-lead-scraper\\enricher\\email_enricher.py",
+      "deployment_package\\4runr-lead-scraper\\enricher\\enhanced_engager_integration.py",
+      "deployment_package\\4runr-lead-scraper\\enricher\\enhanced_enricher_integration.py",
+      "deployment_package\\4runr-lead-scraper\\enricher\\fallback_message_generator.py",
+      "deployment_package\\4runr-lead-scraper\\enricher\\google_enricher.py",
+      "deployment_package\\4runr-lead-scraper\\enricher\\profile_enricher.py",
+      "deployment_package\\4runr-lead-scraper\\enricher\\__init__.py",
+      "deployment_package\\4runr-lead-scraper\\scraper\\lead_finder.py",
+      "deployment_package\\4runr-lead-scraper\\scraper\\__init__.py",
+      "deployment_package\\4runr-lead-scraper\\scripts\\daily_scraper.py",
+      "deployment_package\\4runr-lead-scraper\\scripts\\enhanced_daily_scraper.py",
+      "deployment_package\\4runr-lead-scraper\\scripts\\migrate_data.py",
+      "deployment_package\\4runr-lead-scraper\\scripts\\setup_cron.py",
+      "deployment_package\\4runr-lead-scraper\\scripts\\start_sync_service.py",
+      "deployment_package\\4runr-lead-scraper\\scripts\\__init__.py",
+      "deployment_package\\4runr-lead-scraper\\sync\\engagement_defaults.py",
+      "deployment_package\\4runr-lead-scraper\\sync\\sync_manager.py",
+      "deployment_package\\4runr-lead-scraper\\sync\\sync_scheduler.py",
+      "deployment_package\\4runr-lead-scraper\\sync\\__init__.py",
+      "deployment_package\\4runr-lead-scraper\\tests\\test_cli_apply_defaults.py",
+      "deployment_package\\4runr-lead-scraper\\tests\\test_engagement_defaults.py",
+      "deployment_package\\4runr-lead-scraper\\tests\\test_integration_sync_defaults.py",
+      "deployment_package\\4runr-lead-scraper\\tests\\__init__.py",
+      "deployment_package\\4runr-lead-scraper\\cli\\commands\\__init__.py",
+      "archived_systems\\4runr-agents\\daily_scraper_scheduler.py",
+      "archived_systems\\4runr-agents\\run_efficient_scraper.py",
+      "archived_systems\\4runr-agents\\run_live_scraper.py",
+      "archived_systems\\4runr-agents\\run_real_scraper.py",
+      "archived_systems\\4runr-agents\\test_scraper.py",
+      "archived_systems\\4runr-agents\\test_scraper_simple.py",
+      "archived_systems\\4runr-agents\\test_stealth_scraper.py",
+      "archived_systems\\4runr-agents\\scraper\\app.py",
+      "archived_systems\\4runr-agents\\scraper\\montreal_ceo_scraper_enhanced.py",
+      "4runr-outreach-system\\engager\\website_scraper_service.py",
+      "4runr-outreach-system\\scraper\\scrape_site.py",
+      "4runr-outreach-system\\scraper\\__init__.py",
+      "4runr-outreach-system\\website_scraper\\app.py",
+      "4runr-outreach-system\\website_scraper\\content_analyzer.py",
+      "4runr-outreach-system\\website_scraper\\main.py",
+      "4runr-outreach-system\\website_scraper\\simple_scraper.py",
+      "4runr-outreach-system\\website_scraper\\__init__.py",
+      "4runr-lead-scraper\\cli\\cli.py",
+      "4runr-lead-scraper\\cli\\sync_commands.py",
+      "4runr-lead-scraper\\cli\\__init__.py",
+      "4runr-lead-scraper\\enricher\\business_trait_extractor.py",
+      "4runr-lead-scraper\\enricher\\email_enricher.py",
+      "4runr-lead-scraper\\enricher\\enhanced_engager_integration.py",
+      "4runr-lead-scraper\\enricher\\enhanced_enricher_integration.py",
+      "4runr-lead-scraper\\enricher\\fallback_message_generator.py",
+      "4runr-lead-scraper\\enricher\\google_enricher.py",
+      "4runr-lead-scraper\\enricher\\profile_enricher.py",
+      "4runr-lead-scraper\\enricher\\__init__.py",
+      "4runr-lead-scraper\\scraper\\lead_finder.py",
+      "4runr-lead-scraper\\scraper\\__init__.py",
+      "4runr-lead-scraper\\scripts\\daily_scraper.py",
+      "4runr-lead-scraper\\scripts\\enhanced_daily_scraper.py",
+      "4runr-lead-scraper\\scripts\\migrate_data.py",
+      "4runr-lead-scraper\\scripts\\setup_cron.py",
+      "4runr-lead-scraper\\scripts\\start_sync_service.py",
+      "4runr-lead-scraper\\scripts\\__init__.py",
+      "4runr-lead-scraper\\sync\\engagement_defaults.py",
+      "4runr-lead-scraper\\sync\\sync_manager.py",
+      "4runr-lead-scraper\\sync\\sync_scheduler.py",
+      "4runr-lead-scraper\\sync\\__init__.py",
+      "4runr-lead-scraper\\tests\\test_cli_apply_defaults.py",
+      "4runr-lead-scraper\\tests\\test_engagement_defaults.py",
+      "4runr-lead-scraper\\tests\\test_integration_sync_defaults.py",
+      "4runr-lead-scraper\\tests\\__init__.py",
+      "4runr-lead-scraper\\cli\\commands\\__init__.py"
+    ],
+    "modules/outreach": [
+      "campaign_sequence_manager.py",
+      "email_delivery_system.py",
+      "fix_campaign_lead_ids.py",
+      "multi_step_email_system.py",
+      "test_campaigns.py",
+      "update_campaign_schedule.py",
+      "4runr-outreach-system\\add_linkedin_fields.py",
+      "4runr-outreach-system\\add_test_lead.py",
+      "4runr-outreach-system\\audit_dependencies.py",
+      "4runr-outreach-system\\check_ec2_status.py",
+      "4runr-outreach-system\\check_kyan_leads.py",
+      "4runr-outreach-system\\cleanup_and_add_lead.py",
+      "4runr-outreach-system\\concurrent_access_manager.py",
+      "4runr-outreach-system\\daily_enricher_agent_updated.py",
+      "4runr-outreach-system\\demo_cold_recycling.py",
+      "4runr-outreach-system\\demo_delivery_service.py",
+      "4runr-outreach-system\\demo_message_generation.py",
+      "4runr-outreach-system\\demo_trivago_analysis.py",
+      "4runr-outreach-system\\deployment_readiness_check.py",
+      "4runr-outreach-system\\deploy_data_cleaner.py",
+      "4runr-outreach-system\\deploy_to_ec2.py",
+      "4runr-outreach-system\\enricher_data_cleaner_integration.py",
+      "4runr-outreach-system\\example_enricher_integration.py",
+      "4runr-outreach-system\\final_system_verification.py",
+      "4runr-outreach-system\\fix_kyan_lead.py",
+      "4runr-outreach-system\\fix_logger_calls.py",
+      "4runr-outreach-system\\get_linkedin_lead.py",
+      "4runr-outreach-system\\pipeline_cli.py",
+      "4runr-outreach-system\\refined_dependency_audit.py",
+      "4runr-outreach-system\\retry_cold_campaigns.py",
+      "4runr-outreach-system\\run_all_tests.py",
+      "4runr-outreach-system\\run_concurrent_access_tests.py",
+      "4runr-outreach-system\\run_outreach_pipeline.py",
+      "4runr-outreach-system\\send_from_queue.py",
+      "4runr-outreach-system\\send_simple_smtp.py",
+      "4runr-outreach-system\\send_test_message.py",
+      "4runr-outreach-system\\send_trivago_message.py",
+      "4runr-outreach-system\\send_via_graph.py",
+      "4runr-outreach-system\\send_via_personal_gmail.py",
+      "4runr-outreach-system\\send_working_email.py",
+      "4runr-outreach-system\\setup.py",
+      "4runr-outreach-system\\simple_delivery_demo.py",
+      "4runr-outreach-system\\simple_test.py",
+      "4runr-outreach-system\\simulate_email_send.py",
+      "4runr-outreach-system\\smoke_test.py",
+      "4runr-outreach-system\\sync_test.py",
+      "4runr-outreach-system\\test_campaign_foundation.py",
+      "4runr-outreach-system\\test_campaign_generation.py",
+      "4runr-outreach-system\\test_cleaning_rules_engine.py",
+      "4runr-outreach-system\\test_cold_recycling.py",
+      "4runr-outreach-system\\test_company_name_cleaning.py",
+      "4runr-outreach-system\\test_complete_system.py",
+      "4runr-outreach-system\\test_complete_system_functionality.py",
+      "4runr-outreach-system\\test_comprehensive_cleaning_rules.py",
+      "4runr-outreach-system\\test_concurrent_access_stress.py",
+      "4runr-outreach-system\\test_concurrent_integration.py",
+      "4runr-outreach-system\\test_data_cleaner_core.py",
+      "4runr-outreach-system\\test_delivery_pipeline.py",
+      "4runr-outreach-system\\test_delivery_system.py",
+      "4runr-outreach-system\\test_dependencies.py",
+      "4runr-outreach-system\\test_end_to_end_production.py",
+      "4runr-outreach-system\\test_engagement_tracker.py",
+      "4runr-outreach-system\\test_engager_simple.py",
+      "4runr-outreach-system\\test_engager_system.py",
+      "4runr-outreach-system\\test_enhanced_agent.py",
+      "4runr-outreach-system\\test_enhanced_google_enricher.py",
+      "4runr-outreach-system\\test_enhanced_system.py",
+      "4runr-outreach-system\\test_enhanced_validation.py",
+      "4runr-outreach-system\\test_google_enricher.py",
+      "4runr-outreach-system\\test_google_enricher_datacleaner_integration.py",
+      "4runr-outreach-system\\test_google_enricher_integration.py",
+      "4runr-outreach-system\\test_health_check.py",
+      "4runr-outreach-system\\test_integrated_logging.py",
+      "4runr-outreach-system\\test_integration.py",
+      "4runr-outreach-system\\test_knowledge_base.py",
+      "4runr-outreach-system\\test_knowledge_base_validation.py",
+      "4runr-outreach-system\\test_linkedin_enricher.py",
+      "4runr-outreach-system\\test_message_generator.py",
+      "4runr-outreach-system\\test_method_calls.py",
+      "4runr-outreach-system\\test_method_signatures.py",
+      "4runr-outreach-system\\test_metrics_reporting.py",
+      "4runr-outreach-system\\test_production_deployment_validation.py",
+      "4runr-outreach-system\\test_production_efficient.py",
+      "4runr-outreach-system\\test_quality_control.py",
+      "4runr-outreach-system\\test_quick_validation_fix.py",
+      "4runr-outreach-system\\test_resilient_engagement.py",
+      "4runr-outreach-system\\test_simple_campaign_generation.py",
+      "4runr-outreach-system\\test_simple_enricher.py",
+      "4runr-outreach-system\\test_simple_enricher_integration.py",
+      "4runr-outreach-system\\test_standalone_quality.py",
+      "4runr-outreach-system\\test_thread_safety.py",
+      "4runr-outreach-system\\test_unit.py",
+      "4runr-outreach-system\\test_validation_engine.py",
+      "4runr-outreach-system\\test_website_url_cleaning.py",
+      "4runr-outreach-system\\validate_system.py",
+      "4runr-outreach-system\\verify_installation.py",
+      "4runr-outreach-system\\verify_knowledge_base_fix.py",
+      "4runr-outreach-system\\view_lead_db.py",
+      "4runr-outreach-system\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\add_linkedin_fields.py",
+      "deployment_package\\4runr-outreach-system\\add_test_lead.py",
+      "deployment_package\\4runr-outreach-system\\audit_dependencies.py",
+      "deployment_package\\4runr-outreach-system\\check_ec2_status.py",
+      "deployment_package\\4runr-outreach-system\\check_kyan_leads.py",
+      "deployment_package\\4runr-outreach-system\\cleanup_and_add_lead.py",
+      "deployment_package\\4runr-outreach-system\\concurrent_access_manager.py",
+      "deployment_package\\4runr-outreach-system\\daily_enricher_agent_updated.py",
+      "deployment_package\\4runr-outreach-system\\demo_cold_recycling.py",
+      "deployment_package\\4runr-outreach-system\\demo_delivery_service.py",
+      "deployment_package\\4runr-outreach-system\\demo_message_generation.py",
+      "deployment_package\\4runr-outreach-system\\demo_trivago_analysis.py",
+      "deployment_package\\4runr-outreach-system\\deployment_readiness_check.py",
+      "deployment_package\\4runr-outreach-system\\deploy_data_cleaner.py",
+      "deployment_package\\4runr-outreach-system\\deploy_to_ec2.py",
+      "deployment_package\\4runr-outreach-system\\enricher_data_cleaner_integration.py",
+      "deployment_package\\4runr-outreach-system\\example_enricher_integration.py",
+      "deployment_package\\4runr-outreach-system\\final_system_verification.py",
+      "deployment_package\\4runr-outreach-system\\fix_kyan_lead.py",
+      "deployment_package\\4runr-outreach-system\\fix_logger_calls.py",
+      "deployment_package\\4runr-outreach-system\\get_linkedin_lead.py",
+      "deployment_package\\4runr-outreach-system\\pipeline_cli.py",
+      "deployment_package\\4runr-outreach-system\\refined_dependency_audit.py",
+      "deployment_package\\4runr-outreach-system\\retry_cold_campaigns.py",
+      "deployment_package\\4runr-outreach-system\\run_all_tests.py",
+      "deployment_package\\4runr-outreach-system\\run_concurrent_access_tests.py",
+      "deployment_package\\4runr-outreach-system\\run_outreach_pipeline.py",
+      "deployment_package\\4runr-outreach-system\\send_from_queue.py",
+      "deployment_package\\4runr-outreach-system\\send_simple_smtp.py",
+      "deployment_package\\4runr-outreach-system\\send_test_message.py",
+      "deployment_package\\4runr-outreach-system\\send_trivago_message.py",
+      "deployment_package\\4runr-outreach-system\\send_via_graph.py",
+      "deployment_package\\4runr-outreach-system\\send_via_personal_gmail.py",
+      "deployment_package\\4runr-outreach-system\\send_working_email.py",
+      "deployment_package\\4runr-outreach-system\\setup.py",
+      "deployment_package\\4runr-outreach-system\\simple_delivery_demo.py",
+      "deployment_package\\4runr-outreach-system\\simple_test.py",
+      "deployment_package\\4runr-outreach-system\\simulate_email_send.py",
+      "deployment_package\\4runr-outreach-system\\smoke_test.py",
+      "deployment_package\\4runr-outreach-system\\test_campaign_foundation.py",
+      "deployment_package\\4runr-outreach-system\\test_campaign_generation.py",
+      "deployment_package\\4runr-outreach-system\\test_cleaning_rules_engine.py",
+      "deployment_package\\4runr-outreach-system\\test_cold_recycling.py",
+      "deployment_package\\4runr-outreach-system\\test_company_name_cleaning.py",
+      "deployment_package\\4runr-outreach-system\\test_complete_system.py",
+      "deployment_package\\4runr-outreach-system\\test_complete_system_functionality.py",
+      "deployment_package\\4runr-outreach-system\\test_comprehensive_cleaning_rules.py",
+      "deployment_package\\4runr-outreach-system\\test_concurrent_access_stress.py",
+      "deployment_package\\4runr-outreach-system\\test_concurrent_integration.py",
+      "deployment_package\\4runr-outreach-system\\test_data_cleaner_core.py",
+      "deployment_package\\4runr-outreach-system\\test_delivery_pipeline.py",
+      "deployment_package\\4runr-outreach-system\\test_delivery_system.py",
+      "deployment_package\\4runr-outreach-system\\test_dependencies.py",
+      "deployment_package\\4runr-outreach-system\\test_end_to_end_production.py",
+      "deployment_package\\4runr-outreach-system\\test_engagement_tracker.py",
+      "deployment_package\\4runr-outreach-system\\test_engager_simple.py",
+      "deployment_package\\4runr-outreach-system\\test_engager_system.py",
+      "deployment_package\\4runr-outreach-system\\test_enhanced_agent.py",
+      "deployment_package\\4runr-outreach-system\\test_enhanced_google_enricher.py",
+      "deployment_package\\4runr-outreach-system\\test_enhanced_system.py",
+      "deployment_package\\4runr-outreach-system\\test_enhanced_validation.py",
+      "deployment_package\\4runr-outreach-system\\test_google_enricher.py",
+      "deployment_package\\4runr-outreach-system\\test_google_enricher_datacleaner_integration.py",
+      "deployment_package\\4runr-outreach-system\\test_google_enricher_integration.py",
+      "deployment_package\\4runr-outreach-system\\test_health_check.py",
+      "deployment_package\\4runr-outreach-system\\test_integrated_logging.py",
+      "deployment_package\\4runr-outreach-system\\test_integration.py",
+      "deployment_package\\4runr-outreach-system\\test_knowledge_base.py",
+      "deployment_package\\4runr-outreach-system\\test_knowledge_base_validation.py",
+      "deployment_package\\4runr-outreach-system\\test_linkedin_enricher.py",
+      "deployment_package\\4runr-outreach-system\\test_message_generator.py",
+      "deployment_package\\4runr-outreach-system\\test_method_calls.py",
+      "deployment_package\\4runr-outreach-system\\test_method_signatures.py",
+      "deployment_package\\4runr-outreach-system\\test_metrics_reporting.py",
+      "deployment_package\\4runr-outreach-system\\test_production_deployment_validation.py",
+      "deployment_package\\4runr-outreach-system\\test_production_efficient.py",
+      "deployment_package\\4runr-outreach-system\\test_quality_control.py",
+      "deployment_package\\4runr-outreach-system\\test_quick_validation_fix.py",
+      "deployment_package\\4runr-outreach-system\\test_resilient_engagement.py",
+      "deployment_package\\4runr-outreach-system\\test_simple_campaign_generation.py",
+      "deployment_package\\4runr-outreach-system\\test_simple_enricher.py",
+      "deployment_package\\4runr-outreach-system\\test_simple_enricher_integration.py",
+      "deployment_package\\4runr-outreach-system\\test_standalone_quality.py",
+      "deployment_package\\4runr-outreach-system\\test_thread_safety.py",
+      "deployment_package\\4runr-outreach-system\\test_unit.py",
+      "deployment_package\\4runr-outreach-system\\test_validation_engine.py",
+      "deployment_package\\4runr-outreach-system\\test_website_url_cleaning.py",
+      "deployment_package\\4runr-outreach-system\\validate_system.py",
+      "deployment_package\\4runr-outreach-system\\verify_installation.py",
+      "deployment_package\\4runr-outreach-system\\verify_knowledge_base_fix.py",
+      "deployment_package\\4runr-outreach-system\\view_lead_db.py",
+      "deployment_package\\4runr-outreach-system\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\campaign_injector.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\init_campaign_system.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\email_validator\\app.py",
+      "deployment_package\\4runr-outreach-system\\email_validator\\main.py",
+      "deployment_package\\4runr-outreach-system\\email_validator\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\engager\\app.py",
+      "deployment_package\\4runr-outreach-system\\engager\\engagement_level_tracker.py",
+      "deployment_package\\4runr-outreach-system\\engager\\enhanced_engager_agent.py",
+      "deployment_package\\4runr-outreach-system\\engager\\knowledge_base_loader.py",
+      "deployment_package\\4runr-outreach-system\\engager\\main.py",
+      "deployment_package\\4runr-outreach-system\\engager\\message_generator_enhanced.py",
+      "deployment_package\\4runr-outreach-system\\engager\\reengagement_strategy.py",
+      "deployment_package\\4runr-outreach-system\\engager\\resilient_engager.py",
+      "deployment_package\\4runr-outreach-system\\engager\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\enricher\\infer_traits.py",
+      "deployment_package\\4runr-outreach-system\\enricher\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\generator\\generate_message.py",
+      "deployment_package\\4runr-outreach-system\\generator\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\linkedin_enricher\\app.py",
+      "deployment_package\\4runr-outreach-system\\linkedin_enricher\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\message_generator\\app.py",
+      "deployment_package\\4runr-outreach-system\\message_generator\\main.py",
+      "deployment_package\\4runr-outreach-system\\message_generator\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\tools\\reengage_leads.py",
+      "deployment_package\\4runr-outreach-system\\tools\\verify_pipeline_health.py",
+      "deployment_package\\4runr-outreach-system\\tools\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\outreach\\google_enricher\\app.py",
+      "deployment_package\\4runr-outreach-system\\outreach\\google_enricher\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\outreach\\simple_enricher\\app.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\analytics\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\campaign_generator\\generator.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\campaign_generator\\quality_control.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\campaign_generator\\quality_validator.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\campaign_generator\\simple_generator.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\campaign_generator\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\executor\\executor.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\executor\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\models\\analytics.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\models\\campaign.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\models\\queue.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\models\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\queue_manager\\queue_manager.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\queue_manager\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\response_monitor\\__init__.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\scheduler\\scheduler.py",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\scheduler\\__init__.py",
+      "archived_systems\\4runr-agents\\check_email_queue.py",
+      "archived_systems\\4runr-agents\\find_test_messages.py",
+      "archived_systems\\4runr-agents\\outreach_agent.py",
+      "archived_systems\\4runr-agents\\test_complete_outreach_pipeline.py",
+      "4runr-outreach-system\\campaign_system\\campaign_injector.py",
+      "4runr-outreach-system\\campaign_system\\init_campaign_system.py",
+      "4runr-outreach-system\\campaign_system\\__init__.py",
+      "4runr-outreach-system\\email_validator\\app.py",
+      "4runr-outreach-system\\email_validator\\main.py",
+      "4runr-outreach-system\\email_validator\\__init__.py",
+      "4runr-outreach-system\\engager\\app.py",
+      "4runr-outreach-system\\engager\\engagement_level_tracker.py",
+      "4runr-outreach-system\\engager\\enhanced_engager_agent.py",
+      "4runr-outreach-system\\engager\\knowledge_base_loader.py",
+      "4runr-outreach-system\\engager\\main.py",
+      "4runr-outreach-system\\engager\\message_generator_enhanced.py",
+      "4runr-outreach-system\\engager\\reengagement_strategy.py",
+      "4runr-outreach-system\\engager\\resilient_engager.py",
+      "4runr-outreach-system\\engager\\__init__.py",
+      "4runr-outreach-system\\enricher\\infer_traits.py",
+      "4runr-outreach-system\\enricher\\__init__.py",
+      "4runr-outreach-system\\generator\\generate_message.py",
+      "4runr-outreach-system\\generator\\__init__.py",
+      "4runr-outreach-system\\linkedin_enricher\\app.py",
+      "4runr-outreach-system\\linkedin_enricher\\__init__.py",
+      "4runr-outreach-system\\message_generator\\app.py",
+      "4runr-outreach-system\\message_generator\\main.py",
+      "4runr-outreach-system\\message_generator\\__init__.py",
+      "4runr-outreach-system\\tools\\reengage_leads.py",
+      "4runr-outreach-system\\tools\\verify_pipeline_health.py",
+      "4runr-outreach-system\\tools\\__init__.py",
+      "4runr-outreach-system\\outreach\\google_enricher\\app.py",
+      "4runr-outreach-system\\outreach\\google_enricher\\__init__.py",
+      "4runr-outreach-system\\outreach\\simple_enricher\\app.py",
+      "4runr-outreach-system\\campaign_system\\analytics\\__init__.py",
+      "4runr-outreach-system\\campaign_system\\campaign_generator\\generator.py",
+      "4runr-outreach-system\\campaign_system\\campaign_generator\\quality_control.py",
+      "4runr-outreach-system\\campaign_system\\campaign_generator\\quality_validator.py",
+      "4runr-outreach-system\\campaign_system\\campaign_generator\\simple_generator.py",
+      "4runr-outreach-system\\campaign_system\\campaign_generator\\__init__.py",
+      "4runr-outreach-system\\campaign_system\\executor\\executor.py",
+      "4runr-outreach-system\\campaign_system\\executor\\__init__.py",
+      "4runr-outreach-system\\campaign_system\\models\\analytics.py",
+      "4runr-outreach-system\\campaign_system\\models\\campaign.py",
+      "4runr-outreach-system\\campaign_system\\models\\queue.py",
+      "4runr-outreach-system\\campaign_system\\models\\__init__.py",
+      "4runr-outreach-system\\campaign_system\\queue_manager\\queue_manager.py",
+      "4runr-outreach-system\\campaign_system\\queue_manager\\__init__.py",
+      "4runr-outreach-system\\campaign_system\\response_monitor\\__init__.py",
+      "4runr-outreach-system\\campaign_system\\scheduler\\scheduler.py",
+      "4runr-outreach-system\\campaign_system\\scheduler\\__init__.py"
+    ],
+    "modules/enrichment": [
+      "archived_systems\\4runr-agents\\daily_enricher_agent.py",
+      "archived_systems\\4runr-agents\\daily_enricher_agent_updated.py",
+      "archived_systems\\4runr-agents\\run_enhanced_enrichment.py",
+      "archived_systems\\4runr-agents\\run_validation_pipeline.py",
+      "archived_systems\\4runr-agents\\schedule_daily_enricher.py",
+      "archived_systems\\4runr-agents\\test_validation_pipeline.py",
+      "archived_systems\\4runr-agents\\enricher\\app.py",
+      "archived_systems\\4runr-agents\\enricher\\enhanced_enricher.py",
+      "archived_systems\\4runr-agents\\scripts\\legacy\\complete_lead_enrichment.py"
+    ],
+    "services/automation": [],
+    "services/monitoring": [
+      "monitoring_dashboard.py",
+      "pipeline_dashboard.py",
+      "setup_ec2_monitoring.py",
+      "deployment_package\\monitoring_dashboard.py",
+      "archived_systems\\4runr-agents\\debug_lead_status.py",
+      "archived_systems\\4runr-agents\\update_lead_status.py",
+      "archived_systems\\4runr-agents\\verify_pipeline_health.py",
+      "archived_systems\\4runr-agents\\scripts\\health_check.py"
+    ],
+    "services/backup": [
+      "backup_recovery.py",
+      "backup_recovery_system.py"
+    ],
+    "deployment": [
+      "deploy_to_ec2.py",
+      "ec2_pipeline_monitor.py",
+      "deployment_package\\system_controller.py",
+      "archived_systems\\4runr-agents\\deploy_auto_system.py"
+    ],
+    "docs": [
+      "API_DOCUMENTATION.md",
+      "AUTONOMOUS_4RUNR_DEPLOYMENT.md",
+      "AUTONOMOUS_SYSTEM_SETUP.md",
+      "DEPLOYMENT_LOG_2025-08-12.md",
+      "DEPLOYMENT_SUMMARY.md",
+      "FULL_SYSTEM_TEST.md",
+      "performance_optimization.md",
+      "README.md",
+      "REAL_FIXES_NEEDED.md",
+      "SERVER_UPDATE_INSTRUCTIONS.md",
+      "SYNC_SYSTEM_SUMMARY.md",
+      "SYSTEM_COMPLETION_REPORT.md",
+      "SYSTEM_ORGANIZATION_PLAN.md",
+      "SYSTEM_STATUS_FINAL.md",
+      "TROUBLESHOOTING.md",
+      "4runr-brain\\DEPLOYMENT_COMPLETE.md",
+      "4runr-brain\\future_upgrades.md",
+      "4runr-brain\\OPERATIONS.md",
+      "4runr-brain\\PHASE_1_COMPLETE.md",
+      "4runr-brain\\PRODUCTION_READY.md",
+      "4runr-brain\\PRODUCTION_SETUP.md",
+      "4runr-brain\\README.md",
+      "4runr-lead-scraper\\DEPLOYMENT.md",
+      "4runr-lead-scraper\\README.md",
+      "4runr-lead-scraper\\SYSTEM_STATUS.md",
+      "4runr-lead-scraper\\TASK_2_1_SUMMARY.md",
+      "4runr-lead-scraper\\TASK_2_2_SUMMARY.md",
+      "4runr-lead-scraper\\TASK_3_1_SUMMARY.md",
+      "4runr-lead-scraper\\TASK_3_2_SUMMARY.md",
+      "4runr-lead-scraper\\TASK_4_1_SUMMARY.md",
+      "4runr-lead-scraper\\TASK_4_2_SUMMARY.md",
+      "4runr-lead-scraper\\TASK_4_3_SUMMARY.md",
+      "4runr-outreach-system\\airtable_fix_summary.md",
+      "4runr-outreach-system\\AIRTABLE_MIGRATION_GUIDE.md",
+      "4runr-outreach-system\\airtable_setup_issue_summary.md",
+      "4runr-outreach-system\\CLEANING_RULES_TEST_SUMMARY.md",
+      "4runr-outreach-system\\dependency_audit_results.md",
+      "4runr-outreach-system\\DEPLOYMENT_GUIDE.md",
+      "4runr-outreach-system\\DEPLOYMENT_READINESS_REPORT.md",
+      "4runr-outreach-system\\EC2_DEPLOYMENT_GUIDE.md",
+      "4runr-outreach-system\\INTERNAL_LEAD_DATABASE_PROJECT_INSTRUCTIONS.md",
+      "4runr-outreach-system\\knowledge_base_restructure_summary.md",
+      "4runr-outreach-system\\knowledge_base_testing_guide.md",
+      "4runr-outreach-system\\README.md",
+      "4runr-outreach-system\\requirements_update_summary.md",
+      "4runr-outreach-system\\RE_ENGAGEMENT_PRODUCTION_GUIDE.md",
+      "4runr-outreach-system\\RE_ENGAGEMENT_SYSTEM_SUMMARY.md",
+      "4runr-outreach-system\\SETUP.md",
+      "4runr-outreach-system\\setup_documentation_summary.md",
+      "4runr-outreach-system\\task5_completion_summary.md",
+      "4runr-outreach-system\\TASK_10_AGENT_INTEGRATION_SUMMARY.md",
+      "4runr-outreach-system\\TASK_5_0_SUMMARY.md",
+      "4runr-outreach-system\\TASK_8_LOGGING_SUMMARY.md",
+      "4runr-outreach-system\\TASK_9_CONFIG_SUMMARY.md",
+      "archived_systems\\README.md",
+      "organized_system\\services\\automation\\README.md",
+      "organized_system\\services\\backup\\README.md",
+      "organized_system\\services\\monitoring\\README.md",
+      "organized_system\\modules\\brain\\README.md",
+      "organized_system\\modules\\enrichment\\README.md",
+      "organized_system\\modules\\outreach\\README.md",
+      "organized_system\\modules\\scraper\\README.md",
+      "organized_system\\core\\api\\README.md",
+      "organized_system\\core\\config\\README.md",
+      "organized_system\\core\\database\\README.md",
+      "organized_system\\core\\utils\\README.md",
+      "deployment_package\\4runr-brain\\DEPLOYMENT_COMPLETE.md",
+      "deployment_package\\4runr-brain\\future_upgrades.md",
+      "deployment_package\\4runr-brain\\OPERATIONS.md",
+      "deployment_package\\4runr-brain\\PHASE_1_COMPLETE.md",
+      "deployment_package\\4runr-brain\\PRODUCTION_READY.md",
+      "deployment_package\\4runr-brain\\PRODUCTION_SETUP.md",
+      "deployment_package\\4runr-brain\\README.md",
+      "deployment_package\\4runr-lead-scraper\\DEPLOYMENT.md",
+      "deployment_package\\4runr-lead-scraper\\README.md",
+      "deployment_package\\4runr-lead-scraper\\SYSTEM_STATUS.md",
+      "deployment_package\\4runr-lead-scraper\\TASK_2_1_SUMMARY.md",
+      "deployment_package\\4runr-lead-scraper\\TASK_2_2_SUMMARY.md",
+      "deployment_package\\4runr-lead-scraper\\TASK_3_1_SUMMARY.md",
+      "deployment_package\\4runr-lead-scraper\\TASK_3_2_SUMMARY.md",
+      "deployment_package\\4runr-lead-scraper\\TASK_4_1_SUMMARY.md",
+      "deployment_package\\4runr-lead-scraper\\TASK_4_2_SUMMARY.md",
+      "deployment_package\\4runr-lead-scraper\\TASK_4_3_SUMMARY.md",
+      "deployment_package\\4runr-outreach-system\\airtable_fix_summary.md",
+      "deployment_package\\4runr-outreach-system\\AIRTABLE_MIGRATION_GUIDE.md",
+      "deployment_package\\4runr-outreach-system\\airtable_setup_issue_summary.md",
+      "deployment_package\\4runr-outreach-system\\CLEANING_RULES_TEST_SUMMARY.md",
+      "deployment_package\\4runr-outreach-system\\dependency_audit_results.md",
+      "deployment_package\\4runr-outreach-system\\DEPLOYMENT_GUIDE.md",
+      "deployment_package\\4runr-outreach-system\\DEPLOYMENT_READINESS_REPORT.md",
+      "deployment_package\\4runr-outreach-system\\EC2_DEPLOYMENT_GUIDE.md",
+      "deployment_package\\4runr-outreach-system\\INTERNAL_LEAD_DATABASE_PROJECT_INSTRUCTIONS.md",
+      "deployment_package\\4runr-outreach-system\\knowledge_base_restructure_summary.md",
+      "deployment_package\\4runr-outreach-system\\knowledge_base_testing_guide.md",
+      "deployment_package\\4runr-outreach-system\\README.md",
+      "deployment_package\\4runr-outreach-system\\requirements_update_summary.md",
+      "deployment_package\\4runr-outreach-system\\RE_ENGAGEMENT_PRODUCTION_GUIDE.md",
+      "deployment_package\\4runr-outreach-system\\RE_ENGAGEMENT_SYSTEM_SUMMARY.md",
+      "deployment_package\\4runr-outreach-system\\SETUP.md",
+      "deployment_package\\4runr-outreach-system\\setup_documentation_summary.md",
+      "deployment_package\\4runr-outreach-system\\task5_completion_summary.md",
+      "deployment_package\\4runr-outreach-system\\TASK_10_AGENT_INTEGRATION_SUMMARY.md",
+      "deployment_package\\4runr-outreach-system\\TASK_5_0_SUMMARY.md",
+      "deployment_package\\4runr-outreach-system\\TASK_8_LOGGING_SUMMARY.md",
+      "deployment_package\\4runr-outreach-system\\TASK_9_CONFIG_SUMMARY.md",
+      "deployment_package\\4runr-outreach-system\\.pytest_cache\\README.md",
+      "deployment_package\\4runr-outreach-system\\campaign_system\\README.md",
+      "deployment_package\\4runr-outreach-system\\data\\4runr_knowledge.md",
+      "deployment_package\\4runr-outreach-system\\shared\\data_cleaner_config\\schema_documentation.md",
+      "deployment_package\\4runr-outreach-system\\deployment_backup\\config\\data_cleaner_config\\schema_documentation.md",
+      "deployment_package\\4runr-lead-scraper\\.pytest_cache\\README.md",
+      "deployment_package\\4runr-lead-scraper\\docs\\CLI_APPLY_DEFAULTS.md",
+      "archived_systems\\4runr-agents\\CODEBASE_ORGANIZATION.md",
+      "archived_systems\\4runr-agents\\COMPLETE_PIPELINE_TEST_RESULTS.md",
+      "archived_systems\\4runr-agents\\DAILY_ENRICHER_SETUP.md",
+      "archived_systems\\4runr-agents\\DATABASE_SYSTEM_READY.md",
+      "archived_systems\\4runr-agents\\ENCODING_FIX_REPORT.md",
+      "archived_systems\\4runr-agents\\ENHANCED_SYSTEM_SUMMARY.md",
+      "archived_systems\\4runr-agents\\IMPLEMENTATION_SUMMARY.md",
+      "archived_systems\\4runr-agents\\PRODUCTION_README.md",
+      "archived_systems\\4runr-agents\\README.md",
+      "archived_systems\\4runr-agents\\READY_FOR_REVIEW.md",
+      "archived_systems\\4runr-agents\\system_test_README.md",
+      "archived_systems\\4runr-agents\\test_report.md",
+      "archived_systems\\4runr-agents\\VALIDATION_FIRST_README.md",
+      "archived_systems\\4runr-lead-system\\README.md",
+      "archived_systems\\4runr-lead-system\\scripts\\cron_examples.md",
+      "archived_systems\\4runr-lead-system\\scripts\\EC2-DEPLOYMENT.md",
+      "archived_systems\\4runr-agents\\data\\README.md",
+      "archived_systems\\4runr-agents\\database\\AGENT_INTEGRATION_GUIDE.md",
+      "archived_systems\\4runr-agents\\database\\README.md",
+      "archived_systems\\4runr-agents\\scraper\\README.md",
+      "archived_systems\\4runr-agents\\scripts\\cron_examples.md",
+      "archived_systems\\4runr-agents\\test_data_templates\\README.md",
+      "archived_systems\\4runr-agents\\test_results\\test_report_20250725_195003.md",
+      "archived_systems\\4runr-agents\\test_results\\test_report_20250731_092752.md",
+      "archived_systems\\4runr-agents\\4runr-agents\\ai_analysis_reports\\weekly\\2025-08-01\\weekly_summary_20250801_181108.md",
+      "archived_systems\\4runr-agents\\4runr-agents\\ai_analysis_reports\\weekly\\2025-08-01\\weekly_summary_20250801_181512.md",
+      "archived_systems\\4runr-agents\\4runr-agents\\ai_analysis_reports\\weekly\\2025-08-01\\weekly_technical_20250801_181108.md",
+      "archived_systems\\4runr-agents\\4runr-agents\\ai_analysis_reports\\weekly\\2025-08-01\\weekly_technical_20250801_181512.md",
+      "4runr-outreach-system\\.pytest_cache\\README.md",
+      "4runr-outreach-system\\campaign_system\\README.md",
+      "4runr-outreach-system\\data\\4runr_knowledge.md",
+      "4runr-outreach-system\\shared\\data_cleaner_config\\schema_documentation.md",
+      "4runr-outreach-system\\deployment_backup\\config\\data_cleaner_config\\schema_documentation.md",
+      "4runr-lead-scraper\\.pytest_cache\\README.md",
+      "4runr-lead-scraper\\docs\\CLI_APPLY_DEFAULTS.md",
+      "requirements.txt",
+      "4runr-brain\\requirements.txt",
+      "4runr-lead-scraper\\requirements.txt",
+      "4runr-outreach-system\\generated_message.txt",
+      "4runr-outreach-system\\requirements-lock.txt",
+      "4runr-outreach-system\\requirements.txt",
+      "4runr-outreach-system\\trivago_message.txt",
+      "deployment_package\\requirements.txt",
+      "deployment_package\\4runr-brain\\requirements.txt",
+      "deployment_package\\4runr-lead-scraper\\requirements.txt",
+      "deployment_package\\4runr-outreach-system\\generated_message.txt",
+      "deployment_package\\4runr-outreach-system\\requirements-lock.txt",
+      "deployment_package\\4runr-outreach-system\\requirements.txt",
+      "deployment_package\\4runr-outreach-system\\trivago_message.txt",
+      "archived_systems\\4runr-agents\\requirements-test.txt",
+      "archived_systems\\4runr-agents\\requirements.txt",
+      "archived_systems\\4runr-agents\\requirements_test.txt",
+      "archived_systems\\4runr-agents\\simulated_logs.txt",
+      "archived_systems\\4runr-agents\\ai_analysis_reports\\weekly_summary_20250801_174851.txt",
+      "archived_systems\\4runr-agents\\enricher\\requirements.txt",
+      "archived_systems\\4runr-agents\\scraper\\requirements.txt",
+      "archived_systems\\4runr-agents\\shared\\custom_enrichment_report.txt",
+      "archived_systems\\4runr-agents\\shared\\enrichment_report.txt",
+      "archived_systems\\4runr-agents\\shared\\requirements.txt",
+      "archived_systems\\4runr-agents\\shared\\small_companies_report.txt",
+      "archived_systems\\4runr-agents\\verifier\\requirements.txt"
+    ],
+    "tests": [
+      "test_field_names.py",
+      "test_final_field_verification.py",
+      "archived_systems\\4runr-agents\\check_latest_leads.py",
+      "archived_systems\\4runr-agents\\clear_test_logs.py",
+      "archived_systems\\4runr-agents\\comprehensive_system_test.py",
+      "archived_systems\\4runr-agents\\comprehensive_test_suite.py",
+      "archived_systems\\4runr-agents\\create_test_leads.py",
+      "archived_systems\\4runr-agents\\run_pipeline_test.py",
+      "archived_systems\\4runr-agents\\run_step_by_step_test.py",
+      "archived_systems\\4runr-agents\\test_business_fields.py",
+      "archived_systems\\4runr-agents\\test_comprehensive_production_logging.py",
+      "archived_systems\\4runr-agents\\test_enhanced_system.py",
+      "archived_systems\\4runr-agents\\test_linkedin_login.py",
+      "archived_systems\\4runr-agents\\test_pipeline_upgraded.py",
+      "archived_systems\\4runr-agents\\test_real_production_logging.py",
+      "archived_systems\\4runr-agents\\scripts\\test_env.py",
+      "archived_systems\\4runr-agents\\scripts\\test_full_system.py"
+    ],
+    "data": []
+  },
+  "duplicate_patterns": [
+    {
+      "pattern": "database_connection",
+      "files": [
+        "4runr-outreach-system\\database_connection_pool.py",
+        "deployment_package\\4runr-outreach-system\\database_connection_pool.py"
+      ],
+      "count": 2
+    },
+    {
+      "pattern": "lead_database",
+      "files": [
+        "4runr-outreach-system\\lead_database.py",
+        "4runr-outreach-system\\test_lead_database.py",
+        "deployment_package\\4runr-outreach-system\\lead_database.py",
+        "deployment_package\\4runr-outreach-system\\test_lead_database.py",
+        "archived_systems\\4runr-agents\\database\\demo_lead_database.py",
+        "archived_systems\\4runr-agents\\database\\lead_database.py",
+        "archived_systems\\4runr-agents\\database\\test_lead_database.py"
+      ],
+      "count": 7
+    },
+    {
+      "pattern": "airtable_client",
+      "files": [
+        "deployment_package\\4runr-outreach-system\\shared\\airtable_client.py",
+        "deployment_package\\4runr-outreach-system\\shared\\configurable_airtable_client.py",
+        "archived_systems\\4runr-agents\\shared\\airtable_client.py",
+        "archived_systems\\4runr-agents\\shared\\airtable_client_fixed.py",
+        "archived_systems\\4runr-agents\\shared\\enhanced_airtable_client.py",
+        "4runr-outreach-system\\shared\\airtable_client.py",
+        "4runr-outreach-system\\shared\\configurable_airtable_client.py"
+      ],
+      "count": 7
+    },
+    {
+      "pattern": "data_cleaner",
+      "files": [
+        "4runr-outreach-system\\deploy_data_cleaner.py",
+        "4runr-outreach-system\\enricher_data_cleaner_integration.py",
+        "4runr-outreach-system\\test_data_cleaner_core.py",
+        "deployment_package\\4runr-outreach-system\\deploy_data_cleaner.py",
+        "deployment_package\\4runr-outreach-system\\enricher_data_cleaner_integration.py",
+        "deployment_package\\4runr-outreach-system\\test_data_cleaner_core.py",
+        "deployment_package\\4runr-outreach-system\\shared\\data_cleaner.py",
+        "4runr-outreach-system\\shared\\data_cleaner.py"
+      ],
+      "count": 8
+    },
+    {
+      "pattern": "message_generator",
+      "files": [
+        "4runr-outreach-system\\test_message_generator.py",
+        "deployment_package\\4runr-outreach-system\\test_message_generator.py",
+        "deployment_package\\4runr-outreach-system\\engager\\message_generator_enhanced.py",
+        "deployment_package\\4runr-lead-scraper\\enricher\\fallback_message_generator.py",
+        "deployment_package\\4runr-brain\\nodes\\message_generator.py",
+        "archived_systems\\4runr-agents\\shared\\ai_message_generator.py",
+        "4runr-outreach-system\\engager\\message_generator_enhanced.py",
+        "4runr-lead-scraper\\enricher\\fallback_message_generator.py",
+        "4runr-brain\\nodes\\message_generator.py"
+      ],
+      "count": 9
+    },
+    {
+      "pattern": "email_sender",
+      "files": [
+        "4runr-brain\\simple_email_sender.py",
+        "deployment_package\\4runr-brain\\simple_email_sender.py"
+      ],
+      "count": 2
+    },
+    {
+      "pattern": "website_scraper",
+      "files": [
+        "4runr-outreach-system\\test_website_scraper.py",
+        "deployment_package\\4runr-outreach-system\\test_website_scraper.py",
+        "deployment_package\\4runr-outreach-system\\engager\\website_scraper_service.py",
+        "archived_systems\\4runr-agents\\shared\\website_scraper.py",
+        "4runr-outreach-system\\engager\\website_scraper_service.py"
+      ],
+      "count": 5
+    },
+    {
+      "pattern": "enricher",
+      "files": [
+        "4runr-lead-scraper\\test_google_enricher.py",
+        "4runr-outreach-system\\daily_enricher_agent_updated.py",
+        "4runr-outreach-system\\enricher_data_cleaner_integration.py",
+        "4runr-outreach-system\\example_enricher_integration.py",
+        "4runr-outreach-system\\test_enhanced_google_enricher.py",
+        "4runr-outreach-system\\test_google_enricher.py",
+        "4runr-outreach-system\\test_google_enricher_datacleaner_integration.py",
+        "4runr-outreach-system\\test_google_enricher_integration.py",
+        "4runr-outreach-system\\test_linkedin_enricher.py",
+        "4runr-outreach-system\\test_simple_enricher.py",
+        "4runr-outreach-system\\test_simple_enricher_integration.py",
+        "deployment_package\\4runr-lead-scraper\\test_google_enricher.py",
+        "deployment_package\\4runr-outreach-system\\daily_enricher_agent_updated.py",
+        "deployment_package\\4runr-outreach-system\\enricher_data_cleaner_integration.py",
+        "deployment_package\\4runr-outreach-system\\example_enricher_integration.py",
+        "deployment_package\\4runr-outreach-system\\test_enhanced_google_enricher.py",
+        "deployment_package\\4runr-outreach-system\\test_google_enricher.py",
+        "deployment_package\\4runr-outreach-system\\test_google_enricher_datacleaner_integration.py",
+        "deployment_package\\4runr-outreach-system\\test_google_enricher_integration.py",
+        "deployment_package\\4runr-outreach-system\\test_linkedin_enricher.py",
+        "deployment_package\\4runr-outreach-system\\test_simple_enricher.py",
+        "deployment_package\\4runr-outreach-system\\test_simple_enricher_integration.py",
+        "deployment_package\\4runr-lead-scraper\\enricher\\email_enricher.py",
+        "deployment_package\\4runr-lead-scraper\\enricher\\enhanced_enricher_integration.py",
+        "deployment_package\\4runr-lead-scraper\\enricher\\google_enricher.py",
+        "deployment_package\\4runr-lead-scraper\\enricher\\profile_enricher.py",
+        "archived_systems\\4runr-agents\\daily_enricher_agent.py",
+        "archived_systems\\4runr-agents\\daily_enricher_agent_updated.py",
+        "archived_systems\\4runr-agents\\schedule_daily_enricher.py",
+        "archived_systems\\4runr-agents\\enricher\\enhanced_enricher.py",
+        "4runr-lead-scraper\\enricher\\email_enricher.py",
+        "4runr-lead-scraper\\enricher\\enhanced_enricher_integration.py",
+        "4runr-lead-scraper\\enricher\\google_enricher.py",
+        "4runr-lead-scraper\\enricher\\profile_enricher.py"
+      ],
+      "count": 34
+    },
+    {
+      "pattern": "logger",
+      "files": [
+        "4runr-outreach-system\\database_logger.py",
+        "4runr-outreach-system\\fix_logger_calls.py",
+        "4runr-outreach-system\\test_database_logger.py",
+        "deployment_package\\4runr-outreach-system\\database_logger.py",
+        "deployment_package\\4runr-outreach-system\\fix_logger_calls.py",
+        "deployment_package\\4runr-outreach-system\\test_database_logger.py",
+        "archived_systems\\4runr-agents\\ai_improvement_system\\logger.py",
+        "archived_systems\\4runr-agents\\shared\\production_logger.py",
+        ".venv\\Lib\\site-packages\\line_profiler\\_logger.py",
+        ".venv\\Lib\\site-packages\\mypy\\gclogger.py"
+      ],
+      "count": 10
+    },
+    {
+      "pattern": "backup",
+      "files": [
+        "backup_recovery.py",
+        "backup_recovery_system.py",
+        "4runr-outreach-system\\database_backup.py",
+        "deployment_package\\4runr-outreach-system\\database_backup.py",
+        "4runr-outreach-system\\shared\\backup_manager.py"
+      ],
+      "count": 5
+    },
+    {
+      "pattern": "monitoring",
+      "files": [
+        "monitoring_dashboard.py",
+        "setup_ec2_monitoring.py",
+        "deployment_package\\monitoring_dashboard.py"
+      ],
+      "count": 3
+    }
+  ],
+  "consolidation_recommendations": [
+    {
+      "pattern": "database_connection",
+      "files": [
+        "4runr-outreach-system\\database_connection_pool.py",
+        "deployment_package\\4runr-outreach-system\\database_connection_pool.py"
+      ],
+      "recommendation": "Create unified database connection manager in core/database",
+      "priority": "high",
+      "estimated_effort": "medium"
+    },
+    {
+      "pattern": "lead_database",
+      "files": [
+        "4runr-outreach-system\\lead_database.py",
+        "4runr-outreach-system\\test_lead_database.py",
+        "deployment_package\\4runr-outreach-system\\lead_database.py",
+        "deployment_package\\4runr-outreach-system\\test_lead_database.py",
+        "archived_systems\\4runr-agents\\database\\demo_lead_database.py",
+        "archived_systems\\4runr-agents\\database\\lead_database.py",
+        "archived_systems\\4runr-agents\\database\\test_lead_database.py"
+      ],
+      "recommendation": "Consolidate into single lead database interface in core/database",
+      "priority": "high",
+      "estimated_effort": "medium"
+    },
+    {
+      "pattern": "airtable_client",
+      "files": [
+        "deployment_package\\4runr-outreach-system\\shared\\airtable_client.py",
+        "deployment_package\\4runr-outreach-system\\shared\\configurable_airtable_client.py",
+        "archived_systems\\4runr-agents\\shared\\airtable_client.py",
+        "archived_systems\\4runr-agents\\shared\\airtable_client_fixed.py",
+        "archived_systems\\4runr-agents\\shared\\enhanced_airtable_client.py",
+        "4runr-outreach-system\\shared\\airtable_client.py",
+        "4runr-outreach-system\\shared\\configurable_airtable_client.py"
+      ],
+      "recommendation": "Create unified Airtable client in core/api",
+      "priority": "medium",
+      "estimated_effort": "medium"
+    },
+    {
+      "pattern": "data_cleaner",
+      "files": [
+        "4runr-outreach-system\\deploy_data_cleaner.py",
+        "4runr-outreach-system\\enricher_data_cleaner_integration.py",
+        "4runr-outreach-system\\test_data_cleaner_core.py",
+        "deployment_package\\4runr-outreach-system\\deploy_data_cleaner.py",
+        "deployment_package\\4runr-outreach-system\\enricher_data_cleaner_integration.py",
+        "deployment_package\\4runr-outreach-system\\test_data_cleaner_core.py",
+        "deployment_package\\4runr-outreach-system\\shared\\data_cleaner.py",
+        "4runr-outreach-system\\shared\\data_cleaner.py"
+      ],
+      "recommendation": "Consolidate data cleaning logic into modules/enrichment",
+      "priority": "medium",
+      "estimated_effort": "medium"
+    },
+    {
+      "pattern": "message_generator",
+      "files": [
+        "4runr-outreach-system\\test_message_generator.py",
+        "deployment_package\\4runr-outreach-system\\test_message_generator.py",
+        "deployment_package\\4runr-outreach-system\\engager\\message_generator_enhanced.py",
+        "deployment_package\\4runr-lead-scraper\\enricher\\fallback_message_generator.py",
+        "deployment_package\\4runr-brain\\nodes\\message_generator.py",
+        "archived_systems\\4runr-agents\\shared\\ai_message_generator.py",
+        "4runr-outreach-system\\engager\\message_generator_enhanced.py",
+        "4runr-lead-scraper\\enricher\\fallback_message_generator.py",
+        "4runr-brain\\nodes\\message_generator.py"
+      ],
+      "recommendation": "Unify message generation in modules/outreach",
+      "priority": "medium",
+      "estimated_effort": "medium"
+    },
+    {
+      "pattern": "email_sender",
+      "files": [
+        "4runr-brain\\simple_email_sender.py",
+        "deployment_package\\4runr-brain\\simple_email_sender.py"
+      ],
+      "recommendation": "Create single email service in modules/outreach",
+      "priority": "medium",
+      "estimated_effort": "medium"
+    },
+    {
+      "pattern": "website_scraper",
+      "files": [
+        "4runr-outreach-system\\test_website_scraper.py",
+        "deployment_package\\4runr-outreach-system\\test_website_scraper.py",
+        "deployment_package\\4runr-outreach-system\\engager\\website_scraper_service.py",
+        "archived_systems\\4runr-agents\\shared\\website_scraper.py",
+        "4runr-outreach-system\\engager\\website_scraper_service.py"
+      ],
+      "recommendation": "Consolidate scraping logic in modules/scraper",
+      "priority": "low",
+      "estimated_effort": "medium"
+    },
+    {
+      "pattern": "enricher",
+      "files": [
+        "4runr-lead-scraper\\test_google_enricher.py",
+        "4runr-outreach-system\\daily_enricher_agent_updated.py",
+        "4runr-outreach-system\\enricher_data_cleaner_integration.py",
+        "4runr-outreach-system\\example_enricher_integration.py",
+        "4runr-outreach-system\\test_enhanced_google_enricher.py",
+        "4runr-outreach-system\\test_google_enricher.py",
+        "4runr-outreach-system\\test_google_enricher_datacleaner_integration.py",
+        "4runr-outreach-system\\test_google_enricher_integration.py",
+        "4runr-outreach-system\\test_linkedin_enricher.py",
+        "4runr-outreach-system\\test_simple_enricher.py",
+        "4runr-outreach-system\\test_simple_enricher_integration.py",
+        "deployment_package\\4runr-lead-scraper\\test_google_enricher.py",
+        "deployment_package\\4runr-outreach-system\\daily_enricher_agent_updated.py",
+        "deployment_package\\4runr-outreach-system\\enricher_data_cleaner_integration.py",
+        "deployment_package\\4runr-outreach-system\\example_enricher_integration.py",
+        "deployment_package\\4runr-outreach-system\\test_enhanced_google_enricher.py",
+        "deployment_package\\4runr-outreach-system\\test_google_enricher.py",
+        "deployment_package\\4runr-outreach-system\\test_google_enricher_datacleaner_integration.py",
+        "deployment_package\\4runr-outreach-system\\test_google_enricher_integration.py",
+        "deployment_package\\4runr-outreach-system\\test_linkedin_enricher.py",
+        "deployment_package\\4runr-outreach-system\\test_simple_enricher.py",
+        "deployment_package\\4runr-outreach-system\\test_simple_enricher_integration.py",
+        "deployment_package\\4runr-lead-scraper\\enricher\\email_enricher.py",
+        "deployment_package\\4runr-lead-scraper\\enricher\\enhanced_enricher_integration.py",
+        "deployment_package\\4runr-lead-scraper\\enricher\\google_enricher.py",
+        "deployment_package\\4runr-lead-scraper\\enricher\\profile_enricher.py",
+        "archived_systems\\4runr-agents\\daily_enricher_agent.py",
+        "archived_systems\\4runr-agents\\daily_enricher_agent_updated.py",
+        "archived_systems\\4runr-agents\\schedule_daily_enricher.py",
+        "archived_systems\\4runr-agents\\enricher\\enhanced_enricher.py",
+        "4runr-lead-scraper\\enricher\\email_enricher.py",
+        "4runr-lead-scraper\\enricher\\enhanced_enricher_integration.py",
+        "4runr-lead-scraper\\enricher\\google_enricher.py",
+        "4runr-lead-scraper\\enricher\\profile_enricher.py"
+      ],
+      "recommendation": "Unify enrichment logic in modules/enrichment",
+      "priority": "low",
+      "estimated_effort": "medium"
+    },
+    {
+      "pattern": "logger",
+      "files": [
+        "4runr-outreach-system\\database_logger.py",
+        "4runr-outreach-system\\fix_logger_calls.py",
+        "4runr-outreach-system\\test_database_logger.py",
+        "deployment_package\\4runr-outreach-system\\database_logger.py",
+        "deployment_package\\4runr-outreach-system\\fix_logger_calls.py",
+        "deployment_package\\4runr-outreach-system\\test_database_logger.py",
+        "archived_systems\\4runr-agents\\ai_improvement_system\\logger.py",
+        "archived_systems\\4runr-agents\\shared\\production_logger.py",
+        ".venv\\Lib\\site-packages\\line_profiler\\_logger.py",
+        ".venv\\Lib\\site-packages\\mypy\\gclogger.py"
+      ],
+      "recommendation": "Implement unified logging system in core/utils",
+      "priority": "high",
+      "estimated_effort": "medium"
+    },
+    {
+      "pattern": "backup",
+      "files": [
+        "backup_recovery.py",
+        "backup_recovery_system.py",
+        "4runr-outreach-system\\database_backup.py",
+        "deployment_package\\4runr-outreach-system\\database_backup.py",
+        "4runr-outreach-system\\shared\\backup_manager.py"
+      ],
+      "recommendation": "Create centralized backup service in services/backup",
+      "priority": "low",
+      "estimated_effort": "medium"
+    },
+    {
+      "pattern": "monitoring",
+      "files": [
+        "monitoring_dashboard.py",
+        "setup_ec2_monitoring.py",
+        "deployment_package\\monitoring_dashboard.py"
+      ],
+      "recommendation": "Unify monitoring in services/monitoring",
+      "priority": "low",
+      "estimated_effort": "medium"
+    }
+  ],
+  "organized_structure": {
+    "core": {
+      "database": "Database layer and connection management",
+      "config": "Configuration management",
+      "utils": "Shared utilities and helpers",
+      "api": "API interfaces and clients"
+    },
+    "modules": {
+      "brain": "AI learning and decision making",
+      "scraper": "Lead discovery and data collection",
+      "outreach": "Outreach automation and messaging",
+      "enrichment": "Data enrichment and validation"
+    },
+    "services": {
+      "automation": "Automated processes and scheduling",
+      "monitoring": "System monitoring and health checks",
+      "backup": "Backup and recovery services"
+    },
+    "deployment": "Deployment tools and scripts",
+    "docs": "Documentation",
+    "tests": "Test suite",
+    "data": "Data storage"
+  },
+  "summary": {
+    "total_files": 10270,
+    "total_lines": 246202,
+    "duplicate_patterns": 11,
+    "categories_created": 15,
+    "high_priority_consolidations": 3
+  }
+}

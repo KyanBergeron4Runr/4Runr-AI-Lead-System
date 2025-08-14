@@ -169,7 +169,8 @@ class AirtableSync:
     
     def sync_updates_from_airtable(self, force: bool = False) -> Dict[str, Any]:
         """
-        Sync updates from Airtable to database.
+        Sync updates from Airtable to database (DAILY ONLY - 6:00 AM).
+        This provides updated user interface data from Airtable.
         
         Args:
             force: Force sync regardless of last sync time
@@ -177,7 +178,7 @@ class AirtableSync:
         Returns:
             Dictionary with sync results
         """
-        logger.info("📥 Starting Airtable to database sync")
+        logger.info("📥 Starting DAILY Airtable to database sync (UI updates)")
         
         try:
             # Get records from Airtable that have been modified recently

@@ -57,7 +57,7 @@ class DatabaseEnricherAgent:
         try:
             # Initialize database connection
             self.db = LeadDatabase()
-            logger.info("✅ Database connection established")
+            logger.info("[OK] Database connection established")
             
             # Initialize session for web requests
             self.session = requests.Session()
@@ -88,7 +88,7 @@ class DatabaseEnricherAgent:
             logger.info("🥷 Database Enricher Agent initialized with anti-detection measures")
             
         except Exception as e:
-            logger.error(f"❌ Failed to initialize enricher agent: {e}")
+            logger.error(f"[ERROR] Failed to initialize enricher agent: {e}")
             raise
     
     def get_leads_needing_enrichment(self) -> List[Dict[str, Any]]:
@@ -136,7 +136,7 @@ class DatabaseEnricherAgent:
             return unique_leads
             
         except Exception as e:
-            logger.error(f"❌ Error getting leads needing enrichment: {e}")
+            logger.error(f"[ERROR] Error getting leads needing enrichment: {e}")
             
             # Log error
             log_database_event("database_operation", {}, {
@@ -162,7 +162,7 @@ class DatabaseEnricherAgent:
             table_name = os.getenv('AIRTABLE_TABLE_NAME', 'Table 1')
             
             if not all([api_key, base_id]):
-                logger.warning("⚠️ Airtable credentials not configured")
+                logger.warning("[WARNING] Airtable credentials not configured")
                 return []
             
             encoded_table_name = quote(table_name)
@@ -205,11 +205,11 @@ class DatabaseEnricherAgent:
                 return missing_email_leads
             
             else:
-                logger.error(f"❌ Failed to get Airtable records: {response.status_code}")
+                logger.error(f"[ERROR] Failed to get Airtable records: {response.status_code}")
                 return []
                 
         except Exception as e:
-            logger.error(f"❌ Error getting Airtable leads: {str(e)}")
+            logger.error(f"[ERROR] Error getting Airtable leads: {str(e)}")
             return []
     
     def get_stealth_headers(self, domain: Optional[str] = None) -> Dict[str, str]:
@@ -276,22 +276,22 @@ class DatabaseEnricherAgent:
             return response
             
         except Exception as e:
-            logger.warning(f"⚠️ Request failed for {url}: {str(e)}")
+            logger.warning(f"[WARNING] Request failed for {url}: {str(e)}")
             return None
     
     def discover_company_domain(self, company_name: str) -> Optional[str]:
         """Discover company domain with stealth techniques."""
-        logger.info(f"🔍 Discovering domain for: {company_name}")
+        logger.info(f"[SEARCH] Discovering domain for: {company_name}")
         
         # Method 1: Try common domain patterns first
         domain_patterns = self.generate_domain_patterns(company_name)
         
         for domain in domain_patterns[:3]:  # Limit to top 3 to reduce requests
             if self.verify_domain_exists(domain):
-                logger.info(f"✅ Found domain via pattern: {domain}")
+                logger.info(f"[OK] Found domain via pattern: {domain}")
                 return domain
         
-        logger.warning(f"⚠️ Could not find domain for: {company_name}")
+        logger.warning(f"[WARNING] Could not find domain for: {company_name}")
         return None
     
     def generate_domain_patterns(self, company_name: str) -> List[str]:
@@ -396,7 +396,7 @@ class DatabaseEnricherAgent:
         name = lead.get('full_name') or lead.get('name', '')
         company = lead.get('company', '')
         
-        logger.info(f"🔄 Enriching: {name} at {company}")
+        logger.info(f"[SYNC] Enriching: {name} at {company}")
         
         enrichment_start_time = datetime.now()
         
@@ -424,7 +424,7 @@ class DatabaseEnricherAgent:
                     enriched_data['enriched'] = True
                     enriched_data['needs_enrichment'] = False
                     
-                    logger.info(f"✅ Found email for {name}: {verified_emails[0]}")
+                    logger.info(f"[OK] Found email for {name}: {verified_emails[0]}")
             
             # Calculate enrichment duration
             enrichment_duration = (datetime.now() - enrichment_start_time).total_seconds()
@@ -433,7 +433,7 @@ class DatabaseEnricherAgent:
             return enriched_data
             
         except Exception as e:
-            logger.error(f"❌ Error enriching {name}: {e}")
+            logger.error(f"[ERROR] Error enriching {name}: {e}")
             enriched_data['enrichment_error'] = str(e)
             return enriched_data
     
@@ -452,14 +452,14 @@ class DatabaseEnricherAgent:
             success = self.db.update_lead(lead_id, enriched_data)
             
             if success:
-                logger.info(f"✅ Updated lead {lead_id} in database")
+                logger.info(f"[OK] Updated lead {lead_id} in database")
             else:
-                logger.warning(f"⚠️ Failed to update lead {lead_id} in database")
+                logger.warning(f"[WARNING] Failed to update lead {lead_id} in database")
             
             return success
             
         except Exception as e:
-            logger.error(f"❌ Error updating lead {lead_id}: {e}")
+            logger.error(f"[ERROR] Error updating lead {lead_id}: {e}")
             return False
     
     def update_airtable_with_email(self, airtable_record_id: str, email_data: Dict[str, Any]) -> bool:
@@ -501,14 +501,14 @@ class DatabaseEnricherAgent:
             response = requests.patch(url, headers=headers, json=update_data, timeout=30)
             
             if response.status_code == 200:
-                logger.info(f"✅ Updated Airtable record with email: {email_data.get('email', '')}")
+                logger.info(f"[OK] Updated Airtable record with email: {email_data.get('email', '')}")
                 return True
             else:
-                logger.error(f"❌ Failed to update Airtable: {response.status_code}")
+                logger.error(f"[ERROR] Failed to update Airtable: {response.status_code}")
                 return False
                 
         except Exception as e:
-            logger.error(f"❌ Error updating Airtable: {str(e)}")
+            logger.error(f"[ERROR] Error updating Airtable: {str(e)}")
             return False
     
     def run_daily_enrichment(self, max_leads: int = 50) -> Dict[str, Any]:
@@ -523,7 +523,7 @@ class DatabaseEnricherAgent:
         """
         start_time = time.time()
         
-        logger.info("🚀 Starting daily database enrichment process...")
+        logger.info("[LAUNCH] Starting daily database enrichment process...")
         
         try:
             # Get leads needing enrichment from database
@@ -539,7 +539,7 @@ class DatabaseEnricherAgent:
             leads_to_process = all_leads[:max_leads]
             
             if not leads_to_process:
-                logger.info("✅ No leads need enrichment today")
+                logger.info("[OK] No leads need enrichment today")
                 return {
                     "success": True,
                     "total_leads": 0,
@@ -554,7 +554,7 @@ class DatabaseEnricherAgent:
             failed_count = 0
             
             for i, lead in enumerate(leads_to_process, 1):
-                logger.info(f"🔄 Processing lead {i}/{len(leads_to_process)}: {lead.get('name', lead.get('full_name', 'Unknown'))}")
+                logger.info(f"[SYNC] Processing lead {i}/{len(leads_to_process)}: {lead.get('name', lead.get('full_name', 'Unknown'))}")
                 
                 try:
                     # Enrich the lead
@@ -570,13 +570,13 @@ class DatabaseEnricherAgent:
                     
                     if success and enriched_data.get('enriched'):
                         enriched_count += 1
-                        logger.info(f"✅ Successfully enriched: {lead.get('name', lead.get('full_name', 'Unknown'))}")
+                        logger.info(f"[OK] Successfully enriched: {lead.get('name', lead.get('full_name', 'Unknown'))}")
                     else:
                         failed_count += 1
                         if not enriched_data.get('enriched'):
                             logger.info(f"📭 No email found for: {lead.get('name', lead.get('full_name', 'Unknown'))}")
                         else:
-                            logger.warning(f"⚠️ Failed to update: {lead.get('name', lead.get('full_name', 'Unknown'))}")
+                            logger.warning(f"[WARNING] Failed to update: {lead.get('name', lead.get('full_name', 'Unknown'))}")
                     
                     # Anti-detection: Random delay between leads
                     if i < len(leads_to_process):  # Don't delay after last lead
@@ -585,7 +585,7 @@ class DatabaseEnricherAgent:
                         time.sleep(delay)
                     
                 except Exception as e:
-                    logger.error(f"❌ Error processing {lead.get('name', lead.get('full_name', 'Unknown'))}: {str(e)}")
+                    logger.error(f"[ERROR] Error processing {lead.get('name', lead.get('full_name', 'Unknown'))}: {str(e)}")
                     failed_count += 1
                     continue
             
@@ -604,7 +604,7 @@ class DatabaseEnricherAgent:
             }
             
             # Log summary
-            logger.info(f"🎯 Daily enrichment complete: {enriched_count}/{len(leads_to_process)} leads enriched ({success_rate:.1f}% success)")
+            logger.info(f"[TARGET] Daily enrichment complete: {enriched_count}/{len(leads_to_process)} leads enriched ({success_rate:.1f}% success)")
             
             # Save daily report
             self.save_daily_report(results)
@@ -614,7 +614,7 @@ class DatabaseEnricherAgent:
         except Exception as e:
             execution_time_ms = (time.time() - start_time) * 1000
             error_msg = f"Daily enrichment failed: {str(e)}"
-            logger.error(f"❌ {error_msg}")
+            logger.error(f"[ERROR] {error_msg}")
             
             return {
                 "success": False,
@@ -650,10 +650,10 @@ class DatabaseEnricherAgent:
             with open(report_file, 'w', encoding='utf-8') as f:
                 json.dump(report, f, indent=2, ensure_ascii=False)
             
-            logger.info(f"📊 Daily report saved: {report['leads_enriched']} leads enriched at $0 cost")
+            logger.info(f"[STATS] Daily report saved: {report['leads_enriched']} leads enriched at $0 cost")
             
         except Exception as e:
-            logger.error(f"❌ Error saving daily report: {e}")
+            logger.error(f"[ERROR] Error saving daily report: {e}")
 
 
 def main():
@@ -684,7 +684,7 @@ def main():
         
         # Print summary
         logger.info("=" * 50)
-        logger.info("📊 ENRICHMENT SUMMARY")
+        logger.info("[STATS] ENRICHMENT SUMMARY")
         logger.info("=" * 50)
         logger.info(f"Total leads processed: {results.get('total_leads', 0)}")
         logger.info(f"Successfully enriched: {results.get('enriched_count', 0)}")
@@ -697,7 +697,7 @@ def main():
         return 0 if results.get('success', False) else 1
         
     except Exception as e:
-        logger.error(f"❌ Daily enrichment process failed: {str(e)}")
+        logger.error(f"[ERROR] Daily enrichment process failed: {str(e)}")
         return 1
 
 

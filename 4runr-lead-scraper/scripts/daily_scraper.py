@@ -63,7 +63,7 @@ class DailyScraperAgent:
             'operations': []
         }
         
-        self.logger.info("🤖 Daily Scraper Agent initialized")
+        self.logger.info("[BOT] Daily Scraper Agent initialized")
         self.logger.info(f"⚙️ Max leads: {self.max_leads}")
         self.logger.info(f"⚙️ Dry run: {self.dry_run}")
     
@@ -74,7 +74,7 @@ class DailyScraperAgent:
         Returns:
             Dictionary with pipeline results
         """
-        self.logger.info("🚀 Starting daily lead pipeline")
+        self.logger.info("[LAUNCH] Starting daily lead pipeline")
         
         with LoggedOperation(self.struct_logger, 'daily_pipeline', max_leads=self.max_leads):
             try:
@@ -90,11 +90,11 @@ class DailyScraperAgent:
                 # Generate summary
                 summary = self._generate_summary(scraping_result, enrichment_result, sync_result)
                 
-                self.logger.info("✅ Daily pipeline completed successfully")
+                self.logger.info("[OK] Daily pipeline completed successfully")
                 return summary
                 
             except Exception as e:
-                self.logger.error(f"❌ Daily pipeline failed: {str(e)}")
+                self.logger.error(f"[ERROR] Daily pipeline failed: {str(e)}")
                 self.stats['errors'] += 1
                 raise
     
@@ -105,7 +105,7 @@ class DailyScraperAgent:
         Returns:
             Scraping results
         """
-        self.logger.info("🔍 Starting scraping phase")
+        self.logger.info("[SEARCH] Starting scraping phase")
         
         with LoggedOperation(self.struct_logger, 'scraping_phase'):
             try:
@@ -136,13 +136,13 @@ class DailyScraperAgent:
                         if validation_result.is_valid:
                             valid_leads.append(cleaned_lead)
                         else:
-                            self.logger.warning(f"⚠️ Invalid lead data for {lead.get('name', 'Unknown')}: {validation_result.errors}")
+                            self.logger.warning(f"[WARNING] Invalid lead data for {lead.get('name', 'Unknown')}: {validation_result.errors}")
                     
                     except Exception as e:
-                        self.logger.warning(f"⚠️ Failed to process lead: {str(e)}")
+                        self.logger.warning(f"[WARNING] Failed to process lead: {str(e)}")
                         continue
                 
-                self.logger.info(f"✅ Validated {len(valid_leads)}/{len(leads)} leads")
+                self.logger.info(f"[OK] Validated {len(valid_leads)}/{len(leads)} leads")
                 
                 # Save leads to database
                 saved_count = 0
@@ -151,10 +151,10 @@ class DailyScraperAgent:
                         try:
                             lead_id = self.db.create_lead(lead)
                             saved_count += 1
-                            self.logger.debug(f"💾 Saved lead: {lead['name']} ({lead_id})")
+                            self.logger.debug(f"[SAVE] Saved lead: {lead['name']} ({lead_id})")
                         
                         except Exception as e:
-                            self.logger.warning(f"⚠️ Failed to save lead {lead.get('name', 'Unknown')}: {str(e)}")
+                            self.logger.warning(f"[WARNING] Failed to save lead {lead.get('name', 'Unknown')}: {str(e)}")
                             self.stats['errors'] += 1
                 else:
                     saved_count = len(valid_leads)  # Simulate for dry run
@@ -170,13 +170,13 @@ class DailyScraperAgent:
                 }
                 
                 self.struct_logger.log_scraping('success', leads_count=saved_count, source='serpapi')
-                self.logger.info(f"✅ Scraping phase completed: {saved_count} leads saved")
+                self.logger.info(f"[OK] Scraping phase completed: {saved_count} leads saved")
                 
                 return result
                 
             except Exception as e:
                 self.struct_logger.log_scraping('failed', error=str(e))
-                self.logger.error(f"❌ Scraping phase failed: {str(e)}")
+                self.logger.error(f"[ERROR] Scraping phase failed: {str(e)}")
                 self.stats['errors'] += 1
                 raise
     
@@ -241,7 +241,7 @@ class DailyScraperAgent:
                                 enriched_count += 1
                                 self.struct_logger.log_enrichment('success', lead_name=lead.name, method=enrichment_data.get('enrichment_method', 'profile'))
                             else:
-                                self.logger.warning(f"⚠️ Failed to update database for {lead.name}")
+                                self.logger.warning(f"[WARNING] Failed to update database for {lead.name}")
                         elif enrichment_data and self.dry_run:
                             enriched_count += 1  # Simulate for dry run
                         
@@ -252,7 +252,7 @@ class DailyScraperAgent:
                             time.sleep(delay)
                     
                     except Exception as e:
-                        self.logger.error(f"❌ Enrichment failed for {lead.name}: {str(e)}")
+                        self.logger.error(f"[ERROR] Enrichment failed for {lead.name}: {str(e)}")
                         self.struct_logger.log_enrichment('failed', lead_name=lead.name, error=str(e))
                         self.stats['errors'] += 1
                         continue
@@ -268,12 +268,12 @@ class DailyScraperAgent:
                     'duration': enrichment_duration
                 }
                 
-                self.logger.info(f"✅ Enrichment phase completed: {enriched_count}/{len(leads_to_enrich)} leads enriched")
+                self.logger.info(f"[OK] Enrichment phase completed: {enriched_count}/{len(leads_to_enrich)} leads enriched")
                 
                 return result
                 
             except Exception as e:
-                self.logger.error(f"❌ Enrichment phase failed: {str(e)}")
+                self.logger.error(f"[ERROR] Enrichment phase failed: {str(e)}")
                 self.stats['errors'] += 1
                 raise
     
@@ -284,7 +284,7 @@ class DailyScraperAgent:
         Returns:
             Sync results
         """
-        self.logger.info("🔄 Starting sync phase")
+        self.logger.info("[SYNC] Starting sync phase")
         
         with LoggedOperation(self.struct_logger, 'sync_phase'):
             try:
@@ -310,7 +310,7 @@ class DailyScraperAgent:
                 
                 if sync_success:
                     self.struct_logger.log_sync('success', direction='to_airtable', count=synced_count)
-                    self.logger.info(f"✅ Sync completed: {synced_count} leads synced to Airtable")
+                    self.logger.info(f"[OK] Sync completed: {synced_count} leads synced to Airtable")
                     
                     # Log engagement defaults results
                     if 'defaults_applied' in sync_result:
@@ -318,7 +318,7 @@ class DailyScraperAgent:
                         defaults_count = defaults.get('count', 0)
                         if defaults_count > 0:
                             fields_updated = defaults.get('fields_updated', [])
-                            self.logger.info(f"🎯 Engagement defaults applied: {defaults_count} leads updated with fields {fields_updated}")
+                            self.logger.info(f"[TARGET] Engagement defaults applied: {defaults_count} leads updated with fields {fields_updated}")
                             
                             # Add to structured logging
                             self.struct_logger.log_module_activity('daily_scraper', 'engagement_defaults', 'success', {
@@ -328,15 +328,15 @@ class DailyScraperAgent:
                                 'failed_count': defaults.get('failed_count', 0)
                             })
                         elif defaults.get('errors'):
-                            self.logger.warning(f"⚠️ Engagement defaults had errors: {defaults['errors']}")
+                            self.logger.warning(f"[WARNING] Engagement defaults had errors: {defaults['errors']}")
                             self.struct_logger.log_module_activity('daily_scraper', 'engagement_defaults', 'warning', {
                                 'errors': defaults['errors']
                             })
                         else:
-                            self.logger.debug("🎯 No engagement defaults needed (all leads already have values)")
+                            self.logger.debug("[TARGET] No engagement defaults needed (all leads already have values)")
                 else:
                     self.struct_logger.log_sync('failed', direction='to_airtable', error=sync_result.get('errors', []))
-                    self.logger.error(f"❌ Sync failed: {sync_result.get('failed_count', 0)} failures")
+                    self.logger.error(f"[ERROR] Sync failed: {sync_result.get('failed_count', 0)} failures")
                     self.stats['errors'] += 1
                 
                 self.stats['leads_synced'] = synced_count
@@ -357,7 +357,7 @@ class DailyScraperAgent:
                 }
                 
             except Exception as e:
-                self.logger.error(f"❌ Sync phase failed: {str(e)}")
+                self.logger.error(f"[ERROR] Sync phase failed: {str(e)}")
                 self.struct_logger.log_sync('failed', direction='to_airtable', error=str(e))
                 self.stats['errors'] += 1
                 raise
@@ -434,11 +434,11 @@ class DailyScraperAgent:
             with open(report_path, 'w', encoding='utf-8') as f:
                 json.dump(summary, f, indent=2, ensure_ascii=False)
             
-            self.logger.info(f"📄 Execution report saved: {report_path}")
+            self.logger.info(f"[FILE] Execution report saved: {report_path}")
             return str(report_path)
             
         except Exception as e:
-            self.logger.error(f"❌ Failed to save execution report: {str(e)}")
+            self.logger.error(f"[ERROR] Failed to save execution report: {str(e)}")
             return ""
 
 
@@ -466,22 +466,22 @@ def main():
         # Run specific phases or full pipeline
         if args.scrape_only:
             result = agent._run_scraping_phase()
-            print(f"🔍 Scraping Results: {result}")
+            print(f"[SEARCH] Scraping Results: {result}")
         elif args.enrich_only:
             result = agent._run_enrichment_phase()
             print(f"💎 Enrichment Results: {result}")
         elif args.sync_only:
             result = agent._run_sync_phase()
-            print(f"🔄 Sync Results: {result}")
+            print(f"[SYNC] Sync Results: {result}")
         else:
             # Run full pipeline
             summary = agent.run_daily_pipeline()
             
             # Display summary
-            print(f"\n🎯 Daily Pipeline Summary:")
+            print(f"\n[TARGET] Daily Pipeline Summary:")
             print(f"  Execution ID: {summary['execution_id']}")
             print(f"  Duration: {summary['total_duration_seconds']:.1f}s")
-            print(f"  Success: {'✅' if summary['success'] else '❌'}")
+            print(f"  Success: {'[OK]' if summary['success'] else '[ERROR]'}")
             print(f"  Leads Scraped: {summary['statistics']['leads_scraped']}")
             print(f"  Leads Enriched: {summary['statistics']['leads_enriched']}")
             print(f"  Leads Synced: {summary['statistics']['leads_synced']}")
@@ -498,10 +498,10 @@ def main():
         return 0 if result.get('success', True) else 1
         
     except KeyboardInterrupt:
-        print("\n⚠️ Daily automation interrupted by user")
+        print("\n[WARNING] Daily automation interrupted by user")
         return 1
     except Exception as e:
-        print(f"❌ Daily automation failed: {str(e)}")
+        print(f"[ERROR] Daily automation failed: {str(e)}")
         return 1
 
 
