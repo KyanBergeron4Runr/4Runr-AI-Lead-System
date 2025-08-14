@@ -89,7 +89,7 @@ class LeadDatabase:
             sqlite3.Connection: Database connection with row factory
         """
         # Use the connection pool for better concurrency
-        pool = get_connection_pool()
+        pool = get_connection_pool(self.db_path)
         with pool.get_connection() as conn:
             yield conn
     

@@ -159,9 +159,9 @@ class DatabaseConnectionPool:
                 thread_id=threading.get_ident()
             )
             
-            # Store connection with custom attribute
-            conn._connection_id = connection_id
-            conn._connection_info = conn_info
+            # Store connection info separately (sqlite3.Connection doesn't support custom attributes)
+            # conn._connection_id = connection_id  # This doesn't work with sqlite3.Connection
+            # conn._connection_info = conn_info    # This doesn't work with sqlite3.Connection
             
             with self._pool_lock:
                 self._all_connections[connection_id] = conn_info
@@ -222,10 +222,14 @@ class DatabaseConnectionPool:
                         self._stats['connection_timeouts'] += 1
                         raise TimeoutError(f"Could not acquire connection within {timeout} seconds")
             
-            # Get the actual connection
-            conn = self._get_connection_by_id(connection_id)
-            if not conn:
-                raise RuntimeError(f"Failed to retrieve connection {connection_id}")
+            # Create a new connection for this request
+            conn = sqlite3.connect(
+                self.db_path,
+                timeout=self.connection_timeout,
+                check_same_thread=False,
+                isolation_level=None
+            )
+            conn.row_factory = sqlite3.Row
             
             # Update connection info
             thread_id = threading.get_ident()
@@ -250,39 +254,19 @@ class DatabaseConnectionPool:
             raise
             
         finally:
-            # Return connection to pool
-            if connection_id and conn:
+            # Close the connection
+            if conn:
                 try:
-                    # Close any open transactions
-                    if hasattr(conn, '_connection_id'):
-                        self._cleanup_connection_transactions(connection_id)
-                    
-                    # Close the connection (we'll create fresh ones as needed)
                     conn.close()
-                    
-                    # Update tracking
-                    thread_id = threading.get_ident()
-                    with self._pool_lock:
-                        if thread_id in self._active_connections:
-                            del self._active_connections[thread_id]
-                        
-                        # Return to available pool if healthy
-                        if (connection_id in self._all_connections and 
-                            self._all_connections[connection_id].is_healthy):
-                            try:
-                                self._available_connections.put_nowait(connection_id)
-                            except queue.Full:
-                                # Pool is full, destroy this connection
-                                self._destroy_connection(connection_id)
-                        else:
-                            # Connection is unhealthy, destroy it
-                            self._destroy_connection(connection_id)
-                    
-                    logger.debug(f"Released connection {connection_id}")
-                    
+                    logger.debug(f"Closed connection {connection_id}")
                 except Exception as e:
-                    logger.error(f"Error releasing connection {connection_id}: {e}")
-                    self._destroy_connection(connection_id)
+                    logger.error(f"Error closing connection {connection_id}: {e}")
+            
+            # Update tracking
+            thread_id = threading.get_ident()
+            with self._pool_lock:
+                if thread_id in self._active_connections:
+                    del self._active_connections[thread_id]
     
     def _destroy_connection(self, connection_id: str):
         """Destroy a connection and remove it from tracking"""

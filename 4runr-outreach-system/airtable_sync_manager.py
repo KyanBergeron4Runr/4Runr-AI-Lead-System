@@ -120,8 +120,9 @@ class AirtableSyncManager:
         self.airtable_to_db_mapping = {v: k for k, v in self.db_to_airtable_mapping.items()}
         
         # Logging handled by decorators
-        @monitor_performance("sync_to_airtable")
-        def sync_to_airtable(self, lead_ids: Optional[List[str]] = None) -> SyncSummary:
+        
+    @monitor_performance("sync_to_airtable")
+    def sync_to_airtable(self, lead_ids: Optional[List[str]] = None) -> SyncSummary:
         """
         Sync leads from database to Airtable.
         
@@ -290,8 +291,6 @@ class AirtableSyncManager:
                 if airtable_id:
                     result.status = SyncStatus.SUCCESS
                     result.airtable_id = airtable_id
-                # Logging handled by decorators
-})
                     break
                 else:
                     result.error_message = "Failed to create record in Airtable"
@@ -299,8 +298,9 @@ class AirtableSyncManager:
             except Exception as e:
                 result.error_message = str(e)
                 # Error logging handled by decorators
-if attempt < self.max_retries - 1:
-                    time.sleep(self.retry_delay_base ** attempt)
+                
+            if attempt < self.max_retries - 1:
+                time.sleep(self.retry_delay_base ** attempt)
         
         result.attempt_count = min(attempt + 1, self.max_retries)
         result.last_attempt = datetime.datetime.now()
