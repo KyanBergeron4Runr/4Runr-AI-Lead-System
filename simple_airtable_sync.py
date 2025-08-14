@@ -103,6 +103,7 @@ def sync_to_airtable(leads):
             else:
                 error_count += 1
                 print(f"❌ Failed to sync {lead['full_name']}: {response.status_code}")
+                print(f"   Error response: {response.text}")
                 
         except Exception as e:
             error_count += 1
