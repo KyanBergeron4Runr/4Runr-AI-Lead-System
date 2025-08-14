@@ -89,11 +89,8 @@ def sync_to_airtable(leads):
                 'Email': lead['email'],
                 'Company': lead['company'],
                 'AI Message': lead['ai_message'],
-                'Industry': lead['industry'],
-                'Company Size': lead['company_size'],
                 'LinkedIn URL': lead['linkedin_url'],
-                'Created At': lead['created_at'],
-                'Updated At': lead['updated_at']
+                'Created At': lead['created_at']
             }
         }
         
