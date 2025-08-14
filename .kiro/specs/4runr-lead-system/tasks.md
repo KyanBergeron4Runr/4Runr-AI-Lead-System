@@ -36,7 +36,9 @@
 
     - _Requirements: 1.1, 1.2, 1.3_
   
-  - [ ] 2.2 Integrate website data with Airtable
+  - [x] 2.2 Integrate website data with Airtable
+
+
     - Use existing Airtable integration to write Website field
 
 
@@ -44,6 +46,8 @@
     - Maintain existing scraper functionality without breaking changes
     - Test website extraction with various SerpAPI response formats
     - _Requirements: 1.4, 1.5_
+
+
 
 
 
@@ -67,10 +71,13 @@
 
 
 
+
+
 - [ ] 4. Implement Website Content Scraper Agent
   - [ ] 4.1 Create web scraping engine
     - Set up Playwright for dynamic website scraping with browser automation
     - Implement page prioritization logic (/about, /services, /home, /contact)
+
 
 
 
@@ -81,10 +88,13 @@
   - [ ] 4.2 Implement content analysis and extraction
     - Create company description generator from About/Home page content
     - Implement service extraction algorithm for Top_Services identification
+
+
     - Build website tone analyzer (formal, bold, friendly, casual, professional)
     - Store raw scraped content as Website_Insights for context preservation
     - Update Airtable with Company_Description, Top_Services, Tone, and Website_Insights fields
     - _Requirements: 3.4, 3.5, 3.6, 3.7_
+
 
 - [ ] 5. Implement Improved Enricher Agent
   - [ ] 5.1 Enhance enricher with website analysis
@@ -96,6 +106,8 @@
   
   - [ ] 5.2 Implement business traits and pain points extraction
     - Identify business Traits (local service, AI-powered, needs automation) from website
+
+
     - Infer Pain Points from messaging, product descriptions, and website content
     - Update Response Notes field with comprehensive business insights
     - Save Business Type as optional new Airtable field

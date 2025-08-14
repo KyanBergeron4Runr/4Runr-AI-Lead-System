@@ -1,0 +1,8 @@
+{
+  "backup_timestamp": "20250813_213328",
+  "backup_type": "full",
+  "database_backup": "backups\\full_backup_20250813_213328\\database_backup_20250813_213328.db",
+  "airtable_backup": "backups\\full_backup_20250813_213328\\airtable_backup_20250813_213329.json",
+  "created_at": "2025-08-13T21:33:31.359684",
+  "retention_until": "2025-09-12T21:33:31.359693"
+}
