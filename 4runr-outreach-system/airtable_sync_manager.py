@@ -118,9 +118,10 @@ class AirtableSyncManager:
         
         # Reverse mapping for Airtable to database
         self.airtable_to_db_mapping = {v: k for k, v in self.db_to_airtable_mapping.items()}
-                # Logging handled by decorators
-@monitor_performance("sync_to_airtable")
-    def sync_to_airtable(self, lead_ids: Optional[List[str]] = None) -> SyncSummary:
+        
+        # Logging handled by decorators
+        @monitor_performance("sync_to_airtable")
+        def sync_to_airtable(self, lead_ids: Optional[List[str]] = None) -> SyncSummary:
         """
         Sync leads from database to Airtable.
         
@@ -153,10 +154,7 @@ class AirtableSyncManager:
             
             if not leads_to_sync:
                 # Logging handled by decorators
-return summary
-                # Logging handled by decorators
-} leads to Airtable'
-            })
+                return summary
             
             # Process leads in batches
             for i in range(0, len(leads_to_sync), self.batch_size):
