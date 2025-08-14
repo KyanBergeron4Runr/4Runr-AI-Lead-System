@@ -38,7 +38,7 @@ def get_leads_from_db():
     cursor = conn.cursor()
     cursor.execute("""
         SELECT id, full_name, email, company, ai_message, industry, 
-               company_size, linkedin_url, scraped_at, enriched_at
+               company_size, linkedin_url, created_at, updated_at
         FROM leads
         ORDER BY id
     """)
@@ -54,8 +54,8 @@ def get_leads_from_db():
             'industry': row[5] or '',
             'company_size': row[6] or '',
             'linkedin_url': row[7] or '',
-            'scraped_at': row[8] or '',
-            'enriched_at': row[9] or ''
+            'created_at': row[8] or '',
+            'updated_at': row[9] or ''
         })
     
     conn.close()
@@ -92,8 +92,8 @@ def sync_to_airtable(leads):
                 'Industry': lead['industry'],
                 'Company Size': lead['company_size'],
                 'LinkedIn URL': lead['linkedin_url'],
-                'Scraped At': lead['scraped_at'],
-                'Enriched At': lead['enriched_at']
+                'Created At': lead['created_at'],
+                'Updated At': lead['updated_at']
             }
         }
         
