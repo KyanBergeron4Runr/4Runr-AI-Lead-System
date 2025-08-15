@@ -1,0 +1,23 @@
+{
+  "deployment": "final_real_4runr_organism",
+  "version": "1.0.0",
+  "created": "2025-08-15T18:50:21.243460",
+  "description": "FINAL REAL 4Runr Autonomous Organism with SerpAPI integration",
+  "components": [
+    "autonomous_4runr_organism.py - REAL organism with SerpAPI",
+    "deploy_real.sh - EC2 deployment script",
+    "requirements.txt - Python dependencies",
+    ".env.example - Environment variables template",
+    "README.md - Deployment instructions"
+  ],
+  "features": [
+    "REAL LinkedIn lead scraping via SerpAPI",
+    "LinkedIn URL validation",
+    "Professional email generation",
+    "AI message creation",
+    "Complete Airtable sync with all fields",
+    "Rate limiting: 7 leads per day",
+    "Duplicate prevention",
+    "Autonomous operation with self-healing"
+  ]
+}
