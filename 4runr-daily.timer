@@ -1,0 +1,10 @@
+[Unit]
+Description=Run 4Runr Daily Lead Generation
+Requires=4runr-daily.service
+
+[Timer]
+OnCalendar=*-*-* 09:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

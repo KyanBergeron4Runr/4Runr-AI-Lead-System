@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-14T20:54:58.701760",
+  "database_stats": {
+    "total_leads": 40,
+    "leads_with_email": 36,
+    "leads_ready_for_outreach": 2,
+    "email_percentage": 90.0
+  },
+  "recent_activity": {
+    "leads_added_7_days": 18,
+    "leads_ready_for_outreach": 2
+  },
+  "system_status": "healthy"
+}

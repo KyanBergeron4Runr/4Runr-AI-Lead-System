@@ -1,0 +1,96 @@
+{
+  "timestamp": "2025-08-14T21:04:56.378212",
+  "overall_status": "\ud83d\udfe0 NEEDS FIXES - MAJOR ISSUES",
+  "recommendation": "FIX CRITICAL ISSUES BEFORE DEPLOYMENT",
+  "success_rate": 90.0,
+  "test_results": {
+    "brutal_database_stress": {
+      "status": "PASS",
+      "ops_per_second": 277.82385760340304,
+      "failures": 0,
+      "large_data_time": 0.0040585994720458984
+    },
+    "concurrent_operations_stress": {
+      "status": "PASS",
+      "total_operations": 100,
+      "total_failures": 0,
+      "time_taken": 0.8745772838592529
+    },
+    "comprehensive_error_handling": {
+      "status": "PASS",
+      "success_rate": 92.3076923076923,
+      "scenarios_passed": 12,
+      "total_scenarios": 13
+    },
+    "data_quality_validation": {
+      "status": "FAIL",
+      "quality_percentage": 6.41399416909621,
+      "valid_leads": 22,
+      "total_leads": 343,
+      "issues_count": 330
+    },
+    "api_integration_stress": {
+      "status": "PASS",
+      "success_rate": 100.0,
+      "tests_passed": 11,
+      "total_tests": 11
+    },
+    "memory_and_resource": {
+      "status": "PASS",
+      "execution_time": 0.38581347465515137
+    },
+    "edge_cases": {
+      "status": "PASS",
+      "success_rate": 100.0,
+      "passed": 6,
+      "total": 6
+    },
+    "end_to_end_pipeline": {
+      "status": "PASS",
+      "pipeline_time": 0.013522624969482422,
+      "issues": [],
+      "final_lead_id": 469
+    },
+    "failover_recovery": {
+      "status": "PASS",
+      "success_rate": 100.0,
+      "tests_passed": 3,
+      "total_tests": 3
+    },
+    "performance_under_load": {
+      "status": "PASS",
+      "sustained_ops_per_second": 82.2316688214899,
+      "sustained_failure_rate": 0.0,
+      "avg_response_time_ms": 3.57816219329834,
+      "max_response_time_ms": 4.228353500366211,
+      "issues": []
+    }
+  },
+  "critical_failures": [
+    "Data quality below threshold: 6.4% < 95%"
+  ],
+  "performance_issues": [],
+  "data_quality_issues": [
+    "Lead 4: Missing or empty company",
+    "Lead 19: Missing or empty full_name",
+    "Lead 19: Missing or empty email",
+    "Lead 19: Duplicate email",
+    "Lead 20: Missing or empty full_name",
+    "Lead 20: Missing or empty email",
+    "Lead 20: Duplicate email",
+    "Lead 21: Missing or empty full_name",
+    "Lead 21: Missing or empty email",
+    "Lead 21: Duplicate email"
+  ],
+  "warnings": [],
+  "readiness_factors": {
+    "Database Performance": "\u2705",
+    "Error Handling": "\u2705",
+    "Data Quality": "\u274c",
+    "API Integration": "\u2705",
+    "Concurrent Operations": "\u2705",
+    "Performance Under Load": "\u2705",
+    "System Recovery": "\u2705",
+    "Memory Management": "\u2705"
+  }
+}

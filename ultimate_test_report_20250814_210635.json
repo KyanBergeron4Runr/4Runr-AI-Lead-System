@@ -1,0 +1,97 @@
+{
+  "timestamp": "2025-08-14T21:06:35.113698",
+  "overall_status": "\ud83d\udfe0 NEEDS FIXES - MAJOR ISSUES",
+  "recommendation": "FIX CRITICAL ISSUES BEFORE DEPLOYMENT",
+  "success_rate": 80.0,
+  "test_results": {
+    "brutal_database_stress": {
+      "status": "PASS",
+      "ops_per_second": 278.2276445630803,
+      "failures": 0,
+      "large_data_time": 0.00408625602722168
+    },
+    "concurrent_operations_stress": {
+      "status": "PASS",
+      "total_operations": 100,
+      "total_failures": 0,
+      "time_taken": 1.1490511894226074
+    },
+    "comprehensive_error_handling": {
+      "status": "PASS",
+      "success_rate": 92.3076923076923,
+      "scenarios_passed": 12,
+      "total_scenarios": 13
+    },
+    "data_quality_validation": {
+      "status": "FAIL",
+      "quality_percentage": 7.2727272727272725,
+      "valid_leads": 24,
+      "total_leads": 330,
+      "issues_count": 310
+    },
+    "api_integration_stress": {
+      "status": "PASS",
+      "success_rate": 100.0,
+      "tests_passed": 11,
+      "total_tests": 11
+    },
+    "memory_and_resource": {
+      "status": "PASS",
+      "execution_time": 0.38173985481262207
+    },
+    "edge_cases": {
+      "status": "FAIL",
+      "success_rate": 66.66666666666666,
+      "passed": 4,
+      "total": 6
+    },
+    "end_to_end_pipeline": {
+      "status": "PASS",
+      "pipeline_time": 0.014381170272827148,
+      "issues": [],
+      "final_lead_id": 1760
+    },
+    "failover_recovery": {
+      "status": "PASS",
+      "success_rate": 100.0,
+      "tests_passed": 3,
+      "total_tests": 3
+    },
+    "performance_under_load": {
+      "status": "PASS",
+      "sustained_ops_per_second": 81.55284737100884,
+      "sustained_failure_rate": 0.0,
+      "avg_response_time_ms": 3.63771915435791,
+      "max_response_time_ms": 4.373073577880859,
+      "issues": []
+    }
+  },
+  "critical_failures": [
+    "Data quality below threshold: 7.3% < 95%",
+    "Edge case handling insufficient: 66.7%"
+  ],
+  "performance_issues": [],
+  "data_quality_issues": [
+    "Lead 4: Test email in production data",
+    "Lead 1333: Test email in production data",
+    "Lead 1334: Test email in production data",
+    "Lead 1335: Test email in production data",
+    "Lead 1336: Test email in production data",
+    "Lead 1337: Test email in production data",
+    "Lead 1338: Test email in production data",
+    "Lead 1339: Test email in production data",
+    "Lead 1340: Test email in production data",
+    "Lead 1341: Test email in production data"
+  ],
+  "warnings": [],
+  "readiness_factors": {
+    "Database Performance": "\u2705",
+    "Error Handling": "\u2705",
+    "Data Quality": "\u274c",
+    "API Integration": "\u2705",
+    "Concurrent Operations": "\u2705",
+    "Performance Under Load": "\u2705",
+    "System Recovery": "\u2705",
+    "Memory Management": "\u2705"
+  }
+}

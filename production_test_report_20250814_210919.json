@@ -1,0 +1,37 @@
+{
+  "timestamp": "2025-08-14T21:09:19.498248",
+  "overall_status": "\ud83d\udfe1 MINOR ISSUES",
+  "recommendation": "FIX MINOR ISSUES THEN DEPLOY",
+  "success_rate": 75.0,
+  "test_results": {
+    "database_status": {
+      "status": "PASS",
+      "total_leads": 1338,
+      "email_percentage": 99.9
+    },
+    "data_quality": {
+      "status": "FAIL",
+      "quality_percentage": 1.71898355754858,
+      "valid_leads": 23,
+      "total_leads": 1338,
+      "test_data_count": 1312
+    },
+    "component_integration": {
+      "status": "PASS",
+      "success_rate": 100.0,
+      "components_working": 3,
+      "total_components": 3
+    },
+    "performance": {
+      "status": "PASS",
+      "stats_time_ms": 1.5234947204589844,
+      "email_time_ms": 3.7915706634521484,
+      "validator_time_ms": 0.010728836059570312,
+      "issues": []
+    }
+  },
+  "critical_failures": [
+    "Data quality below 95%: 1.7%",
+    "Too much test data: 1312 entries"
+  ]
+}

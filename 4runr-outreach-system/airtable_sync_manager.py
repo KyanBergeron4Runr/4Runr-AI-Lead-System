@@ -346,8 +346,7 @@ class AirtableSyncManager:
                 for i, result in enumerate(results):
                     if i < successful_count:
                         result.status = SyncStatus.SUCCESS
-                # Logging handled by decorators
-else:
+                    else:
                         result.status = SyncStatus.FAILED
                         result.error_message = "Batch update failed"
                 

@@ -1,0 +1,15 @@
+[Unit]
+Description=4Runr Daily Lead Generation
+After=network.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/4Runr-AI-Lead-System
+Environment=PATH=/home/ubuntu/4Runr-AI-Lead-System/.venv/bin
+ExecStart=/home/ubuntu/4Runr-AI-Lead-System/.venv/bin/python daily_automation.py
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

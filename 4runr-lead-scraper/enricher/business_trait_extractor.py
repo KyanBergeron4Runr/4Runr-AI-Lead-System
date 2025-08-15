@@ -175,7 +175,41 @@ class BusinessTraitExtractor:
         
         context_section = "\n".join(context_parts) if context_parts else ""
         
-        prompt = f"""You are an AI business analyst specializing in lead qualification and business intelligence extraction. 
+        prompt = f"""You are an AI business analyst specializing in lead qualification and business intelligence extraction.
+
+Analyze the following website content and extract key business information. Focus on identifying the company's ACTUAL business model, not the technology platforms they use.
+
+CRITICAL INSTRUCTIONS:
+- DO NOT confuse technology platforms with business types
+- If you see "Shopify", "WordPress", "Squarespace" etc., these are PLATFORMS, not business types
+- Look for what the company ACTUALLY DOES, not what technology they use
+- Focus on ACTUAL services, products, and business operations
+
+Website Content:
+{content}
+
+Based on this content, provide a JSON response with the following fields:
+
+1. Business_Type: What the company ACTUALLY does (e.g., "E-commerce Retail", "Consulting", "SaaS", "Local Service", "Manufacturing", "Agency")
+
+2. Business_Traits: Key characteristics of their ACTUAL business (e.g., ["B2B", "Local Service", "High-Touch Sales", "Service-Based"])
+
+3. Pain_Points: Real business challenges they likely face (e.g., ["Customer acquisition", "Manual processes", "Scaling operations"])
+
+4. Strategic_Insight: Actionable insight for outreach based on their ACTUAL business needs
+
+5. Company_Size_Estimate: Based on content complexity, team mentions, office locations ("Small", "Medium", "Large", "Enterprise")
+
+6. Platform_Technologies: Separate field for platforms they use (e.g., ["Shopify", "WordPress", "HubSpot"])
+
+Guidelines:
+- Be specific about ACTUAL business operations
+- Ignore technology stack when determining business type
+- Focus on customer-facing services and products
+- If unclear, use "Professional Services" as default
+- Company size: Small (1-10), Medium (11-50), Large (51-200), Enterprise (200+)
+
+Respond with valid JSON only:"""You are an AI business analyst specializing in lead qualification and business intelligence extraction. 
 
 Analyze the following website content and extract key business information. Focus on identifying the company's business model, target market, services, and potential challenges.
 

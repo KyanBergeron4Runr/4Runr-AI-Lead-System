@@ -1,0 +1,21 @@
+4Runr Autonomous Organism - EC2 Deployment
+
+DEPLOYMENT STEPS:
+
+1. Upload this folder to EC2:
+   scp -r -i your-key.pem 4runr_ec2_deployment ubuntu@your-ec2-ip:/home/ubuntu/
+
+2. SSH into EC2 and deploy:
+   ssh -i your-key.pem ubuntu@your-ec2-ip
+   cd 4runr_ec2_deployment
+   chmod +x ec2_deploy.sh
+   sudo ./ec2_deploy.sh
+
+3. Start the organism:
+   sudo systemctl start 4runr-organism
+   sudo systemctl status 4runr-organism
+
+4. Monitor:
+   tail -f /home/ubuntu/4runr-organism/logs/organism-service.log
+
+The organism will run 24/7 autonomously, generating prospects and syncing to Airtable.
