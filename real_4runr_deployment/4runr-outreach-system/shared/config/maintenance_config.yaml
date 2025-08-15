@@ -1,0 +1,73 @@
+maintenance_config:
+  backup:
+    enabled: true
+    retention_days: 30
+    backup_directory: "./backups"
+    verify_integrity: true
+    
+  duplicate_detection:
+    matching_fields:
+      - "email"
+      - "linkedin_url"
+      - "company"
+    matching_threshold: 0.85
+    resolution_strategy: "most_recent"  # most_recent, highest_quality, merge
+    
+  field_standardization:
+    engagement_status:
+      default_value: "Sent"
+      valid_values: 
+        - "Sent"
+        - "Needs Review"
+        - "Contacted"
+        - "Responded"
+    
+    company_name:
+      normalize_case: true
+      remove_suffixes: 
+        - "Inc."
+        - "LLC"
+        - "Corp."
+        - "Ltd."
+      add_proper_suffix: true
+      
+    website_url:
+      ensure_protocol: true
+      preferred_protocol: "https"
+      remove_trailing_slash: true
+      
+    email:
+      normalize_case: "lower"
+      validate_format: true
+      
+  synchronization:
+    conflict_resolution: "most_recent"  # most_recent, local_wins, airtable_wins
+    batch_size: 50
+    max_retries: 3
+    retry_delay_seconds: 2
+    
+  performance:
+    max_memory_usage_mb: 512
+    progress_update_interval: 100
+    enable_parallel_processing: false
+
+field_mapping:
+  database_to_airtable:
+    name: "Full Name"
+    email: "Email"
+    company: "Company"
+    title: "Title"
+    linkedin_url: "LinkedIn URL"
+    company_website: "Website"
+    phone: "Phone"
+    status: "Engagement Status"
+    
+  airtable_to_database:
+    "Full Name": "name"
+    "Email": "email"
+    "Company": "company"
+    "Title": "title"
+    "LinkedIn URL": "linkedin_url"
+    "Website": "company_website"
+    "Phone": "phone"
+    "Engagement Status": "status"

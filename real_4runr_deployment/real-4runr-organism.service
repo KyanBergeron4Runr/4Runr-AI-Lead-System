@@ -1,0 +1,19 @@
+[Unit]
+Description=Real 4Runr Autonomous Organism - Complete Lead Generation System
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/real-4runr-system
+ExecStart=/usr/bin/python3 real_autonomous_organism.py --cycles 10000 --interval 10800
+Restart=always
+RestartSec=30
+StandardOutput=append:/home/ubuntu/real-4runr-system/logs/real-organism-service.log
+StandardError=append:/home/ubuntu/real-4runr-system/logs/real-organism-error.log
+MemoryMax=512M
+TimeoutStartSec=30
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

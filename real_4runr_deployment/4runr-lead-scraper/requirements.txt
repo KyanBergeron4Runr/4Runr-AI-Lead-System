@@ -1,0 +1,30 @@
+# Core dependencies for 4runr-lead-scraper
+requests>=2.31.0
+python-dotenv>=1.0.0
+airtable-python-wrapper>=0.15.3
+
+# Database (sqlite3 is built into Python)
+
+# SerpAPI for scraping
+google-search-results>=2.4.2
+
+# Utilities
+click>=8.1.0  # For CLI
+rich>=13.0.0  # For beautiful CLI output
+python-dateutil>=2.8.2
+validators>=0.22.0
+
+# Logging and monitoring
+structlog>=23.1.0
+
+# Email validation and enrichment
+dnspython>=2.4.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# Web automation for Google search fallback
+playwright>=1.40.0
+
+# Testing (optional)
+pytest>=7.4.0
+pytest-asyncio>=0.21.0

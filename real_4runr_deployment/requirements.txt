@@ -1,0 +1,75 @@
+# 4Runr AI Lead System - Python Dependencies
+# Only external packages that need to be installed via pip
+
+# Core Dependencies
+python-dotenv>=1.0.0
+requests>=2.31.0
+psutil>=5.9.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+pyyaml>=6.0.0
+
+# AI and Machine Learning
+openai>=1.0.0
+tiktoken>=0.5.0
+
+# Web Framework (for monitoring dashboard)
+flask>=2.3.0
+flask-cors>=4.0.0
+
+# Database
+sqlalchemy>=2.0.0
+
+# HTTP and API
+aiohttp>=3.8.0
+urllib3>=2.0.0
+
+# Data Validation and Cleaning
+jsonschema>=4.17.0
+email-validator>=2.0.0
+phonenumbers>=8.13.0
+
+# Logging and Monitoring
+structlog>=23.1.0
+
+# Date and Time
+python-dateutil>=2.8.0
+
+# Optional: Redis for caching (if using distributed setup)
+redis>=4.5.0
+
+# Optional: Celery for distributed task processing
+celery>=5.3.0
+
+# Development and Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Code Quality
+black>=23.7.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Documentation
+sphinx>=7.1.0
+sphinx-rtd-theme>=1.3.0
+
+# Security
+cryptography>=41.0.0
+
+# Performance Monitoring
+memory-profiler>=0.61.0
+line-profiler>=4.1.0
+
+# Web Scraping (if needed)
+beautifulsoup4>=4.12.0
+selenium>=4.11.0
+
+# Data Export/Import
+openpyxl>=3.1.0
+
+# Airtable integration
+airtable-python-wrapper>=0.15.3

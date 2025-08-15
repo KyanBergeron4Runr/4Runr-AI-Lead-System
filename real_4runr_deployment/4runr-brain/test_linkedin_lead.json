@@ -1,0 +1,16 @@
+{
+  "id": "linkedin_test_001",
+  "Name": "Alex Chen",
+  "Title": "CTO",
+  "Company": "TechFlow Innovations",
+  "LinkedIn_URL": "https://linkedin.com/in/alexchen-cto",
+  "company_data": {
+    "description": "TechFlow Innovations builds cutting-edge API infrastructure for fintech companies, enabling seamless payment processing and financial data integration",
+    "services": "API development, Payment processing, Financial data integration, Cloud infrastructure",
+    "tone": "Technical and professional"
+  },
+  "scraped_content": {
+    "homepage_text": "Revolutionize your fintech operations with our enterprise-grade API infrastructure. Built for scale, security, and speed - powering the next generation of financial services.",
+    "about_page": "Founded by former engineers from major fintech companies, TechFlow has processed over $2B in transactions through our secure API platform. We serve 200+ fintech startups and enterprises."
+  }
+}
