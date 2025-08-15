@@ -18,7 +18,7 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-15T22:06:34.243654",
+    "enriched_at": "2025-08-15T22:49:46.636148",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -41,7 +41,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:35.711122",
+    "enriched_at": "2025-08-15T22:49:48.057208",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -64,7 +64,7 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:36.986640",
+    "enriched_at": "2025-08-15T22:49:49.597610",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -87,7 +87,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:38.587317",
+    "enriched_at": "2025-08-15T22:49:51.087344",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -110,7 +110,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:39.874379",
+    "enriched_at": "2025-08-15T22:49:52.524097",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -133,7 +133,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:41.313105",
+    "enriched_at": "2025-08-15T22:49:54.276039",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -156,7 +156,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:42.748191",
+    "enriched_at": "2025-08-15T22:49:55.524266",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -179,7 +179,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:44.192455",
+    "enriched_at": "2025-08-15T22:49:56.993469",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -202,7 +202,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:45.428347",
+    "enriched_at": "2025-08-15T22:49:58.428623",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -225,7 +225,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:46.896552",
+    "enriched_at": "2025-08-15T22:49:59.674845",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -248,7 +248,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:48.344869",
+    "enriched_at": "2025-08-15T22:50:01.107134",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -271,7 +271,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:49.801660",
+    "enriched_at": "2025-08-15T22:50:02.371115",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -294,7 +294,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:51.042032",
+    "enriched_at": "2025-08-15T22:50:03.848355",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -317,7 +317,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:52.391958",
+    "enriched_at": "2025-08-15T22:50:05.092437",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -340,7 +340,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:53.869750",
+    "enriched_at": "2025-08-15T22:50:06.532545",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -363,7 +363,7 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:55.310405",
+    "enriched_at": "2025-08-15T22:50:07.965211",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -386,7 +386,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:56.754070",
+    "enriched_at": "2025-08-15T22:50:09.446970",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -409,7 +409,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:58.226941",
+    "enriched_at": "2025-08-15T22:50:10.715500",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -432,7 +432,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:06:59.685536",
+    "enriched_at": "2025-08-15T22:50:12.186594",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -455,7 +455,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:01.118720",
+    "enriched_at": "2025-08-15T22:50:13.659630",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -478,7 +478,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:02.574419",
+    "enriched_at": "2025-08-15T22:50:15.154771",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -501,7 +501,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:04.028539",
+    "enriched_at": "2025-08-15T22:50:16.413298",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -524,7 +524,7 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-15T22:07:05.416451",
+    "enriched_at": "2025-08-15T22:50:17.845427",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -547,7 +547,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:06.991554",
+    "enriched_at": "2025-08-15T22:50:19.273893",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -570,7 +570,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:08.250968",
+    "enriched_at": "2025-08-15T22:50:20.695998",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -593,7 +593,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:09.671797",
+    "enriched_at": "2025-08-15T22:50:22.148773",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -616,7 +616,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:11.113698",
+    "enriched_at": "2025-08-15T22:50:23.677676",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -639,7 +639,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:12.632950",
+    "enriched_at": "2025-08-15T22:50:25.135926",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -662,7 +662,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:14.101213",
+    "enriched_at": "2025-08-15T22:50:26.621838",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -685,7 +685,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:15.381598",
+    "enriched_at": "2025-08-15T22:50:27.860959",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -708,7 +708,7 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:16.847562",
+    "enriched_at": "2025-08-15T22:50:29.291569",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -731,7 +731,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:18.328691",
+    "enriched_at": "2025-08-15T22:50:30.719911",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -754,7 +754,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:19.567428",
+    "enriched_at": "2025-08-15T22:50:32.000042",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -777,7 +777,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:21.027508",
+    "enriched_at": "2025-08-15T22:50:33.452045",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -800,7 +800,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:22.470966",
+    "enriched_at": "2025-08-15T22:50:34.740318",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -823,7 +823,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:23.709038",
+    "enriched_at": "2025-08-15T22:50:36.209463",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -846,7 +846,7 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-15T22:07:25.179505",
+    "enriched_at": "2025-08-15T22:50:37.512565",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -869,7 +869,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:26.473296",
+    "enriched_at": "2025-08-15T22:50:38.746163",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -892,7 +892,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:27.905563",
+    "enriched_at": "2025-08-15T22:50:39.977001",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -915,7 +915,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:29.152428",
+    "enriched_at": "2025-08-15T22:50:41.274592",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -938,7 +938,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:30.576894",
+    "enriched_at": "2025-08-15T22:50:42.757504",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -961,7 +961,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:31.981578",
+    "enriched_at": "2025-08-15T22:50:44.032341",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -984,7 +984,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:33.461337",
+    "enriched_at": "2025-08-15T22:50:45.479088",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1007,7 +1007,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:34.880930",
+    "enriched_at": "2025-08-15T22:50:46.931881",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1030,7 +1030,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:36.310346",
+    "enriched_at": "2025-08-15T22:50:48.408455",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1053,7 +1053,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:37.796894",
+    "enriched_at": "2025-08-15T22:50:49.660347",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1076,7 +1076,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:39.054168",
+    "enriched_at": "2025-08-15T22:50:51.105601",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1099,7 +1099,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:40.504297",
+    "enriched_at": "2025-08-15T22:50:52.473965",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1122,7 +1122,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:41.732114",
+    "enriched_at": "2025-08-15T22:50:53.939032",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1145,7 +1145,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:42.981864",
+    "enriched_at": "2025-08-15T22:50:55.407720",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1168,7 +1168,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:44.416011",
+    "enriched_at": "2025-08-15T22:50:56.642616",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1191,7 +1191,7 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-15T22:07:45.905063",
+    "enriched_at": "2025-08-15T22:50:57.871158",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1214,7 +1214,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:47.137577",
+    "enriched_at": "2025-08-15T22:50:59.114127",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1237,7 +1237,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:48.573545",
+    "enriched_at": "2025-08-15T22:51:00.550353",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1260,7 +1260,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:49.905828",
+    "enriched_at": "2025-08-15T22:51:01.849593",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1283,7 +1283,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:51.359727",
+    "enriched_at": "2025-08-15T22:51:03.266711",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1306,7 +1306,7 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:52.591721",
+    "enriched_at": "2025-08-15T22:51:04.499821",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1329,7 +1329,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:54.035132",
+    "enriched_at": "2025-08-15T22:51:05.728408",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1352,7 +1352,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:55.500646",
+    "enriched_at": "2025-08-15T22:51:06.994260",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1375,7 +1375,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:56.937201",
+    "enriched_at": "2025-08-15T22:51:08.233021",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1398,7 +1398,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:58.183463",
+    "enriched_at": "2025-08-15T22:51:09.704366",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1421,7 +1421,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:07:59.623616",
+    "enriched_at": "2025-08-15T22:51:11.187637",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1444,7 +1444,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:00.856974",
+    "enriched_at": "2025-08-15T22:51:12.609028",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1467,7 +1467,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:02.274298",
+    "enriched_at": "2025-08-15T22:51:14.040720",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1490,7 +1490,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:03.764664",
+    "enriched_at": "2025-08-15T22:51:15.289846",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1513,7 +1513,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:05.221536",
+    "enriched_at": "2025-08-15T22:51:16.576393",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1536,7 +1536,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:06.682999",
+    "enriched_at": "2025-08-15T22:51:18.026386",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1559,7 +1559,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:08.119199",
+    "enriched_at": "2025-08-15T22:51:19.289926",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1582,7 +1582,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:09.376549",
+    "enriched_at": "2025-08-15T22:51:20.730210",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1605,7 +1605,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:10.797743",
+    "enriched_at": "2025-08-15T22:51:22.160428",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1628,7 +1628,7 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:12.254706",
+    "enriched_at": "2025-08-15T22:51:23.870168",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1651,7 +1651,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:13.715309",
+    "enriched_at": "2025-08-15T22:51:25.112019",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1674,7 +1674,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:14.956382",
+    "enriched_at": "2025-08-15T22:51:26.358518",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1697,7 +1697,7 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-15T22:08:16.372269",
+    "enriched_at": "2025-08-15T22:51:27.855163",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1720,7 +1720,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:17.604345",
+    "enriched_at": "2025-08-15T22:51:29.079230",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1743,7 +1743,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:19.044624",
+    "enriched_at": "2025-08-15T22:51:30.357062",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1766,7 +1766,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:20.299830",
+    "enriched_at": "2025-08-15T22:51:31.776721",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1789,7 +1789,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:21.545755",
+    "enriched_at": "2025-08-15T22:51:33.016718",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1812,7 +1812,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:22.998634",
+    "enriched_at": "2025-08-15T22:51:34.236893",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1835,7 +1835,7 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-15T22:08:24.232746",
+    "enriched_at": "2025-08-15T22:51:35.592334",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1858,7 +1858,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:25.741673",
+    "enriched_at": "2025-08-15T22:51:36.899144",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1881,7 +1881,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:27.170221",
+    "enriched_at": "2025-08-15T22:51:38.377276",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1904,7 +1904,7 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:28.599422",
+    "enriched_at": "2025-08-15T22:51:39.820195",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1927,7 +1927,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:30.031476",
+    "enriched_at": "2025-08-15T22:51:41.243242",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1950,7 +1950,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:31.479774",
+    "enriched_at": "2025-08-15T22:51:42.546620",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1973,7 +1973,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:32.934312",
+    "enriched_at": "2025-08-15T22:51:43.806460",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -1996,7 +1996,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:34.353736",
+    "enriched_at": "2025-08-15T22:51:45.313293",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -2019,7 +2019,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:35.785052",
+    "enriched_at": "2025-08-15T22:51:46.784731",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -2042,7 +2042,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:37.240620",
+    "enriched_at": "2025-08-15T22:51:48.275044",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   },
@@ -2065,7 +2065,7 @@
     "bounce_risk": "low",
     "industry": "Food & Retail",
     "company_size": "5001+",
-    "enriched_at": "2025-08-15T22:08:38.735410",
+    "enriched_at": "2025-08-15T22:51:49.531246",
     "ready_for_engagement": true,
     "enrichment_method": "production_enricher"
   }
