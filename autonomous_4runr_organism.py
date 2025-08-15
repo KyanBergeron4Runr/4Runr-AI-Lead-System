@@ -382,7 +382,7 @@ Alex"""
         return message
     
     def save_prospects_to_database(self, prospects: List[Dict]) -> int:
-        """Save prospects to database autonomously"""
+        """Save prospects to database with enhanced validation"""
         
         self.logger.info(f"💾 Saving {len(prospects)} prospects to database")
         
@@ -391,17 +391,47 @@ Alex"""
         
         for prospect in prospects:
             try:
+                # ENHANCED VALIDATION - Prevent bad data entry
+                full_name = prospect.get('name', '').strip()
+                
+                # Validate name format
+                if not full_name or len(full_name) < 3:
+                    self.logger.error(f"❌ Invalid name (too short): '{full_name}'")
+                    continue
+                    
+                if ' ' not in full_name:
+                    self.logger.error(f"❌ Invalid name (missing last name): '{full_name}'")
+                    continue
+                    
+                # Check for invalid characters
+                import re
+                if re.search(r'[0-9@#$%^&*()+={}[\]\\|;:"<>?,./]', full_name):
+                    self.logger.error(f"❌ Invalid name (bad characters): '{full_name}'")
+                    continue
+                
+                # Validate email
+                email = prospect.get('email', '').strip()
+                if not email or '@' not in email:
+                    self.logger.error(f"❌ Invalid email for {full_name}: '{email}'")
+                    continue
+                
+                # Validate company
+                company = prospect.get('company', '').strip()
+                if not company or len(company) < 2:
+                    self.logger.error(f"❌ Invalid company for {full_name}: '{company}'")
+                    continue
+                
                 # Check for duplicates
                 cursor = conn.execute(
                     "SELECT id FROM leads WHERE full_name = ? OR email = ?",
-                    (prospect['name'], prospect['email'])
+                    (full_name, email)
                 )
                 
                 if cursor.fetchone():
-                    self.logger.warning(f"⚠️ Duplicate prospect: {prospect['name']}")
+                    self.logger.warning(f"⚠️ Duplicate prospect: {full_name}")
                     continue
                 
-                # Insert new prospect
+                # All validation passed - save the prospect
                 conn.execute("""
                     INSERT INTO leads (
                         full_name, email, company, job_title, linkedin_url,
@@ -410,7 +440,7 @@ Alex"""
                         website, email_confidence_level, ai_message, needs_enrichment
                     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
-                    prospect['name'], prospect['email'], prospect['company'],
+                    full_name, email, company,
                     prospect['job_title'], prospect['linkedin_url'], prospect['industry'],
                     prospect['business_type'], prospect['source'], prospect['date_scraped'],
                     prospect['date_enriched'], prospect['generated_at'], 1, 1,
@@ -419,10 +449,11 @@ Alex"""
                 ))
                 
                 saved_count += 1
-                self.logger.info(f"✅ Saved: {prospect['name']}")
+                self.logger.info(f"✅ Saved: {full_name} (validated)")
                 
             except Exception as e:
-                self.logger.error(f"❌ Error saving {prospect['name']}: {e}")
+                self.logger.error(f"❌ Error saving {prospect.get('name', 'Unknown')}: {e}")
+                continue
         
         conn.commit()
         conn.close()
