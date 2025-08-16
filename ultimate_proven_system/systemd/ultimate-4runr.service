@@ -1,0 +1,35 @@
+[Unit]
+Description=Ultimate 4Runr Enrichment System - PROVEN WORLD-CLASS
+Documentation=file:docs/README.md
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/ultimate_proven_system
+ExecStart=/usr/bin/python3 core/ultimate_4runr_organism.py --run --cycles 10000 --interval 300
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/ubuntu/ultimate_proven_system/logs/ultimate_system.log
+StandardError=append:/home/ubuntu/ultimate_proven_system/logs/ultimate_system.log
+
+# Environment variables
+Environment=PYTHONPATH=/home/ubuntu/ultimate_proven_system
+Environment=SYSTEM_MODE=production
+Environment=ENABLE_HARDCORE_MONITORING=true
+
+# Resource limits
+MemoryMax=1G
+CPUQuota=200%
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/home/ubuntu/ultimate_proven_system/logs
+ReadWritePaths=/home/ubuntu/ultimate_proven_system/data
+
+[Install]
+WantedBy=multi-user.target
