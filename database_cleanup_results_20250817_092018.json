@@ -1,0 +1,36 @@
+{
+  "backup_file": "database_backup_20250817_092018.db",
+  "initial_analysis": {
+    "total_leads": 17,
+    "leads_with_data": 17,
+    "obvious_duplicate_groups": 0,
+    "total_obvious_duplicates": 0
+  },
+  "obvious_removed": 0,
+  "empty_removed": 0,
+  "advanced_results": {
+    "timestamp": "2025-08-17T09:20:18.423391",
+    "original_lead_count": 17,
+    "exact_duplicates_found": 0,
+    "fuzzy_duplicates_found": 1,
+    "total_duplicates": 1,
+    "leads_merged": 1,
+    "leads_deleted": 1,
+    "final_lead_count": 16,
+    "improvement_percentage": 5.88,
+    "actions": [
+      {
+        "type": "merge",
+        "kept_lead_id": "1",
+        "deleted_lead_id": "2662",
+        "duplicate_type": "fuzzy_email",
+        "confidence": 0.9302325581395349,
+        "quality_scores": {
+          "lead1": 62,
+          "lead2": 90
+        }
+      }
+    ]
+  },
+  "is_clean": true
+}

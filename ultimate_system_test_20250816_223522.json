@@ -1,0 +1,320 @@
+{
+  "batch_results": {
+    "total_leads": 4,
+    "successful_enrichments": 4,
+    "duplicates_prevented": 0,
+    "domains_discovered": 4,
+    "total_emails_found": 388,
+    "quality_distribution": {
+      "Hot": 0,
+      "Warm": 0,
+      "Cold": 4
+    },
+    "processing_time_total": 13590.622186660767,
+    "results": [
+      {
+        "success": true,
+        "processing_time_ms": 4404.327630996704,
+        "domain_discovery": {
+          "domain": "innovatetechsolutions.com",
+          "method": "basic_pattern",
+          "confidence": "high",
+          "company_name": "InnovateTech Solutions"
+        },
+        "emails_found": 102,
+        "top_emails": [
+          "sarah.johnson@is.com",
+          "sarahjohnson@is.com",
+          "sarah@is.com",
+          "johnson@is.com",
+          "sjohnson@is.com",
+          "sarahj@is.com",
+          "sarah_johnson@is.com",
+          "sarah-johnson@is.com",
+          "johnson.sarah@is.com",
+          "johnson_sarah@is.com"
+        ],
+        "quality_score": 55,
+        "quality_tier": "Cold",
+        "duplicate_prevention": {
+          "status": "saved",
+          "reason": "Unique lead saved successfully",
+          "lead_id": null,
+          "duplicate_info": {
+            "is_duplicate": false,
+            "action": "allow",
+            "reason": "No duplicates detected",
+            "processing_time_ms": 4.964590072631836
+          }
+        },
+        "enhanced_lead": {
+          "full_name": "Sarah Johnson",
+          "company": "InnovateTech Solutions",
+          "job_title": "CEO",
+          "website": "innovatetechsolutions.com",
+          "domain_discovery_method": "basic_pattern",
+          "domain_confidence": "high",
+          "email": "sarah.johnson@is.com",
+          "email_confidence_level": "Verified",
+          "email_pattern_used": "{first}.{last}@{domain}",
+          "email_validation_score": 100,
+          "alternative_emails": [
+            "sarahjohnson@is.com",
+            "sarah@is.com",
+            "johnson@is.com",
+            "sjohnson@is.com"
+          ],
+          "email_confidence_distribution": {
+            "verified": 39,
+            "high": 24,
+            "medium": 19,
+            "low": 20
+          },
+          "enriched": 1,
+          "enrichment_timestamp": "2025-08-16T22:35:13.663421",
+          "enrichment_version": "1.0",
+          "source": "Advanced_Enrichment",
+          "needs_enrichment": 0,
+          "business_type": "Technology",
+          "date_scraped": "2025-08-16T22:35:13.663437",
+          "date_enriched": "2025-08-16T22:35:13.663439",
+          "lead_quality_score": 55,
+          "lead_quality": "Cold",
+          "created_at": "2025-08-16T22:35:13.669128",
+          "updated_at": "2025-08-16T22:35:13.669133"
+        }
+      },
+      {
+        "success": true,
+        "processing_time_ms": 3592.670202255249,
+        "domain_discovery": {
+          "domain": "growthmarketinglab.com",
+          "method": "basic_pattern",
+          "confidence": "high",
+          "company_name": "Growth Marketing Lab"
+        },
+        "emails_found": 76,
+        "top_emails": [
+          "mike.rodriguez@gml.com",
+          "mikerodriguez@gml.com",
+          "mike@gml.com",
+          "rodriguez@gml.com",
+          "mrodriguez@gml.com",
+          "miker@gml.com",
+          "mike_rodriguez@gml.com",
+          "mike-rodriguez@gml.com",
+          "rodriguez.mike@gml.com",
+          "rodriguez_mike@gml.com"
+        ],
+        "quality_score": 55,
+        "quality_tier": "Cold",
+        "duplicate_prevention": {
+          "status": "saved",
+          "reason": "Unique lead saved successfully",
+          "lead_id": null,
+          "duplicate_info": {
+            "is_duplicate": false,
+            "action": "allow",
+            "reason": "No duplicates detected",
+            "processing_time_ms": 2.786397933959961
+          }
+        },
+        "enhanced_lead": {
+          "full_name": "Mike Rodriguez",
+          "company": "Growth Marketing Lab",
+          "job_title": "Founder",
+          "website": "growthmarketinglab.com",
+          "domain_discovery_method": "basic_pattern",
+          "domain_confidence": "high",
+          "email": "mike.rodriguez@gml.com",
+          "email_confidence_level": "Verified",
+          "email_pattern_used": "{first}.{last}@{domain}",
+          "email_validation_score": 100,
+          "alternative_emails": [
+            "mikerodriguez@gml.com",
+            "mike@gml.com",
+            "rodriguez@gml.com",
+            "mrodriguez@gml.com"
+          ],
+          "email_confidence_distribution": {
+            "verified": 38,
+            "high": 12,
+            "medium": 20,
+            "low": 6
+          },
+          "enriched": 1,
+          "enrichment_timestamp": "2025-08-16T22:35:17.258542",
+          "enrichment_version": "1.0",
+          "source": "Advanced_Enrichment",
+          "needs_enrichment": 0,
+          "business_type": "Marketing",
+          "date_scraped": "2025-08-16T22:35:17.258557",
+          "date_enriched": "2025-08-16T22:35:17.258559",
+          "lead_quality_score": 55,
+          "lead_quality": "Cold",
+          "created_at": "2025-08-16T22:35:17.262122",
+          "updated_at": "2025-08-16T22:35:17.262127"
+        }
+      },
+      {
+        "success": true,
+        "processing_time_ms": 4011.134147644043,
+        "domain_discovery": {
+          "domain": "datadriven.com",
+          "method": "name_variation",
+          "confidence": "medium",
+          "variation_used": "datadriven",
+          "company_name": "DataDriven Consulting"
+        },
+        "emails_found": 108,
+        "top_emails": [
+          "lisa.chen@dc.com",
+          "lisachen@dc.com",
+          "lisa@dc.com",
+          "chen@dc.com",
+          "lchen@dc.com",
+          "lisac@dc.com",
+          "lisa_chen@dc.com",
+          "lisa-chen@dc.com",
+          "chen.lisa@dc.com",
+          "chen_lisa@dc.com"
+        ],
+        "quality_score": 55,
+        "quality_tier": "Cold",
+        "duplicate_prevention": {
+          "status": "saved",
+          "reason": "Unique lead saved successfully",
+          "lead_id": null,
+          "duplicate_info": {
+            "is_duplicate": false,
+            "action": "allow",
+            "reason": "No duplicates detected",
+            "processing_time_ms": 2.4302005767822266
+          }
+        },
+        "enhanced_lead": {
+          "full_name": "Lisa Chen",
+          "company": "DataDriven Consulting",
+          "job_title": "Managing Director",
+          "website": "datadriven.com",
+          "domain_discovery_method": "name_variation",
+          "domain_confidence": "medium",
+          "email": "lisa.chen@dc.com",
+          "email_confidence_level": "Verified",
+          "email_pattern_used": "{first}.{last}@{domain}",
+          "email_validation_score": 100,
+          "alternative_emails": [
+            "lisachen@dc.com",
+            "lisa@dc.com",
+            "chen@dc.com",
+            "lchen@dc.com"
+          ],
+          "email_confidence_distribution": {
+            "verified": 39,
+            "high": 24,
+            "medium": 25,
+            "low": 20
+          },
+          "enriched": 1,
+          "enrichment_timestamp": "2025-08-16T22:35:21.270485",
+          "enrichment_version": "1.0",
+          "source": "Advanced_Enrichment",
+          "needs_enrichment": 0,
+          "business_type": "Technology",
+          "date_scraped": "2025-08-16T22:35:21.270498",
+          "date_enriched": "2025-08-16T22:35:21.270500",
+          "lead_quality_score": 55,
+          "lead_quality": "Cold",
+          "created_at": "2025-08-16T22:35:21.273625",
+          "updated_at": "2025-08-16T22:35:21.273630"
+        }
+      },
+      {
+        "success": true,
+        "processing_time_ms": 1581.0999870300293,
+        "domain_discovery": {
+          "domain": "innovatetechsolutions.com",
+          "method": "basic_pattern",
+          "confidence": "high",
+          "company_name": "InnovateTech Solutions"
+        },
+        "emails_found": 102,
+        "top_emails": [
+          "sarah.johnson@is.com",
+          "sarahjohnson@is.com",
+          "sarah@is.com",
+          "johnson@is.com",
+          "sjohnson@is.com",
+          "sarahj@is.com",
+          "sarah_johnson@is.com",
+          "sarah-johnson@is.com",
+          "johnson.sarah@is.com",
+          "johnson_sarah@is.com"
+        ],
+        "quality_score": 55,
+        "quality_tier": "Cold",
+        "duplicate_prevention": {
+          "status": "saved",
+          "reason": "Unique lead saved successfully",
+          "lead_id": null,
+          "duplicate_info": {
+            "is_duplicate": false,
+            "action": "allow",
+            "reason": "No duplicates detected",
+            "processing_time_ms": 2.5815963745117188
+          }
+        },
+        "enhanced_lead": {
+          "full_name": "Sarah Johnson",
+          "company": "InnovateTech Solutions",
+          "job_title": "Chief Executive Officer",
+          "website": "innovatetechsolutions.com",
+          "domain_discovery_method": "basic_pattern",
+          "domain_confidence": "high",
+          "email": "sarah.johnson@is.com",
+          "email_confidence_level": "Verified",
+          "email_pattern_used": "{first}.{last}@{domain}",
+          "email_validation_score": 100,
+          "alternative_emails": [
+            "sarahjohnson@is.com",
+            "sarah@is.com",
+            "johnson@is.com",
+            "sjohnson@is.com"
+          ],
+          "email_confidence_distribution": {
+            "verified": 39,
+            "high": 24,
+            "medium": 19,
+            "low": 20
+          },
+          "enriched": 1,
+          "enrichment_timestamp": "2025-08-16T22:35:22.851671",
+          "enrichment_version": "1.0",
+          "source": "Advanced_Enrichment",
+          "needs_enrichment": 0,
+          "business_type": "Technology",
+          "date_scraped": "2025-08-16T22:35:22.851684",
+          "date_enriched": "2025-08-16T22:35:22.851687",
+          "lead_quality_score": 55,
+          "lead_quality": "Cold",
+          "created_at": "2025-08-16T22:35:22.855069",
+          "updated_at": "2025-08-16T22:35:22.855073"
+        }
+      }
+    ],
+    "average_processing_time": 3397.6555466651917,
+    "success_rate": 100.0
+  },
+  "system_metrics": {
+    "leads_processed": 4,
+    "duplicates_prevented": 0,
+    "domains_discovered": 4,
+    "emails_generated": 388,
+    "average_processing_time_ms": 3397.3079919815063,
+    "average_quality_score": 55.0,
+    "duplicate_prevention_rate": 0.0,
+    "domain_discovery_rate": 100.0,
+    "emails_per_lead": 97.0
+  },
+  "test_timestamp": "2025-08-16T22:35:22.857479"
+}

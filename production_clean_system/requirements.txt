@@ -1,0 +1,12 @@
+# Production Clean System Requirements
+
+# Core dependencies
+requests>=2.25.0
+sqlite3  # Built into Python
+
+# Optional but recommended
+dnspython>=2.1.0  # For DNS validation
+python-whois>=0.7.0  # For domain analysis
+
+# Development/Testing
+pytest>=6.0.0  # For testing

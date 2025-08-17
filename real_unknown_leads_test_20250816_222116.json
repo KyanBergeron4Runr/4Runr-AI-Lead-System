@@ -1,0 +1,327 @@
+{
+  "test_timestamp": "2025-08-16T22:20:26.983157",
+  "test_type": "Real Unknown Small Business Leads",
+  "leads_tested": [
+    {
+      "lead": {
+        "full_name": "Sarah Williams",
+        "company": "Local Commerce Co",
+        "job_title": "CEO & Owner",
+        "email": "sarah@localcommerce.com",
+        "linkedin_url": "https://linkedin.com/in/sarah-williams-ecommerce",
+        "business_type": "E-commerce Business",
+        "website": "https://localcommerce.com",
+        "created_at": "2025-08-15T11:02:25.327166"
+      },
+      "domain_found": false,
+      "emails_found": 0,
+      "success": false,
+      "reason": "No valid domain found"
+    },
+    {
+      "lead": {
+        "full_name": "Marcus Chen",
+        "company": "GrowthLab Marketing",
+        "job_title": "Co-Founder",
+        "email": "marcus@growthlab.co",
+        "linkedin_url": "https://linkedin.com/in/marcus-chen-growth",
+        "business_type": "Marketing Agency",
+        "website": "https://growthlab.co",
+        "created_at": "2025-08-15T11:02:25.326855"
+      },
+      "domain_found": true,
+      "domain_info": {
+        "domain": "growthlabmarketing.com",
+        "exists": true,
+        "has_mx": true,
+        "mx_count": 2
+      },
+      "emails_found": 96,
+      "processing_time_ms": 2278.434991836548,
+      "confidence_breakdown": {
+        "verified": 45,
+        "high": 22,
+        "medium": 22,
+        "low": 7
+      },
+      "top_emails": [
+        "marcus.chen@gm.com",
+        "marcuschen@gm.com",
+        "marcus@gm.com",
+        "chen@gm.com",
+        "mchen@gm.com",
+        "marcusc@gm.com",
+        "marcus_chen@gm.com",
+        "marcus-chen@gm.com",
+        "chen.marcus@gm.com",
+        "chen_marcus@gm.com"
+      ],
+      "found_known_email": false,
+      "success": true
+    },
+    {
+      "lead": {
+        "full_name": "June Medina",
+        "company": "All This 'N That",
+        "job_title": "Small Business Owner",
+        "email": "june.medina@allthisnthat.com",
+        "linkedin_url": "https://www.linkedin.com/in/june-medina-allthisnthat",
+        "business_type": "Retail & Services",
+        "website": "https://allthisnthat.com",
+        "created_at": "2025-08-15T10:31:02.345140"
+      },
+      "domain_found": false,
+      "emails_found": 0,
+      "success": false,
+      "reason": "No valid domain found"
+    },
+    {
+      "lead": {
+        "full_name": "Stephane Rouleau",
+        "company": "Axxess International Inc",
+        "job_title": "Senior Manager",
+        "email": "stephane.rouleau@axxessintl.com",
+        "linkedin_url": "https://ca.linkedin.com/in/srouleau",
+        "business_type": "Manufacturing & Industrial",
+        "website": "https://axxessintl.com",
+        "created_at": "2025-08-03T13:19:22.850275"
+      },
+      "domain_found": true,
+      "domain_info": {
+        "domain": "axxessinternational.com",
+        "exists": true,
+        "has_mx": true,
+        "mx_count": 2
+      },
+      "emails_found": 97,
+      "processing_time_ms": 5030.184268951416,
+      "confidence_breakdown": {
+        "verified": 54,
+        "high": 21,
+        "medium": 21,
+        "low": 1
+      },
+      "top_emails": [
+        "stephane.rouleau@ai.com",
+        "stephanerouleau@ai.com",
+        "stephane@ai.com",
+        "rouleau@ai.com",
+        "srouleau@ai.com",
+        "stephaner@ai.com",
+        "stephane_rouleau@ai.com",
+        "stephane-rouleau@ai.com",
+        "rouleau.stephane@ai.com",
+        "rouleau_stephane@ai.com"
+      ],
+      "found_known_email": false,
+      "success": true
+    },
+    {
+      "lead": {
+        "full_name": "Yves-Gabriel Leboeuf",
+        "company": "Teck Resources Limited",
+        "job_title": "Senior Manager",
+        "email": "yvesgabriel.leboeuf@teck.com",
+        "linkedin_url": "https://ca.linkedin.com/in/ygl",
+        "business_type": "Natural Resources & Mining",
+        "website": "https://teck.com",
+        "created_at": "2025-08-03T13:19:22.845945"
+      },
+      "domain_found": false,
+      "emails_found": 0,
+      "success": false,
+      "reason": "No valid domain found"
+    },
+    {
+      "lead": {
+        "full_name": "Ren\u00e9e Touzin",
+        "company": "Giro \u00b7 Specialties:",
+        "job_title": "Manager",
+        "email": "renee.touzin@giro.ca",
+        "linkedin_url": "https://ca.linkedin.com/in/ren%C3%A9e-touzin-a0b00267",
+        "business_type": "Manufacturing & Industrial",
+        "website": "https://giro.ca",
+        "created_at": "2025-08-03T13:19:22.843639"
+      },
+      "domain_found": false,
+      "emails_found": 0,
+      "success": false,
+      "reason": "No valid domain found"
+    },
+    {
+      "lead": {
+        "full_name": "Randal Tucker",
+        "company": "SFM",
+        "job_title": "Software Engineer",
+        "email": "randal.tucker@www.sfm.ca",
+        "linkedin_url": "https://ca.linkedin.com/in/randal-tucker-31bbb618",
+        "business_type": "Professional Services & Technology",
+        "website": "https://www.sfm.ca",
+        "created_at": "2025-08-03T13:19:22.840930"
+      },
+      "domain_found": true,
+      "domain_info": {
+        "domain": "sfm.com",
+        "exists": true,
+        "has_mx": true,
+        "mx_count": 1
+      },
+      "emails_found": 167,
+      "processing_time_ms": 31711.38334274292,
+      "confidence_breakdown": {
+        "verified": 63,
+        "high": 38,
+        "medium": 38,
+        "low": 28
+      },
+      "top_emails": [
+        "randal.tucker@sfm.com",
+        "randaltucker@sfm.com",
+        "randal@sfm.com",
+        "tucker@sfm.com",
+        "rtucker@sfm.com",
+        "randalt@sfm.com",
+        "randal_tucker@sfm.com",
+        "randal-tucker@sfm.com",
+        "tucker.randal@sfm.com",
+        "tucker_randal@sfm.com"
+      ],
+      "found_known_email": false,
+      "success": true
+    },
+    {
+      "lead": {
+        "full_name": "Elie Wahnoun",
+        "company": "Courimo",
+        "job_title": "Software Engineer",
+        "email": "wahnounelie@gmail.com",
+        "linkedin_url": "https://www.linkedin.com/in/eliewahnoun",
+        "business_type": "Professional Services & Technology",
+        "website": "https://gmail.com",
+        "created_at": "2025-08-03T13:19:22.838770"
+      },
+      "domain_found": true,
+      "domain_info": {
+        "domain": "courimo.com",
+        "exists": true,
+        "has_mx": true,
+        "mx_count": 5
+      },
+      "emails_found": 33,
+      "processing_time_ms": 891.6230201721191,
+      "confidence_breakdown": {
+        "verified": 18,
+        "high": 7,
+        "medium": 8
+      },
+      "top_emails": [
+        "elie.wahnoun@courimo.com",
+        "eliewahnoun@courimo.com",
+        "elie@courimo.com",
+        "wahnoun@courimo.com",
+        "ewahnoun@courimo.com",
+        "eliew@courimo.com",
+        "elie_wahnoun@courimo.com",
+        "elie-wahnoun@courimo.com",
+        "wahnoun.elie@courimo.com",
+        "wahnoun_elie@courimo.com"
+      ],
+      "found_known_email": false,
+      "success": true
+    },
+    {
+      "lead": {
+        "full_name": "Jon Ruby",
+        "company": "Jonar",
+        "job_title": "Software Engineer",
+        "email": "jon.ruby@www.jonar.com",
+        "linkedin_url": "https://ca.linkedin.com/in/rubyjon",
+        "business_type": "Professional Services & Technology",
+        "website": "https://www.jonar.com",
+        "created_at": "2025-08-03T13:19:22.834556"
+      },
+      "domain_found": true,
+      "domain_info": {
+        "domain": "jonar.com",
+        "exists": true,
+        "has_mx": true,
+        "mx_count": 6
+      },
+      "emails_found": 66,
+      "processing_time_ms": 1603.2109260559082,
+      "confidence_breakdown": {
+        "verified": 36,
+        "high": 14,
+        "medium": 14,
+        "low": 2
+      },
+      "top_emails": [
+        "jon.ruby@jonar.com",
+        "jonruby@jonar.com",
+        "jon@jonar.com",
+        "ruby@jonar.com",
+        "jruby@jonar.com",
+        "jonr@jonar.com",
+        "jon_ruby@jonar.com",
+        "jon-ruby@jonar.com",
+        "ruby.jon@jonar.com",
+        "ruby_jon@jonar.com"
+      ],
+      "found_known_email": false,
+      "success": true
+    },
+    {
+      "lead": {
+        "full_name": "Pascal Jarry",
+        "company": "Yapla",
+        "job_title": "Software Engineer",
+        "email": "pascaljarry@membogo.com",
+        "linkedin_url": "https://ca.linkedin.com/in/pascaljarry",
+        "business_type": "Professional Services & Technology",
+        "website": "https://membogo.com",
+        "created_at": "2025-08-03T13:19:22.830959"
+      },
+      "domain_found": true,
+      "domain_info": {
+        "domain": "yapla.com",
+        "exists": true,
+        "has_mx": true,
+        "mx_count": 1
+      },
+      "emails_found": 168,
+      "processing_time_ms": 6615.259170532227,
+      "confidence_breakdown": {
+        "verified": 81,
+        "high": 36,
+        "medium": 37,
+        "low": 14
+      },
+      "top_emails": [
+        "pascal.jarry@yapla.com",
+        "pascaljarry@yapla.com",
+        "pascal@yapla.com",
+        "jarry@yapla.com",
+        "pjarry@yapla.com",
+        "pascalj@yapla.com",
+        "pascal_jarry@yapla.com",
+        "pascal-jarry@yapla.com",
+        "jarry.pascal@yapla.com",
+        "jarry_pascal@yapla.com"
+      ],
+      "found_known_email": false,
+      "success": true
+    }
+  ],
+  "success_metrics": {
+    "total_leads_tested": 10,
+    "successful_enrichments": 6,
+    "success_rate_percentage": 60.0,
+    "domains_found": 6,
+    "domain_discovery_rate": 60.0,
+    "total_emails_found": 627,
+    "average_emails_per_lead": 62.7,
+    "known_emails_matched": 0,
+    "known_email_match_rate": 0.0
+  },
+  "honest_assessment": {}
+}

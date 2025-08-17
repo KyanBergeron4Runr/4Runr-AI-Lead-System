@@ -1,0 +1,529 @@
+{
+  "test_timestamp": "2025-08-16T22:24:19.827392",
+  "results": [
+    {
+      "lead": {
+        "full_name": "Sarah Williams",
+        "company": "Local Commerce Co",
+        "job_title": "CEO & Owner",
+        "email": "sarah@localcommerce.com",
+        "linkedin_url": "https://linkedin.com/in/sarah-williams-ecommerce",
+        "business_type": "E-commerce Business",
+        "website": "https://localcommerce.com",
+        "created_at": "2025-08-15T11:02:25.327166"
+      },
+      "domain_result": {
+        "domain": "local.com",
+        "method": "name_variation",
+        "confidence": "medium",
+        "variation_used": "local",
+        "company_name": "Local Commerce Co"
+      },
+      "email_results": {
+        "count": 102,
+        "processing_time_ms": 3333.624839782715,
+        "confidence_breakdown": {
+          "verified": 36,
+          "high": 23,
+          "medium": 23,
+          "low": 20
+        },
+        "top_emails": [
+          "sarah.williams@lc.com",
+          "sarahwilliams@lc.com",
+          "sarah@lc.com",
+          "williams@lc.com",
+          "swilliams@lc.com",
+          "sarahw@lc.com",
+          "sarah_williams@lc.com",
+          "sarah-williams@lc.com",
+          "williams.sarah@lc.com",
+          "williams_sarah@lc.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 77
+    },
+    {
+      "lead": {
+        "full_name": "Marcus Chen",
+        "company": "GrowthLab Marketing",
+        "job_title": "Co-Founder",
+        "email": "marcus@growthlab.co",
+        "linkedin_url": "https://linkedin.com/in/marcus-chen-growth",
+        "business_type": "Marketing Agency",
+        "website": "https://growthlab.co",
+        "created_at": "2025-08-15T11:02:25.326855"
+      },
+      "domain_result": {
+        "domain": "growthlabmarketing.com",
+        "method": "basic_pattern",
+        "confidence": "high",
+        "company_name": "GrowthLab Marketing"
+      },
+      "email_results": {
+        "count": 96,
+        "processing_time_ms": 2330.1467895507812,
+        "confidence_breakdown": {
+          "verified": 46,
+          "high": 22,
+          "medium": 21,
+          "low": 7
+        },
+        "top_emails": [
+          "marcus.chen@gm.com",
+          "marcuschen@gm.com",
+          "marcus@gm.com",
+          "chen@gm.com",
+          "mchen@gm.com",
+          "marcusc@gm.com",
+          "marcus_chen@gm.com",
+          "marcus-chen@gm.com",
+          "chen.marcus@gm.com",
+          "chen_marcus@gm.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 81
+    },
+    {
+      "lead": {
+        "full_name": "June Medina",
+        "company": "All This 'N That",
+        "job_title": "Small Business Owner",
+        "email": "june.medina@allthisnthat.com",
+        "linkedin_url": "https://www.linkedin.com/in/june-medina-allthisnthat",
+        "business_type": "Retail & Services",
+        "website": "https://allthisnthat.com",
+        "created_at": "2025-08-15T10:31:02.345140"
+      },
+      "domain_result": {
+        "domain": "all.com",
+        "method": "name_variation",
+        "confidence": "medium",
+        "variation_used": "all",
+        "company_name": "All This 'N That"
+      },
+      "email_results": {
+        "count": 76,
+        "processing_time_ms": 2995.4042434692383,
+        "confidence_breakdown": {
+          "verified": 20,
+          "high": 16,
+          "medium": 14,
+          "low": 26
+        },
+        "top_emails": [
+          "june.medina@atnt.com",
+          "junemedina@atnt.com",
+          "jmedina@atnt.com",
+          "junem@atnt.com",
+          "june_medina@atnt.com",
+          "june-medina@atnt.com",
+          "medina.june@atnt.com",
+          "j.medina@atnt.com",
+          "j_medina@atnt.com",
+          "june.m@atnt.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 64
+    },
+    {
+      "lead": {
+        "full_name": "Stephane Rouleau",
+        "company": "Axxess International Inc",
+        "job_title": "Senior Manager",
+        "email": "stephane.rouleau@axxessintl.com",
+        "linkedin_url": "https://ca.linkedin.com/in/srouleau",
+        "business_type": "Manufacturing & Industrial",
+        "website": "https://axxessintl.com",
+        "created_at": "2025-08-03T13:19:22.850275"
+      },
+      "domain_result": {
+        "domain": "axxess.com",
+        "method": "basic_pattern",
+        "confidence": "high",
+        "company_name": "Axxess International Inc"
+      },
+      "email_results": {
+        "count": 97,
+        "processing_time_ms": 4128.608226776123,
+        "confidence_breakdown": {
+          "verified": 54,
+          "high": 21,
+          "medium": 21,
+          "low": 1
+        },
+        "top_emails": [
+          "stephane.rouleau@ai.com",
+          "stephanerouleau@ai.com",
+          "stephane@ai.com",
+          "rouleau@ai.com",
+          "srouleau@ai.com",
+          "stephaner@ai.com",
+          "stephane_rouleau@ai.com",
+          "stephane-rouleau@ai.com",
+          "rouleau.stephane@ai.com",
+          "rouleau_stephane@ai.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 83
+    },
+    {
+      "lead": {
+        "full_name": "Yves-Gabriel Leboeuf",
+        "company": "Teck Resources Limited",
+        "job_title": "Senior Manager",
+        "email": "yvesgabriel.leboeuf@teck.com",
+        "linkedin_url": "https://ca.linkedin.com/in/ygl",
+        "business_type": "Natural Resources & Mining",
+        "website": "https://teck.com",
+        "created_at": "2025-08-03T13:19:22.845945"
+      },
+      "domain_result": {
+        "domain": "teckresources.com",
+        "method": "basic_pattern",
+        "confidence": "high",
+        "company_name": "Teck Resources Limited"
+      },
+      "email_results": {
+        "count": 117,
+        "processing_time_ms": 5448.8365650177,
+        "confidence_breakdown": {
+          "verified": 50,
+          "high": 22,
+          "medium": 32,
+          "low": 13
+        },
+        "top_emails": [
+          "yves-gabriel.leboeuf@tr.com",
+          "yves-gabrielleboeuf@tr.com",
+          "yves-gabriel@tr.com",
+          "leboeuf@tr.com",
+          "yleboeuf@tr.com",
+          "yves-gabriell@tr.com",
+          "yves-gabriel_leboeuf@tr.com",
+          "yves-gabriel-leboeuf@tr.com",
+          "leboeuf.yves-gabriel@tr.com",
+          "leboeuf_yves-gabriel@tr.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 88
+    },
+    {
+      "lead": {
+        "full_name": "Ren\u00e9e Touzin",
+        "company": "Giro \u00b7 Specialties:",
+        "job_title": "Manager",
+        "email": "renee.touzin@giro.ca",
+        "linkedin_url": "https://ca.linkedin.com/in/ren%C3%A9e-touzin-a0b00267",
+        "business_type": "Manufacturing & Industrial",
+        "website": "https://giro.ca",
+        "created_at": "2025-08-03T13:19:22.843639"
+      },
+      "domain_result": {
+        "domain": "giro.com",
+        "method": "name_variation",
+        "confidence": "medium",
+        "variation_used": "giro",
+        "company_name": "Giro \u00b7 Specialties:"
+      },
+      "email_results": {
+        "count": 106,
+        "processing_time_ms": 2749.483346939087,
+        "confidence_breakdown": {
+          "verified": 40,
+          "high": 26,
+          "medium": 19,
+          "low": 21
+        },
+        "top_emails": [
+          "rene.touzin@gs.com",
+          "renetouzin@gs.com",
+          "rene@gs.com",
+          "touzin@gs.com",
+          "rtouzin@gs.com",
+          "renet@gs.com",
+          "rene_touzin@gs.com",
+          "rene-touzin@gs.com",
+          "touzin.rene@gs.com",
+          "touzin_rene@gs.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 78
+    },
+    {
+      "lead": {
+        "full_name": "Randal Tucker",
+        "company": "SFM",
+        "job_title": "Software Engineer",
+        "email": "randal.tucker@www.sfm.ca",
+        "linkedin_url": "https://ca.linkedin.com/in/randal-tucker-31bbb618",
+        "business_type": "Professional Services & Technology",
+        "website": "https://www.sfm.ca",
+        "created_at": "2025-08-03T13:19:22.840930"
+      },
+      "domain_result": {
+        "domain": "sfm.com",
+        "method": "basic_pattern",
+        "confidence": "high",
+        "company_name": "SFM"
+      },
+      "email_results": {
+        "count": 167,
+        "processing_time_ms": 8171.8127727508545,
+        "confidence_breakdown": {
+          "verified": 68,
+          "high": 39,
+          "medium": 32,
+          "low": 28
+        },
+        "top_emails": [
+          "randal.tucker@sfm.com",
+          "randaltucker@sfm.com",
+          "randal@sfm.com",
+          "tucker@sfm.com",
+          "rtucker@sfm.com",
+          "randalt@sfm.com",
+          "randal_tucker@sfm.com",
+          "randal-tucker@sfm.com",
+          "tucker.randal@sfm.com",
+          "tucker_randal@sfm.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 89
+    },
+    {
+      "lead": {
+        "full_name": "Elie Wahnoun",
+        "company": "Courimo",
+        "job_title": "Software Engineer",
+        "email": "wahnounelie@gmail.com",
+        "linkedin_url": "https://www.linkedin.com/in/eliewahnoun",
+        "business_type": "Professional Services & Technology",
+        "website": "https://gmail.com",
+        "created_at": "2025-08-03T13:19:22.838770"
+      },
+      "domain_result": {
+        "domain": "urimo.com",
+        "method": "basic_pattern",
+        "confidence": "high",
+        "company_name": "Courimo"
+      },
+      "email_results": {
+        "count": 33,
+        "processing_time_ms": 919.3811416625977,
+        "confidence_breakdown": {
+          "verified": 19,
+          "high": 6,
+          "medium": 8
+        },
+        "top_emails": [
+          "elie.wahnoun@courimo.com",
+          "eliewahnoun@courimo.com",
+          "elie@courimo.com",
+          "wahnoun@courimo.com",
+          "ewahnoun@courimo.com",
+          "eliew@courimo.com",
+          "elie_wahnoun@courimo.com",
+          "elie-wahnoun@courimo.com",
+          "wahnoun.elie@courimo.com",
+          "wahnoun_elie@courimo.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 72
+    },
+    {
+      "lead": {
+        "full_name": "Jon Ruby",
+        "company": "Jonar",
+        "job_title": "Software Engineer",
+        "email": "jon.ruby@www.jonar.com",
+        "linkedin_url": "https://ca.linkedin.com/in/rubyjon",
+        "business_type": "Professional Services & Technology",
+        "website": "https://www.jonar.com",
+        "created_at": "2025-08-03T13:19:22.834556"
+      },
+      "domain_result": {
+        "domain": "jonar.com",
+        "method": "basic_pattern",
+        "confidence": "high",
+        "company_name": "Jonar"
+      },
+      "email_results": {
+        "count": 66,
+        "processing_time_ms": 1673.2618808746338,
+        "confidence_breakdown": {
+          "verified": 38,
+          "high": 12,
+          "medium": 14,
+          "low": 2
+        },
+        "top_emails": [
+          "jon.ruby@jonar.com",
+          "jonruby@jonar.com",
+          "jon@jonar.com",
+          "ruby@jonar.com",
+          "jruby@jonar.com",
+          "jonr@jonar.com",
+          "jon_ruby@jonar.com",
+          "jon-ruby@jonar.com",
+          "ruby.jon@jonar.com",
+          "ruby_jon@jonar.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 82
+    },
+    {
+      "lead": {
+        "full_name": "Pascal Jarry",
+        "company": "Yapla",
+        "job_title": "Software Engineer",
+        "email": "pascaljarry@membogo.com",
+        "linkedin_url": "https://ca.linkedin.com/in/pascaljarry",
+        "business_type": "Professional Services & Technology",
+        "website": "https://membogo.com",
+        "created_at": "2025-08-03T13:19:22.830959"
+      },
+      "domain_result": {
+        "domain": "yapla.com",
+        "method": "basic_pattern",
+        "confidence": "high",
+        "company_name": "Yapla"
+      },
+      "email_results": {
+        "count": 168,
+        "processing_time_ms": 5719.3357944488525,
+        "confidence_breakdown": {
+          "verified": 86,
+          "high": 33,
+          "medium": 35,
+          "low": 14
+        },
+        "top_emails": [
+          "pascal.jarry@yapla.com",
+          "pascaljarry@yapla.com",
+          "pascal@yapla.com",
+          "jarry@yapla.com",
+          "pjarry@yapla.com",
+          "pascalj@yapla.com",
+          "pascal_jarry@yapla.com",
+          "pascal-jarry@yapla.com",
+          "jarry.pascal@yapla.com",
+          "jarry_pascal@yapla.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 91
+    },
+    {
+      "lead": {
+        "full_name": "Mike Chen",
+        "company": "StartupXYZ",
+        "job_title": "Manager",
+        "email": "mike@startup.com",
+        "linkedin_url": "https://linkedin.com/in/mikechen",
+        "business_type": "Service Provider",
+        "website": "https://startup.com",
+        "created_at": "2025-08-01T22:47:35.148983"
+      },
+      "domain_result": {
+        "domain": "startupxyz.com",
+        "method": "basic_pattern",
+        "confidence": "high",
+        "company_name": "StartupXYZ"
+      },
+      "email_results": {
+        "count": 32,
+        "processing_time_ms": 1043.9062118530273,
+        "confidence_breakdown": {
+          "verified": 19,
+          "high": 6,
+          "medium": 7
+        },
+        "top_emails": [
+          "mike.chen@startupxyz.com",
+          "mikechen@startupxyz.com",
+          "mike@startupxyz.com",
+          "chen@startupxyz.com",
+          "mchen@startupxyz.com",
+          "mikec@startupxyz.com",
+          "mike_chen@startupxyz.com",
+          "mike-chen@startupxyz.com",
+          "chen.mike@startupxyz.com",
+          "chen_mike@startupxyz.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 73
+    },
+    {
+      "lead": {
+        "full_name": "John Smith Updated",
+        "company": "TechCorp Inc",
+        "job_title": "Manager",
+        "email": "john.smith@techcorp.com",
+        "linkedin_url": "https://linkedin.com/in/johnsmith",
+        "business_type": "Technology & Software",
+        "website": "https://techcorp.com",
+        "created_at": "2025-08-01T22:47:35.146555"
+      },
+      "domain_result": {
+        "domain": "tech.co",
+        "method": "basic_pattern",
+        "confidence": "high",
+        "company_name": "TechCorp Inc"
+      },
+      "email_results": {
+        "count": 204,
+        "processing_time_ms": 5489.11190032959,
+        "confidence_breakdown": {
+          "verified": 77,
+          "high": 48,
+          "medium": 50,
+          "low": 29
+        },
+        "top_emails": [
+          "john.updated@techcorp.com",
+          "johnupdated@techcorp.com",
+          "john@techcorp.com",
+          "updated@techcorp.com",
+          "jupdated@techcorp.com",
+          "johnu@techcorp.com",
+          "john_updated@techcorp.com",
+          "john-updated@techcorp.com",
+          "updated.john@techcorp.com",
+          "updated_john@techcorp.com"
+        ],
+        "known_email_found": false
+      },
+      "success": true,
+      "overall_score": 88
+    }
+  ],
+  "metrics": {
+    "success_rate": 100.0,
+    "avg_emails": 105.33333333333333,
+    "avg_score": 80.5,
+    "total_leads": 12,
+    "successful_enrichments": 12
+  }
+}
