@@ -260,14 +260,25 @@ class RealAutonomousOrganism:
         """Enrich leads with comprehensive data including missing field population"""
         for lead in leads:
             try:
+                # Skip leads with missing critical data
+                full_name = lead.get('full_name', '').strip()
+                if not full_name:
+                    self.logger.warning(f"⚠️ Skipping lead with missing full_name")
+                    continue
+                
                 # Generate professional email guess
-                name_parts = lead['full_name'].lower().split()
+                name_parts = full_name.lower().split()
                 company_clean = lead.get('company', '').lower().replace(' ', '').replace('.', '')
                 
                 if len(name_parts) >= 2 and company_clean:
                     email_guess = f"{name_parts[0]}.{name_parts[1]}@{company_clean}.com"
                     lead['email'] = email_guess
                     lead['email_confidence_level'] = 'Pattern'
+                elif len(name_parts) == 1 and company_clean:
+                    # Handle single name case
+                    email_guess = f"{name_parts[0]}@{company_clean}.com"
+                    lead['email'] = email_guess
+                    lead['email_confidence_level'] = 'Pattern-Single'
                 
                 # Set business type based on job title/company
                 job_title = lead.get('job_title', '').lower()
@@ -284,7 +295,8 @@ class RealAutonomousOrganism:
                 
                 # Generate AI message
                 company = lead.get('company', 'your company')
-                lead['ai_message'] = f"Hi {lead['full_name'].split()[0]}, I'm impressed by your work at {company}. Would love to connect about potential collaboration opportunities!"
+                first_name = full_name.split()[0] if full_name else 'there'
+                lead['ai_message'] = f"Hi {first_name}, I'm impressed by your work at {company}. Would love to connect about potential collaboration opportunities!"
                 
                 # Set enrichment data
                 lead['date_enriched'] = datetime.now().isoformat()
