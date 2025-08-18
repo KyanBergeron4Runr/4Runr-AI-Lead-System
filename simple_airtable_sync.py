@@ -1,141 +1,181 @@
 #!/usr/bin/env python3
 """
-Simple Airtable Sync - Working version to sync fixed data to Airtable
+Simple Airtable Sync
+===================
+Sync Francois using only basic fields that exist in Airtable
 """
-import os
-import sys
+
 import sqlite3
-import requests
-from datetime import datetime
-from pathlib import Path
+import sys
+import logging
 
-# Add the project root to the path
-project_root = Path(__file__).parent
-sys.path.insert(0, str(project_root))
+sys.path.insert(0, './4runr-outreach-system')
 
-def get_airtable_config():
-    """Get Airtable configuration from environment"""
-    return {
-        'api_key': os.getenv('AIRTABLE_API_KEY'),
-        'base_id': os.getenv('AIRTABLE_BASE_ID'),
-        'table_name': os.getenv('AIRTABLE_TABLE_NAME', 'Leads')
-    }
+class SimpleAirtableSync:
+    def __init__(self):
+        self.setup_logging()
+        self.db_path = 'data/unified_leads.db'
+        
+    def setup_logging(self):
+        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger(__name__)
 
-def get_unified_database():
-    """Get connection to unified database"""
-    db_path = project_root / 'data' / 'unified_leads.db'
-    if not db_path.exists():
-        print("❌ Unified database not found!")
-        return None
-    return sqlite3.connect(db_path)
-
-def get_leads_from_db():
-    """Get all leads from unified database"""
-    conn = get_unified_database()
-    if not conn:
-        return []
-    
-    cursor = conn.cursor()
-    cursor.execute("""
-        SELECT id, full_name, email, company, ai_message, industry, 
-               company_size, linkedin_url, created_at, updated_at
-        FROM leads
-        ORDER BY id
-    """)
-    
-    leads = []
-    for row in cursor.fetchall():
-        leads.append({
-            'id': row[0],
-            'full_name': row[1] or '',
-            'email': row[2] or '',
-            'company': row[3] or '',
-            'ai_message': row[4] or '',
-            'industry': row[5] or '',
-            'company_size': row[6] or '',
-            'linkedin_url': row[7] or '',
-            'created_at': row[8] or '',
-            'updated_at': row[9] or ''
-        })
-    
-    conn.close()
-    return leads
-
-def sync_to_airtable(leads):
-    """Sync leads to Airtable"""
-    config = get_airtable_config()
-    
-    if not config['api_key'] or not config['base_id']:
-        print("❌ Missing Airtable configuration!")
-        print("   Please set AIRTABLE_API_KEY, AIRTABLE_BASE_ID, and AIRTABLE_TABLE_NAME")
-        return False
-    
-    url = f"https://api.airtable.com/v0/{config['base_id']}/{config['table_name']}"
-    headers = {
-        'Authorization': f'Bearer {config["api_key"]}',
-        'Content-Type': 'application/json'
-    }
-    
-    print(f"🔄 Syncing {len(leads)} leads to Airtable...")
-    
-    success_count = 0
-    error_count = 0
-    
-    for lead in leads:
-        # Prepare record for Airtable
-        record = {
-            'fields': {
-                'Full Name': lead['full_name'],
-                'Email': lead['email'],
-                'Company': lead['company'],
-                'AI Message': lead['ai_message'],
-                'LinkedIn URL': lead['linkedin_url']
-            }
-        }
+    def get_francois_data(self):
+        """Get Francois data from database"""
+        self.logger.info("📋 Getting Francois data...")
         
         try:
-            # Try to create new record
-            response = requests.post(url, headers=headers, json={'records': [record]})
+            conn = sqlite3.connect(self.db_path)
+            conn.row_factory = sqlite3.Row
             
-            if response.status_code == 200:
-                success_count += 1
-                print(f"✅ Synced: {lead['full_name']} at {lead['company']}")
+            cursor = conn.execute("""
+                SELECT * FROM leads 
+                WHERE Full_Name LIKE '%Francois%' OR Full_Name LIKE '%François%'
+            """)
+            
+            francois = cursor.fetchone()
+            
+            if francois:
+                francois_data = dict(francois)
+                self.logger.info(f"✅ Found Francois with all data ready")
+                conn.close()
+                return francois_data
             else:
-                error_count += 1
-                print(f"❌ Failed to sync {lead['full_name']}: {response.status_code}")
-                print(f"   Error response: {response.text}")
+                self.logger.error("❌ Francois not found")
+                conn.close()
+                return None
                 
         except Exception as e:
-            error_count += 1
-            print(f"❌ Error syncing {lead['full_name']}: {str(e)}")
-    
-    print(f"\n📊 Sync Summary:")
-    print(f"   ✅ Successful: {success_count}")
-    print(f"   ❌ Failed: {error_count}")
-    print(f"   📈 Total: {len(leads)}")
-    
-    return success_count > 0
+            self.logger.error(f"❌ Error getting data: {e}")
+            return None
+
+    def sync_with_basic_fields(self, francois_data):
+        """Sync using only basic fields that definitely exist"""
+        self.logger.info("📤 Syncing with basic fields only...")
+        
+        try:
+            from shared.airtable_client import get_airtable_client
+            
+            client = get_airtable_client()
+            
+            # Use ONLY the most basic fields
+            basic_fields = {
+                'Full Name': francois_data.get('Full_Name', ''),
+                'Email': francois_data.get('Email', ''),
+                'Company': francois_data.get('Company', ''),
+            }
+            
+            # Remove empty fields
+            basic_fields = {k: v for k, v in basic_fields.items() if v}
+            
+            self.logger.info(f"📋 Using basic fields:")
+            for key, value in basic_fields.items():
+                self.logger.info(f"   {key}: {value}")
+            
+            # Create record
+            record_id = client.create_lead(basic_fields)
+            
+            if record_id:
+                self.logger.info(f"✅ SUCCESS! Record created: {record_id}")
+                
+                # Update database
+                conn = sqlite3.connect(self.db_path)
+                conn.execute("""
+                    UPDATE leads 
+                    SET airtable_id = ?, Response_Status = 'synced'
+                    WHERE id = ?
+                """, (record_id, francois_data['id']))
+                conn.commit()
+                conn.close()
+                
+                self.logger.info(f"✅ Database updated with record ID")
+                return record_id
+            else:
+                self.logger.error("❌ create_lead returned None")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"❌ Basic sync failed: {e}")
+            return None
+
+    def add_additional_fields(self, record_id, francois_data):
+        """Try to add additional fields one by one"""
+        self.logger.info(f"📝 Adding additional fields to record {record_id}...")
+        
+        try:
+            from shared.airtable_client import get_airtable_client
+            
+            client = get_airtable_client()
+            
+            # Try additional fields one by one
+            additional_fields = {
+                'Job Title': francois_data.get('Job_Title', ''),
+                'LinkedIn URL': francois_data.get('LinkedIn_URL', ''),
+                'Website': francois_data.get('Website', ''),
+                'AI Message': francois_data.get('AI_Message', ''),
+            }
+            
+            for field_name, field_value in additional_fields.items():
+                if field_value:
+                    try:
+                        # Try to update with this field
+                        update_data = {field_name: field_value}
+                        
+                        # Check if client has update method
+                        if hasattr(client, 'update_lead'):
+                            result = client.update_lead(record_id, update_data)
+                            if result:
+                                self.logger.info(f"   ✅ Added {field_name}")
+                            else:
+                                self.logger.info(f"   ⚠️ Could not add {field_name}")
+                        else:
+                            self.logger.info(f"   ⚠️ No update method available")
+                            break
+                            
+                    except Exception as field_error:
+                        self.logger.info(f"   ❌ Failed to add {field_name}: {field_error}")
+            
+        except Exception as e:
+            self.logger.error(f"❌ Error adding fields: {e}")
 
 def main():
-    """Main sync function"""
-    print("🔄 Simple Airtable Sync")
-    print("=" * 50)
+    syncer = SimpleAirtableSync()
     
-    # Get leads from database
-    leads = get_leads_from_db()
-    if not leads:
-        print("❌ No leads found in database!")
+    print("📤 SIMPLE AIRTABLE SYNC")
+    print("=" * 25)
+    print("📋 Sync Francois with basic fields only")
+    print("")
+    
+    # Get Francois data
+    francois_data = syncer.get_francois_data()
+    
+    if not francois_data:
+        print("❌ Cannot find Francois")
         return
     
-    print(f"📊 Found {len(leads)} leads in database")
+    # Check if already synced
+    if francois_data.get('airtable_id'):
+        print(f"✅ Francois already synced: {francois_data.get('airtable_id')}")
+        return
     
-    # Sync to Airtable
-    success = sync_to_airtable(leads)
+    # Sync with basic fields
+    record_id = syncer.sync_with_basic_fields(francois_data)
     
-    if success:
-        print("\n🎉 Sync completed successfully!")
+    if record_id:
+        print(f"\n🎉 BASIC SYNC SUCCESS!")
+        print(f"   📤 Airtable Record: {record_id}")
+        print(f"   📋 Name: {francois_data.get('Full_Name')}")
+        print(f"   📧 Email: {francois_data.get('Email')}")
+        print(f"   🏢 Company: {francois_data.get('Company')}")
+        
+        # Try to add additional fields
+        print(f"\n📝 Trying to add additional fields...")
+        syncer.add_additional_fields(record_id, francois_data)
+        
+        print(f"\n✅ FRANCOIS IS NOW IN AIRTABLE!")
+        print(f"   Check your Airtable base for the new record")
     else:
-        print("\n❌ Sync failed!")
+        print(f"\n❌ Sync failed")
 
 if __name__ == "__main__":
     main()
