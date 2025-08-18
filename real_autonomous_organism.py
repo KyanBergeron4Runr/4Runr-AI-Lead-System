@@ -338,19 +338,19 @@ class RealAutonomousOrganism:
                         self.logger.warning(f"⚠️ No ID for lead: {lead.get('full_name', 'Unknown')}")
                         continue
                     
-                    # Update the lead with enriched data - use NEW clean field names
+                    # Update the lead with enriched data - use actual database field names
                     conn.execute('''
                         UPDATE leads SET
-                            Business_Type = ?,
-                            Email_Confidence_Level = ?,
-                            AI_Message = ?,
-                            Date_Enriched = ?,
-                            Needs_Enrichment = ?,
-                            Lead_Quality = ?,
-                            Company_Description = ?,
-                            Extra_info = ?,
-                            Source = ?,
-                            Response_Status = ?
+                            business_type = ?,
+                            email_confidence_level = ?,
+                            ai_message = ?,
+                            date_enriched = ?,
+                            needs_enrichment = ?,
+                            lead_quality = ?,
+                            company_description = ?,
+                            extra_info = ?,
+                            source = ?,
+                            response_status = ?
                         WHERE id = ?
                     ''', (
                         lead.get('Business_Type', 'Small Business'),
@@ -367,10 +367,10 @@ class RealAutonomousOrganism:
                     ))
                     
                     updated_count += 1
-                    self.logger.info(f"✅ Updated: {lead.get('Full_Name', 'Unknown')}")
+                    self.logger.info(f"✅ Updated: {lead.get('full_name', 'Unknown')}")
                     
                 except Exception as e:
-                    self.logger.error(f"❌ Failed to update lead {lead.get('Full_Name', 'Unknown')}: {e}")
+                    self.logger.error(f"❌ Failed to update lead {lead.get('full_name', 'Unknown')}: {e}")
                     continue
             
             conn.commit()
@@ -456,9 +456,9 @@ class RealAutonomousOrganism:
 
     def is_high_quality_lead(self, lead_data):
         """Strict validation to ensure only high-quality leads sync to Airtable"""
-        full_name = lead_data.get('Full_Name', '').strip().lower()
-        company = lead_data.get('Company', '').strip().lower()
-        email = lead_data.get('Email', '').strip().lower()
+        full_name = lead_data.get('full_name', '').strip().lower()
+        company = lead_data.get('company', '').strip().lower()
+        email = lead_data.get('email', '').strip().lower()
         
         # NEVER sync test/fake leads
         test_patterns = [
@@ -474,8 +474,8 @@ class RealAutonomousOrganism:
         if '@example.com' in email or '@test.com' in email:
             return False, "Test email domain"
         
-        # Require complete critical data
-        required_fields = ['Full_Name', 'Company', 'Email', 'LinkedIn_URL', 'AI_Message']
+        # Require complete critical data - use lowercase field names
+        required_fields = ['full_name', 'company', 'email', 'linkedin_url', 'ai_message']
         for field in required_fields:
             value = lead_data.get(field, '').strip()
             if not value or len(value) < 3:
@@ -492,11 +492,12 @@ class RealAutonomousOrganism:
             
             cursor = conn.execute('''
                 SELECT * FROM leads 
-                WHERE (Response_Status = 'enriched' OR Response_Status = 'pending')
-                AND Full_Name IS NOT NULL AND Full_Name != ''
-                AND (Date_Messaged IS NULL OR Date_Messaged = '')
-                AND (Response_Status != 'synced')
-                ORDER BY Date_Enriched DESC 
+                WHERE (response_status = 'enriched' OR response_status = 'Pending')
+                AND full_name IS NOT NULL AND full_name != ''
+                AND (date_messaged IS NULL OR date_messaged = '')
+                AND (response_status != 'synced')
+                AND ai_message IS NOT NULL AND ai_message != ''
+                ORDER BY date_enriched DESC 
                 LIMIT 10
             ''')
             
@@ -513,9 +514,9 @@ class RealAutonomousOrganism:
                 is_quality, reason = self.is_high_quality_lead(lead)
                 if is_quality:
                     quality_leads.append(lead)
-                    self.logger.info(f"✅ Approved for sync: {lead.get('Full_Name', 'Unknown')}")
+                    self.logger.info(f"✅ Approved for sync: {lead.get('full_name', 'Unknown')}")
                 else:
-                    self.logger.warning(f"🚫 BLOCKED from sync: {lead.get('Full_Name', 'Unknown')} - {reason}")
+                    self.logger.warning(f"🚫 BLOCKED from sync: {lead.get('full_name', 'Unknown')} - {reason}")
             
             if not quality_leads:
                 self.logger.info("📊 No high-quality leads to sync")
@@ -551,19 +552,19 @@ class RealAutonomousOrganism:
                 'Content-Type': 'application/json'
             }
             
-            # Build fields using CLEAN 25-field schema names
+            # Build fields using actual database field names (lowercase with underscores)
             # Only sync fields that definitely work in Airtable
             fields = {
-                "Full Name": lead.get('Full_Name', ''),
-                "Email": lead.get('Email', ''),
-                "Company": lead.get('Company', ''),
-                "Job Title": lead.get('Job_Title', ''),
-                "LinkedIn URL": lead.get('LinkedIn_URL', ''),
-                "AI Message": lead.get('AI_Message', ''),
-                "Website": lead.get('Website', ''),
-                "Date Scraped": self.format_date_for_airtable(lead.get('Date_Scraped')),
-                "Date Enriched": self.format_date_for_airtable(lead.get('Date_Enriched')),
-                "Level Engaged": lead.get('Level_Engaged', 0)
+                "Full Name": lead.get('full_name', ''),
+                "Email": lead.get('email', ''),
+                "Company": lead.get('company', ''),
+                "Job Title": lead.get('job_title', ''),
+                "LinkedIn URL": lead.get('linkedin_url', ''),
+                "AI Message": lead.get('ai_message', ''),
+                "Website": lead.get('website', ''),
+                "Date Scraped": self.format_date_for_airtable(lead.get('date_scraped')),
+                "Date Enriched": self.format_date_for_airtable(lead.get('date_enriched')),
+                "Level Engaged": lead.get('level_engaged', 0)
             }
             
             # Remove empty fields
@@ -575,14 +576,14 @@ class RealAutonomousOrganism:
             
             if response.status_code == 200:
                 record_id = response.json().get('id', 'unknown')
-                self.logger.info(f"✅ Synced {lead.get('Full_Name', 'Unknown')} -> {record_id}")
+                self.logger.info(f"✅ Synced {lead.get('full_name', 'Unknown')} -> {record_id}")
                 return True
             else:
-                self.logger.error(f"❌ Sync failed for {lead.get('Full_Name', 'Unknown')}: {response.status_code} - {response.text}")
+                self.logger.error(f"❌ Sync failed for {lead.get('full_name', 'Unknown')}: {response.status_code} - {response.text}")
                 return False
                 
         except Exception as e:
-            self.logger.error(f"❌ Airtable sync error for {lead.get('Full_Name', 'Unknown')}: {e}")
+            self.logger.error(f"❌ Airtable sync error for {lead.get('full_name', 'Unknown')}: {e}")
             return False
 
     def format_date_for_airtable(self, date_string):
