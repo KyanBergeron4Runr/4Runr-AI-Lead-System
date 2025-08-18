@@ -484,9 +484,9 @@ class RealAutonomousOrganism:
         return True, "High quality lead"
 
     def sync_to_airtable(self) -> int:
-        """Real-time sync of ONLY high-quality leads to Airtable with strict validation"""
+        """Real-time sync of ONLY high-quality leads to Airtable with DUPLICATE PREVENTION"""
         try:
-            # Get leads that might need syncing (broader criteria to catch pending leads)
+            # Get leads that need syncing - EXCLUDE already synced leads to prevent duplicates
             conn = sqlite3.connect('data/unified_leads.db')
             conn.row_factory = sqlite3.Row
             
@@ -494,8 +494,10 @@ class RealAutonomousOrganism:
                 SELECT * FROM leads 
                 WHERE (Response_Status = 'enriched' OR Response_Status = 'pending')
                 AND Full_Name IS NOT NULL AND Full_Name != ''
+                AND (Date_Messaged IS NULL OR Date_Messaged = '')
+                AND (Response_Status != 'synced')
                 ORDER BY Date_Enriched DESC 
-                LIMIT 20
+                LIMIT 10
             ''')
             
             all_leads = [dict(row) for row in cursor.fetchall()]
@@ -697,18 +699,65 @@ class RealAutonomousOrganism:
         return None
     
     def _generate_ai_message(self, lead: Dict[str, Any]) -> str:
-        """Generate personalized AI message for the lead"""
+        """Generate personalized AI message using 4runr brain logic"""
         name = lead.get('Full_Name') or lead.get('full_name', '')
         company = lead.get('Company') or lead.get('company', '')
+        job_title = lead.get('Job_Title') or lead.get('job_title', '')
         
         # Extract first name
         first_name = name.split()[0] if name else 'there'
         company_name = company if company else 'your company'
         
-        # Generate personalized message
-        message = f"Hi {first_name}, I'm impressed by the innovative work at {company_name}. Would love to discuss potential collaboration opportunities that could accelerate your business growth and help you achieve your strategic goals!"
+        # Try to use 4runr brain for advanced AI message generation
+        try:
+            brain_message = self._call_4runr_brain_for_message(lead)
+            if brain_message:
+                return brain_message
+        except Exception as e:
+            self.logger.warning(f"⚠️ 4runr brain unavailable, using fallback: {e}")
+        
+        # Fallback: Generate enhanced personalized message
+        if 'CEO' in job_title or 'Founder' in job_title or 'President' in job_title:
+            message = f"Hi {first_name}, I've been following {company_name}'s growth and I'm impressed by your leadership. I'd love to explore how we can help accelerate your business expansion and drive even greater results. Are you available for a brief conversation this week?"
+        else:
+            message = f"Hi {first_name}, I noticed your role at {company_name} and believe there could be valuable synergies between our services and your business objectives. Would you be open to a quick discussion about potential collaboration opportunities?"
         
         return message
+    
+    def _call_4runr_brain_for_message(self, lead: Dict[str, Any]) -> Optional[str]:
+        """Call 4runr brain system for advanced AI message generation"""
+        try:
+            # Try to import and use 4runr brain
+            import subprocess
+            import json
+            
+            # Prepare lead data for brain
+            brain_input = {
+                'full_name': lead.get('Full_Name', ''),
+                'company': lead.get('Company', ''),
+                'job_title': lead.get('Job_Title', ''),
+                'linkedin_url': lead.get('LinkedIn_URL', ''),
+                'industry': lead.get('Business_Type', ''),
+                'request_type': 'ai_message_generation'
+            }
+            
+            # Call 4runr brain script (if available)
+            brain_script = '4runr-brain/campaign_brain.py'
+            if os.path.exists(brain_script):
+                result = subprocess.run([
+                    'python3', brain_script, '--generate-message', 
+                    '--lead-data', json.dumps(brain_input)
+                ], capture_output=True, text=True, timeout=30)
+                
+                if result.returncode == 0 and result.stdout.strip():
+                    brain_response = json.loads(result.stdout.strip())
+                    return brain_response.get('ai_message')
+            
+            return None
+            
+        except Exception as e:
+            self.logger.debug(f"4runr brain call failed: {e}")
+            return None
     
     def _generate_company_description(self, lead: Dict[str, Any]) -> str:
         """Generate company description for the lead"""
