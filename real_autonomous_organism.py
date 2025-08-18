@@ -363,8 +363,6 @@ class RealAutonomousOrganism:
                     # Update the lead with enriched data - use NEW clean field names
                     conn.execute('''
                         UPDATE leads SET
-                            Business_Type = ?,
-                            Email_Confidence_Level = ?,
                             AI_Message = ?,
                             Date_Enriched = ?,
                             Needs_Enrichment = ?,
@@ -372,11 +370,10 @@ class RealAutonomousOrganism:
                             Company_Description = ?,
                             Extra_info = ?,
                             Source = ?,
-                            Response_Status = ?
+                            Response_Status = ?,
+                            enriched = ?
                         WHERE id = ?
                     ''', (
-                        lead.get('Business_Type', 'Small Business'),
-                        lead.get('Email_Confidence_Level', 'Pattern'),
                         lead.get('AI_Message', ''),
                         lead.get('Date_Enriched'),
                         0,  # needs_enrichment = False
@@ -385,6 +382,7 @@ class RealAutonomousOrganism:
                         lead.get('Extra_info', ''),
                         lead.get('Source', 'autonomous_enricher'),
                         'enriched',  # response_status
+                        1,  # enriched = True
                         lead_id
                     ))
                     
