@@ -522,7 +522,6 @@ class RealAutonomousOrganism:
                 "Website": lead.get('Website', ''),
                 "Date Scraped": self.format_date_for_airtable(lead.get('Date_Scraped')),
                 "Date Enriched": self.format_date_for_airtable(lead.get('Date_Enriched')),
-                "Extra info": lead.get('Extra_info', ''),
                 "Engagement_Status": lead.get('Engagement_Status', 'pending'),
                 "Level Engaged": lead.get('Level_Engaged', 0),
                 "Response_Status": lead.get('Response_Status', 'enriched'),
