@@ -264,54 +264,56 @@ class RealAutonomousOrganism:
         """Enrich leads with comprehensive data including missing field population"""
         for lead in leads:
             try:
-                # Skip leads with missing critical data
-                full_name = lead.get('full_name', '').strip()
+                # Skip leads with missing critical data - use NEW field names
+                full_name = lead.get('Full_Name', '').strip()
                 if not full_name:
-                    self.logger.warning(f"⚠️ Skipping lead with missing full_name")
+                    self.logger.warning(f"⚠️ Skipping lead with missing Full_Name")
                     continue
                 
                 # Generate professional email guess
                 name_parts = full_name.lower().split()
-                company_clean = lead.get('company', '').lower().replace(' ', '').replace('.', '')
+                company_clean = lead.get('Company', '').lower().replace(' ', '').replace('.', '')
                 
                 if len(name_parts) >= 2 and company_clean:
                     email_guess = f"{name_parts[0]}.{name_parts[1]}@{company_clean}.com"
-                    lead['email'] = email_guess
-                    lead['email_confidence_level'] = 'Pattern'
+                    lead['Email'] = email_guess
+                    lead['Email_Confidence_Level'] = 'Pattern'
                 elif len(name_parts) == 1 and company_clean:
                     # Handle single name case
                     email_guess = f"{name_parts[0]}@{company_clean}.com"
-                    lead['email'] = email_guess
-                    lead['email_confidence_level'] = 'Pattern-Single'
+                    lead['Email'] = email_guess
+                    lead['Email_Confidence_Level'] = 'Pattern-Single'
                 
-                # Set business type based on job title/company
-                job_title = lead.get('job_title', '').lower()
+                # Set business type based on job title/company - use NEW field names
+                job_title = lead.get('Job_Title', '').lower()
                 if any(word in job_title for word in ['ceo', 'founder', 'president', 'owner']):
-                    lead['business_type'] = 'Small Business'
-                    lead['lead_quality'] = 'Hot'
+                    lead['Business_Type'] = 'Small Business'
+                    lead['Lead_Quality'] = 'Hot'
                 else:
-                    lead['business_type'] = 'Enterprise'
-                    lead['lead_quality'] = 'Warm'
+                    lead['Business_Type'] = 'Enterprise'
+                    lead['Lead_Quality'] = 'Warm'
                 
                 # NEW: Apply comprehensive enrichment to fill missing fields
                 enhanced_data = self._apply_comprehensive_enrichment(lead)
                 lead.update(enhanced_data)
                 
-                # Generate AI message
-                company = lead.get('company', 'your company')
+                # Generate AI message - use NEW field names
+                company = lead.get('Company', 'your company')
                 first_name = full_name.split()[0] if full_name else 'there'
-                lead['ai_message'] = f"Hi {first_name}, I'm impressed by your work at {company}. Would love to connect about potential collaboration opportunities!"
+                lead['AI_Message'] = f"Hi {first_name}, I'm impressed by your work at {company}. Would love to connect about potential collaboration opportunities!"
                 
-                # Set enrichment data
-                lead['date_enriched'] = datetime.now().isoformat()
-                lead['enriched'] = 1
-                lead['ready_for_outreach'] = 1
-                lead['needs_enrichment'] = 0
+                # Set enrichment data - use NEW field names
+                lead['Date_Enriched'] = datetime.now().isoformat()
+                lead['Needs_Enrichment'] = 0
+                lead['Source'] = 'autonomous_enricher'
                 
                 # Company description
-                lead['company_description'] = f"REAL LinkedIn lead: {company}. Found via SerpAPI search with validated LinkedIn profile."
+                lead['Company_Description'] = f"REAL LinkedIn lead: {company}. Found via SerpAPI search with validated LinkedIn profile."
                 
-                self.logger.info(f"✅ Enriched: {lead['full_name']} - Quality: {lead['lead_quality']}")
+                # Extra info for comprehensive data
+                lead['Extra_info'] = f"Enriched on {datetime.now().strftime('%Y-%m-%d')} - Lead Quality: {lead.get('Lead_Quality', 'Unknown')}"
+                
+                self.logger.info(f"✅ Enriched: {lead['Full_Name']} - Quality: {lead['Lead_Quality']}")
                 
             except Exception as e:
                 self.logger.error(f"❌ Enrichment failed for {lead.get('full_name', 'Unknown')}: {e}")
@@ -336,38 +338,31 @@ class RealAutonomousOrganism:
                         self.logger.warning(f"⚠️ No ID for lead: {lead.get('full_name', 'Unknown')}")
                         continue
                     
-                    # Update the lead with enriched data
+                    # Update the lead with enriched data - use NEW clean field names
                     conn.execute('''
                         UPDATE leads SET
-                            phone = ?,
-                            business_type = ?,
-                            company_size = ?,
-                            location = ?,
-                            industry = ?,
-                            email_confidence_level = ?,
-                            ai_message = ?,
-                            date_enriched = ?,
-                            enriched = ?,
-                            ready_for_outreach = ?,
-                            needs_enrichment = ?,
-                            lead_quality = ?,
-                            company_description = ?,
-                            updated_at = CURRENT_TIMESTAMP
+                            Business_Type = ?,
+                            Email_Confidence_Level = ?,
+                            AI_Message = ?,
+                            Date_Enriched = ?,
+                            Needs_Enrichment = ?,
+                            Lead_Quality = ?,
+                            Company_Description = ?,
+                            Extra_info = ?,
+                            Source = ?,
+                            Response_Status = ?
                         WHERE id = ?
                     ''', (
-                        lead.get('phone', 'Contact for phone'),
-                        lead.get('business_type', 'Small Business'),
-                        lead.get('company_size', 'SMB'),
-                        lead.get('location', 'North America'),
-                        lead.get('industry', 'Business Services'),
-                        lead.get('email_confidence_level', 'Pattern'),
-                        lead.get('ai_message', ''),
-                        lead.get('date_enriched'),
-                        1,  # enriched = True
-                        1,  # ready_for_outreach = True
+                        lead.get('Business_Type', 'Small Business'),
+                        lead.get('Email_Confidence_Level', 'Pattern'),
+                        lead.get('AI_Message', ''),
+                        lead.get('Date_Enriched'),
                         0,  # needs_enrichment = False
-                        lead.get('lead_quality', 'Warm'),
-                        lead.get('company_description', ''),
+                        lead.get('Lead_Quality', 'Warm'),
+                        lead.get('Company_Description', ''),
+                        lead.get('Extra_info', ''),
+                        lead.get('Source', 'autonomous_enricher'),
+                        'enriched',  # response_status
                         lead_id
                     ))
                     
@@ -737,18 +732,18 @@ class RealAutonomousOrganism:
             conn = sqlite3.connect('data/unified_leads.db')
             conn.row_factory = sqlite3.Row
             
-            # Get REAL leads with missing critical fields (exclude test data)
+            # Get leads with missing critical fields using NEW clean schema
             cursor = conn.execute("""
                 SELECT * FROM leads 
-                WHERE full_name IS NOT NULL AND full_name != ''
+                WHERE Full_Name IS NOT NULL AND Full_Name != ''
+                AND Needs_Enrichment = 1
                 AND (
-                    (phone IS NULL OR phone = '' OR phone = 'Contact for phone')
-                    OR (business_type IS NULL OR business_type = '')
-                    OR (company_size IS NULL OR company_size = '')
+                    (Business_Type IS NULL OR Business_Type = '')
+                    OR (Website IS NULL OR Website = '')
+                    OR (AI_Message IS NULL OR AI_Message = '')
+                    OR (Extra_info IS NULL OR Extra_info = '')
+                    OR (Company_Description IS NULL OR Company_Description = '')
                 )
-                AND company NOT LIKE '%Test%' 
-                AND company NOT LIKE '%Auto%'
-                AND email NOT LIKE '%@example.com'
                 LIMIT 10
             """)
             
