@@ -507,25 +507,18 @@ class RealAutonomousOrganism:
             }
             
             # Build fields using CLEAN 25-field schema names
+            # Only sync fields that definitely work in Airtable
             fields = {
                 "Full Name": lead.get('Full_Name', ''),
                 "Email": lead.get('Email', ''),
                 "Company": lead.get('Company', ''),
                 "Job Title": lead.get('Job_Title', ''),
                 "LinkedIn URL": lead.get('LinkedIn_URL', ''),
-                "Lead Quality": lead.get('Lead_Quality', 'Warm'),
-                "Email_Confidence_Level": lead.get('Email_Confidence_Level', 'Pattern'),
                 "AI Message": lead.get('AI_Message', ''),
-                "Business_Type": lead.get('Business_Type', 'Small Business'),
-                "Company_Description": lead.get('Company_Description', ''),
                 "Website": lead.get('Website', ''),
                 "Date Scraped": self.format_date_for_airtable(lead.get('Date_Scraped')),
                 "Date Enriched": self.format_date_for_airtable(lead.get('Date_Enriched')),
-                "Engagement_Status": lead.get('Engagement_Status', 'pending'),
-                "Level Engaged": lead.get('Level_Engaged', 0),
-                "Response_Status": lead.get('Response_Status', 'enriched'),
-                "Follow_Up_Stage": lead.get('Follow_Up_Stage', 'initial'),
-                "Needs Enrichment": lead.get('Needs_Enrichment', 0)
+                "Level Engaged": lead.get('Level_Engaged', 0)
             }
             
             # Remove empty fields
