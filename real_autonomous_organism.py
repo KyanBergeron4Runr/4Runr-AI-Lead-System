@@ -150,8 +150,12 @@ class RealAutonomousOrganism:
         """Use SerpAPI to find REAL LinkedIn leads"""
         try:
             import sys
-            sys.path.append('./4runr-lead-scraper')
-            from scraper.serpapi_scraper import SerpAPILeadScraper
+            import os
+            sys.path.insert(0, './4runr-lead-scraper')
+            sys.path.insert(0, './4runr-lead-scraper/scraper')
+            
+            # Import the scraper directly
+            from serpapi_scraper import SerpAPILeadScraper
             
             scraper = SerpAPILeadScraper()
             
@@ -313,6 +317,76 @@ class RealAutonomousOrganism:
                 self.logger.error(f"❌ Enrichment failed for {lead.get('full_name', 'Unknown')}: {e}")
                 
         return leads
+    
+    def update_existing_leads_in_database(self, leads: List[Dict]) -> int:
+        """Update existing leads in database with enriched data"""
+        if not leads:
+            return 0
+        
+        updated_count = 0
+        
+        try:
+            conn = sqlite3.connect('data/unified_leads.db')
+            
+            for lead in leads:
+                try:
+                    # Update existing lead by ID
+                    lead_id = lead.get('id')
+                    if not lead_id:
+                        self.logger.warning(f"⚠️ No ID for lead: {lead.get('full_name', 'Unknown')}")
+                        continue
+                    
+                    # Update the lead with enriched data
+                    conn.execute('''
+                        UPDATE leads SET
+                            phone = ?,
+                            business_type = ?,
+                            company_size = ?,
+                            location = ?,
+                            industry = ?,
+                            email_confidence_level = ?,
+                            ai_message = ?,
+                            date_enriched = ?,
+                            enriched = ?,
+                            ready_for_outreach = ?,
+                            needs_enrichment = ?,
+                            lead_quality = ?,
+                            company_description = ?,
+                            updated_at = CURRENT_TIMESTAMP
+                        WHERE id = ?
+                    ''', (
+                        lead.get('phone', 'Contact for phone'),
+                        lead.get('business_type', 'Small Business'),
+                        lead.get('company_size', 'SMB'),
+                        lead.get('location', 'North America'),
+                        lead.get('industry', 'Business Services'),
+                        lead.get('email_confidence_level', 'Pattern'),
+                        lead.get('ai_message', ''),
+                        lead.get('date_enriched'),
+                        1,  # enriched = True
+                        1,  # ready_for_outreach = True
+                        0,  # needs_enrichment = False
+                        lead.get('lead_quality', 'Warm'),
+                        lead.get('company_description', ''),
+                        lead_id
+                    ))
+                    
+                    updated_count += 1
+                    self.logger.info(f"✅ Updated: {lead.get('full_name', 'Unknown')}")
+                    
+                except Exception as e:
+                    self.logger.error(f"❌ Failed to update lead {lead.get('full_name', 'Unknown')}: {e}")
+                    continue
+            
+            conn.commit()
+            conn.close()
+            
+            self.logger.info(f"💾 Updated {updated_count} existing leads in database")
+            return updated_count
+            
+        except Exception as e:
+            self.logger.error(f"❌ Database update failed: {e}")
+            return 0
 
     def save_to_database(self, leads: List[Dict]) -> int:
         """Save leads to database with duplicate prevention"""
@@ -663,15 +737,18 @@ class RealAutonomousOrganism:
             conn = sqlite3.connect('data/unified_leads.db')
             conn.row_factory = sqlite3.Row
             
-            # Get leads with missing critical fields that the enricher should handle
+            # Get REAL leads with missing critical fields (exclude test data)
             cursor = conn.execute("""
                 SELECT * FROM leads 
-                WHERE (phone IS NULL OR phone = '' OR phone = 'Contact for phone')
-                   OR (linkedin_url IS NULL OR linkedin_url = '')
-                   OR (location IS NULL OR location = 'Unknown' OR location = '')
-                   OR (industry IS NULL OR industry = 'Other' OR industry = '')
-                   OR (business_type IS NULL OR business_type = '')
-                   OR (company_size IS NULL OR company_size = '')
+                WHERE full_name IS NOT NULL AND full_name != ''
+                AND (
+                    (phone IS NULL OR phone = '' OR phone = 'Contact for phone')
+                    OR (business_type IS NULL OR business_type = '')
+                    OR (company_size IS NULL OR company_size = '')
+                )
+                AND company NOT LIKE '%Test%' 
+                AND company NOT LIKE '%Auto%'
+                AND email NOT LIKE '%@example.com'
                 LIMIT 10
             """)
             
@@ -699,9 +776,11 @@ class RealAutonomousOrganism:
             leads = self.scrape_real_leads()
             
             # 2. If no new leads, run enricher on existing database leads
+            existing_leads_mode = False
             if not leads:
                 self.logger.info("⚠️ No new leads scraped - enriching existing database leads")
                 leads = self.get_leads_needing_enrichment()
+                existing_leads_mode = True
                 
                 if not leads:
                     self.logger.info("✅ All database leads are fully enriched")
@@ -709,11 +788,14 @@ class RealAutonomousOrganism:
                     synced_count = self.sync_to_airtable()
                     return {"status": "maintenance", "leads_synced": synced_count, "duration": time.time() - cycle_start}
             
-            # 2. Enrich leads
+            # 3. Enrich leads
             enriched_leads = self.enrich_leads(leads)
             
-            # 3. Save to database
-            saved_count = self.save_to_database(enriched_leads)
+            # 4. Save or update leads in database
+            if existing_leads_mode:
+                saved_count = self.update_existing_leads_in_database(enriched_leads)
+            else:
+                saved_count = self.save_to_database(enriched_leads)
             self.total_leads_found += saved_count
             
             # 4. Sync to Airtable
