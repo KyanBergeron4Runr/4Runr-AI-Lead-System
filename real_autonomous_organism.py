@@ -159,14 +159,29 @@ class RealAutonomousOrganism:
             
             scraper = SerpAPILeadScraper()
             
-            # Target small/medium business keywords
-            queries = [
-                "site:linkedin.com/in/ CEO startup Toronto",
-                "site:linkedin.com/in/ founder small business Canada", 
-                "site:linkedin.com/in/ director marketing agency",
-                "site:linkedin.com/in/ owner restaurant Toronto",
-                "site:linkedin.com/in/ president consulting firm"
+            # Diverse search queries to find NEW leads (not same 3 people)
+            import random
+            
+            diverse_searches = [
+                'site:linkedin.com/in/ "Chief Technology Officer" Toronto',
+                'site:linkedin.com/in/ "Marketing Director" Vancouver',
+                'site:linkedin.com/in/ "Business Owner" Calgary', 
+                'site:linkedin.com/in/ "VP Sales" Ottawa',
+                'site:linkedin.com/in/ Founder startup Toronto',
+                'site:linkedin.com/in/ CEO technology Vancouver',
+                'site:linkedin.com/in/ Director consulting Calgary',
+                'site:linkedin.com/in/ "Operations Manager" Ottawa',
+                'site:linkedin.com/in/ "Product Manager" Montreal',
+                'site:linkedin.com/in/ "General Manager" Toronto tech',
+                'site:linkedin.com/in/ CTO fintech Vancouver',
+                'site:linkedin.com/in/ CMO healthcare Calgary',
+                'site:linkedin.com/in/ "Sales Director" Ottawa',
+                'site:linkedin.com/in/ Founder e-commerce Montreal'
             ]
+            
+            # Rotate searches to get diverse results
+            queries = [random.choice(diverse_searches)]
+            self.logger.info(f"🎯 Using diverse search: {queries[0]}")
             
             all_leads = []
             for query in queries[:1]:  # Start with 1 query per cycle
@@ -474,12 +489,23 @@ class RealAutonomousOrganism:
         if '@example.com' in email or '@test.com' in email:
             return False, "Test email domain"
         
-        # Require complete critical data
-        required_fields = ['Full_Name', 'Company', 'Email', 'LinkedIn_URL', 'AI_Message']
-        for field in required_fields:
+        # Relaxed requirements - accept leads with LinkedIn + basic info
+        # Must have: Name, LinkedIn, Job info
+        essential_fields = ['Full_Name', 'LinkedIn_URL']
+        for field in essential_fields:
             value = lead_data.get(field, '').strip()
             if not value or len(value) < 3:
-                return False, f"Missing or invalid {field}"
+                return False, f"Missing essential {field}"
+        
+        # Need either email OR company info
+        has_contact = (
+            lead_data.get('Email', '').strip() or 
+            lead_data.get('Company', '').strip() or
+            lead_data.get('Job_Title', '').strip()
+        )
+        
+        if not has_contact:
+            return False, "No contact info or company details"
         
         return True, "High quality lead"
 
