@@ -583,16 +583,16 @@ class RealAutonomousOrganism:
                 'Content-Type': 'application/json'
             }
             
-            # Build fields using REAL database column names and EXISTING Airtable fields only
-            # Sync core data that definitely works in Airtable
+            # Build fields using CORRECT unified database column names
+            # Sync ALL enriched data to Airtable
             fields = {
-                "Full Name": lead.get('full_name', ''),
-                "Email": lead.get('email', ''),
-                "Company Name": lead.get('company', ''),
-                "LinkedIn URL": lead.get('linkedin_url', ''),
-                "AI Message": lead.get('ai_message', ''),
-                "Website": lead.get('website', ''),
-                "Company_Description": lead.get('company_description', '')
+                "Full Name": lead.get('Full_Name', ''),
+                "Email": lead.get('Email', ''),
+                "Company Name": lead.get('Company', ''),
+                "LinkedIn URL": lead.get('LinkedIn_URL', ''),
+                "AI Message": lead.get('AI_Message', ''),
+                "Website": lead.get('Website', ''),
+                "Company_Description": lead.get('Company_Description', '')
             }
             
             # Remove empty fields
