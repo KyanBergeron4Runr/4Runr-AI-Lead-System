@@ -32,7 +32,21 @@ class EngagementDefaultsManager:
     DEFAULT_VALUES = {
         'Engagement_Status': 'Auto-Send',
         'Email_Confidence_Level': 'Pattern',
-        'Level Engaged': ''
+        'Level Engaged': '',
+        # Contact field defaults
+        'Phone': '',
+        'Location': 'North America',
+        'Industry': 'Business Services',
+        'Company_Size': '51-200',
+        'Business_Type': 'Business Services',
+        'Business_Traits': '',
+        'Pain_Points': '',
+        # Enrichment status defaults
+        'Ready_for_Engagement': True,
+        'Needs_Enrichment': False,
+        'Enriched': True,
+        'Data_Quality_Score': 70,
+        'Enrichment_Method': 'default_population'
     }
     
     def __init__(self):

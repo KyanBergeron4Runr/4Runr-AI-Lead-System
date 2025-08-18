@@ -64,6 +64,38 @@ class EmailEnricher:
         logger.info(f"⚙️ Max website attempts: {self.max_website_attempts}")
         logger.info(f"⚙️ Use pattern emails: {self.use_pattern_emails}")
     
+    def enrich_lead_comprehensive(self, lead: Dict) -> Dict:
+        """
+        Comprehensive lead enrichment including email and contact fields.
+        
+        Args:
+            lead: Lead dictionary with name, company, etc.
+            
+        Returns:
+            Dictionary with comprehensive enrichment results
+        """
+        name = lead.get('name', '')
+        company = lead.get('company', '')
+        
+        logger.info(f"🚀 Comprehensive enrichment for: {name} at {company}")
+        
+        # Start with email enrichment
+        email_result = self.enrich_lead_email(lead)
+        
+        # Add missing contact fields
+        additional_fields = self._enrich_missing_contact_fields(lead, email_result)
+        
+        # Combine results
+        comprehensive_result = {
+            **email_result,
+            **additional_fields,
+            'comprehensive_enrichment': True,
+            'enrichment_timestamp': datetime.now().isoformat()
+        }
+        
+        logger.info(f"✅ Comprehensive enrichment completed for {name}")
+        return comprehensive_result
+    
     def enrich_lead_email(self, lead: Dict) -> Dict:
         """
         Enrich a lead with email information.
@@ -446,6 +478,200 @@ class EmailEnricher:
         logger.info(f"✅ Batch email enrichment completed: {successful}/{len(results)} successful")
         
         return results
+    
+    def _enrich_missing_contact_fields(self, lead: Dict, email_result: Dict) -> Dict:
+        """Enrich missing contact fields for the lead."""
+        logger.info("📞 Enriching missing contact fields")
+        
+        additional_fields = {}
+        
+        # 1. LinkedIn URL generation
+        if not lead.get('linkedin_url') or lead.get('linkedin_url', '').strip() == '':
+            linkedin_url = self._generate_linkedin_url(lead)
+            if linkedin_url:
+                additional_fields['linkedin_url'] = linkedin_url
+                logger.info(f"   ✅ Generated LinkedIn URL: {linkedin_url}")
+        
+        # 2. Phone number from company website
+        if not lead.get('phone') and email_result.get('company_website'):
+            phone = self._extract_phone_from_website(email_result['company_website'])
+            if phone:
+                additional_fields['phone'] = phone
+                additional_fields['phone_source'] = 'website_extraction'
+                logger.info(f"   ✅ Found phone: {phone}")
+        
+        # 3. Company website consistency
+        if email_result.get('company_website') and not lead.get('company_website'):
+            additional_fields['company_website'] = email_result['company_website']
+            additional_fields['website'] = email_result['company_website']
+        
+        # 4. Location inference
+        if not lead.get('location'):
+            location = self._infer_location(lead, email_result)
+            if location:
+                additional_fields['location'] = location
+                logger.info(f"   ✅ Set location: {location}")
+        
+        # 5. Industry inference
+        if not lead.get('industry'):
+            industry = self._infer_industry(lead)
+            if industry:
+                additional_fields['industry'] = industry
+                logger.info(f"   ✅ Inferred industry: {industry}")
+        
+        # 6. Company size inference
+        if not lead.get('company_size'):
+            company_size = self._infer_company_size(lead)
+            if company_size:
+                additional_fields['company_size'] = company_size
+                logger.info(f"   ✅ Inferred company size: {company_size}")
+        
+        # 7. Email metadata enhancement
+        if email_result.get('success') and email_result.get('email'):
+            additional_fields.update({
+                'email_status': 'verified' if email_result.get('confidence') == 'high' else 'pattern_generated',
+                'email_confidence': 80 if email_result.get('confidence') == 'high' else 50,
+                'bounce_risk': 'low' if email_result.get('confidence') == 'high' else 'medium'
+            })
+        
+        # 8. Engagement readiness flags
+        additional_fields.update({
+            'ready_for_engagement': bool(email_result.get('success')),
+            'needs_enrichment': False,
+            'enriched': True,
+            'enrichment_method': 'email_enricher_comprehensive',
+            'status': 'enriched',
+            'enriched_at': datetime.now().isoformat()
+        })
+        
+        return additional_fields
+    
+    def _generate_linkedin_url(self, lead: Dict) -> Optional[str]:
+        """Generate LinkedIn URL from lead name."""
+        name = lead.get('name', '') or lead.get('full_name', '')
+        if not name:
+            return None
+        
+        # Create LinkedIn-friendly slug
+        name_parts = name.lower().split()
+        if len(name_parts) >= 2:
+            linkedin_slug = f"{name_parts[0]}-{name_parts[-1]}"
+            return f"https://www.linkedin.com/in/{linkedin_slug}/"
+        
+        return None
+    
+    def _extract_phone_from_website(self, website_url: str) -> Optional[str]:
+        """Extract phone number from website contact page."""
+        try:
+            # Try to get contact page
+            contact_urls = [
+                f"{website_url}/contact",
+                f"{website_url}/contact-us",
+                f"{website_url}/about",
+                website_url  # Main page as fallback
+            ]
+            
+            for url in contact_urls:
+                try:
+                    response = self._make_safe_request(url)
+                    if response and response.status_code == 200:
+                        phone = self._extract_phone_from_text(response.text)
+                        if phone:
+                            return phone
+                except:
+                    continue
+                    
+        except Exception as e:
+            logger.debug(f"Could not extract phone from website: {e}")
+        
+        return None
+    
+    def _extract_phone_from_text(self, text: str) -> Optional[str]:
+        """Extract phone number from text using regex patterns."""
+        import re
+        
+        # Phone number patterns
+        phone_patterns = [
+            r'\b\+?1?[-.\s]?\(?([0-9]{3})\)?[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})\b',
+            r'\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b',
+            r'\b\(\d{3}\)\s?\d{3}[-.\s]?\d{4}\b'
+        ]
+        
+        for pattern in phone_patterns:
+            matches = re.findall(pattern, text)
+            if matches:
+                if isinstance(matches[0], tuple):
+                    # Pattern with groups
+                    return f"({matches[0][0]}) {matches[0][1]}-{matches[0][2]}"
+                else:
+                    # Simple pattern
+                    return matches[0]
+        
+        return None
+    
+    def _infer_location(self, lead: Dict, email_result: Dict) -> Optional[str]:
+        """Infer location from various sources."""
+        # Try to extract from company website domain
+        website = email_result.get('company_website', '')
+        if website:
+            # Check for country-specific domains
+            if '.ca' in website:
+                return 'Canada'
+            elif '.uk' in website:
+                return 'United Kingdom'
+            elif '.au' in website:
+                return 'Australia'
+        
+        # Default to North America if no other indicators
+        return 'North America'
+    
+    def _infer_industry(self, lead: Dict) -> Optional[str]:
+        """Infer industry from company name and title."""
+        company = lead.get('company', '').lower()
+        title = lead.get('title', '').lower()
+        
+        # Industry keywords mapping
+        industry_keywords = {
+            'Technology': ['tech', 'software', 'saas', 'platform', 'digital', 'app', 'ai'],
+            'Healthcare': ['health', 'medical', 'healthcare', 'clinic', 'hospital'],
+            'Financial Services': ['finance', 'financial', 'bank', 'investment', 'insurance'],
+            'Consulting': ['consulting', 'consultant', 'advisory', 'strategy'],
+            'Marketing & Advertising': ['marketing', 'advertising', 'agency', 'brand'],
+            'Legal Services': ['law', 'legal', 'attorney', 'lawyer'],
+            'Real Estate': ['real estate', 'property', 'realty'],
+            'Education': ['education', 'school', 'university', 'training'],
+            'Manufacturing': ['manufacturing', 'factory', 'production'],
+            'Retail': ['retail', 'store', 'shop', 'ecommerce']
+        }
+        
+        all_text = f"{company} {title}"
+        
+        for industry, keywords in industry_keywords.items():
+            if any(keyword in all_text for keyword in keywords):
+                return industry
+        
+        return 'Business Services'  # Default
+    
+    def _infer_company_size(self, lead: Dict) -> Optional[str]:
+        """Infer company size from title and company indicators."""
+        title = lead.get('title', '').lower()
+        company = lead.get('company', '').lower()
+        
+        # Size indicators by title
+        if any(term in title for term in ['ceo', 'founder', 'president']):
+            return '11-50'  # Likely smaller if executives are accessible
+        elif any(term in title for term in ['director', 'manager']):
+            return '51-200'
+        elif any(term in title for term in ['vp', 'vice president']):
+            return '201-1000'
+        
+        # Size indicators by company keywords
+        if any(term in company for term in ['corporation', 'corp', 'inc']):
+            return '201-1000'
+        elif any(term in company for term in ['startup', 'small']):
+            return '11-50'
+        
+        return '51-200'  # Default medium size
 
 
 # Convenience function

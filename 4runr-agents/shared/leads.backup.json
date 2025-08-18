@@ -18,29 +18,15 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-18T00:00:14.355864",
+    "enriched_at": "2025-08-17T23:47:01.520335",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://lightspeedcommerceinc.com",
-    "company_website": "https://lightspeedcommerceinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -55,28 +41,16 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Tobias L\u00fctke",
+    "name": "Tobias Lütke",
     "title": "CEO & Founder",
     "company": "Shopify Inc.",
     "linkedin_url": "https://www.linkedin.com/in/tobi/",
-    "email": "tobias.l\u00fctke@shopify.com",
+    "email": "tobias.lütke@shopify.com",
     "status": "scraped",
     "needs_enrichment": false,
     "scraped_at": "2025-08-17T18:45:21.254845",
@@ -90,29 +64,15 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-17T23:59:59.545065",
+    "enriched_at": "2025-08-17T23:46:47.311936",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://shopifyinc.com",
-    "company_website": "https://shopifyinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -127,27 +87,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -162,27 +110,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -197,27 +133,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -232,27 +156,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -267,27 +179,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -302,27 +202,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -337,27 +225,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -372,27 +248,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -407,27 +271,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -442,27 +294,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -477,27 +317,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -512,28 +340,16 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Tobias L\u00fctke",
+    "name": "Tobias Lütke",
     "title": "CEO & Founder",
     "company": "Shopify Inc.",
     "linkedin_url": "https://www.linkedin.com/in/tobi/",
-    "email": "tobias.l\u00fctke@shopify.com",
+    "email": "tobias.lütke@shopify.com",
     "status": "scraped",
     "needs_enrichment": false,
     "scraped_at": "2025-08-17T18:45:21.254845",
@@ -547,29 +363,15 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-17T23:59:59.545065",
+    "enriched_at": "2025-08-17T23:46:47.311936",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://shopifyinc.com",
-    "company_website": "https://shopifyinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -584,27 +386,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -619,27 +409,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -654,27 +432,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -689,27 +455,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -724,27 +478,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -759,21 +501,9 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
     "name": "Dax Dasilva",
@@ -794,29 +524,15 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-18T00:00:14.355864",
+    "enriched_at": "2025-08-17T23:47:01.520335",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://lightspeedcommerceinc.com",
-    "company_website": "https://lightspeedcommerceinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -831,27 +547,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -866,27 +570,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -901,27 +593,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -936,27 +616,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -971,27 +639,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1006,27 +662,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1041,28 +685,16 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Tobias L\u00fctke",
+    "name": "Tobias Lütke",
     "title": "CEO & Founder",
     "company": "Shopify Inc.",
     "linkedin_url": "https://www.linkedin.com/in/tobi/",
-    "email": "tobias.l\u00fctke@shopify.com",
+    "email": "tobias.lütke@shopify.com",
     "status": "scraped",
     "needs_enrichment": false,
     "scraped_at": "2025-08-17T18:45:21.254845",
@@ -1076,29 +708,15 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-17T23:59:59.545065",
+    "enriched_at": "2025-08-17T23:46:47.311936",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://shopifyinc.com",
-    "company_website": "https://shopifyinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1113,27 +731,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1148,27 +754,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1183,27 +777,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1218,27 +800,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1253,21 +823,9 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
     "name": "Dax Dasilva",
@@ -1288,29 +846,15 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-18T00:00:14.355864",
+    "enriched_at": "2025-08-17T23:47:01.520335",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://lightspeedcommerceinc.com",
-    "company_website": "https://lightspeedcommerceinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1325,27 +869,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1360,27 +892,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1395,27 +915,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1430,27 +938,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1465,27 +961,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1500,27 +984,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1535,27 +1007,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1570,27 +1030,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1605,27 +1053,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1640,27 +1076,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1675,27 +1099,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1710,27 +1122,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1745,27 +1145,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1780,21 +1168,9 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
     "name": "Dax Dasilva",
@@ -1815,29 +1191,15 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-18T00:00:14.355864",
+    "enriched_at": "2025-08-17T23:47:01.520335",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://lightspeedcommerceinc.com",
-    "company_website": "https://lightspeedcommerceinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1852,27 +1214,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1887,27 +1237,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1922,27 +1260,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -1957,28 +1283,16 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Tobias L\u00fctke",
+    "name": "Tobias Lütke",
     "title": "CEO & Founder",
     "company": "Shopify Inc.",
     "linkedin_url": "https://www.linkedin.com/in/tobi/",
-    "email": "tobias.l\u00fctke@shopify.com",
+    "email": "tobias.lütke@shopify.com",
     "status": "scraped",
     "needs_enrichment": false,
     "scraped_at": "2025-08-17T18:45:21.254845",
@@ -1992,29 +1306,15 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-17T23:59:59.545065",
+    "enriched_at": "2025-08-17T23:46:47.311936",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://shopifyinc.com",
-    "company_website": "https://shopifyinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2029,27 +1329,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2064,27 +1352,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2099,27 +1375,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2134,27 +1398,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2169,27 +1421,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2204,27 +1444,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2239,27 +1467,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2274,27 +1490,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2309,27 +1513,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2344,27 +1536,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2379,27 +1559,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2414,27 +1582,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2449,28 +1605,16 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Tobias L\u00fctke",
+    "name": "Tobias Lütke",
     "title": "CEO & Founder",
     "company": "Shopify Inc.",
     "linkedin_url": "https://www.linkedin.com/in/tobi/",
-    "email": "tobias.l\u00fctke@shopify.com",
+    "email": "tobias.lütke@shopify.com",
     "status": "scraped",
     "needs_enrichment": false,
     "scraped_at": "2025-08-17T18:45:21.254845",
@@ -2484,29 +1628,15 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-17T23:59:59.545065",
+    "enriched_at": "2025-08-17T23:46:47.311936",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://shopifyinc.com",
-    "company_website": "https://shopifyinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2521,27 +1651,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2556,21 +1674,9 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
     "name": "Dax Dasilva",
@@ -2591,29 +1697,15 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-18T00:00:14.355864",
+    "enriched_at": "2025-08-17T23:47:01.520335",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://lightspeedcommerceinc.com",
-    "company_website": "https://lightspeedcommerceinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2628,27 +1720,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2663,27 +1743,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2698,27 +1766,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2733,27 +1789,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2768,21 +1812,9 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
     "name": "Dax Dasilva",
@@ -2803,29 +1835,15 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-18T00:00:14.355864",
+    "enriched_at": "2025-08-17T23:47:01.520335",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://lightspeedcommerceinc.com",
-    "company_website": "https://lightspeedcommerceinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2840,27 +1858,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2875,28 +1881,16 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Tobias L\u00fctke",
+    "name": "Tobias Lütke",
     "title": "CEO & Founder",
     "company": "Shopify Inc.",
     "linkedin_url": "https://www.linkedin.com/in/tobi/",
-    "email": "tobias.l\u00fctke@shopify.com",
+    "email": "tobias.lütke@shopify.com",
     "status": "scraped",
     "needs_enrichment": false,
     "scraped_at": "2025-08-17T18:45:21.254845",
@@ -2910,29 +1904,15 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-17T23:59:59.545065",
+    "enriched_at": "2025-08-17T23:46:47.311936",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://shopifyinc.com",
-    "company_website": "https://shopifyinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2947,27 +1927,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -2982,27 +1950,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3017,27 +1973,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3052,27 +1996,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3087,27 +2019,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3122,27 +2042,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3157,21 +2065,9 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
     "name": "Dax Dasilva",
@@ -3192,29 +2088,15 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-18T00:00:14.355864",
+    "enriched_at": "2025-08-17T23:47:01.520335",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://lightspeedcommerceinc.com",
-    "company_website": "https://lightspeedcommerceinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3229,27 +2111,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3264,27 +2134,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3299,27 +2157,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3334,27 +2180,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3369,27 +2203,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3404,27 +2226,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3439,27 +2249,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3474,27 +2272,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3509,27 +2295,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3544,28 +2318,16 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Tobias L\u00fctke",
+    "name": "Tobias Lütke",
     "title": "CEO & Founder",
     "company": "Shopify Inc.",
     "linkedin_url": "https://www.linkedin.com/in/tobi/",
-    "email": "tobias.l\u00fctke@shopify.com",
+    "email": "tobias.lütke@shopify.com",
     "status": "scraped",
     "needs_enrichment": false,
     "scraped_at": "2025-08-17T18:45:21.254845",
@@ -3579,29 +2341,15 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-17T23:59:59.545065",
+    "enriched_at": "2025-08-17T23:46:47.311936",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://shopifyinc.com",
-    "company_website": "https://shopifyinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3616,27 +2364,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3651,27 +2387,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3686,27 +2410,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3721,27 +2433,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3756,27 +2456,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3791,27 +2479,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3826,27 +2502,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3861,27 +2525,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3896,27 +2548,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3931,27 +2571,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -3966,27 +2594,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4001,27 +2617,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4036,21 +2640,9 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
     "name": "Dax Dasilva",
@@ -4071,30 +2663,16 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-18T00:00:14.355864",
+    "enriched_at": "2025-08-17T23:47:01.520335",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://lightspeedcommerceinc.com",
-    "company_website": "https://lightspeedcommerceinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Tobias L\u00fctke",
+    "name": "Tobias Lütke",
     "title": "CEO & Founder",
     "company": "Shopify Inc.",
     "linkedin_url": "https://www.linkedin.com/in/tobi/",
-    "email": "tobias.l\u00fctke@shopify.com",
+    "email": "tobias.lütke@shopify.com",
     "status": "scraped",
     "needs_enrichment": false,
     "scraped_at": "2025-08-17T18:45:21.254845",
@@ -4108,29 +2686,15 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-17T23:59:59.545065",
+    "enriched_at": "2025-08-17T23:46:47.311936",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://shopifyinc.com",
-    "company_website": "https://shopifyinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4145,27 +2709,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4180,27 +2732,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4215,27 +2755,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4250,27 +2778,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4285,27 +2801,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4320,27 +2824,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4355,27 +2847,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4390,27 +2870,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4425,27 +2893,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4460,27 +2916,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4495,27 +2939,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4530,21 +2962,9 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
     "name": "Dax Dasilva",
@@ -4565,30 +2985,16 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-18T00:00:14.355864",
+    "enriched_at": "2025-08-17T23:47:01.520335",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://lightspeedcommerceinc.com",
-    "company_website": "https://lightspeedcommerceinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Tobias L\u00fctke",
+    "name": "Tobias Lütke",
     "title": "CEO & Founder",
     "company": "Shopify Inc.",
     "linkedin_url": "https://www.linkedin.com/in/tobi/",
-    "email": "tobias.l\u00fctke@shopify.com",
+    "email": "tobias.lütke@shopify.com",
     "status": "scraped",
     "needs_enrichment": false,
     "scraped_at": "2025-08-17T18:45:21.254845",
@@ -4602,29 +3008,15 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-17T23:59:59.545065",
+    "enriched_at": "2025-08-17T23:46:47.311936",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://shopifyinc.com",
-    "company_website": "https://shopifyinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4639,27 +3031,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4674,27 +3054,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4709,27 +3077,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4744,27 +3100,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4779,27 +3123,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4814,27 +3146,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4849,28 +3169,16 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Tobias L\u00fctke",
+    "name": "Tobias Lütke",
     "title": "CEO & Founder",
     "company": "Shopify Inc.",
     "linkedin_url": "https://www.linkedin.com/in/tobi/",
-    "email": "tobias.l\u00fctke@shopify.com",
+    "email": "tobias.lütke@shopify.com",
     "status": "scraped",
     "needs_enrichment": false,
     "scraped_at": "2025-08-17T18:45:21.254845",
@@ -4884,29 +3192,15 @@
     "bounce_risk": "low",
     "industry": "E-commerce Technology",
     "company_size": "5001+",
-    "enriched_at": "2025-08-17T23:59:59.545065",
+    "enriched_at": "2025-08-17T23:46:47.311936",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://shopifyinc.com",
-    "company_website": "https://shopifyinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4921,27 +3215,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4956,27 +3238,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -4991,27 +3261,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -5026,27 +3284,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -5061,27 +3307,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -5096,27 +3330,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -5131,27 +3353,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -5166,27 +3376,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -5201,27 +3399,15 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
-    "name": "Pierre Karl P\u00e9ladeau",
+    "name": "Pierre Karl Péladeau",
     "title": "President & CEO",
     "company": "Quebecor Inc.",
-    "linkedin_url": "https://www.linkedin.com/in/pierre-p\u00e9ladeau/",
+    "linkedin_url": "",
     "email": "pierre.peladeau@quebecor.com",
     "status": "scraped",
     "needs_enrichment": false,
@@ -5236,21 +3422,9 @@
     "bounce_risk": "low",
     "industry": "Telecommunications",
     "company_size": "5001+",
-    "enriched_at": "2025-08-18T00:00:12.906310",
+    "enriched_at": "2025-08-17T23:47:00.105509",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Business Services",
-    "Business_Traits": [
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency"
-    ],
-    "website": "https://quebecorinc.com",
-    "company_website": "https://quebecorinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   },
   {
     "name": "Dax Dasilva",
@@ -5271,22 +3445,8 @@
     "bounce_risk": "low",
     "industry": "Commerce Technology",
     "company_size": "1001-5000",
-    "enriched_at": "2025-08-18T00:00:14.355864",
+    "enriched_at": "2025-08-17T23:47:01.520335",
     "ready_for_engagement": true,
-    "enrichment_method": "production_enricher",
-    "Business_Type": "Technology",
-    "Business_Traits": [
-      "Tech-Forward",
-      "Leadership Accessible",
-      "Professional Services"
-    ],
-    "Pain_Points": [
-      "Growth scaling",
-      "Operational efficiency",
-      "Technical scaling"
-    ],
-    "website": "https://lightspeedcommerceinc.com",
-    "company_website": "https://lightspeedcommerceinc.com",
-    "enriched": true
+    "enrichment_method": "production_enricher"
   }
 ]
