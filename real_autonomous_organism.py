@@ -149,6 +149,8 @@ class RealAutonomousOrganism:
     def scrape_real_leads(self) -> List[Dict]:
         """Use SerpAPI to find REAL LinkedIn leads"""
         try:
+            import sys
+            sys.path.append('./4runr-lead-scraper')
             from scraper.serpapi_scraper import SerpAPILeadScraper
             
             scraper = SerpAPILeadScraper()
@@ -643,6 +645,36 @@ class RealAutonomousOrganism:
         
         return f"https://{domain}.com"
 
+    def get_leads_needing_enrichment(self) -> List[Dict]:
+        """Get existing leads from database that need enrichment"""
+        try:
+            conn = sqlite3.connect('data/unified_leads.db')
+            conn.row_factory = sqlite3.Row
+            
+            # Get leads with missing critical fields that the enricher should handle
+            cursor = conn.execute("""
+                SELECT * FROM leads 
+                WHERE (phone IS NULL OR phone = '' OR phone = 'Contact for phone')
+                   OR (linkedin_url IS NULL OR linkedin_url = '')
+                   OR (location IS NULL OR location = 'Unknown' OR location = '')
+                   OR (industry IS NULL OR industry = 'Other' OR industry = '')
+                   OR (business_type IS NULL OR business_type = '')
+                   OR (company_size IS NULL OR company_size = '')
+                LIMIT 10
+            """)
+            
+            leads = [dict(row) for row in cursor.fetchall()]
+            conn.close()
+            
+            if leads:
+                self.logger.info(f"📋 Found {len(leads)} existing leads needing enrichment")
+            
+            return leads
+            
+        except Exception as e:
+            self.logger.error(f"❌ Error getting leads needing enrichment: {e}")
+            return []
+
     def run_cycle(self) -> Dict:
         """Run one complete autonomous cycle"""
         cycle_start = time.time()
@@ -651,12 +683,19 @@ class RealAutonomousOrganism:
         self.logger.info(f"🔄 Starting REAL cycle #{self.cycle_count}")
         
         try:
-            # 1. Scrape real leads
+            # 1. Try to scrape new leads (only if we need more)
             leads = self.scrape_real_leads()
             
+            # 2. If no new leads, run enricher on existing database leads
             if not leads:
-                self.logger.warning("⚠️ No leads found this cycle")
-                return {"status": "no_leads", "duration": time.time() - cycle_start}
+                self.logger.info("⚠️ No new leads scraped - enriching existing database leads")
+                leads = self.get_leads_needing_enrichment()
+                
+                if not leads:
+                    self.logger.info("✅ All database leads are fully enriched")
+                    # Still run sync to Airtable in case there are changes
+                    synced_count = self.sync_to_airtable()
+                    return {"status": "maintenance", "leads_synced": synced_count, "duration": time.time() - cycle_start}
             
             # 2. Enrich leads
             enriched_leads = self.enrich_leads(leads)
