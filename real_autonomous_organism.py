@@ -173,7 +173,7 @@ class RealAutonomousOrganism:
                 self.logger.info(f"🔍 Searching: {query}")
                 
                 try:
-                    results = scraper.search_linkedin_profiles(query, max_results=3)
+                    results = scraper.search_montreal_ceos(max_results=3)
                     
                     for result in results:
                         # Validate LinkedIn URL
