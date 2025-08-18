@@ -478,9 +478,10 @@ class RealAutonomousOrganism:
 
     def is_high_quality_lead(self, lead_data):
         """Strict validation to ensure only high-quality leads sync to Airtable"""
-        full_name = lead_data.get('Full_Name', '').strip().lower()
-        company = lead_data.get('Company', '').strip().lower()
-        email = lead_data.get('Email', '').strip().lower()
+        # Defensive handling for None values that might cause .strip() errors
+        full_name = str(lead_data.get('Full_Name') or '').strip().lower()
+        company = str(lead_data.get('Company') or '').strip().lower()
+        email = str(lead_data.get('Email') or '').strip().lower()
         
         # NEVER sync test/fake leads
         test_patterns = [
@@ -500,15 +501,15 @@ class RealAutonomousOrganism:
         # Must have: Name, LinkedIn, Job info
         essential_fields = ['Full_Name', 'LinkedIn_URL']
         for field in essential_fields:
-            value = lead_data.get(field, '').strip()
+            value = str(lead_data.get(field) or '').strip()
             if not value or len(value) < 3:
                 return False, f"Missing essential {field}"
         
         # Need either email OR company info
         has_contact = (
-            lead_data.get('Email', '').strip() or 
-            lead_data.get('Company', '').strip() or
-            lead_data.get('Job_Title', '').strip()
+            str(lead_data.get('Email') or '').strip() or 
+            str(lead_data.get('Company') or '').strip() or
+            str(lead_data.get('Job_Title') or '').strip()
         )
         
         if not has_contact:
