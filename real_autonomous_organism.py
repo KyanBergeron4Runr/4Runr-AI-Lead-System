@@ -319,18 +319,18 @@ class RealAutonomousOrganism:
                 enhanced_data = self._apply_comprehensive_enrichment(lead)
                 lead.update(enhanced_data)
                 
-                # Generate AI message - use REAL column names
-                company = lead.get('company', 'your company')
+                # Generate AI message - use CORRECT column names from unified database
+                company = lead.get('Company', 'your company')
                 first_name = full_name.split()[0] if full_name else 'there'
-                lead['ai_message'] = f"Hi {first_name}, I'm impressed by your work at {company}. Would love to connect about potential collaboration opportunities!"
+                lead['AI_Message'] = f"Hi {first_name}, I'm impressed by your work at {company}. Would love to connect about potential collaboration opportunities!"
                 
-                # Set enrichment data - use REAL column names
-                lead['enriched_at'] = datetime.now().isoformat()
-                lead['needs_enrichment'] = False
-                lead['source'] = 'autonomous_enricher'
+                # Set enrichment data - use CORRECT column names
+                lead['Date_Enriched'] = datetime.now().isoformat()
+                lead['Needs_Enrichment'] = 0
+                lead['Source'] = 'autonomous_enricher'
                 
                 # Company description
-                lead['company_description'] = f"REAL LinkedIn lead: {company}. Found via SerpAPI search with validated LinkedIn profile."
+                lead['Company_Description'] = f"REAL LinkedIn lead: {company}. Found via SerpAPI search with validated LinkedIn profile."
                 
                 # Extra info for comprehensive data
                 lead['Extra_info'] = f"Enriched on {datetime.now().strftime('%Y-%m-%d')} - Lead Quality: {lead.get('Lead_Quality', 'Unknown')}"
