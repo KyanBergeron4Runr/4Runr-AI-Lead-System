@@ -188,7 +188,14 @@ class RealAutonomousOrganism:
                 self.logger.info(f"🔍 Searching: {query}")
                 
                 try:
-                    results = scraper.search_montreal_ceos(max_results=3)
+                    # Use direct SerpAPI call with our diverse query
+                    import serpapi
+                    search = serpapi.GoogleSearch({
+                        "q": query,
+                        "api_key": os.getenv('SERPAPI_KEY'),
+                        "num": 5
+                    })
+                    results = search.get_dict().get('organic_results', [])
                     
                     for result in results:
                         # Validate LinkedIn URL
