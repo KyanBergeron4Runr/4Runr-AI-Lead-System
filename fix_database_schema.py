@@ -109,33 +109,36 @@ def migrate_data():
         
         migrated_count = 0
         for lead in old_leads:
+            # Convert sqlite3.Row to dict for easier access
+            lead_dict = dict(lead)
+            
             # Map old fields to new schema
             new_lead = {
-                'Full_Name': lead.get('full_name') or lead.get('Full_Name'),
-                'LinkedIn_URL': lead.get('linkedin_url') or lead.get('LinkedIn_URL'),
-                'Job_Title': lead.get('job_title') or lead.get('Job_Title'),
-                'Company': lead.get('company') or lead.get('Company'),
-                'Email': lead.get('email') or lead.get('Email'),
-                'Source': lead.get('source') or lead.get('Source') or 'migrated',
-                'Needs_Enrichment': 1 if lead.get('needs_enrichment') or not lead.get('enriched') else 0,
-                'AI_Message': lead.get('ai_message') or lead.get('AI_Message'),
+                'Full_Name': lead_dict.get('full_name') or lead_dict.get('Full_Name'),
+                'LinkedIn_URL': lead_dict.get('linkedin_url') or lead_dict.get('LinkedIn_URL'),
+                'Job_Title': lead_dict.get('job_title') or lead_dict.get('Job_Title'),
+                'Company': lead_dict.get('company') or lead_dict.get('Company'),
+                'Email': lead_dict.get('email') or lead_dict.get('Email'),
+                'Source': lead_dict.get('source') or lead_dict.get('Source') or 'migrated',
+                'Needs_Enrichment': 1 if lead_dict.get('needs_enrichment') or not lead_dict.get('enriched') else 0,
+                'AI_Message': lead_dict.get('ai_message') or lead_dict.get('AI_Message'),
                 'Replied': 0,  # Default
                 'Response_Date': None,  # Default
                 'Response_Notes': None,  # Default
-                'Lead_Quality': lead.get('lead_quality') or lead.get('Lead_Quality') or 'Warm',
-                'Date_Scraped': lead.get('date_scraped') or lead.get('Date_Scraped') or lead.get('created_at'),
-                'Date_Enriched': lead.get('date_enriched') or lead.get('Date_Enriched'),
+                'Lead_Quality': lead_dict.get('lead_quality') or lead_dict.get('Lead_Quality') or 'Warm',
+                'Date_Scraped': lead_dict.get('date_scraped') or lead_dict.get('Date_Scraped') or lead_dict.get('created_at'),
+                'Date_Enriched': lead_dict.get('date_enriched') or lead_dict.get('Date_Enriched'),
                 'Date_Messaged': None,  # Default
-                'Extra_info': lead.get('notes') or lead.get('website_insights'),
-                'Level_Engaged': lead.get('engagement_level') or 0,
-                'Engagement_Status': lead.get('engagement_status') or lead.get('Engagement_Status') or 'pending',
-                'Email_Confidence_Level': lead.get('email_confidence_level') or lead.get('Email_Confidence_Level'),
-                'Website': lead.get('website') or lead.get('Website'),
-                'Created_At': lead.get('created_at') or lead.get('Created_At') or datetime.now().isoformat(),
-                'Business_Type': lead.get('business_type') or lead.get('Business_Type'),
+                'Extra_info': lead_dict.get('notes') or lead_dict.get('website_insights'),
+                'Level_Engaged': lead_dict.get('engagement_level') or 0,
+                'Engagement_Status': lead_dict.get('engagement_status') or lead_dict.get('Engagement_Status') or 'pending',
+                'Email_Confidence_Level': lead_dict.get('email_confidence_level') or lead_dict.get('Email_Confidence_Level'),
+                'Website': lead_dict.get('website') or lead_dict.get('Website'),
+                'Created_At': lead_dict.get('created_at') or lead_dict.get('Created_At') or datetime.now().isoformat(),
+                'Business_Type': lead_dict.get('business_type') or lead_dict.get('Business_Type'),
                 'Follow_Up_Stage': 'initial',  # Default
                 'Response_Status': 'pending',  # Default
-                'Company_Description': lead.get('company_description') or lead.get('Company_Description')
+                'Company_Description': lead_dict.get('company_description') or lead_dict.get('Company_Description')
             }
             
             # Only migrate leads with full_name (valid leads)
