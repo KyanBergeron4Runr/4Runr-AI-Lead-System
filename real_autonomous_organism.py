@@ -319,18 +319,18 @@ class RealAutonomousOrganism:
                 enhanced_data = self._apply_comprehensive_enrichment(lead)
                 lead.update(enhanced_data)
                 
-                # Generate AI message - use NEW field names
-                company = lead.get('Company', 'your company')
+                # Generate AI message - use REAL column names
+                company = lead.get('company', 'your company')
                 first_name = full_name.split()[0] if full_name else 'there'
-                lead['AI_Message'] = f"Hi {first_name}, I'm impressed by your work at {company}. Would love to connect about potential collaboration opportunities!"
+                lead['ai_message'] = f"Hi {first_name}, I'm impressed by your work at {company}. Would love to connect about potential collaboration opportunities!"
                 
-                # Set enrichment data - use NEW field names
-                lead['Date_Enriched'] = datetime.now().isoformat()
-                lead['Needs_Enrichment'] = 0
-                lead['Source'] = 'autonomous_enricher'
+                # Set enrichment data - use REAL column names
+                lead['enriched_at'] = datetime.now().isoformat()
+                lead['needs_enrichment'] = False
+                lead['source'] = 'autonomous_enricher'
                 
                 # Company description
-                lead['Company_Description'] = f"REAL LinkedIn lead: {company}. Found via SerpAPI search with validated LinkedIn profile."
+                lead['company_description'] = f"REAL LinkedIn lead: {company}. Found via SerpAPI search with validated LinkedIn profile."
                 
                 # Extra info for comprehensive data
                 lead['Extra_info'] = f"Enriched on {datetime.now().strftime('%Y-%m-%d')} - Lead Quality: {lead.get('Lead_Quality', 'Unknown')}"
@@ -585,23 +585,24 @@ class RealAutonomousOrganism:
                 'Content-Type': 'application/json'
             }
             
-            # Build fields using CLEAN 25-field schema names
+            # Build fields using REAL database column names
             # Sync ALL enriched data to Airtable instantly
             fields = {
-                "Full Name": lead.get('Full_Name', ''),
-                "Email": lead.get('Email', ''),
-                "Company": lead.get('Company', ''),
-                "Job Title": lead.get('Job_Title', ''),
-                "LinkedIn URL": lead.get('LinkedIn_URL', ''),
-                "AI Message": lead.get('AI_Message', ''),
-                "Website": lead.get('Website', ''),
-                "Company_Description": lead.get('Company_Description', ''),
-                "Business_Type": lead.get('Business_Type', ''),
-                "Lead Quality": lead.get('Lead_Quality', 'Warm'),
-                "Email_Confidence_Level": lead.get('Email_Confidence_Level', 'Pattern'),
-                "Date Scraped": self.format_date_for_airtable(lead.get('Date_Scraped')),
-                "Date Enriched": self.format_date_for_airtable(lead.get('Date_Enriched')),
-                "Level Engaged": lead.get('Level_Engaged', 0)
+                "Full Name": lead.get('full_name', ''),
+                "Email": lead.get('email', ''),
+                "Company": lead.get('company', ''),
+                "Job Title": lead.get('title', ''),
+                "LinkedIn URL": lead.get('linkedin_url', ''),
+                "AI Message": lead.get('ai_message', ''),
+                "Website": lead.get('website', ''),
+                "Company_Description": lead.get('company_description', ''),
+                "Industry": lead.get('industry', ''),
+                "Location": lead.get('location', ''),
+                "Company Size": lead.get('company_size', ''),
+                "Email Confidence": lead.get('email_confidence', 'Real'),
+                "Date Scraped": self.format_date_for_airtable(lead.get('scraped_at')),
+                "Date Enriched": self.format_date_for_airtable(lead.get('enriched_at')),
+                "Lead Score": lead.get('lead_score', 0)
             }
             
             # Remove empty fields
