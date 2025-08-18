@@ -583,12 +583,12 @@ class RealAutonomousOrganism:
                 'Content-Type': 'application/json'
             }
             
-            # Build fields using CORRECT unified database column names
+            # Build fields using CORRECT unified database column names and EXACT Airtable field names
             # Sync ALL enriched data to Airtable
             fields = {
                 "Full Name": lead.get('Full_Name', ''),
                 "Email": lead.get('Email', ''),
-                "Company Name": lead.get('Company', ''),
+                "Company": lead.get('Company', ''),
                 "LinkedIn URL": lead.get('LinkedIn_URL', ''),
                 "AI Message": lead.get('AI_Message', ''),
                 "Website": lead.get('Website', ''),
