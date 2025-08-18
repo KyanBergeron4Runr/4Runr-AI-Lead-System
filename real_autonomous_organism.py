@@ -367,10 +367,10 @@ class RealAutonomousOrganism:
                     ))
                     
                     updated_count += 1
-                    self.logger.info(f"✅ Updated: {lead.get('full_name', 'Unknown')}")
+                    self.logger.info(f"✅ Updated: {lead.get('Full_Name', 'Unknown')}")
                     
                 except Exception as e:
-                    self.logger.error(f"❌ Failed to update lead {lead.get('full_name', 'Unknown')}: {e}")
+                    self.logger.error(f"❌ Failed to update lead {lead.get('Full_Name', 'Unknown')}: {e}")
                     continue
             
             conn.commit()
