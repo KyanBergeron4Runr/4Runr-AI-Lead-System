@@ -513,7 +513,7 @@ class RealAutonomousOrganism:
                 "Company": lead.get('Company', ''),
                 "Job Title": lead.get('Job_Title', ''),
                 "LinkedIn URL": lead.get('LinkedIn_URL', ''),
-                "Source": lead.get('Source', 'autonomous_enricher'),
+                "Source": "Scraper",
                 "Lead Quality": lead.get('Lead_Quality', 'Warm'),
                 "Email_Confidence_Level": lead.get('Email_Confidence_Level', 'Pattern'),
                 "AI Message": lead.get('AI_Message', ''),
