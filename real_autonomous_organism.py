@@ -454,38 +454,81 @@ class RealAutonomousOrganism:
             self.logger.error(f"❌ Database save failed: {e}")
             return 0
 
+    def is_high_quality_lead(self, lead_data):
+        """Strict validation to ensure only high-quality leads sync to Airtable"""
+        full_name = lead_data.get('Full_Name', '').strip().lower()
+        company = lead_data.get('Company', '').strip().lower()
+        email = lead_data.get('Email', '').strip().lower()
+        
+        # NEVER sync test/fake leads
+        test_patterns = [
+            'test', 'auto', 'example', 'demo', 'fake', 'sample',
+            'unknown company', 'test corp', 'test inc', 'auto test',
+            'testcorp', 'testcompany'
+        ]
+        
+        for pattern in test_patterns:
+            if pattern in full_name or pattern in company:
+                return False, f"Test/fake lead detected: {pattern}"
+        
+        if '@example.com' in email or '@test.com' in email:
+            return False, "Test email domain"
+        
+        # Require complete critical data
+        required_fields = ['Full_Name', 'Company', 'Email', 'LinkedIn_URL', 'AI_Message']
+        for field in required_fields:
+            value = lead_data.get(field, '').strip()
+            if not value or len(value) < 3:
+                return False, f"Missing or invalid {field}"
+        
+        return True, "High quality lead"
+
     def sync_to_airtable(self) -> int:
-        """Real-time sync of enriched leads to Airtable using clean 25-field schema"""
+        """Real-time sync of ONLY high-quality leads to Airtable with strict validation"""
         try:
-            # Get leads that were just enriched and need syncing
+            # Get leads that might need syncing (broader criteria to catch pending leads)
             conn = sqlite3.connect('data/unified_leads.db')
             conn.row_factory = sqlite3.Row
             
             cursor = conn.execute('''
                 SELECT * FROM leads 
-                WHERE Response_Status = 'enriched'
+                WHERE (Response_Status = 'enriched' OR Response_Status = 'pending')
                 AND Full_Name IS NOT NULL AND Full_Name != ''
                 ORDER BY Date_Enriched DESC 
-                LIMIT 10
+                LIMIT 20
             ''')
             
-            leads = [dict(row) for row in cursor.fetchall()]
+            all_leads = [dict(row) for row in cursor.fetchall()]
             conn.close()
             
-            if not leads:
-                self.logger.info("📊 No enriched leads to sync")
+            if not all_leads:
+                self.logger.info("📊 No leads available for sync")
+                return 0
+            
+            # Filter for ONLY high-quality leads
+            quality_leads = []
+            for lead in all_leads:
+                is_quality, reason = self.is_high_quality_lead(lead)
+                if is_quality:
+                    quality_leads.append(lead)
+                    self.logger.info(f"✅ Approved for sync: {lead.get('Full_Name', 'Unknown')}")
+                else:
+                    self.logger.warning(f"🚫 BLOCKED from sync: {lead.get('Full_Name', 'Unknown')} - {reason}")
+            
+            if not quality_leads:
+                self.logger.info("📊 No high-quality leads to sync")
                 return 0
                 
             synced_count = 0
             
-            for lead in leads:
+            for lead in quality_leads:
                 success = self.sync_lead_to_airtable(lead)
                 if success:
                     synced_count += 1
                     # Mark as synced in database
                     self.mark_lead_as_synced(lead['id'])
                     
-            self.logger.info(f"📤 Synced {synced_count}/{len(leads)} leads to Airtable")
+            self.logger.info(f"📤 Synced {synced_count}/{len(quality_leads)} HIGH-QUALITY leads to Airtable")
             return synced_count
             
         except Exception as e:
