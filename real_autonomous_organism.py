@@ -338,19 +338,19 @@ class RealAutonomousOrganism:
                         self.logger.warning(f"⚠️ No ID for lead: {lead.get('full_name', 'Unknown')}")
                         continue
                     
-                    # Update the lead with enriched data - use actual database field names
+                    # Update the lead with enriched data - use NEW clean field names
                     conn.execute('''
                         UPDATE leads SET
-                            business_type = ?,
-                            email_confidence_level = ?,
-                            ai_message = ?,
-                            date_enriched = ?,
-                            needs_enrichment = ?,
-                            lead_quality = ?,
-                            company_description = ?,
-                            extra_info = ?,
-                            source = ?,
-                            response_status = ?
+                            Business_Type = ?,
+                            Email_Confidence_Level = ?,
+                            AI_Message = ?,
+                            Date_Enriched = ?,
+                            Needs_Enrichment = ?,
+                            Lead_Quality = ?,
+                            Company_Description = ?,
+                            Extra_info = ?,
+                            Source = ?,
+                            Response_Status = ?
                         WHERE id = ?
                     ''', (
                         lead.get('Business_Type', 'Small Business'),
@@ -367,10 +367,10 @@ class RealAutonomousOrganism:
                     ))
                     
                     updated_count += 1
-                    self.logger.info(f"✅ Updated: {lead.get('full_name', 'Unknown')}")
+                    self.logger.info(f"✅ Updated: {lead.get('Full_Name', 'Unknown')}")
                     
                 except Exception as e:
-                    self.logger.error(f"❌ Failed to update lead {lead.get('full_name', 'Unknown')}: {e}")
+                    self.logger.error(f"❌ Failed to update lead {lead.get('Full_Name', 'Unknown')}: {e}")
                     continue
             
             conn.commit()
@@ -456,9 +456,9 @@ class RealAutonomousOrganism:
 
     def is_high_quality_lead(self, lead_data):
         """Strict validation to ensure only high-quality leads sync to Airtable"""
-        full_name = lead_data.get('full_name', '').strip().lower()
-        company = lead_data.get('company', '').strip().lower()
-        email = lead_data.get('email', '').strip().lower()
+        full_name = lead_data.get('Full_Name', '').strip().lower()
+        company = lead_data.get('Company', '').strip().lower()
+        email = lead_data.get('Email', '').strip().lower()
         
         # NEVER sync test/fake leads
         test_patterns = [
@@ -474,8 +474,8 @@ class RealAutonomousOrganism:
         if '@example.com' in email or '@test.com' in email:
             return False, "Test email domain"
         
-        # Require complete critical data - use lowercase field names
-        required_fields = ['full_name', 'company', 'email', 'linkedin_url', 'ai_message']
+        # Require complete critical data
+        required_fields = ['Full_Name', 'Company', 'Email', 'LinkedIn_URL', 'AI_Message']
         for field in required_fields:
             value = lead_data.get(field, '').strip()
             if not value or len(value) < 3:
@@ -492,12 +492,11 @@ class RealAutonomousOrganism:
             
             cursor = conn.execute('''
                 SELECT * FROM leads 
-                WHERE (response_status = 'enriched' OR response_status = 'Pending')
-                AND full_name IS NOT NULL AND full_name != ''
-                AND (date_messaged IS NULL OR date_messaged = '')
-                AND (response_status != 'synced')
-                AND ai_message IS NOT NULL AND ai_message != ''
-                ORDER BY date_enriched DESC 
+                WHERE (Response_Status = 'enriched' OR Response_Status = 'pending')
+                AND Full_Name IS NOT NULL AND Full_Name != ''
+                AND (Date_Messaged IS NULL OR Date_Messaged = '')
+                AND (Response_Status != 'synced')
+                ORDER BY Date_Enriched DESC 
                 LIMIT 10
             ''')
             
@@ -514,9 +513,9 @@ class RealAutonomousOrganism:
                 is_quality, reason = self.is_high_quality_lead(lead)
                 if is_quality:
                     quality_leads.append(lead)
-                    self.logger.info(f"✅ Approved for sync: {lead.get('full_name', 'Unknown')}")
+                    self.logger.info(f"✅ Approved for sync: {lead.get('Full_Name', 'Unknown')}")
                 else:
-                    self.logger.warning(f"🚫 BLOCKED from sync: {lead.get('full_name', 'Unknown')} - {reason}")
+                    self.logger.warning(f"🚫 BLOCKED from sync: {lead.get('Full_Name', 'Unknown')} - {reason}")
             
             if not quality_leads:
                 self.logger.info("📊 No high-quality leads to sync")
@@ -552,19 +551,19 @@ class RealAutonomousOrganism:
                 'Content-Type': 'application/json'
             }
             
-            # Build fields using actual database field names (lowercase with underscores)
+            # Build fields using CLEAN 25-field schema names
             # Only sync fields that definitely work in Airtable
             fields = {
-                "Full Name": lead.get('full_name', ''),
-                "Email": lead.get('email', ''),
-                "Company": lead.get('company', ''),
-                "Job Title": lead.get('job_title', ''),
-                "LinkedIn URL": lead.get('linkedin_url', ''),
-                "AI Message": lead.get('ai_message', ''),
-                "Website": lead.get('website', ''),
-                "Date Scraped": self.format_date_for_airtable(lead.get('date_scraped')),
-                "Date Enriched": self.format_date_for_airtable(lead.get('date_enriched')),
-                "Level Engaged": lead.get('level_engaged', 0)
+                "Full Name": lead.get('Full_Name', ''),
+                "Email": lead.get('Email', ''),
+                "Company": lead.get('Company', ''),
+                "Job Title": lead.get('Job_Title', ''),
+                "LinkedIn URL": lead.get('LinkedIn_URL', ''),
+                "AI Message": lead.get('AI_Message', ''),
+                "Website": lead.get('Website', ''),
+                "Date Scraped": self.format_date_for_airtable(lead.get('Date_Scraped')),
+                "Date Enriched": self.format_date_for_airtable(lead.get('Date_Enriched')),
+                "Level Engaged": lead.get('Level_Engaged', 0)
             }
             
             # Remove empty fields
@@ -576,14 +575,14 @@ class RealAutonomousOrganism:
             
             if response.status_code == 200:
                 record_id = response.json().get('id', 'unknown')
-                self.logger.info(f"✅ Synced {lead.get('full_name', 'Unknown')} -> {record_id}")
+                self.logger.info(f"✅ Synced {lead.get('Full_Name', 'Unknown')} -> {record_id}")
                 return True
             else:
-                self.logger.error(f"❌ Sync failed for {lead.get('full_name', 'Unknown')}: {response.status_code} - {response.text}")
+                self.logger.error(f"❌ Sync failed for {lead.get('Full_Name', 'Unknown')}: {response.status_code} - {response.text}")
                 return False
                 
         except Exception as e:
-            self.logger.error(f"❌ Airtable sync error for {lead.get('full_name', 'Unknown')}: {e}")
+            self.logger.error(f"❌ Airtable sync error for {lead.get('Full_Name', 'Unknown')}: {e}")
             return False
 
     def format_date_for_airtable(self, date_string):
@@ -871,13 +870,71 @@ class RealAutonomousOrganism:
         
         return f"https://{domain}.com"
 
+    def _validate_lead_data_integrity(self, lead: Dict) -> Dict:
+        """Validate lead data integrity to prevent wrong-person enrichment"""
+        issues = []
+        is_safe = True
+        
+        name = lead.get('Full_Name', '')
+        company = lead.get('Company', '')
+        linkedin_url = lead.get('LinkedIn_URL', '')
+        email = lead.get('Email', '')
+        
+        # Check 1: LinkedIn URL should match the name pattern
+        if linkedin_url and name:
+            linkedin_username = linkedin_url.split('linkedin.com/in/')[-1].rstrip('/').split('?')[0]
+            name_clean = name.lower().replace(' ', '-')
+            
+            # Basic name matching - LinkedIn username should contain name parts
+            name_parts = name.lower().split()
+            username_lower = linkedin_username.lower()
+            
+            name_match_count = sum(1 for part in name_parts if part in username_lower)
+            if len(name_parts) >= 2 and name_match_count < 2:
+                issues.append("LinkedIn URL doesn't match name pattern")
+                is_safe = False
+        
+        # Check 2: Email domain should be reasonable for the company
+        if email and company and '@' in email:
+            email_domain = email.split('@')[1].lower()
+            company_clean = company.lower().replace(' ', '').replace('.', '')
+            
+            # Allow personal emails or company-related domains
+            personal_domains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com']
+            is_personal = any(domain in email_domain for domain in personal_domains)
+            is_company_related = company_clean[:5] in email_domain or email_domain.split('.')[0] in company_clean
+            
+            if not is_personal and not is_company_related and len(company_clean) > 3:
+                issues.append("Email domain doesn't match company")
+                # Don't mark as unsafe - could be legitimate
+        
+        # Check 3: Avoid obvious fake/generic companies
+        generic_companies = ['unknown company', 'business services', 'technology company']
+        if any(generic in company.lower() for generic in generic_companies):
+            issues.append("Generic company name detected")
+            is_safe = False
+        
+        # Check 4: Source quality - prefer scraper data
+        source = lead.get('scraping_source', '')
+        if 'serpapi' in source:
+            # SerpAPI data is trusted
+            pass
+        else:
+            issues.append("Non-SerpAPI data source")
+        
+        return {
+            'is_safe_to_enrich': is_safe,
+            'issues': issues,
+            'reason': '; '.join(issues) if issues else 'Data looks valid'
+        }
+
     def get_leads_needing_enrichment(self) -> List[Dict]:
-        """Get existing leads from database that need enrichment - ALWAYS CHECK FOR MISSING DATA"""
+        """Get existing leads from database that need enrichment - VALIDATE SCRAPER DATA FIRST"""
         try:
             conn = sqlite3.connect('data/unified_leads.db')
             conn.row_factory = sqlite3.Row
             
-            # ALWAYS look for leads with missing critical Airtable fields
+            # ENHANCED: Look for leads with missing data BUT validate scraper quality first
             cursor = conn.execute("""
                 SELECT * FROM leads 
                 WHERE Full_Name IS NOT NULL AND Full_Name != ''
@@ -887,6 +944,7 @@ class RealAutonomousOrganism:
                     OR (LinkedIn_URL IS NULL OR LinkedIn_URL = '')
                     OR (Website IS NULL OR Website = '')
                     OR (Business_Type IS NULL OR Business_Type = '')
+                    OR (Email IS NULL OR Email = '')
                 )
                 AND Company NOT LIKE '%Test%' 
                 AND Company NOT LIKE '%Auto%'
@@ -899,18 +957,28 @@ class RealAutonomousOrganism:
             conn.close()
             
             if leads:
-                self.logger.info(f"📋 Found {len(leads)} existing leads with missing data - AUTO-ENRICHING")
-                for lead in leads[:5]:  # Show first 5 as sample
-                    missing_fields = []
-                    if not lead.get('AI_Message'): missing_fields.append('AI_Message')
-                    if not lead.get('Company_Description'): missing_fields.append('Company_Description')
-                    if not lead.get('LinkedIn_URL'): missing_fields.append('LinkedIn_URL')
-                    if not lead.get('Website'): missing_fields.append('Website')
-                    self.logger.info(f"   🔧 {lead['Full_Name']}: Missing {', '.join(missing_fields)}")
+                self.logger.info(f"📋 Found {len(leads)} existing leads with missing data - VALIDATING SCRAPER DATA")
+                
+                # NEW: Validate data quality before enrichment
+                validated_leads = []
+                for lead in leads:
+                    validation = self._validate_lead_data_integrity(lead)
+                    if validation['is_safe_to_enrich']:
+                        validated_leads.append(lead)
+                        missing_fields = []
+                        if not lead.get('AI_Message'): missing_fields.append('AI_Message')
+                        if not lead.get('Company_Description'): missing_fields.append('Company_Description')
+                        if not lead.get('Email'): missing_fields.append('Email')
+                        self.logger.info(f"   🔧 {lead['Full_Name']}: Missing {', '.join(missing_fields)}")
+                    else:
+                        self.logger.warning(f"   ⚠️ SKIPPING {lead['Full_Name']}: {validation['reason']}")
+                
+                self.logger.info(f"✅ {len(validated_leads)}/{len(leads)} leads validated for safe enrichment")
+                return validated_leads
             else:
                 self.logger.info("✅ All leads have complete data")
             
-            return leads
+            return []
             
         except Exception as e:
             self.logger.error(f"❌ Error getting leads needing enrichment: {e}")

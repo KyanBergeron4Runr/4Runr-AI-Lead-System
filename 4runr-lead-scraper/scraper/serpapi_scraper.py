@@ -321,29 +321,34 @@ class SerpAPILeadScraper:
                 logger.debug(f"⚠️ Skipping non-target location profile: {name}")
                 return None
             
-            # ENHANCED: Extract email and website intelligently from LinkedIn URL and snippet
-            extracted_email = self._extract_email_from_data(name, company, link, snippet)
-            extracted_website = website_url or self._extract_website_from_data(company, link, snippet)
-            extracted_business_type = self._infer_business_type_from_data(company, job_title, snippet)
+            # NEW: Extract additional data from snippet
+            email = self._extract_email_from_snippet(snippet)
+            phone = self._extract_phone_from_snippet(snippet)
+            company_domain = self._extract_company_domain_from_linkedin(link)
             
-            # Create enhanced lead object with more upfront data
+            # NEW: Generate conservative email if not found but we have company domain
+            if not email and company_domain and name:
+                email = self._generate_conservative_email(name, company_domain)
+            
+            # Create lead object with ENHANCED data extraction
             lead = {
                 "name": name,
-                "title": job_title or "Executive", 
+                "title": job_title or "Executive",
                 "company": company or "Unknown Company",
                 "linkedin_url": link,
                 "location": self.search_location,
-                "email": extracted_email,  # ENHANCED: Smart email extraction
-                "website": extracted_website,  # ENHANCED: Smart website extraction
-                "business_type": extracted_business_type,  # ENHANCED: Business type inference
+                "email": email,  # NOW extracts email from snippet or generates conservatively
+                "phone": phone,  # NEW: extracts phone if available
+                "website": website_url,
+                "company_domain": company_domain,  # NEW: for enricher validation
                 "verified": False,
                 "enriched": False,
                 "scraped_at": datetime.now().isoformat(),
                 "scraping_source": "serpapi_enhanced",
                 "search_query": result.get('query', ''),
                 "search_context": snippet[:200] + "..." if len(snippet) > 200 else snippet,
-                "status": "scraped_enhanced",
-                "data_quality": "high"  # Mark as high quality since from real LinkedIn
+                "status": "scraped",
+                "data_quality": "serpapi_sourced"  # Track data source quality
             }
             
             return lead
@@ -583,116 +588,98 @@ class SerpAPILeadScraper:
             indicators.extend(['canada', 'canadian'])
         
         return indicators
-    
-    def _extract_email_from_data(self, name: str, company: str, linkedin_url: str, snippet: str) -> Optional[str]:
-        """ENHANCED: Extract or intelligently generate email from available data"""
+
+    def _extract_email_from_snippet(self, snippet: str) -> Optional[str]:
+        """Extract email address from snippet text."""
+        import re
+        
+        # Look for email patterns in snippet
+        email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+        matches = re.findall(email_pattern, snippet)
+        
+        if matches:
+            email = matches[0]
+            logger.debug(f"📧 Extracted email: {email}")
+            return email
+        
+        return None
+
+    def _extract_phone_from_snippet(self, snippet: str) -> Optional[str]:
+        """Extract phone number from snippet text."""
+        import re
+        
+        # Look for phone patterns in snippet
+        phone_patterns = [
+            r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}',  # (555) 123-4567
+            r'\+1[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}',  # +1 (555) 123-4567
+            r'\d{3}[-.\s]?\d{3}[-.\s]?\d{4}',  # 555-123-4567
+        ]
+        
+        for pattern in phone_patterns:
+            matches = re.findall(pattern, snippet)
+            if matches:
+                phone = matches[0]
+                logger.debug(f"📞 Extracted phone: {phone}")
+                return phone
+        
+        return None
+
+    def _extract_company_domain_from_linkedin(self, linkedin_url: str) -> Optional[str]:
+        """Extract company domain from LinkedIn URL structure."""
+        import re
+        
         try:
-            # Method 1: Look for actual email in snippet (rare but possible)
-            import re
-            email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-            found_emails = re.findall(email_pattern, snippet)
-            if found_emails:
-                return found_emails[0]  # Return first found email
+            # Extract username from LinkedIn URL
+            if 'linkedin.com/in/' not in linkedin_url:
+                return None
             
-            # Method 2: Smart generation from LinkedIn URL and company
-            if name and company and company != "Unknown Company":
-                # Clean name for email
-                name_clean = re.sub(r'[^a-zA-Z\s]', '', name.lower())
-                name_parts = name_clean.split()
+            username = linkedin_url.split('linkedin.com/in/')[-1].rstrip('/')
+            username = username.split('?')[0].split('#')[0]
+            
+            # Look for company indicators in username
+            # Pattern: john-smith-company or john-smith-ceo-company
+            parts = username.split('-')
+            
+            # If URL has company info, extract it
+            if len(parts) >= 3:
+                # Skip first/last name, look for company part
+                potential_company = parts[-1] if len(parts) >= 3 else None
                 
-                # Clean company for domain
-                company_clean = re.sub(r'[^a-zA-Z0-9]', '', company.lower())
-                
-                if len(name_parts) >= 2 and len(company_clean) > 2:
-                    # Generate professional email pattern
-                    first_name = name_parts[0]
-                    last_name = name_parts[-1]
-                    
-                    # Try to infer domain from company name
-                    possible_domains = [
-                        f"{company_clean}.com",
-                        f"{company_clean}.ca",  # Canadian companies
-                        f"{company_clean}.org"
-                    ]
-                    
-                    # Use most likely domain (.com for most businesses)
-                    domain = possible_domains[0]
-                    
-                    return f"{first_name}.{last_name}@{domain}"
+                # Clean and validate potential company
+                if potential_company and len(potential_company) > 2:
+                    # Convert to domain format
+                    company_domain = re.sub(r'[^a-zA-Z0-9]', '', potential_company.lower())
+                    if len(company_domain) > 2:
+                        domain = f"{company_domain}.com"
+                        logger.debug(f"🏢 Extracted company domain: {domain}")
+                        return domain
             
             return None
             
         except Exception as e:
-            logger.debug(f"Email extraction failed: {e}")
+            logger.debug(f"Error extracting company domain: {e}")
             return None
-    
-    def _extract_website_from_data(self, company: str, linkedin_url: str, snippet: str) -> Optional[str]:
-        """ENHANCED: Extract or intelligently generate website from available data"""
+
+    def _generate_conservative_email(self, name: str, company_domain: str) -> str:
+        """Generate conservative email based on name and company domain."""
+        import re
+        
         try:
-            # Method 1: Look for actual website URLs in snippet
-            import re
-            url_pattern = r'https?://(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-            found_urls = re.findall(url_pattern, snippet)
+            # Clean name for email
+            name_clean = re.sub(r'[^a-zA-Z\s]', '', name.lower())
+            name_parts = name_clean.split()
             
-            # Filter out LinkedIn and social media URLs
-            for url in found_urls:
-                if not any(social in url.lower() for social in ['linkedin', 'facebook', 'twitter', 'instagram']):
-                    return url
+            if len(name_parts) >= 2:
+                email = f"{name_parts[0]}.{name_parts[1]}@{company_domain}"
+            else:
+                email = f"{name_parts[0]}@{company_domain}" if name_parts else f"contact@{company_domain}"
             
-            # Method 2: Generate conservative website from company name
-            if company and company != "Unknown Company" and len(company) > 3:
-                company_clean = re.sub(r'[^a-zA-Z0-9]', '', company.lower())
-                
-                # Only generate if it looks like a real company (not generic)
-                generic_terms = ['company', 'corp', 'inc', 'services', 'solutions', 'group']
-                if not any(term in company_clean for term in generic_terms):
-                    return f"https://{company_clean}.com"
-            
-            return None
+            logger.debug(f"📧 Generated conservative email: {email}")
+            return email
             
         except Exception as e:
-            logger.debug(f"Website extraction failed: {e}")
+            logger.debug(f"Error generating email: {e}")
             return None
-    
-    def _infer_business_type_from_data(self, company: str, job_title: str, snippet: str) -> str:
-        """ENHANCED: Infer business type from company and job title data"""
-        try:
-            # Analyze company name and job title for business type clues
-            text_to_analyze = f"{company} {job_title} {snippet}".lower()
-            
-            # Technology companies
-            if any(term in text_to_analyze for term in ['tech', 'software', 'digital', 'ai', 'data', 'cyber', 'cloud']):
-                return "Technology"
-            
-            # Healthcare
-            if any(term in text_to_analyze for term in ['health', 'medical', 'pharma', 'biotech', 'clinic']):
-                return "Healthcare"
-            
-            # Finance
-            if any(term in text_to_analyze for term in ['bank', 'finance', 'invest', 'capital', 'fund']):
-                return "Finance"
-            
-            # Manufacturing
-            if any(term in text_to_analyze for term in ['manufactur', 'industrial', 'factory', 'production']):
-                return "Manufacturing"
-            
-            # Real Estate
-            if any(term in text_to_analyze for term in ['real estate', 'property', 'construction', 'developer']):
-                return "Real Estate"
-            
-            # Professional Services
-            if any(term in text_to_analyze for term in ['consulting', 'legal', 'accounting', 'advisory']):
-                return "Professional Services"
-            
-            # Default for executives
-            if any(term in job_title.lower() for term in ['ceo', 'founder', 'president', 'owner']):
-                return "Executive Leadership"
-            
-            return "Business Services"
-            
-        except Exception as e:
-            logger.debug(f"Business type inference failed: {e}")
-            return "Business Services"
 
 
 # Async wrapper for compatibility
@@ -745,9 +732,6 @@ def scrape_linkedin_leads_serpapi_sync(max_results: int = 10) -> List[Dict]:
     """
     import asyncio
     return asyncio.run(scrape_linkedin_leads_serpapi(max_results))
-
-
-
 
 
 if __name__ == "__main__":
