@@ -620,12 +620,19 @@ class RealAutonomousOrganism:
 
     def format_date_for_airtable(self, date_string):
         """Convert ISO date to Airtable format"""
-        if not date_string:
+        if not date_string or date_string is None:
             return None
         try:
-            dt = datetime.fromisoformat(date_string.replace('Z', '+00:00'))
+            # Ensure date_string is a string and handle None values
+            date_str = str(date_string).strip() if date_string else None
+            if not date_str or date_str.lower() in ['none', 'null', '']:
+                return None
+                
+            dt = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
             return dt.strftime('%Y-%m-%d')
-        except:
+        except Exception as e:
+            # Log the error for debugging
+            self.logger.debug(f"Date formatting error for '{date_string}': {e}")
             return None
 
     def mark_lead_as_synced(self, lead_id: int) -> bool:
