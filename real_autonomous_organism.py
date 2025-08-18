@@ -455,25 +455,25 @@ class RealAutonomousOrganism:
             return 0
 
     def sync_to_airtable(self) -> int:
-        """Sync recent leads to Airtable"""
+        """Real-time sync of enriched leads to Airtable using clean 25-field schema"""
         try:
-            # Get recent unsynced leads
+            # Get leads that were just enriched and need syncing
             conn = sqlite3.connect('data/unified_leads.db')
             conn.row_factory = sqlite3.Row
             
             cursor = conn.execute('''
                 SELECT * FROM leads 
-                WHERE source = 'SerpAPI_Real' 
-                AND date_scraped >= date('now', '-1 day')
-                ORDER BY created_at DESC 
-                LIMIT 5
+                WHERE Response_Status = 'enriched'
+                AND Full_Name IS NOT NULL AND Full_Name != ''
+                ORDER BY Date_Enriched DESC 
+                LIMIT 10
             ''')
             
             leads = [dict(row) for row in cursor.fetchall()]
             conn.close()
             
             if not leads:
-                self.logger.info("📊 No new leads to sync")
+                self.logger.info("📊 No enriched leads to sync")
                 return 0
                 
             synced_count = 0
@@ -482,6 +482,8 @@ class RealAutonomousOrganism:
                 success = self.sync_lead_to_airtable(lead)
                 if success:
                     synced_count += 1
+                    # Mark as synced in database
+                    self.mark_lead_as_synced(lead['id'])
                     
             self.logger.info(f"📤 Synced {synced_count}/{len(leads)} leads to Airtable")
             return synced_count
@@ -504,21 +506,28 @@ class RealAutonomousOrganism:
                 'Content-Type': 'application/json'
             }
             
-            # Build fields
+            # Build fields using CLEAN 25-field schema names
             fields = {
-                "Full Name": lead.get('full_name', ''),
-                "Email": lead.get('email', ''),
-                "Company": lead.get('company', ''),
-                "Job Title": lead.get('job_title', ''),
-                "LinkedIn URL": lead.get('linkedin_url', ''),
-                "Source": "Search",
-                "Lead Quality": lead.get('lead_quality', 'Warm'),
-                "Email_Confidence_Level": lead.get('email_confidence_level', 'Pattern'),
-                "AI Message": lead.get('ai_message', ''),
-                "Business_Type": lead.get('business_type', 'Small Business'),
-                "Company_Description": lead.get('company_description', ''),
-                "Date Scraped": self.format_date_for_airtable(lead.get('date_scraped')),
-                "Date Enriched": self.format_date_for_airtable(lead.get('date_enriched'))
+                "Full Name": lead.get('Full_Name', ''),
+                "Email": lead.get('Email', ''),
+                "Company": lead.get('Company', ''),
+                "Job Title": lead.get('Job_Title', ''),
+                "LinkedIn URL": lead.get('LinkedIn_URL', ''),
+                "Source": lead.get('Source', 'autonomous_enricher'),
+                "Lead Quality": lead.get('Lead_Quality', 'Warm'),
+                "Email_Confidence_Level": lead.get('Email_Confidence_Level', 'Pattern'),
+                "AI Message": lead.get('AI_Message', ''),
+                "Business_Type": lead.get('Business_Type', 'Small Business'),
+                "Company_Description": lead.get('Company_Description', ''),
+                "Website": lead.get('Website', ''),
+                "Date Scraped": lead.get('Date_Scraped', ''),
+                "Date Enriched": lead.get('Date_Enriched', ''),
+                "Extra info": lead.get('Extra_info', ''),
+                "Engagement_Status": lead.get('Engagement_Status', 'pending'),
+                "Level Engaged": lead.get('Level_Engaged', 0),
+                "Response_Status": lead.get('Response_Status', 'enriched'),
+                "Follow_Up_Stage": lead.get('Follow_Up_Stage', 'initial'),
+                "Needs Enrichment": lead.get('Needs_Enrichment', 0)
             }
             
             # Remove empty fields
@@ -530,14 +539,14 @@ class RealAutonomousOrganism:
             
             if response.status_code == 200:
                 record_id = response.json().get('id', 'unknown')
-                self.logger.info(f"✅ Synced {lead['full_name']} -> {record_id}")
+                self.logger.info(f"✅ Synced {lead.get('Full_Name', 'Unknown')} -> {record_id}")
                 return True
             else:
-                self.logger.error(f"❌ Sync failed for {lead['full_name']}: {response.status_code} - {response.text}")
+                self.logger.error(f"❌ Sync failed for {lead.get('Full_Name', 'Unknown')}: {response.status_code} - {response.text}")
                 return False
                 
         except Exception as e:
-            self.logger.error(f"❌ Airtable sync error for {lead.get('full_name', 'Unknown')}: {e}")
+            self.logger.error(f"❌ Airtable sync error for {lead.get('Full_Name', 'Unknown')}: {e}")
             return False
 
     def format_date_for_airtable(self, date_string):
@@ -549,6 +558,23 @@ class RealAutonomousOrganism:
             return dt.strftime('%Y-%m-%d')
         except:
             return None
+
+    def mark_lead_as_synced(self, lead_id: int) -> bool:
+        """Mark lead as synced to prevent duplicate syncing"""
+        try:
+            conn = sqlite3.connect('data/unified_leads.db')
+            conn.execute("""
+                UPDATE leads SET 
+                    Response_Status = 'synced',
+                    Date_Messaged = ?
+                WHERE id = ?
+            """, (datetime.now().isoformat(), lead_id))
+            conn.commit()
+            conn.close()
+            return True
+        except Exception as e:
+            self.logger.error(f"❌ Failed to mark lead as synced: {e}")
+            return False
 
     def _apply_comprehensive_enrichment(self, lead: Dict[str, Any]) -> Dict[str, Any]:
         """Apply comprehensive enrichment to fill missing fields automatically"""
