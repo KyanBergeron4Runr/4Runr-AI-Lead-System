@@ -649,7 +649,17 @@ class RealAutonomousOrganism:
             pain_points = self._infer_pain_points(lead)
             enriched_fields['Pain_Points'] = pain_points
         
-        # 8. Website fields if missing
+        # 8. AI Message if missing (CRITICAL FOR AIRTABLE)
+        if not lead.get('AI_Message') or lead.get('AI_Message', '').strip() == '':
+            ai_message = self._generate_ai_message(lead)
+            enriched_fields['AI_Message'] = ai_message
+        
+        # 9. Company Description if missing (CRITICAL FOR AIRTABLE)
+        if not lead.get('Company_Description') or lead.get('Company_Description', '').strip() == '':
+            company_desc = self._generate_company_description(lead)
+            enriched_fields['Company_Description'] = company_desc
+        
+        # 10. Website fields if missing
         if not lead.get('website') and not lead.get('company_website'):
             website = self._generate_company_website(lead)
             if website:
@@ -685,6 +695,31 @@ class RealAutonomousOrganism:
             linkedin_slug = f"{name_parts[0]}-{name_parts[-1]}"
             return f"https://www.linkedin.com/in/{linkedin_slug}/"
         return None
+    
+    def _generate_ai_message(self, lead: Dict[str, Any]) -> str:
+        """Generate personalized AI message for the lead"""
+        name = lead.get('Full_Name') or lead.get('full_name', '')
+        company = lead.get('Company') or lead.get('company', '')
+        
+        # Extract first name
+        first_name = name.split()[0] if name else 'there'
+        company_name = company if company else 'your company'
+        
+        # Generate personalized message
+        message = f"Hi {first_name}, I'm impressed by the innovative work at {company_name}. Would love to discuss potential collaboration opportunities that could accelerate your business growth and help you achieve your strategic goals!"
+        
+        return message
+    
+    def _generate_company_description(self, lead: Dict[str, Any]) -> str:
+        """Generate company description for the lead"""
+        company = lead.get('Company') or lead.get('company', 'Unknown Company')
+        job_title = lead.get('Job_Title') or lead.get('job_title', 'Executive')
+        name = lead.get('Full_Name') or lead.get('full_name', 'Professional')
+        
+        # Generate professional company description
+        description = f"Professional lead from {company}. Contact: {name}, {job_title}. High-value prospect identified through advanced lead intelligence. Excellent potential for strategic partnerships and business development opportunities."
+        
+        return description
     
     def _infer_industry(self, lead: Dict[str, Any]) -> str:
         """Infer industry from company and title"""
@@ -787,31 +822,43 @@ class RealAutonomousOrganism:
         return f"https://{domain}.com"
 
     def get_leads_needing_enrichment(self) -> List[Dict]:
-        """Get existing leads from database that need enrichment"""
+        """Get existing leads from database that need enrichment - ALWAYS CHECK FOR MISSING DATA"""
         try:
             conn = sqlite3.connect('data/unified_leads.db')
             conn.row_factory = sqlite3.Row
             
-            # Get leads with missing critical fields using NEW clean schema
+            # ALWAYS look for leads with missing critical Airtable fields
             cursor = conn.execute("""
                 SELECT * FROM leads 
                 WHERE Full_Name IS NOT NULL AND Full_Name != ''
-                AND Needs_Enrichment = 1
                 AND (
-                    (Business_Type IS NULL OR Business_Type = '')
-                    OR (Website IS NULL OR Website = '')
-                    OR (AI_Message IS NULL OR AI_Message = '')
-                    OR (Extra_info IS NULL OR Extra_info = '')
+                    (AI_Message IS NULL OR AI_Message = '')
                     OR (Company_Description IS NULL OR Company_Description = '')
+                    OR (LinkedIn_URL IS NULL OR LinkedIn_URL = '')
+                    OR (Website IS NULL OR Website = '')
+                    OR (Business_Type IS NULL OR Business_Type = '')
                 )
-                LIMIT 10
+                AND Company NOT LIKE '%Test%' 
+                AND Company NOT LIKE '%Auto%'
+                AND Email NOT LIKE '%@example.com'
+                ORDER BY Date_Enriched ASC NULLS FIRST
+                LIMIT 20
             """)
             
             leads = [dict(row) for row in cursor.fetchall()]
             conn.close()
             
             if leads:
-                self.logger.info(f"📋 Found {len(leads)} existing leads needing enrichment")
+                self.logger.info(f"📋 Found {len(leads)} existing leads with missing data - AUTO-ENRICHING")
+                for lead in leads[:5]:  # Show first 5 as sample
+                    missing_fields = []
+                    if not lead.get('AI_Message'): missing_fields.append('AI_Message')
+                    if not lead.get('Company_Description'): missing_fields.append('Company_Description')
+                    if not lead.get('LinkedIn_URL'): missing_fields.append('LinkedIn_URL')
+                    if not lead.get('Website'): missing_fields.append('Website')
+                    self.logger.info(f"   🔧 {lead['Full_Name']}: Missing {', '.join(missing_fields)}")
+            else:
+                self.logger.info("✅ All leads have complete data")
             
             return leads
             
