@@ -990,23 +990,23 @@ class RealAutonomousOrganism:
             conn = sqlite3.connect('data/unified_leads.db')
             conn.row_factory = sqlite3.Row
             
-            # COMPREHENSIVE: Find leads with ANY missing or poor quality data
+            # COMPREHENSIVE: Find leads with ANY missing or poor quality data - USE CORRECT COLUMN NAMES
             cursor = conn.execute("""
                 SELECT * FROM leads 
-                WHERE Full_Name IS NOT NULL AND Full_Name != ''
+                WHERE full_name IS NOT NULL AND full_name != ''
                 AND (
-                    (AI_Message IS NULL OR AI_Message = '' OR LENGTH(AI_Message) < 50)
-                    OR (Company_Description IS NULL OR Company_Description = '')
-                    OR (LinkedIn_URL IS NULL OR LinkedIn_URL = '')
-                    OR (Website IS NULL OR Website = '')
-                    OR (Company IS NULL OR Company = '' OR Company = 'Company' OR Company = 'Unknown Company')
-                    OR (Email IS NULL OR Email = '')
+                    (ai_message IS NULL OR ai_message = '' OR LENGTH(ai_message) < 50)
+                    OR (company_description IS NULL OR company_description = '')
+                    OR (linkedin_url IS NULL OR linkedin_url = '')
+                    OR (website IS NULL OR website = '')
+                    OR (company IS NULL OR company = '' OR company = 'Company' OR company = 'Unknown Company')
+                    OR (email IS NULL OR email = '')
                 )
-                AND Company NOT LIKE '%Test%' 
-                AND Company NOT LIKE '%Auto%'
-                AND Email NOT LIKE '%@example.com'
-                AND Response_Status != 'synced'
-                ORDER BY Date_Enriched ASC NULLS FIRST
+                AND (company IS NULL OR company NOT LIKE '%Test%') 
+                AND (company IS NULL OR company NOT LIKE '%Auto%')
+                AND (email IS NULL OR email NOT LIKE '%@example.com')
+                AND response_status NOT IN ('synced')
+                ORDER BY date_enriched ASC NULLS FIRST
                 LIMIT 20
             """)
             
@@ -1019,16 +1019,19 @@ class RealAutonomousOrganism:
                 # NEW: Validate data quality before enrichment
                 validated_leads = []
                 for lead in leads:
-                    validation = self._validate_lead_data_integrity(lead)
-                    if validation['is_safe_to_enrich']:
+                    # For enrichment, we're MORE PERMISSIVE since we're fixing missing data
+                    name = lead.get('full_name', '')
+                    if name and name not in ['Unknown', 'Test', '']:
                         validated_leads.append(lead)
                         missing_fields = []
-                        if not lead.get('AI_Message'): missing_fields.append('AI_Message')
-                        if not lead.get('Company_Description'): missing_fields.append('Company_Description')
-                        if not lead.get('Email'): missing_fields.append('Email')
-                        self.logger.info(f"   🔧 {lead['Full_Name']}: Missing {', '.join(missing_fields)}")
+                        if not lead.get('ai_message'): missing_fields.append('ai_message')
+                        if not lead.get('company_description'): missing_fields.append('company_description')
+                        if not lead.get('company') or lead.get('company') in ['Company', 'Unknown Company']: missing_fields.append('company')
+                        if not lead.get('website'): missing_fields.append('website')
+                        if not lead.get('email'): missing_fields.append('email')
+                        self.logger.info(f"   🔧 {lead.get('full_name', 'Unknown')}: Missing {', '.join(missing_fields)}")
                     else:
-                        self.logger.warning(f"   ⚠️ SKIPPING {lead['Full_Name']}: {validation['reason']}")
+                        self.logger.warning(f"   ⚠️ SKIPPING {lead.get('full_name', 'Unknown')}: Invalid/missing name")
                 
                 self.logger.info(f"✅ {len(validated_leads)}/{len(leads)} leads validated for safe enrichment")
                 return validated_leads
