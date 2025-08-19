@@ -985,26 +985,27 @@ class RealAutonomousOrganism:
         }
 
     def get_leads_needing_enrichment(self) -> List[Dict]:
-        """Get existing leads from database that need enrichment - VALIDATE SCRAPER DATA FIRST"""
+        """Get existing leads from database that need enrichment - COMPREHENSIVE DETECTION"""
         try:
             conn = sqlite3.connect('data/unified_leads.db')
             conn.row_factory = sqlite3.Row
             
-            # ENHANCED: Look for leads with missing data BUT validate scraper quality first
+            # COMPREHENSIVE: Find leads with ANY missing or poor quality data
             cursor = conn.execute("""
                 SELECT * FROM leads 
                 WHERE Full_Name IS NOT NULL AND Full_Name != ''
                 AND (
-                    (AI_Message IS NULL OR AI_Message = '')
+                    (AI_Message IS NULL OR AI_Message = '' OR LENGTH(AI_Message) < 50)
                     OR (Company_Description IS NULL OR Company_Description = '')
                     OR (LinkedIn_URL IS NULL OR LinkedIn_URL = '')
                     OR (Website IS NULL OR Website = '')
-                    OR (Business_Type IS NULL OR Business_Type = '')
+                    OR (Company IS NULL OR Company = '' OR Company = 'Company' OR Company = 'Unknown Company')
                     OR (Email IS NULL OR Email = '')
                 )
                 AND Company NOT LIKE '%Test%' 
                 AND Company NOT LIKE '%Auto%'
                 AND Email NOT LIKE '%@example.com'
+                AND Response_Status != 'synced'
                 ORDER BY Date_Enriched ASC NULLS FIRST
                 LIMIT 20
             """)
